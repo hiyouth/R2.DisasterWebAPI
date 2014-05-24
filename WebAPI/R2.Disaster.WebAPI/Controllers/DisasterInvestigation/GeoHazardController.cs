@@ -23,10 +23,10 @@ namespace R2.Disaster.WebAPI.Controllers.DisasterInvestigation
 
         }
 
-        //public List<GHComprehensive> GetAll()
-        //{
-        //    return null;
-        //}
+        public List<GHComprehensive> GetAll()
+        {
+            return null;
+        }
 
         [HttpGet]
         public Book GetBook(string uid)
