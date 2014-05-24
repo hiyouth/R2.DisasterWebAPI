@@ -57,9 +57,9 @@ _ReSharper*/
 [Tt]est[Rr]esult*
 
 #Ignore packages directory
-Packages/
+!Packages/
 
-#Allow NuGet.exe
+# No Allow NuGet.exe
 NuGet.exe
 NuGet.Config
 NuGet.targets
