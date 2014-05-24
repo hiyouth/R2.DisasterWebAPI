@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{415DC4A2-12F3-4DD8-A313-F7B56D0E69D6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>R2.Disaster.Data</RootNamespace>
+    <AssemblyName>R2.Disaster.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="IDbContext.cs" />
+    <Compile Include="R2DisasterDatabaseInit.cs" />
+    <Compile Include="Mapping\DisasterInvestigation\GHComprehensiveMap.cs" />
+    <Compile Include="Mapping\DisasterInvestigation\GHDebrisFlowMap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Mapping\DisasterInvestigation\GHLandSubsidenceMap.cs" />
+    <Compile Include="Mapping\DisasterInvestigation\GHLandSlipMap.cs" />
+    <Compile Include="Mapping\DisasterInvestigation\GHSlopeMap.cs" />
+    <Compile Include="Mapping\DisasterInvestigation\GHLandFractureMap.cs" />
+    <Compile Include="Mapping\DisasterInvestigation\GHLandSlideMap.cs" />
+    <Compile Include="Mapping\DisasterInvestigation\GHLandCollapseMap.cs" />
+    <Compile Include="Mapping\Sample\BookMap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Mapping\Sample\CategoryMap.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="R2DisasterContext.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\R2.Disaster.Core.Entities\R2.Disaster.CoreEntities.csproj">
+      <Project>{a35eeb0e-144a-4c26-8a86-bd316a5a654f}</Project>
+      <Name>R2.Disaster.CoreEntities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
