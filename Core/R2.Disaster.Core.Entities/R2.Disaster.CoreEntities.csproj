@@ -32,14 +32,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Domain\DisasterInvestigation\GHLandSlip.cs" />
-    <Compile Include="Domain\DisasterInvestigation\GHComprehensive.cs" />
-    <Compile Include="Domain\DisasterInvestigation\GHDebrisFlow.cs" />
-    <Compile Include="Domain\DisasterInvestigation\GHLandSubsidence.cs" />
-    <Compile Include="Domain\DisasterInvestigation\GHSlope.cs" />
-    <Compile Include="Domain\DisasterInvestigation\GHLandFracture.cs" />
-    <Compile Include="Domain\DisasterInvestigation\GHLandSlide.cs" />
-    <Compile Include="Domain\DisasterInvestigation\GHLandCollapse.cs" />
+    <Compile Include="Domain\Investigation\GHLandSlip.cs" />
+    <Compile Include="Domain\Investigation\GHComprehensive.cs" />
+    <Compile Include="Domain\Investigation\GHDebrisFlow.cs" />
+    <Compile Include="Domain\Investigation\GHLandSubsidence.cs" />
+    <Compile Include="Domain\Investigation\GHSlope.cs" />
+    <Compile Include="Domain\Investigation\GHLandFracture.cs" />
+    <Compile Include="Domain\Investigation\GHLandSlide.cs" />
+    <Compile Include="Domain\Investigation\GHLandCollapse.cs" />
     <Compile Include="SampleData\Book.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -51,6 +51,9 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Domain\NewFolder1\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
