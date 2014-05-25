@@ -67,6 +67,11 @@ namespace R2.Disaster.CoreEntities.Domain.DisasterInvestigation
         public string 灾害类型 { get; set; }
         public string 国际代码 { get; set; }
 
+        /// <summary>
+        /// 标示一个灾害点是否被删除（大部分的删除操作只修改此状态，不做物理删除）
+        /// </summary>
+        public bool Deleted { get; set; }
+
 
         //public virtual Collaps Collaps { get; set; }
         //public virtual DisasterType DisasterType { get; set; }
