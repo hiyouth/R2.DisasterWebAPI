@@ -9,7 +9,7 @@ namespace R2.Disaster.CoreEntities.Domain.GeoHazard.MassPre
     /// <summary>
     /// 地质灾害调查，群测群防实体，不合理，不能用作标准，根据实际情况调整
     /// </summary>
-    public class MassPre
+    public class GHMassPre
     {
         public int Id { get; set; }
         public string 灾害类型 { get; set; }

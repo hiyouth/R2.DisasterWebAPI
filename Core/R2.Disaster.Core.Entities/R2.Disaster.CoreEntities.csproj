@@ -40,7 +40,9 @@
     <Compile Include="Domain\GeoHazard\Investigation\GHLandFracture.cs" />
     <Compile Include="Domain\GeoHazard\Investigation\GHLandSlide.cs" />
     <Compile Include="Domain\GeoHazard\Investigation\GHLandCollapse.cs" />
-    <Compile Include="Domain\GeoHazard\MassPre\MassPre.cs" />
+    <Compile Include="Domain\GeoHazard\MassPre\GHMassPre.cs" />
+    <Compile Include="Domain\GeoHazard\MassPre\GHWorkingGuideCard.cs" />
+    <Compile Include="Domain\GeoHazard\MassPre\GHAvoidRiskCard.cs" />
     <Compile Include="SampleData\Book.cs">
       <SubType>Code</SubType>
     </Compile>
