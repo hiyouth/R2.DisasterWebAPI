@@ -1,7 +1,7 @@
 ﻿using R2.Disaster.Service.DisasterInvestigation;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using R2.Disaster.CoreEntities.Domain.DisasterInvestigation;
+using R2.Disaster.CoreEntities.Domain.Investigation;
 using R2.Disaster.Repository;
 using System.Linq;
 

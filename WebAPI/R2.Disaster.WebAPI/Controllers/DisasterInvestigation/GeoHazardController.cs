@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 using R2.Disaster.CoreEntities;
-using R2.Disaster.CoreEntities.Domain.DisasterInvestigation;
+using R2.Disaster.CoreEntities.Domain.Investigation;
 using R2.Disaster.Service.DisasterInvestigation;
 using System;
 using System.Collections.Generic;

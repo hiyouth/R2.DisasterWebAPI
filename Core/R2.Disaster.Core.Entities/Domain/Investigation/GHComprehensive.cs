@@ -1,6 +1,6 @@
 
 
-namespace R2.Disaster.CoreEntities.Domain.DisasterInvestigation
+namespace R2.Disaster.CoreEntities.Domain.Investigation
 {
     using System;
     using System.Collections.Generic;

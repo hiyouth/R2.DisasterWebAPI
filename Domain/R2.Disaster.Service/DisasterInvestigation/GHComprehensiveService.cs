@@ -1,4 +1,4 @@
-﻿using R2.Disaster.CoreEntities.Domain.DisasterInvestigation;
+﻿using R2.Disaster.CoreEntities.Domain.Investigation;
 using R2.Disaster.Repository;
 using System;
 using System.Collections.Generic;
