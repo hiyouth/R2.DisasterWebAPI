@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using R2.Disaster.Service.DisasterInvestigation;
-using R2.Disaster.CoreEntities.Domain.Investigation;
+using R2.Disaster.Service.GeoHazard.Investigation;
+using R2.Disaster.CoreEntities.Domain.GeoHazard.Investigation;
 using R2.Disaster.Data;
 using R2.Disaster.Repository;
 using R2.Disaster.CoreEntities;

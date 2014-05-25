@@ -31,8 +31,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Sample\BookService.cs" />
-    <Compile Include="DisasterInvestigation\GHComprehensiveService.cs" />
-    <Compile Include="DisasterInvestigation\IGHComprehensiveService.cs" />
+    <Compile Include="GeoHazard\Investigation\GHComprehensiveService.cs" />
+    <Compile Include="GeoHazard\Investigation\IGHComprehensiveService.cs" />
     <Compile Include="Sample\IBookService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

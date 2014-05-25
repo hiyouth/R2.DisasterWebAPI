@@ -32,14 +32,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Domain\Investigation\GHLandSlip.cs" />
-    <Compile Include="Domain\Investigation\GHComprehensive.cs" />
-    <Compile Include="Domain\Investigation\GHDebrisFlow.cs" />
-    <Compile Include="Domain\Investigation\GHLandSubsidence.cs" />
-    <Compile Include="Domain\Investigation\GHSlope.cs" />
-    <Compile Include="Domain\Investigation\GHLandFracture.cs" />
-    <Compile Include="Domain\Investigation\GHLandSlide.cs" />
-    <Compile Include="Domain\Investigation\GHLandCollapse.cs" />
+    <Compile Include="Domain\GeoHazard\Investigation\GHLandSlip.cs" />
+    <Compile Include="Domain\GeoHazard\Investigation\GHComprehensive.cs" />
+    <Compile Include="Domain\GeoHazard\Investigation\GHDebrisFlow.cs" />
+    <Compile Include="Domain\GeoHazard\Investigation\GHLandSubsidence.cs" />
+    <Compile Include="Domain\GeoHazard\Investigation\GHSlope.cs" />
+    <Compile Include="Domain\GeoHazard\Investigation\GHLandFracture.cs" />
+    <Compile Include="Domain\GeoHazard\Investigation\GHLandSlide.cs" />
+    <Compile Include="Domain\GeoHazard\Investigation\GHLandCollapse.cs" />
     <Compile Include="SampleData\Book.cs">
       <SubType>Code</SubType>
     </Compile>
