@@ -40,6 +40,7 @@
     <Compile Include="Domain\GeoHazard\Investigation\GHLandFracture.cs" />
     <Compile Include="Domain\GeoHazard\Investigation\GHLandSlide.cs" />
     <Compile Include="Domain\GeoHazard\Investigation\GHLandCollapse.cs" />
+    <Compile Include="Domain\GeoHazard\MassPre\MassPre.cs" />
     <Compile Include="SampleData\Book.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -54,6 +55,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Domain\NewFolder1\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
