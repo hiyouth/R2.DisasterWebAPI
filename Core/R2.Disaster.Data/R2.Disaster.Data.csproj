@@ -32,16 +32,16 @@
   <ItemGroup>
     <Compile Include="IDbContext.cs" />
     <Compile Include="R2DisasterDatabaseInit.cs" />
-    <Compile Include="Mapping\GeoHazard\Investigation\GHComprehensiveMap.cs" />
-    <Compile Include="Mapping\GeoHazard\Investigation\GHDebrisFlowMap.cs">
+    <Compile Include="Mapping\GeoDisaster\Investigation\ComprehensiveMap.cs" />
+    <Compile Include="Mapping\GeoDisaster\Investigation\DebrisFlowMap.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Mapping\GeoHazard\Investigation\GHLandSubsidenceMap.cs" />
-    <Compile Include="Mapping\GeoHazard\Investigation\GHLandSlipMap.cs" />
-    <Compile Include="Mapping\GeoHazard\Investigation\GHSlopeMap.cs" />
-    <Compile Include="Mapping\GeoHazard\Investigation\GHLandFractureMap.cs" />
-    <Compile Include="Mapping\GeoHazard\Investigation\GHLandSlideMap.cs" />
-    <Compile Include="Mapping\GeoHazard\Investigation\GHLandCollapseMap.cs" />
+    <Compile Include="Mapping\GeoDisaster\Investigation\LandSubsidenceMap.cs" />
+    <Compile Include="Mapping\GeoDisaster\Investigation\LandSlipMap.cs" />
+    <Compile Include="Mapping\GeoDisaster\Investigation\SlopeMap.cs" />
+    <Compile Include="Mapping\GeoDisaster\Investigation\LandFractureMap.cs" />
+    <Compile Include="Mapping\GeoDisaster\Investigation\LandSlideMap.cs" />
+    <Compile Include="Mapping\GeoDisaster\Investigation\LandCollapseMap.cs" />
     <Compile Include="Mapping\Sample\BookMap.cs">
       <SubType>Code</SubType>
     </Compile>

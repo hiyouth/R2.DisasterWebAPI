@@ -1,5 +1,5 @@
 
-namespace R2.Disaster.CoreEntities.Domain.GeoHazard.Investigation
+namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation
 {
     using System;
     using System.Collections.Generic;
@@ -7,9 +7,9 @@ namespace R2.Disaster.CoreEntities.Domain.GeoHazard.Investigation
     /// <summary>
     /// 业务对象，地质灾害调查——崩塌实体
     /// </summary>
-    public partial class GHLandSlip
+    public partial class LandSlip
     {
-        public virtual GHComprehensive GHComprehensive { get; set; }
+        public virtual Comprehensive Comprehensive { get; set; }
         public int Id { get; set; }
 
         #region 具体属性

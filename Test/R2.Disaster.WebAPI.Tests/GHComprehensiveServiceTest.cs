@@ -1,7 +1,7 @@
-﻿using R2.Disaster.Service.GeoHazard.Investigation;
+﻿using R2.Disaster.Service.GeoDisaster.Investigation;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using R2.Disaster.CoreEntities.Domain.GeoHazard.Investigation;
+using R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation;
 using R2.Disaster.Repository;
 using System.Linq;
 
@@ -10,11 +10,11 @@ namespace R2.Disaster.WebAPI.Tests
     
     
     /// <summary>
-    ///这是 GHComprehensiveServiceTest 的测试类，旨在
-    ///包含所有 GHComprehensiveServiceTest 单元测试
+    ///这是 ComprehensiveServiceTest 的测试类，旨在
+    ///包含所有 ComprehensiveServiceTest 单元测试
     ///</summary>
     [TestClass()]
-    public class GHComprehensiveServiceTest
+    public class ComprehensiveServiceTest
     {
 
 
@@ -73,11 +73,11 @@ namespace R2.Disaster.WebAPI.Tests
         [TestMethod()]
         public void GetByNameTest()
         {
-            IRepository<GHComprehensive> comprehensiveRepository = null; // TODO: 初始化为适当的值
-            GHComprehensiveService target = new GHComprehensiveService(comprehensiveRepository); // TODO: 初始化为适当的值
+            IRepository<Comprehensive> comprehensiveRepository = null; // TODO: 初始化为适当的值
+            ComprehensiveService target = new ComprehensiveService(comprehensiveRepository); // TODO: 初始化为适当的值
             string name = string.Empty; // TODO: 初始化为适当的值
-            IQueryable<GHComprehensive> expected = null; // TODO: 初始化为适当的值
-            IQueryable<GHComprehensive> actual;
+            IQueryable<Comprehensive> expected = null; // TODO: 初始化为适当的值
+            IQueryable<Comprehensive> actual;
             actual = target.GetByName(name);
             Assert.AreEqual(expected, actual);
             Assert.Inconclusive("验证此测试方法的正确性。");

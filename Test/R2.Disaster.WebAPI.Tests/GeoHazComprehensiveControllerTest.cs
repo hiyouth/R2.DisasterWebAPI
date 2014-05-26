@@ -1,8 +1,8 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using R2.Disaster.CoreEntities.Domain.GeoHazard.Investigation;
+using R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation;
 using R2.Disaster.Data;
 using R2.Disaster.Repository;
-using R2.Disaster.Service.GeoHazard.Investigation;
+using R2.Disaster.Service.GeoDisaster.Investigation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,9 +21,9 @@ namespace R2.Disaster.WebAPI.Tests
         public void GetByUIdCanNotBeNull()
         {
             IDbContext db = new R2DisasterContext();
-            IRepository<GHComprehensive> re = new EFRepository<GHComprehensive>(db);
-            IGHComprehensiveService s = new GHComprehensiveService(re);
-            GeoHazardsController c = new GeoHazardsController(s);
+            IRepository<Comprehensive> re = new EFRepository<Comprehensive>(db);
+            IComprehensiveService s = new ComprehensiveService(re);
+            GeoDisasterController c = new GeoDisasterController(s);
             string a=null;
             c.GetByUId(a);
         }

@@ -32,17 +32,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Domain\GeoHazard\Investigation\GHLandSlip.cs" />
-    <Compile Include="Domain\GeoHazard\Investigation\GHComprehensive.cs" />
-    <Compile Include="Domain\GeoHazard\Investigation\GHDebrisFlow.cs" />
-    <Compile Include="Domain\GeoHazard\Investigation\GHLandSubsidence.cs" />
-    <Compile Include="Domain\GeoHazard\Investigation\GHSlope.cs" />
-    <Compile Include="Domain\GeoHazard\Investigation\GHLandFracture.cs" />
-    <Compile Include="Domain\GeoHazard\Investigation\GHLandSlide.cs" />
-    <Compile Include="Domain\GeoHazard\Investigation\GHLandCollapse.cs" />
-    <Compile Include="Domain\GeoHazard\MassPre\GHMassPre.cs" />
-    <Compile Include="Domain\GeoHazard\MassPre\GHWorkingGuideCard.cs" />
-    <Compile Include="Domain\GeoHazard\MassPre\GHAvoidRiskCard.cs" />
+    <Compile Include="Domain\GeoDisaster\Investigation\LandSlip.cs" />
+    <Compile Include="Domain\GeoDisaster\Investigation\Comprehensive.cs" />
+    <Compile Include="Domain\GeoDisaster\Investigation\DebrisFlow.cs" />
+    <Compile Include="Domain\GeoDisaster\Investigation\LandSubsidence.cs" />
+    <Compile Include="Domain\GeoDisaster\Investigation\Slope.cs" />
+    <Compile Include="Domain\GeoDisaster\Investigation\LandFracture.cs" />
+    <Compile Include="Domain\GeoDisaster\Investigation\LandSlide.cs" />
+    <Compile Include="Domain\GeoDisaster\Investigation\LandCollapse.cs" />
+    <Compile Include="Domain\GeoDisaster\MassPre\MassPre.cs" />
+    <Compile Include="Domain\GeoDisaster\MassPre\WorkingGuideCard.cs" />
+    <Compile Include="Domain\GeoDisaster\MassPre\AvoidRiskCard.cs" />
     <Compile Include="SampleData\Book.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -55,9 +55,7 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Domain\NewFolder1\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Reference Include="System" />
   </ItemGroup>

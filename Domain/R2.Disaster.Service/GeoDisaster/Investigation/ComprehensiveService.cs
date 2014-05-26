@@ -1,4 +1,4 @@
-﻿using R2.Disaster.CoreEntities.Domain.GeoHazard.Investigation;
+﻿using R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation;
 using R2.Disaster.Repository;
 using System;
 using System.Collections.Generic;
@@ -7,20 +7,20 @@ using System.Linq.Expressions;
 using System.Text;
 using R2.Helper.Linq;
 
-namespace R2.Disaster.Service.GeoHazard.Investigation
+namespace R2.Disaster.Service.GeoDisaster.Investigation
 {
     /// <summary>
     /// 地质灾害调查表类实体服务
     /// </summary>
-    public class GHComprehensiveService:IGHComprehensiveService
+    public class ComprehensiveService:IComprehensiveService
     {
-        private IRepository<GHComprehensive> _comprehensiveRepository;
+        private IRepository<Comprehensive> _comprehensiveRepository;
 
         /// <summary>
         /// 构造函数
         /// </summary>
         /// <param name="comprehensiveRepository"></param>
-        public GHComprehensiveService(IRepository<GHComprehensive> comprehensiveRepository)
+        public ComprehensiveService(IRepository<Comprehensive> comprehensiveRepository)
         {
             this._comprehensiveRepository = comprehensiveRepository;
         }
@@ -30,7 +30,7 @@ namespace R2.Disaster.Service.GeoHazard.Investigation
         /// </summary>
         /// <param name="uid"></param>
         /// <returns></returns>
-        public GHComprehensive GetByUnifiedID(string uid)
+        public Comprehensive GetByUnifiedID(string uid)
         {
             var q = from c in this._comprehensiveRepository.Table
                     where c.统一编号 == uid
@@ -43,7 +43,7 @@ namespace R2.Disaster.Service.GeoHazard.Investigation
         /// </summary>
         /// <param name="uid"></param>
         /// <returns></returns>
-        public IQueryable<GHComprehensive> GetSimilarByUnifiedId(string uid)
+        public IQueryable<Comprehensive> GetSimilarByUnifiedId(string uid)
         {
             var q = from c in this._comprehensiveRepository.Table
                     where c.统一编号.Contains(uid)
@@ -56,7 +56,7 @@ namespace R2.Disaster.Service.GeoHazard.Investigation
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>
-        public IQueryable<GHComprehensive> GetByName(string name)
+        public IQueryable<Comprehensive> GetByName(string name)
         {
             var q= from c in this._comprehensiveRepository.Table
                    where c.名称.Contains(name)
@@ -68,7 +68,7 @@ namespace R2.Disaster.Service.GeoHazard.Investigation
         /// 新增
         /// </summary>
         /// <param name="ghc"></param>
-        public void New(GHComprehensive ghc)
+        public void New(Comprehensive ghc)
         {
             this._comprehensiveRepository.Insert(ghc);
         }
@@ -79,9 +79,9 @@ namespace R2.Disaster.Service.GeoHazard.Investigation
         /// </summary>
         /// <param name="uid"></param>
         /// <returns></returns>
-        public Expression<Func<GHComprehensive, Boolean>> GetByUnifiedIdExpression(string uid)
+        public Expression<Func<Comprehensive, Boolean>> GetByUnifiedIdExpression(string uid)
         {
-            var eps = DynamicLinqExpressions.True<GHComprehensive>();
+            var eps = DynamicLinqExpressions.True<Comprehensive>();
             if(!String.IsNullOrEmpty(uid))
             {
                 eps = eps.And(c => c.统一编号.Contains(uid));
@@ -94,9 +94,9 @@ namespace R2.Disaster.Service.GeoHazard.Investigation
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>
-        public Expression<Func<GHComprehensive, Boolean>> GetByNameExpression(string name)
+        public Expression<Func<Comprehensive, Boolean>> GetByNameExpression(string name)
         {
-            var eps = DynamicLinqExpressions.True<GHComprehensive>();
+            var eps = DynamicLinqExpressions.True<Comprehensive>();
             if (!String.IsNullOrEmpty(name))
             {
                 eps = eps.And(c => c.名称.Contains(name));

@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using R2.Disaster.Service.GeoHazard.Investigation;
-using R2.Disaster.CoreEntities.Domain.GeoHazard.Investigation;
+using R2.Disaster.Service.GeoDisaster.Investigation;
+using R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation;
 using R2.Disaster.Data;
 using R2.Disaster.Repository;
 using R2.Disaster.CoreEntities;
@@ -9,12 +9,12 @@ using R2.Disaster.CoreEntities;
 namespace R2.Disaster.Service.Tests
 {
     [TestClass]
-    public class GHComprehensiveServiceTest
+    public class ComprehensiveServiceTest
     {
         private IDbContext _db;
-        private IRepository<GHComprehensive> _re;
-        private IGHComprehensiveService _service;
-        public GHComprehensiveServiceTest()
+        private IRepository<Comprehensive> _re;
+        private IComprehensiveService _service;
+        public ComprehensiveServiceTest()
         {
             
         }
@@ -24,8 +24,8 @@ namespace R2.Disaster.Service.Tests
         public void MyTestInitialize()
         {
             this._db = new R2DisasterContext();
-            this._re = new EFRepository<GHComprehensive>(this._db);
-            this._service = new GHComprehensiveService(this._re);
+            this._re = new EFRepository<Comprehensive>(this._db);
+            this._service = new ComprehensiveService(this._re);
         }
         
 
@@ -40,36 +40,36 @@ namespace R2.Disaster.Service.Tests
         public void Test_QueryByUnifieldId()
         {
             IDbContext db = new R2DisasterContext();
-            IRepository<GHComprehensive> re = new EFRepository<GHComprehensive>(db);
+            IRepository<Comprehensive> re = new EFRepository<Comprehensive>(db);
       
-            IGHComprehensiveService service = new GHComprehensiveService(re);
+            IComprehensiveService service = new ComprehensiveService(re);
             string id="";
-            GHComprehensive c=service.GetByUnifiedID(id);
+            Comprehensive c=service.GetByUnifiedID(id);
         }
 
         [TestMethod]
         public void Test_InsertComperhensive()
         {
 
-            GHComprehensive c = new GHComprehensive()
+            Comprehensive c = new Comprehensive()
             {
                 统一编号 = "370101040001",
                 名称 = "西蒋峪村北侧地面塌陷333",
                 灾害类型 = "塌陷",
                 国际代码 = "370101",
-                GHDebrisFlow = new GHDebrisFlow()
+                DebrisFlow = new DebrisFlow()
                 {
                     统一编号 = "370101040001",
                     名称 = "西蒋峪村北侧地面塌陷333"
                 }
             };
-            GHComprehensive c1 = new GHComprehensive()
+            Comprehensive c1 = new Comprehensive()
             {
                 统一编号 = "370101040004",
                 名称 = "西蒋峪村北侧地面塌陷77777",
                 灾害类型 = "塌陷",
                 国际代码 = "370101",
-                GHLandSubsidence = new GHLandSubsidence()
+                LandSubsidence = new LandSubsidence()
                 {
                     统一编号 = "370101040001",
                     名称 = "西蒋峪村北侧地面塌陷333"

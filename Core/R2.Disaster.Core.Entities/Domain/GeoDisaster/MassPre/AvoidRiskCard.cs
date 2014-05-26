@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace R2.Disaster.CoreEntities.Domain.GeoHazard.MassPre
+namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.MassPre
 {
     /// <summary>
     /// 地质灾害调查，群测群防避险卡
     /// </summary>
-    public class GHWorkingGuideCard
+    public class AvoidRiskCard
     {
         public int ID { get; set; }
         public string 统一编号 { get; set; }

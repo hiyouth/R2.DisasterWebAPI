@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using R2.Disaster.CoreEntities;
-using R2.Disaster.CoreEntities.Domain.GeoHazard.Investigation;
-using R2.Disaster.Service.GeoHazard.Investigation;
+using R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation;
+using R2.Disaster.Service.GeoDisaster.Investigation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,20 +10,20 @@ using System.Web.Http;
 
 namespace R2.Disaster.WebAPI.Controllers.DisasterInvestigation
 {
-    public class GeoHazardsController:ApiController
+    public class GeoDisasterController:ApiController
     {
-        private IGHComprehensiveService _cpsService;
-        public GeoHazardsController(IGHComprehensiveService cpsService)
+        private IComprehensiveService _cpsService;
+        public GeoDisasterController(IComprehensiveService cpsService)
         {
             this._cpsService = cpsService;
         }
 
-        public GeoHazardsController()
+        public GeoDisasterController()
         {
 
         }
 
-        //public List<GHComprehensive> GetAll()
+        //public List<Comprehensive> GetAll()
         //{
         //    return null;
         //}
@@ -46,11 +46,11 @@ namespace R2.Disaster.WebAPI.Controllers.DisasterInvestigation
         }
 
         [HttpGet]
-        public GHComprehensive GetByUId(string uid)
+        public Comprehensive GetByUId(string uid)
         {
             if (String.IsNullOrEmpty(uid))
                 throw new Exception("灾害点的统一编号不能为Null或者空字符串");
-            GHComprehensive g=_cpsService.GetByUnifiedID(uid);
+            Comprehensive g=_cpsService.GetByUnifiedID(uid);
            
             //JsonSerializerSettings a = new JsonSerializerSettings();
             //a.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
@@ -58,7 +58,7 @@ namespace R2.Disaster.WebAPI.Controllers.DisasterInvestigation
             return g;
         }
 
-        public void New(GHComprehensive ghc)
+        public void New(Comprehensive ghc)
         {
         }
     }

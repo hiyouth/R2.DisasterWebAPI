@@ -1,6 +1,6 @@
 
 
-namespace R2.Disaster.CoreEntities.Domain.GeoHazard.Investigation
+namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation
 {
     using System;
     using System.Collections.Generic;
@@ -8,43 +8,52 @@ namespace R2.Disaster.CoreEntities.Domain.GeoHazard.Investigation
     /// <summary>
     /// 地质灾害调查数据综合表
     /// </summary>
-    public partial class GHComprehensive
+    public partial class Comprehensive
     {
+        private bool _deleted = false;
+
+        /// 标示一个灾害点是否被删除（大部分的删除操作只修改此状态，不做物理删除）
+        /// </summary>
+        public bool Deleted
+        {
+            get { return _deleted; }
+            set { _deleted = value; }
+        }
 
         //public int DebrisFlowId { get; set; }
         /// <summary>
         /// 泥石流
         /// </summary>
-        public virtual GHDebrisFlow GHDebrisFlow { get; set; }
+        public virtual DebrisFlow DebrisFlow { get; set; }
         /// <summary>
         /// 地面沉降
         /// </summary>
-        public virtual GHLandSubsidence GHLandSubsidence { get; set; }
+        public virtual LandSubsidence LandSubsidence { get; set; }
 
         /// <summary>
         /// 崩塌
         /// </summary>
-        public virtual GHLandSlip GHLandSlip { get; set; }
+        public virtual LandSlip LandSlip { get; set; }
 
         /// <summary>
         /// 斜坡
         /// </summary>
-        public virtual GHSlope GHSlope { get; set; }
+        public virtual Slope Slope { get; set; }
 
         /// <summary>
         /// 滑坡
         /// </summary>
-        public virtual GHLandSlide GHLandSlide { get; set; }
+        public virtual LandSlide LandSlide { get; set; }
 
         /// <summary>
         /// 地面塌陷
         /// </summary>
-        public virtual GHLandCollapse GHLandCollapse { get; set; }
+        public virtual LandCollapse LandCollapse { get; set; }
 
         /// <summary>
         /// 地裂缝
         /// </summary>
-        public virtual GHLandFracture GHLandFracture { get; set; }
+        public virtual LandFracture LandFracture { get; set; }
 
 
         public int Id { get; set; }
@@ -68,9 +77,8 @@ namespace R2.Disaster.CoreEntities.Domain.GeoHazard.Investigation
         public string 国际代码 { get; set; }
 
         /// <summary>
-        /// 标示一个灾害点是否被删除（大部分的删除操作只修改此状态，不做物理删除）
-        /// </summary>
-        public bool Deleted { get; set; }
+
+
 
 
         //public virtual Collaps Collaps { get; set; }

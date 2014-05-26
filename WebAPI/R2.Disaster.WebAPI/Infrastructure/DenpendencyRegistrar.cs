@@ -6,7 +6,7 @@ using Autofac.Integration.WebApi;
 using R2.Disaster.Service;
 using R2.Disaster.Repository;
 using R2.Disaster.Data;
-using R2.Disaster.Service.GeoHazard.Investigation;
+using R2.Disaster.Service.GeoDisaster.Investigation;
 using R2.Disaster.WebAPI.Controllers;
 
 namespace R2.Disaster.WebAPI
@@ -22,7 +22,7 @@ namespace R2.Disaster.WebAPI
             builder.RegisterType<BookService>().As<IBookService>().InstancePerRequest();
             builder.RegisterType<Class1>().InstancePerRequest();
 
-            builder.RegisterType<GHComprehensiveService>().As<IGHComprehensiveService>().InstancePerRequest();
+            builder.RegisterType<ComprehensiveService>().As<IComprehensiveService>().InstancePerRequest();
         }
 
         public int Order

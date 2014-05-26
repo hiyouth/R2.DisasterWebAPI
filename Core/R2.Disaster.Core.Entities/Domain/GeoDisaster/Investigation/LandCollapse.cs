@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace R2.Disaster.CoreEntities.Domain.GeoHazard.Investigation
+namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation
 {
     using System;
     using System.Collections.Generic;
@@ -15,9 +15,9 @@ namespace R2.Disaster.CoreEntities.Domain.GeoHazard.Investigation
     /// <summary>
     /// 地质灾害调查——地面塌陷
     /// </summary>
-    public partial class GHLandCollapse
+    public partial class LandCollapse
     {
-        public virtual GHComprehensive GHComprehensive { get; set; }
+        public virtual Comprehensive Comprehensive { get; set; }
         public int Id { get; set; }
         #region 具体属性
         public string 统一编号 { get; set; }
