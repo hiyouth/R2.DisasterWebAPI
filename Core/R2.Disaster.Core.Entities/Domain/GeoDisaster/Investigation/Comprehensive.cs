@@ -55,6 +55,10 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation
         /// </summary>
         public virtual LandFracture LandFracture { get; set; }
 
+        public virtual GBCode GBCode { get; set; }
+
+        public string 国标代码 { get; set; }
+        public EnumGeoDisasterType 灾害类型 { get; set; }
 
         public int Id { get; set; }
         public string 统一编号 { get; set; }
@@ -73,10 +77,7 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation
         public double X坐标 { get; set; }
         public double Y坐标 { get; set; }
         public double 灾害体积 { get; set; }
-        public string 灾害类型 { get; set; }
-        public string 国际代码 { get; set; }
-
-        /// <summary>
+        
 
 
 

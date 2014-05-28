@@ -31,6 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="IDbContext.cs" />
+    <Compile Include="Mapping\GeoDisaster\GBCodeMap.cs" />
     <Compile Include="R2DisasterDatabaseInit.cs" />
     <Compile Include="Mapping\GeoDisaster\Investigation\ComprehensiveMap.cs" />
     <Compile Include="Mapping\GeoDisaster\Investigation\DebrisFlowMap.cs">

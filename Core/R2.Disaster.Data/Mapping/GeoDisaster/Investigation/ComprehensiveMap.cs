@@ -18,7 +18,9 @@ namespace R2.Disaster.Data.Mapping.GeoDisaster.Investigation
             this.Property(c => c.统一编号).IsRequired();
             this.Property(c => c.名称).IsRequired();
             this.Property(c => c.灾害类型).IsRequired();
-            this.Property(c => c.国际代码).IsRequired();
+
+            this.HasRequired(c => c.GBCode)
+           .WithMany().HasForeignKey(g => g.国标代码);
         }
     }
 }
