@@ -57,7 +57,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="GH\GHComprehensiveServiceTest.cs" />
+    <Compile Include="Investigation\ComprehensiveServiceTest.cs" />
     <Compile Include="InitDataTemp\InitDataTemp.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

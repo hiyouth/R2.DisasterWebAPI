@@ -43,7 +43,7 @@ namespace R2.Disaster.Service.Tests
             IRepository<Comprehensive> re = new EFRepository<Comprehensive>(db);
       
             IComprehensiveService service = new ComprehensiveService(re);
-            string id="";
+            string id = "370101060001";
             Comprehensive c=service.GetByUnifiedID(id);
         }
 

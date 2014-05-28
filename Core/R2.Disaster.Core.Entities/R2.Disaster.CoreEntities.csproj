@@ -32,6 +32,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Domain\GeoDisaster\Emergency\DamageReport.cs" />
+    <Compile Include="Domain\GeoDisaster\Emergency\EmergencySurvey.cs" />
     <Compile Include="Domain\GeoDisaster\EnumGeoDisasterType.cs" />
     <Compile Include="Domain\GeoDisaster\GBCode.cs" />
     <Compile Include="Domain\GeoDisaster\Investigation\LandSlip.cs" />

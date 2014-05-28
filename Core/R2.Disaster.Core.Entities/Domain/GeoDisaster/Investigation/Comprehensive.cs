@@ -2,7 +2,8 @@
 
 namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation
 {
-    using R2.Disaster.CoreEntities.Domain.GeoDisaster.MassPres;
+ using R2.Disaster.CoreEntities.Domain.GeoDisaster.Emergency;
+using R2.Disaster.CoreEntities.Domain.GeoDisaster.MassPres;
 using System;
 using System.Collections.Generic;
     
@@ -12,6 +13,12 @@ using System.Collections.Generic;
     public partial class Comprehensive
     {
         private bool _deleted = false;
+        private ICollection<DamageReport> _damageReports;
+
+        public Comprehensive()
+        {
+            this._damageReports = new List<DamageReport>();
+        }
 
         /// 标示一个灾害点是否被删除（大部分的删除操作只修改此状态，不做物理删除）
         /// </summary>
@@ -71,9 +78,27 @@ using System.Collections.Generic;
         /// </summary>
         public virtual WorkingGuideCard WorkingGuideCard { get; set; }
 
+        /// <summary>
+        /// 国标代码
+        /// </summary>
         public virtual GBCode GBCode { get; set; }
+        public string GBCodeId { get; set; }
 
-        public string 国标代码 { get; set; }
+        /// <summary>
+        /// 灾情速报
+        /// </summary>
+        public virtual ICollection<DamageReport> DamageReports
+        {
+            get
+            {
+                return this._damageReports;
+            }
+            set
+            {
+                this._damageReports = value;
+            }
+        }
+
         public EnumGeoDisasterType 灾害类型 { get; set; }
 
         public int Id { get; set; }

@@ -31,6 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="IDbContext.cs" />
+    <Compile Include="Mapping\GeoDisaster\Emergency\DamageReportMap.cs" />
     <Compile Include="Mapping\GeoDisaster\GBCodeMap.cs" />
     <Compile Include="Mapping\GeoDisaster\MassPres\MassPreMap.cs" />
     <Compile Include="Mapping\GeoDisaster\MassPres\AvoidRiskCardMap.cs" />
@@ -75,6 +76,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
