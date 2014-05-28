@@ -2,8 +2,9 @@
 
 namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation
 {
-    using System;
-    using System.Collections.Generic;
+    using R2.Disaster.CoreEntities.Domain.GeoDisaster.MassPres;
+using System;
+using System.Collections.Generic;
     
     /// <summary>
     /// 地质灾害调查数据综合表
@@ -54,6 +55,21 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation
         /// 地裂缝
         /// </summary>
         public virtual LandFracture LandFracture { get; set; }
+
+        /// <summary>
+        /// 群测群防基本信息
+        /// </summary>
+        public virtual MassPre MassPre { get; set; }
+        
+        /// <summary>
+        /// 避险明白卡
+        /// </summary>
+        public virtual AvoidRiskCard AvoidRiskCard { get; set; }
+
+        /// <summary>
+        /// 工作明白卡
+        /// </summary>
+        public virtual WorkingGuideCard WorkingGuideCard { get; set; }
 
         public virtual GBCode GBCode { get; set; }
 

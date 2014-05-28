@@ -1,17 +1,20 @@
-﻿using System;
+﻿using R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.MassPre
+namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.MassPres
 {
     /// <summary>
     /// 地质灾害调查，群测群防避险卡
     /// </summary>
     public class AvoidRiskCard
     {
-        public int ID { get; set; }
+        public virtual Comprehensive Comprehensive { get; set; }
+
+        public int Id { get; set; }
         public string 统一编号 { get; set; }
         public string 名称 { get; set; }
         public string 野外编号 { get; set; }

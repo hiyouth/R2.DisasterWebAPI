@@ -1,18 +1,22 @@
-﻿using System;
+﻿using R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.MassPre
+namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.MassPres
 {
     /// <summary>
     /// 地质灾害调查，群测群防实体，不合理，不能用作标准，根据实际情况调整
     /// </summary>
     public class MassPre
     {
+        public virtual Comprehensive Comprehensive { get; set; }
+
         public int Id { get; set; }
-        public string 灾害类型 { get; set; }
+        public EnumGeoDisasterType 灾害类型 { get; set; }
+        public string 统一编号 { get; set; }
         public string 名称 { get; set; }
         public string 县名 { get; set; }
         public string 位置 { get; set; }
