@@ -87,6 +87,7 @@ namespace R2.Disaster.Service.Tests
                 统一编号 = "370101040001",
                 名称 = "西蒋峪村北侧地面塌陷333",
                 灾害类型 = EnumGeoDisasterType.LandCollapse,
+                地理位置 = "西蒋峪村北侧",
                 国标代码 = "370101",
                 DebrisFlow = new DebrisFlow()
                 {
@@ -98,6 +99,7 @@ namespace R2.Disaster.Service.Tests
             {
                 统一编号 = "370101060001",
                 名称 = "东凤凰村地裂缝33",
+                地理位置 = "安城镇东凤凰村西南",
                 灾害类型 = EnumGeoDisasterType.LandFracture,
                 国标代码 = "370102",
                 LandFracture = new LandFracture()
