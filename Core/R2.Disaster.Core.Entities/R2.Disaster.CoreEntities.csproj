@@ -48,6 +48,9 @@
     <Compile Include="Domain\GeoDisaster\MassPres\PrePlan.cs" />
     <Compile Include="Domain\GeoDisaster\MassPres\WorkingGuideCard.cs" />
     <Compile Include="Domain\GeoDisaster\MassPres\AvoidRiskCard.cs" />
+    <Compile Include="Domain\GeoDisaster\Monitor\ForecastRainfall.cs" />
+    <Compile Include="Domain\GeoDisaster\Monitor\Rainfall.cs" />
+    <Compile Include="Domain\GeoDisaster\Monitor\RainfallStation.cs" />
     <Compile Include="SampleData\Book.cs">
       <SubType>Code</SubType>
     </Compile>
