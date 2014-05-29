@@ -18,7 +18,7 @@ using System.Collections.Generic;
 
         public Comprehensive()
         {
-
+            this._damageReports = new List<DamageReport>();
         }
 
         /// 标示一个灾害点是否被删除（大部分的删除操作只修改此状态，不做物理删除）
@@ -79,6 +79,8 @@ using System.Collections.Generic;
         /// </summary>
         public virtual WorkingGuideCard WorkingGuideCard { get; set; }
 
+        public virtual PrePlan PrePlan { get; set; }
+
         /// <summary>
         /// 国标代码
         /// </summary>
@@ -88,32 +90,12 @@ using System.Collections.Generic;
         /// <summary>
         /// 灾情速报
         /// </summary>
-        public virtual ICollection<DamageReport> DamageReports
-        {
-            get
-            {
-                return this._damageReports == null ? (new List<DamageReport>()) : this._damageReports;
-            }
-            set
-            {
-                this._damageReports = value;
-            }
-        }
+        public virtual ICollection<DamageReport> DamageReports { get; set; }
 
         /// <summary>
         /// 应急调查
         /// </summary>
-        public virtual ICollection<EmergencySurvey> EmergencySurveys
-        {
-            get
-            {
-                return this._emergencySurveys == null ? (new List<EmergencySurvey>()) : this._emergencySurveys;
-            }
-            set
-            {
-                this._emergencySurveys = value;
-            }
-        }
+        public virtual ICollection<EmergencySurvey> EmergencySurveys { get; set; }
 
         public EnumGeoDisasterType 灾害类型 { get; set; }
 

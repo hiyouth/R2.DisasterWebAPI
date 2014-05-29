@@ -8,6 +8,7 @@ using R2.Disaster.CoreEntities;
 using R2.Disaster.CoreEntities.Domain.GeoDisaster;
 using System.Collections.Generic;
 using R2.Disaster.CoreEntities.Domain.GeoDisaster.Emergency;
+using R2.Disaster.CoreEntities.Domain.GeoDisaster.MassPres;
 
 namespace R2.Disaster.Service.Tests
 {
@@ -130,10 +131,24 @@ namespace R2.Disaster.Service.Tests
                     new EmergencySurvey(){
                         应急调查点="甘井子区南关岭街道大北技校修配厂斜坡"
                     }
+                },
+                PrePlan = new PrePlan()
+                {
+                    名称 = "菜园子同益乡政府东斜坡111111",
                 }
             };
-           this._service.New(c);
+            this._service.New(c);
             this._service.New(c1);
+            //Comprehensive c2 = this._re.GetById(1);
+            //PrePlan p = new PrePlan()
+            //{
+            ////    Comprehensive = c2,
+            //    名称 = "菜园子同益乡政府东斜坡77777777",
+            //};
+            //IRepository<PrePlan> rePre = new EFRepository<PrePlan>(this._db);
+            //rePre.Insert(p);
+
+            Comprehensive c3 = this._re.GetById(1);
         }
 
          [TestMethod]
