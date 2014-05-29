@@ -20,7 +20,11 @@ namespace R2.Disaster.Data.Mapping.GeoDisaster.Investigation
             this.Property(c => c.地理位置).IsRequired();
 
             this.HasRequired(c => c.GBCode)
-           .WithMany().HasForeignKey(g => g.国标代码);
+           .WithMany().HasForeignKey(g => g.GBCodeId);
+
+            this.HasMany(c => c.DamageReports)
+                .WithRequired(d => d.Comprehensive)
+                .HasForeignKey(d=>d.ComprehensiveId);
         }
     }
 }

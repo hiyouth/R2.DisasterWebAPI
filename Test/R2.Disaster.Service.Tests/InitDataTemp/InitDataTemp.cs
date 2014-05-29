@@ -6,6 +6,8 @@ using R2.Disaster.Data;
 using R2.Disaster.Repository;
 using R2.Disaster.CoreEntities;
 using R2.Disaster.CoreEntities.Domain.GeoDisaster;
+using System.Collections.Generic;
+using R2.Disaster.CoreEntities.Domain.GeoDisaster.Emergency;
 
 namespace R2.Disaster.Service.Tests
 {
@@ -88,24 +90,37 @@ namespace R2.Disaster.Service.Tests
                 名称 = "西蒋峪村北侧地面塌陷333",
                 灾害类型 = EnumGeoDisasterType.LandCollapse,
                 地理位置 = "西蒋峪村北侧",
-                国标代码 = "370101",
+                GBCodeId = "370101",
                 DebrisFlow = new DebrisFlow()
                 {
                     统一编号 = "370101040001",
                     名称 = "西蒋峪村北侧地面塌陷333"
                 }
             };
+
+
             Comprehensive c1 = new Comprehensive()
             {
                 统一编号 = "370101060001",
                 名称 = "东凤凰村地裂缝33",
                 地理位置 = "安城镇东凤凰村西南",
                 灾害类型 = EnumGeoDisasterType.LandFracture,
-                国标代码 = "370102",
+                GBCodeId = "370102",
                 LandFracture = new LandFracture()
                 {
                     统一编号 = "370101060001",
                     名称 = "东凤凰村地裂缝33"
+                },
+                DamageReports = new List<DamageReport>()
+                {
+                    new DamageReport(){
+                        发生时间=DateTime.Now,
+                        灾险情地点="安城镇东凤凰村西南",
+                    },
+                    new DamageReport(){
+                        发生时间=DateTime.Now.AddDays(1.5),
+                        灾险情地点="安城镇东凤凰村西南",
+                    }
                 }
             };
            this._service.New(c);
