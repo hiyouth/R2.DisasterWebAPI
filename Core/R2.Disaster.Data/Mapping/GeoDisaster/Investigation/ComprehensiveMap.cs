@@ -22,6 +22,7 @@ namespace R2.Disaster.Data.Mapping.GeoDisaster.Investigation
             this.HasRequired(c => c.GBCode)
            .WithMany().HasForeignKey(g => g.GBCodeId);
 
+            //配置一对多关系，既可以在一方配置，也可以在另外一方配置
             this.HasMany(c => c.DamageReports)
                 .WithRequired(d => d.Comprehensive)
                 .HasForeignKey(d=>d.ComprehensiveId);
