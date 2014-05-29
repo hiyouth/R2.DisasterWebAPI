@@ -14,10 +14,11 @@ using System.Collections.Generic;
     {
         private bool _deleted = false;
         private ICollection<DamageReport> _damageReports;
+        private ICollection<EmergencySurvey> _emergencySurveys;
 
         public Comprehensive()
         {
-            this._damageReports = new List<DamageReport>();
+
         }
 
         /// 标示一个灾害点是否被删除（大部分的删除操作只修改此状态，不做物理删除）
@@ -91,11 +92,26 @@ using System.Collections.Generic;
         {
             get
             {
-                return this._damageReports;
+                return this._damageReports == null ? (new List<DamageReport>()) : this._damageReports;
             }
             set
             {
                 this._damageReports = value;
+            }
+        }
+
+        /// <summary>
+        /// 应急调查
+        /// </summary>
+        public virtual ICollection<EmergencySurvey> EmergencySurveys
+        {
+            get
+            {
+                return this._emergencySurveys == null ? (new List<EmergencySurvey>()) : this._emergencySurveys;
+            }
+            set
+            {
+                this._emergencySurveys = value;
             }
         }
 

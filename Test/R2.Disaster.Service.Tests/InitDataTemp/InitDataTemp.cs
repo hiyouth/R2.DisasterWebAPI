@@ -121,6 +121,15 @@ namespace R2.Disaster.Service.Tests
                         发生时间=DateTime.Now.AddDays(1.5),
                         灾险情地点="安城镇东凤凰村西南",
                     }
+                },
+                EmergencySurveys = new List<EmergencySurvey>()
+                {
+                    new EmergencySurvey(){
+                        应急调查点="甘井子区南关岭街道大北技校修配厂斜坡"
+                    },
+                    new EmergencySurvey(){
+                        应急调查点="甘井子区南关岭街道大北技校修配厂斜坡"
+                    }
                 }
             };
            this._service.New(c);

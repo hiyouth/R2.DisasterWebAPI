@@ -26,6 +26,10 @@ namespace R2.Disaster.Data.Mapping.GeoDisaster.Investigation
             this.HasMany(c => c.DamageReports)
                 .WithRequired(d => d.Comprehensive)
                 .HasForeignKey(d=>d.ComprehensiveId);
+
+            this.HasMany(c => c.EmergencySurveys)
+                .WithRequired(e=> e.Comprehensive)
+                 .HasForeignKey(e=> e.ComprehensiveId);
         }
     }
 }
