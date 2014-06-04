@@ -6,6 +6,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using R2.Helper.Linq;
+using R2.Disaster.CoreEntities.Domain.GeoDisaster;
 
 namespace R2.Disaster.Service.GeoDisaster.Investigation
 {

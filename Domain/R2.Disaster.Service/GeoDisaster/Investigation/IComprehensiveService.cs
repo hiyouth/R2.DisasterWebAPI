@@ -1,4 +1,5 @@
-﻿using R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation;
+﻿using R2.Disaster.CoreEntities.Domain.GeoDisaster;
+using R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation;
 using System;
 using System.Collections.Generic;
 using System.Linq;

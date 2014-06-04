@@ -37,7 +37,7 @@
     <Compile Include="Domain\GeoDisaster\EnumGeoDisasterType.cs" />
     <Compile Include="Domain\GeoDisaster\GBCode.cs" />
     <Compile Include="Domain\GeoDisaster\Investigation\LandSlip.cs" />
-    <Compile Include="Domain\GeoDisaster\Investigation\Comprehensive.cs" />
+    <Compile Include="Domain\GeoDisaster\Comprehensive.cs" />
     <Compile Include="Domain\GeoDisaster\Investigation\DebrisFlow.cs" />
     <Compile Include="Domain\GeoDisaster\Investigation\LandSubsidence.cs" />
     <Compile Include="Domain\GeoDisaster\Investigation\Slope.cs" />

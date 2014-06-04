@@ -4,6 +4,7 @@ using System;
 using R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation;
 using R2.Disaster.Repository;
 using System.Linq;
+using R2.Disaster.CoreEntities.Domain.GeoDisaster;
 
 namespace R2.Disaster.WebAPI.Tests
 {

@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using R2.Disaster.WebAPI.Controllers;
 using R2.Disaster.WebAPI.Controllers.DisasterInvestigation;
+using R2.Disaster.CoreEntities.Domain.GeoDisaster;
 
 namespace R2.Disaster.WebAPI.Tests
 {

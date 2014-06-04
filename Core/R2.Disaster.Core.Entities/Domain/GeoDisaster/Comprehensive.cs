@@ -1,11 +1,12 @@
 
 
-namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation
+namespace R2.Disaster.CoreEntities.Domain.GeoDisaster
 {
- using R2.Disaster.CoreEntities.Domain.GeoDisaster.Emergency;
-using R2.Disaster.CoreEntities.Domain.GeoDisaster.MassPres;
-using System;
-using System.Collections.Generic;
+    using R2.Disaster.CoreEntities.Domain.GeoDisaster.Emergency;
+    using R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation;
+    using R2.Disaster.CoreEntities.Domain.GeoDisaster.MassPres;
+    using System;
+    using System.Collections.Generic;
     
     /// <summary>
     /// 地质灾害调查数据综合表
