@@ -6,8 +6,8 @@ using Autofac.Integration.WebApi;
 using R2.Disaster.Service;
 using R2.Disaster.Repository;
 using R2.Disaster.Data;
-using R2.Disaster.Service.GeoDisaster.Investigation;
 using R2.Disaster.WebAPI.Controllers;
+using R2.Disaster.Service.GeoDisaster;
 
 namespace R2.Disaster.WebAPI
 {

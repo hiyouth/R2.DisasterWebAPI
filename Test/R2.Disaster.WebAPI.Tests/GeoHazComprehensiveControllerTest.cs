@@ -2,7 +2,6 @@
 using R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation;
 using R2.Disaster.Data;
 using R2.Disaster.Repository;
-using R2.Disaster.Service.GeoDisaster.Investigation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +10,7 @@ using System.Threading.Tasks;
 using R2.Disaster.WebAPI.Controllers;
 using R2.Disaster.WebAPI.Controllers.DisasterInvestigation;
 using R2.Disaster.CoreEntities.Domain.GeoDisaster;
+using R2.Disaster.Service.GeoDisaster;
 
 namespace R2.Disaster.WebAPI.Tests
 {

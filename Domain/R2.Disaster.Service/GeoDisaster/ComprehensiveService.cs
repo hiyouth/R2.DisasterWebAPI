@@ -8,7 +8,7 @@ using System.Text;
 using R2.Helper.Linq;
 using R2.Disaster.CoreEntities.Domain.GeoDisaster;
 
-namespace R2.Disaster.Service.GeoDisaster.Investigation
+namespace R2.Disaster.Service.GeoDisaster
 {
     /// <summary>
     /// 地质灾害调查表类实体服务

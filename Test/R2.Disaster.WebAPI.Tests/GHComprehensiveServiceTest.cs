@@ -1,10 +1,11 @@
-﻿using R2.Disaster.Service.GeoDisaster.Investigation;
+﻿
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation;
 using R2.Disaster.Repository;
 using System.Linq;
 using R2.Disaster.CoreEntities.Domain.GeoDisaster;
+using R2.Disaster.Service.GeoDisaster;
 
 namespace R2.Disaster.WebAPI.Tests
 {

@@ -31,8 +31,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Sample\BookService.cs" />
-    <Compile Include="GeoDisaster\Investigation\ComprehensiveService.cs" />
-    <Compile Include="GeoDisaster\Investigation\IComprehensiveService.cs" />
+    <Compile Include="GeoDisaster\ComprehensiveService.cs" />
+    <Compile Include="GeoDisaster\IComprehensiveService.cs" />
     <Compile Include="Sample\IBookService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -53,6 +53,9 @@
       <Project>{253d148e-94ee-4652-b13d-b867df4ad86a}</Project>
       <Name>R2.Disaster.Repository</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="GeoDisaster\Investigation\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

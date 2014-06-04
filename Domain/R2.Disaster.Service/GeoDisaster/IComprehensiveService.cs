@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace R2.Disaster.Service.GeoDisaster.Investigation
+namespace R2.Disaster.Service.GeoDisaster
 {
     public interface IComprehensiveService
     {

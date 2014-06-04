@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace R2.Disaster.Data.Mapping.GeoDisaster.Investigation
+namespace R2.Disaster.Data.Mapping.GeoDisaster
 {
     public class ComprehensiveMap : EntityTypeConfiguration<Comprehensive>
     {
