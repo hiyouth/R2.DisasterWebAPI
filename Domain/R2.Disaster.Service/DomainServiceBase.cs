@@ -23,7 +23,7 @@ namespace R2.Disaster.Service
         /// <returns></returns>
         public IQueryable<T> ExecuteConditions(Expression<Func<T, bool>> condition)
         {
-            return this._repository.Table.Where(condition).AsQueryable<T>();
+            return this._repository.Table.Where(condition.Compile()).AsQueryable<T>();
         }
     }
 }

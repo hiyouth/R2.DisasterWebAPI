@@ -1,8 +1,10 @@
-﻿using Newtonsoft.Json;
+﻿using AutoMapper;
+using Newtonsoft.Json;
 using R2.Disaster.CoreEntities;
 using R2.Disaster.CoreEntities.Domain.GeoDisaster;
 using R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation;
 using R2.Disaster.Service.GeoDisaster;
+using R2.Disaster.WebAPI.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -81,9 +83,19 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public Comprehensive GetByMulityplyConditions(int id)
+        public IList<ComprehensiveModel> GetByMulityplyConditions(string gbcode,string dangerLev,
+            string situationLev,EnumGeoDisasterType? type)
         {
-            throw new NotImplementedException();
+            IQueryable<Comprehensive> comprehensives =
+                this._cpsService.GetByMultiplyContions(gbcode, situationLev, dangerLev, type);
+            IList<ComprehensiveModel> models = new List<ComprehensiveModel>();
+            Mapper.CreateMap<Comprehensive, ComprehensiveModel>();
+            foreach (var item in comprehensives)
+            {
+                ComprehensiveModel model = Mapper.Map<Comprehensive, ComprehensiveModel>(item);
+                models.Add(model);
+            }
+            return models;
         }
 
         public void New(Comprehensive ghc)

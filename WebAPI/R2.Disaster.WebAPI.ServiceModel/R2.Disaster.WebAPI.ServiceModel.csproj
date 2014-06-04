@@ -46,6 +46,12 @@
   <ItemGroup>
     <Folder Include="GeoDisaster\Investigation\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\R2.Disaster.Core.Entities\R2.Disaster.CoreEntities.csproj">
+      <Project>{a35eeb0e-144a-4c26-8a86-bd316a5a654f}</Project>
+      <Name>R2.Disaster.CoreEntities</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
