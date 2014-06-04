@@ -11,5 +11,7 @@ namespace R2.Disaster.Service.GeoDisaster
     {
         Comprehensive GetByUnifiedID(string uid);
         void New(Comprehensive ghc);
+        IQueryable<Comprehensive> GetSimilarByUnifiedId(string uid);
+        IQueryable<Comprehensive> GetByName(string name);
     }
 }
