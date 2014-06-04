@@ -13,7 +13,7 @@ namespace R2.Disaster.Service.GeoDisaster
     /// <summary>
     /// 地质灾害调查表类实体服务
     /// </summary>
-    public class ComprehensiveService:IComprehensiveService
+    public class ComprehensiveService:DomainServiceBase<Comprehensive>,IComprehensiveService
     {
         private IRepository<Comprehensive> _comprehensiveRepository;
 
@@ -22,6 +22,7 @@ namespace R2.Disaster.Service.GeoDisaster
         /// </summary>
         /// <param name="comprehensiveRepository"></param>
         public ComprehensiveService(IRepository<Comprehensive> comprehensiveRepository)
+            :base(comprehensiveRepository)
         {
             this._comprehensiveRepository = comprehensiveRepository;
         }
@@ -53,7 +54,7 @@ namespace R2.Disaster.Service.GeoDisaster
         }
 
         /// <summary>
-        /// 通过灾害点名称来查询
+        /// 通过灾害点名称查询
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>
@@ -80,7 +81,7 @@ namespace R2.Disaster.Service.GeoDisaster
         /// </summary>
         /// <param name="uid"></param>
         /// <returns></returns>
-        public Expression<Func<Comprehensive, Boolean>> GetByUnifiedIdExpression(string uid)
+        public Expression<Func<Comprehensive, Boolean>> GetExpressionByUnifiedId(string uid)
         {
             var eps = DynamicLinqExpressions.True<Comprehensive>();
             if(!String.IsNullOrEmpty(uid))
@@ -90,12 +91,53 @@ namespace R2.Disaster.Service.GeoDisaster
             return eps;
         }
 
+        public Expression<Func<Comprehensive, Boolean>> GetExpressionByGBCode(string gbcode)
+        {
+            var eps = DynamicLinqExpressions.True<Comprehensive>();
+            if (!String.IsNullOrEmpty(gbcode))
+            {
+                eps = eps.And(c => c.GBCodeId.Contains(gbcode));
+            }
+            return eps;
+        }
+
+        public Expression<Func<Comprehensive, Boolean>> GetExpressionByDangerousLev(string dangerLev)
+        {
+            var eps = DynamicLinqExpressions.True<Comprehensive>();
+            if (!String.IsNullOrEmpty(dangerLev))
+            {
+                eps = eps.And(c => c.险情等级.Contains(dangerLev));
+            }
+            return eps;
+        }
+
+        public Expression<Func<Comprehensive, Boolean>> GetExpressionBySituationLev(string situationLev)
+        {
+            var eps = DynamicLinqExpressions.True<Comprehensive>();
+            if (!String.IsNullOrEmpty(situationLev))
+            {
+                eps = eps.And(c => c.灾情等级.Contains(situationLev));
+            }
+            return eps;
+        }
+
+        public Expression<Func<Comprehensive, Boolean>> GetExpressionByDisasterType(
+            EnumGeoDisasterType? type)
+        {
+            var eps = DynamicLinqExpressions.True<Comprehensive>();
+            if (type!=null)
+            {
+                eps = eps.And(c => c.灾害类型 == type);
+            }
+            return eps;
+        }
+
         /// <summary>
         /// 名称查询表达式树
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>
-        public Expression<Func<Comprehensive, Boolean>> GetByNameExpression(string name)
+        public Expression<Func<Comprehensive, Boolean>> GetExpressionByName(string name)
         {
             var eps = DynamicLinqExpressions.True<Comprehensive>();
             if (!String.IsNullOrEmpty(name))
@@ -106,5 +148,27 @@ namespace R2.Disaster.Service.GeoDisaster
         }
         #endregion
 
+
+
+        public Comprehensive GetById(int id)
+        {
+            var q = from c in this._comprehensiveRepository.Table
+                    where c.Id == id
+                    select c;
+            return q.FirstOrDefault();
+        }
+
+        
+        public IQueryable<Comprehensive> GetByMultiplyContions(string gbCode, 
+            string situationLev, string dangerousLev, EnumGeoDisasterType? type)
+        {
+            var eps = DynamicLinqExpressions.True<Comprehensive>();
+            eps = eps.And(this.GetExpressionByGBCode(gbCode))
+                .And(this.GetExpressionBySituationLev(situationLev))
+                .And(this.GetExpressionByDisasterType(type))
+                .And(this.GetExpressionByDangerousLev(dangerousLev));
+            IQueryable<Comprehensive> comprehensives = this.ExecuteConditions(eps);
+            return comprehensives;
+        }
     }
 }

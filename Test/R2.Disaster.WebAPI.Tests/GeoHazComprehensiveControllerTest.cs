@@ -8,9 +8,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using R2.Disaster.WebAPI.Controllers;
-using R2.Disaster.WebAPI.Controllers.DisasterInvestigation;
 using R2.Disaster.CoreEntities.Domain.GeoDisaster;
 using R2.Disaster.Service.GeoDisaster;
+using R2.Disaster.WebAPI.Controllers.GeoDisaster;
 
 namespace R2.Disaster.WebAPI.Tests
 {
@@ -26,7 +26,7 @@ namespace R2.Disaster.WebAPI.Tests
             IComprehensiveService s = new ComprehensiveService(re);
             GeoDisasterController c = new GeoDisasterController(s);
             string a=null;
-            c.GetByUId(a);
+            c.GetByUIdCompletely(a);
         }
     }
 }
