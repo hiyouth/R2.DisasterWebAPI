@@ -228,6 +228,10 @@
       <Project>{0f1fb5de-f285-4cbe-b39b-dc2f254146ee}</Project>
       <Name>R2.Disaster.Service</Name>
     </ProjectReference>
+    <ProjectReference Include="..\R2.Disaster.WebAPI.ServiceModel\R2.Disaster.WebAPI.ServiceModel.csproj">
+      <Project>{0ca55583-5936-4858-acc1-35a57f3dd6c4}</Project>
+      <Name>R2.Disaster.WebAPI.ServiceModel</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="git.ignore" />

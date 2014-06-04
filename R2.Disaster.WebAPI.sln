@@ -31,6 +31,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "R2.Disaster.WebAPI.Tests", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "R2.Disaster.Service.Tests", "Test\R2.Disaster.Service.Tests\R2.Disaster.Service.Tests.csproj", "{97C3D2F2-981B-4519-8212-B56C53B54FC3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "R2.Disaster.WebAPI.ServiceModel", "WebAPI\R2.Disaster.WebAPI.ServiceModel\R2.Disaster.WebAPI.ServiceModel.csproj", "{0CA55583-5936-4858-ACC1-35A57F3DD6C4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -77,12 +79,17 @@ Global
 		{97C3D2F2-981B-4519-8212-B56C53B54FC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{97C3D2F2-981B-4519-8212-B56C53B54FC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{97C3D2F2-981B-4519-8212-B56C53B54FC3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CA55583-5936-4858-ACC1-35A57F3DD6C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CA55583-5936-4858-ACC1-35A57F3DD6C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CA55583-5936-4858-ACC1-35A57F3DD6C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CA55583-5936-4858-ACC1-35A57F3DD6C4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{53EECD0B-B56A-4756-BFEE-8A930A70D27C} = {B4F17CCA-F2B2-4063-96F4-FA1844162DCD}
+		{0CA55583-5936-4858-ACC1-35A57F3DD6C4} = {B4F17CCA-F2B2-4063-96F4-FA1844162DCD}
 		{415DC4A2-12F3-4DD8-A313-F7B56D0E69D6} = {44C2C1D7-3696-4D0C-B096-4E55D0D36157}
 		{56B94CEB-6C59-4D40-98EF-5CF0AE50E39B} = {44C2C1D7-3696-4D0C-B096-4E55D0D36157}
 		{A35EEB0E-144A-4C26-8A86-BD316A5A654F} = {44C2C1D7-3696-4D0C-B096-4E55D0D36157}
