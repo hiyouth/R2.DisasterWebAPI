@@ -108,6 +108,11 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster
         /// </summary>
         public virtual ICollection<EmergencySurvey> EmergencySurveys { get; set; }
 
+        /// <summary>
+        /// 群测群防巡查记录
+        /// </summary>
+        public virtual ICollection<MassPatrol> MassPatrols { get; set; }
+
         public EnumGeoDisasterType 灾害类型 { get; set; }
 
         public int Id { get; set; }

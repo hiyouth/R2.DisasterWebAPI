@@ -44,6 +44,7 @@
     <Compile Include="Domain\GeoDisaster\Investigation\LandFracture.cs" />
     <Compile Include="Domain\GeoDisaster\Investigation\LandSlide.cs" />
     <Compile Include="Domain\GeoDisaster\Investigation\LandCollapse.cs" />
+    <Compile Include="Domain\GeoDisaster\MassPres\MassPatrol.cs" />
     <Compile Include="Domain\GeoDisaster\MassPres\MassPre.cs" />
     <Compile Include="Domain\GeoDisaster\MassPres\PrePlan.cs" />
     <Compile Include="Domain\GeoDisaster\MassPres\WorkingGuideCard.cs" />
