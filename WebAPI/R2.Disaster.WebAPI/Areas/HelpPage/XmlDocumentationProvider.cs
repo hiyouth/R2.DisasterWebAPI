@@ -112,12 +112,14 @@ namespace MvcApplication3.Areas.HelpPage
 
         public string GetDocumentation(HttpControllerDescriptor controllerDescriptor)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
+            return null;
         }
 
         public string GetResponseDocumentation(HttpActionDescriptor actionDescriptor)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
+            return null;
         }
     }
 }
