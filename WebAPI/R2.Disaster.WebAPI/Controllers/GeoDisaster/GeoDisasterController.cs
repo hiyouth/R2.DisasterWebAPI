@@ -81,10 +81,15 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster
         /// <summary>
         /// 通过行政区编码、灾害类型、险情大小、灾情大小进行查询
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="type">灾害类型: 01泥石流；02地面塌陷；04地裂缝；08滑坡；16崩塌；32地面沉降；64滑坡</param>
+        /// <param name="gbcode">行政区编码</param>
+        /// <param name="dangerLev">险情级别</param>
+        /// <param name="situationLev">灾情级别</param>
         /// <returns></returns>
-        public IList<ComprehensiveModel> GetByMulityplyConditions(string gbcode,string dangerLev,
-            string situationLev,EnumGeoDisasterType? type)
+        //通过行政区编码、灾害类型、险情大小、灾情大小进行查询
+        // api/geodisaster/getbymulityplyconditions?type=&gbcode=&dangerlev=&situationlev=
+        public IList<ComprehensiveModel> GetByMulityplyConditions(EnumGeoDisasterType? type=null,string gbcode=null,
+            string dangerLev=null,string situationLev=null)
         {
             IQueryable<Comprehensive> comprehensives =
                 this._cpsService.GetByMultiplyContions(gbcode, situationLev, dangerLev, type);
@@ -96,6 +101,11 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster
                 models.Add(model);
             }
             return models;
+        }
+
+        public IList<Comprehensive> GetByKeyWord(string key)
+        {
+            return null;
         }
 
         public void New(Comprehensive ghc)

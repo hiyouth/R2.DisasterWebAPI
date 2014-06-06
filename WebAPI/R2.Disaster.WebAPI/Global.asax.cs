@@ -10,6 +10,7 @@ using R2.Disaster.WebAPI.Controllers;
 using Newtonsoft.Json;
 using System.Web.Routing;
 using System.Web.Mvc;
+using System.Net.Http;
 
 namespace R2.Disaster.WebAPI
 {
@@ -31,7 +32,7 @@ namespace R2.Disaster.WebAPI
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-            
+           
 
             //TODO 阻止循环引用序列化（记录到RRDL）
             //阻止循环引用序列化

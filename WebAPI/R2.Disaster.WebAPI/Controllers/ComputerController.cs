@@ -34,7 +34,7 @@ namespace ProductsApp.Controllers
         // //   return this._bookService.GetById(1);
         //}
 
-        public IHttpActionResult GetComputer(int id)
+        public IHttpActionResult GetComputer(string p1,string p2="")
         {
             //var product = repsoitory.FindByID(id);
             //if (product == null)
