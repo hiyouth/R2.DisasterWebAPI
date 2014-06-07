@@ -7,6 +7,7 @@ using System.Linq.Expressions;
 using System.Text;
 using R2.Helper.Linq;
 using R2.Disaster.CoreEntities.Domain.GeoDisaster;
+using R2.Helper.GIS;
 
 namespace R2.Disaster.Service.GeoDisaster
 {
@@ -156,6 +157,31 @@ namespace R2.Disaster.Service.GeoDisaster
             }
             return eps;
         }
+
+        public Expression<Func<Comprehensive, Boolean>> GetExpressionByRect(
+            double x1, double x2, double y1, double y2)
+        {
+            var eps = DynamicLinqExpressions.True<Comprehensive>();
+            eps = eps.And(a =>
+                                      LonLatHelper.ConvertToDegreeStyleFromString(a.经度) > y1 &&
+                                      LonLatHelper.ConvertToDegreeStyleFromString(a.经度) < y2 &&
+                                      LonLatHelper.ConvertToDegreeStyleFromString(a.纬度) > x1 &&
+                                      LonLatHelper.ConvertToDegreeStyleFromString(a.纬度) < x2);
+            return eps;
+        }
+
+        public Expression<Func<Comprehensive, Boolean>> GetExpressionByCircle(double x, double y, double radius)
+        {
+            var eps = DynamicLinqExpressions.True<Comprehensive>();
+            eps = eps.And(a =>
+                                        LonLatHelper.DistanceBetTwoPoints(
+                                                x, y,
+                                                LonLatHelper.ConvertToDegreeStyleFromString(a.经度),
+                                                LonLatHelper.ConvertToDegreeStyleFromString(a.纬度)
+                                                )
+                                        <= radius);
+            return eps;
+        }
         #endregion
 
 
@@ -168,12 +194,27 @@ namespace R2.Disaster.Service.GeoDisaster
             return q.FirstOrDefault();
         }
 
-        public IQueryable<Comprehensive> GetByKewWord(string keyWord)
+        public IQueryable<Comprehensive> GetByRect(
+              double x1, double x2, double y1, double y2)
         {
-            var eps = DynamicLinqExpressions.True<Comprehensive>();
-            eps = eps.And(this.GetExpressionByUnifiedId(keyWord))
-                .And(this.GetExpressionByName(keyWord))
-                .And(this.GetExpressionByLocation(keyWord));
+            var eps = this.GetExpressionByRect(x1, x2, y1, y2);
+            IQueryable<Comprehensive> comprehensives = this.ExecuteConditions(eps);
+            return comprehensives;
+        }
+
+        public IQueryable<Comprehensive> GetByCircle(double x, double y, double radius)
+        {
+            var eps = this.GetExpressionByCircle(x,y,radius);
+            IQueryable<Comprehensive> comprehensives = this.ExecuteConditions(eps);
+            return comprehensives;
+        }
+
+        public IQueryable<Comprehensive> GetByKeyWord(string keyWord)
+        {
+            var eps = DynamicLinqExpressions.False<Comprehensive>();
+            eps = eps.Or(this.GetExpressionByUnifiedId(keyWord))
+                .Or(this.GetExpressionByName(keyWord))
+                .Or(this.GetExpressionByLocation(keyWord));
             IQueryable<Comprehensive> comprehensives = this.ExecuteConditions(eps);
             return comprehensives;
         }
