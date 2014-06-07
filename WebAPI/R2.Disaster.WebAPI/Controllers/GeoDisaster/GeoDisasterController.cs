@@ -54,8 +54,8 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster
         /// <summary>
         /// 通过统一编号查询灾害点综合信息
         /// </summary>
-        /// <param name="uid"></param>
-        /// <returns></returns>
+        /// <param name="uid">统一编号</param>
+        /// <returns>地质灾害完整信息</returns>
         public IList<Comprehensive> GetByUIdCompletely (string uid)
         {
             if (String.IsNullOrEmpty(uid))
@@ -69,10 +69,22 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster
         }
 
         /// <summary>
+        /// 通过关键字检索灾害点，关键字将检索灾害点名称、灾害点地理位置、统一编号
+        /// </summary>
+        /// <param name="keyWord"></param>
+        /// <returns></returns>
+        public IList<ComprehensiveModel> GetByKeyWord(string keyWord)
+        {
+            if (String.IsNullOrEmpty(keyWord))
+                throw new Exception("查询的关键字不允许是类型“null”或者空字符串");
+            
+        }
+
+        /// <summary>
         /// 通过主键编号精准查询唯一的灾害点综合信息（完整）
         /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
+        /// <param name="id">灾害点唯一编号</param>
+        /// <returns>灾害点完整信息</returns>
         public Comprehensive GetByIdCompletely(int id)
         {
             if (id <= 0)

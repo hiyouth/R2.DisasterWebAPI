@@ -91,6 +91,16 @@ namespace R2.Disaster.Service.GeoDisaster
             return eps;
         }
 
+        public Expression<Func<Comprehensive, Boolean>> GetExpressionByLocation(string keyword)
+        {
+            var eps = DynamicLinqExpressions.True<Comprehensive>();
+            if (!String.IsNullOrEmpty(keyword))
+            {
+                eps = eps.And(c => c.地理位置.Contains(keyword));
+            }
+            return eps;
+        }
+
         public Expression<Func<Comprehensive, Boolean>> GetExpressionByGBCode(string gbcode)
         {
             var eps = DynamicLinqExpressions.True<Comprehensive>();
@@ -156,6 +166,16 @@ namespace R2.Disaster.Service.GeoDisaster
                     where c.Id == id
                     select c;
             return q.FirstOrDefault();
+        }
+
+        public IQueryable<Comprehensive> GetByKewWord(string keyWord)
+        {
+            var eps = DynamicLinqExpressions.True<Comprehensive>();
+            eps = eps.And(this.GetExpressionByUnifiedId(keyWord))
+                .And(this.GetExpressionByName(keyWord))
+                .And(this.GetExpressionByLocation(keyWord));
+            IQueryable<Comprehensive> comprehensives = this.ExecuteConditions(eps);
+            return comprehensives;
         }
 
         
