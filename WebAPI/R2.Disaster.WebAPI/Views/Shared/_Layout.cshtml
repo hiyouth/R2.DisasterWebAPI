@@ -1,13 +1,10 @@
-﻿@using StackExchange.Profiling;
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
-    <script></script>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
-    <script type="text/javascript" src="~/Scripts/jquery-1.8.2.min.js"></script>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
@@ -29,12 +26,9 @@
             </div>
         </div>
     </header>
-    
     @RenderBody()
-     @MiniProfiler.RenderIncludes()
+
     @Scripts.Render("~/bundles/jquery")
     @RenderSection("scripts", required: false)
-   
-
 </body>
 </html>

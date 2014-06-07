@@ -34,16 +34,16 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster
         /// <summary>
         /// 崩塌
         /// </summary>
-        LandSlip=0x16,
+        LandSlip=0x10,
 
         /// <summary>
         /// 地面沉降
         /// </summary>
-        LandSubsidence=0x32,
+        LandSubsidence=0x20,
 
         /// <summary>
         /// 斜坡
         /// </summary>
-        Slope=0x64,
+        Slope=0x40,
     }
 }

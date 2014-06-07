@@ -13,6 +13,9 @@ using System.Web.Http;
 
 namespace R2.Disaster.WebAPI.Controllers.GeoDisaster
 {
+    /// <summary>
+    /// 地质灾害综合信息服务
+    /// </summary>
     public class GeoDisasterController:ApiController
     {
         private IComprehensiveService _cpsService;
