@@ -17,6 +17,9 @@ namespace R2.Disaster.Service.GeoDisaster
         Comprehensive GetById(int id);
         IQueryable<Comprehensive> GetByMultiplyContions(string gbCode, string situationLev,
             string dangerousLev, EnumGeoDisasterType? type);
+        IQueryable<Comprehensive> GetByKeyWord(string keyWord);
+        IQueryable<Comprehensive> GetByRect(double x1, double x2, double y1, double y2);
+        IQueryable<Comprehensive> GetByCircle(double x, double y, double radious);
         //Expression<Func<Comprehensive, Boolean>> GetExpressionByUnifiedId(string uid);
         //Expression<Func<Comprehensive, Boolean>> GetExpressionByName(string name);
         //Expression<Func<Comprehensive, Boolean>> GetExpressionBySituationLev(string situation);

@@ -22,6 +22,7 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster
         public GeoDisasterController(IComprehensiveService cpsService)
         {
             this._cpsService = cpsService;
+            Mapper.CreateMap<Comprehensive, ComprehensiveModel>();
         }
 
         public GeoDisasterController()
@@ -71,13 +72,49 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster
         /// <summary>
         /// 通过关键字检索灾害点，关键字将检索灾害点名称、灾害点地理位置、统一编号
         /// </summary>
-        /// <param name="keyWord"></param>
-        /// <returns></returns>
+        /// <param name="keyWord">关键字</param>
+        /// <returns>符合条件的实体信息</returns>
         public IList<ComprehensiveModel> GetByKeyWord(string keyWord)
         {
             if (String.IsNullOrEmpty(keyWord))
                 throw new Exception("查询的关键字不允许是类型“null”或者空字符串");
-            
+            IQueryable<Comprehensive> comprehensives = this._cpsService.GetByKeyWord(keyWord);
+            IList<ComprehensiveModel> cpsModels =Mapper.Map<IQueryable<Comprehensive>,
+                IList<ComprehensiveModel>>(comprehensives);
+            return cpsModels;
+        }
+
+        /// <summary>
+        /// 空间“圆”查询
+        /// </summary>
+        /// <param name="x">圆心X</param>
+        /// <param name="y">圆心Y</param>
+        /// <param name="radius">半径</param>
+        /// <returns>符合条件的实体信息</returns>
+        public IList<ComprehensiveModel> GetByCircle(double x, double y, double radius)
+        {
+            IQueryable<Comprehensive> comprehensives = this._cpsService.GetByCircle(
+                x, y, radius);
+            IList<ComprehensiveModel> cpsModels = Mapper.Map<IQueryable<Comprehensive>,
+                IList<ComprehensiveModel>>(comprehensives);
+            return cpsModels;
+        }
+
+        /// <summary>
+        /// 空间“矩形”查询
+        /// </summary>
+        /// <param name="x1">矩形左下角点X</param>
+        /// <param name="x2">矩形右上角X</param>
+        /// <param name="y1">矩形左下角Y</param>
+        /// <param name="y2">矩形右上角Y</param>
+        /// <returns>符合条件的实体信息</returns>
+        public IList<ComprehensiveModel> GetByRect(double x1, double x2, double y1, double y2)
+        {
+            IQueryable<Comprehensive> comprehensives = this._cpsService.GetByRect(
+                x1, x2, y1, y2);
+            IList<ComprehensiveModel> cpsModels = Mapper.Map<IQueryable<Comprehensive>,
+                IList<ComprehensiveModel>>(comprehensives);
+            return cpsModels;
         }
 
         /// <summary>
@@ -109,18 +146,12 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster
             IQueryable<Comprehensive> comprehensives =
                 this._cpsService.GetByMultiplyContions(gbcode, situationLev, dangerLev, type);
             IList<ComprehensiveModel> models = new List<ComprehensiveModel>();
-            Mapper.CreateMap<Comprehensive, ComprehensiveModel>();
             foreach (var item in comprehensives)
             {
                 ComprehensiveModel model = Mapper.Map<Comprehensive, ComprehensiveModel>(item);
                 models.Add(model);
             }
             return models;
-        }
-
-        public IList<Comprehensive> GetByKeyWord(string key)
-        {
-            return null;
         }
 
         public void New(Comprehensive ghc)

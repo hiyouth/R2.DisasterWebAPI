@@ -20,7 +20,6 @@ namespace R2.Disaster.WebAPI
             builder.RegisterGeneric(typeof(EFRepository<>)).As(typeof(IRepository<>)).InstancePerRequest();
             builder.RegisterType<BookRepository>().As<IBookRepository>().InstancePerRequest();
             builder.RegisterType<BookService>().As<IBookService>().InstancePerRequest();
-            builder.RegisterType<Class1>().InstancePerRequest();
 
             builder.RegisterType<ComprehensiveService>().As<IComprehensiveService>().InstancePerRequest();
         }
