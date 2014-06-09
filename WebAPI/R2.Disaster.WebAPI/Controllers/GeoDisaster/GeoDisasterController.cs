@@ -23,6 +23,7 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster
         {
             this._cpsService = cpsService;
             Mapper.CreateMap<Comprehensive, ComprehensiveModel>();
+            Mapper.CreateMap<ComprehensiveModel, Comprehensive>();
         }
 
         public GeoDisasterController()
@@ -53,7 +54,7 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster
         }
 
         /// <summary>
-        /// 通过统一编号查询灾害点综合信息
+        /// 通过统一编号查询灾害点完整综合信息，（不建议调用）
         /// </summary>
         /// <param name="uid">统一编号</param>
         /// <returns>地质灾害完整信息</returns>
@@ -70,7 +71,7 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster
         }
 
         /// <summary>
-        /// 通过关键字检索灾害点，关键字将检索灾害点名称、灾害点地理位置、统一编号
+        /// 通过关键字检索灾害点简要信息，关键字将检索灾害点名称、灾害点地理位置、统一编号
         /// </summary>
         /// <param name="keyWord">关键字</param>
         /// <returns>符合条件的实体信息</returns>
@@ -118,7 +119,8 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster
         }
 
         /// <summary>
-        /// 通过主键编号精准查询唯一的灾害点综合信息（完整）
+        /// 通过主键编号精准查询唯一的灾害点完整信息（一个完整的灾害点实体，可能包含众多信息，不建议调用）
+        /// 请根据业务调用具体实体
         /// </summary>
         /// <param name="id">灾害点唯一编号</param>
         /// <returns>灾害点完整信息</returns>
@@ -131,7 +133,7 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster
         }
 
         /// <summary>
-        /// 通过行政区编码、灾害类型、险情大小、灾情大小进行查询
+        /// 通过行政区编码、灾害类型、险情大小、灾情大小查询灾害点简要信息
         /// </summary>
         /// <param name="type">灾害类型: 01泥石流；02地面塌陷；04地裂缝；08滑坡；16崩塌；32地面沉降；64滑坡</param>
         /// <param name="gbcode">行政区编码</param>
@@ -154,8 +156,22 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster
             return models;
         }
 
-        public void New(Comprehensive ghc)
+        /// <summary>
+        /// 新增地质灾害实体
+        /// </summary>
+        /// <param name="ghc">地质灾害实体</param>
+        public void New(Comprehensive comprehensive)
         {
+            this._cpsService.New(comprehensive);
+        }
+
+        /// <summary>
+        /// 新增一个只包含简要信息的地质灾害实体
+        /// </summary>
+        /// <param name="ghcm"></param>
+        public void NewSimplify(ComprehensiveModel comprehensiveModel)
+        {
+
         }
     }
 }

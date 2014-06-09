@@ -27,5 +27,7 @@ namespace R2.Disaster.WebAPI.Model
         public double X坐标 { get; set; }
         public double Y坐标 { get; set; }
         public double 灾害体积 { get; set; }
+
+        public string GBCodeId { get; set; }
     }
 }

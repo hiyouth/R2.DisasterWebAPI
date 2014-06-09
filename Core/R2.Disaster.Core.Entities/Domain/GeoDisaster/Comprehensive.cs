@@ -93,7 +93,7 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster
         public virtual PrePlan PrePlan { get; set; }
 
         /// <summary>
-        /// 国标代码
+        /// 国标代码，必填字段，不能为Null
         /// </summary>
         public virtual GBCode GBCode { get; set; }
         public string GBCodeId { get; set; }
@@ -113,10 +113,17 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster
         /// </summary>
         public virtual ICollection<MassPatrol> MassPatrols { get; set; }
 
+        /// <summary>
+        /// 灾害类型，必填字段，不能为Null
+        /// </summary>
         public EnumGeoDisasterType 灾害类型 { get; set; }
 
         public int Id { get; set; }
         public string 统一编号 { get; set; }
+
+        /// <summary>
+        /// 地理位置，必填字段，不能为Null
+        /// </summary>
         public string 地理位置 { get; set; }
         public string 名称 { get; set; }
         public string 经度 { get; set; }
@@ -132,22 +139,5 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster
         public double X坐标 { get; set; }
         public double Y坐标 { get; set; }
         public double 灾害体积 { get; set; }
-        
-
-
-
-
-        //public virtual Collaps Collaps { get; set; }
-        //public virtual DisasterType DisasterType { get; set; }
-        //public virtual RegionCode RegionCode { get; set; }
-        //public virtual ICollection<DisaImage> DisaImages { get; set; }
-        //public virtual ICollection<EmergencySurveyTable> EmergencySurveyTables { get; set; }
-        //public virtual GroundFissure GroundFissure { get; set; }
-        //public virtual GroundSettle GroundSettle { get; set; }
-        //public virtual GroundSubside GroundSubside { get; set; }
-        //public virtual Landslide Landslide { get; set; }
-        //public virtual LeanSlope LeanSlope { get; set; }
-        
-        //public virtual ICollection<PrecautionPlan> PrecautionPlans { get; set; }
     }
 }
