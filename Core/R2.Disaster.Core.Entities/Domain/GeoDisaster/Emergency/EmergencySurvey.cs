@@ -18,8 +18,8 @@ using System.Collections.Generic;
     /// </summary>
     public partial class EmergencySurvey
     {
-        public Comprehensive Comprehensive { get; set; }
-        public int ComprehensiveId { get; set; }
+        public PhyGeoDisaster PhyGeoDisaster { get; set; }
+        public int PhyGeoDisasterId { get; set; }
 
         public int Id { get; set; }
         public string 应急调查点 { get; set; }

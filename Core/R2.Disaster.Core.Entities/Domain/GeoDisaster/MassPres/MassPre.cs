@@ -7,14 +7,14 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.MassPres
     /// </summary>
     public class MassPre
     {
-        public virtual Comprehensive Comprehensive { get; set; }
+        public virtual PhyGeoDisaster PhyGeoDisaster { get; set; }
 
         public int Id { get; set; }
-        public EnumGeoDisasterType 灾害类型 { get; set; }
+
         public string 统一编号 { get; set; }
         public string 名称 { get; set; }
         public string 县名 { get; set; }
-        public string 位置 { get; set; }
+
         public string 经度 { get; set; }
         public string 纬度 { get; set; }
         public double 规模 { get; set; }

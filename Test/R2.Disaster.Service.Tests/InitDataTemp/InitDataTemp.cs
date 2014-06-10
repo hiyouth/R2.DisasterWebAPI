@@ -16,9 +16,9 @@ namespace R2.Disaster.Service.Tests
     public class InitDataTemp
     {
         private IDbContext _db;
-        private IRepository<Comprehensive> _re;
+        private IRepository<PhyGeoDisaster> _re;
         private IRepository<GBCode> _reGBCode;
-        private IComprehensiveService _service;
+        private IPhyGeoDisasterService _service;
         public InitDataTemp()
         {
             
@@ -29,9 +29,9 @@ namespace R2.Disaster.Service.Tests
         public void MyTestInitialize()
         {
             this._db = new R2DisasterContext();
-            this._re = new EFRepository<Comprehensive>(this._db);
+            this._re = new EFRepository<PhyGeoDisaster>(this._db);
             this._reGBCode = new EFRepository<GBCode>(this._db);
-            this._service = new ComprehensiveService(this._re);
+            this._service = new PhyGeoDisasterService(this._re);
         }
         
 
@@ -85,38 +85,28 @@ namespace R2.Disaster.Service.Tests
         [TestMethod]
         public void InitSampleData()
         {
+            PhyGeoDisaster phy = new PhyGeoDisaster()
+            {
+                GBCodeId ="370101",
+                地理位置 = "西蒋峪村北侧",
+                灾害类型 = EnumGeoDisasterType.DebrisFlow,
+            };
             Comprehensive c = new Comprehensive()
             {
                 统一编号 = "370101040001",
                 名称 = "西蒋峪村北侧地面塌陷333",
-                灾害类型 = EnumGeoDisasterType.LandCollapse,
                 险情等级=" 大型",
-                地理位置 = "西蒋峪村北侧",
-                GBCodeId = "370101",
                 DebrisFlow = new DebrisFlow()
                 {
-                    //统一编号 = "370101040001",
-                    //名称 = "西蒋峪村北侧地面塌陷333"
                     室内编号="3333333"
                 }
             };
 
-
-            Comprehensive c1 = new Comprehensive()
+            PhyGeoDisaster phy1 = new PhyGeoDisaster()
             {
-                统一编号 = "370101060001",
-                名称 = "东凤凰村地裂缝33",
-                地理位置 = "安城镇东凤凰村西南",
-                险情等级="大型",
+                GBCodeId = "370101",
+                地理位置 = "西蒋峪村北侧",
                 灾害类型 = EnumGeoDisasterType.LandFracture,
-                GBCodeId = "370102",
-                LandFracture = new LandFracture()
-                {
-                    //统一编号 = "370101060001",
-                    //名称 = "东凤凰村地裂缝33"
-                    //地理位置 = "安城镇东凤凰村西南",
-                    野外编号="dddddddd",
-                },
                 DamageReports = new List<DamageReport>()
                 {
                     new DamageReport(){
@@ -142,8 +132,27 @@ namespace R2.Disaster.Service.Tests
                     名称 = "菜园子同益乡政府东斜坡111111",
                 }
             };
-            this._service.New(c);
-            this._service.New(c1);
+
+            Comprehensive c1 = new Comprehensive()
+            {
+                统一编号 = "370101060001",
+                名称 = "东凤凰村地裂缝33",
+
+                险情等级 = "大型",
+                LandFracture = new LandFracture()
+                {
+                    //统一编号 = "370101060001",
+                    //名称 = "东凤凰村地裂缝33"
+                    //地理位置 = "安城镇东凤凰村西南",
+                    野外编号 = "dddddddd",
+                }
+            };
+
+            phy1.Comprehensive = c1;
+            phy.Comprehensive = c;
+
+            this._service.New(phy);
+            this._service.New(phy1);
             //Comprehensive c2 = this._re.GetById(1);
             //PrePlan p = new PrePlan()
             //{
@@ -152,8 +161,6 @@ namespace R2.Disaster.Service.Tests
             //};
             //IRepository<PrePlan> rePre = new EFRepository<PrePlan>(this._db);
             //rePre.Insert(p);
-
-            Comprehensive c3 = this._re.GetById(1);
         }
 
          [TestMethod]

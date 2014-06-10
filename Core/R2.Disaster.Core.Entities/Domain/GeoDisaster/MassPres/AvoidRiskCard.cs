@@ -7,7 +7,7 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.MassPres
     /// </summary>
     public class AvoidRiskCard
     {
-        public virtual Comprehensive Comprehensive { get; set; }
+        public virtual PhyGeoDisaster PhyGeoDisaster { get; set; }
 
         public int Id { get; set; }
         public string 统一编号 { get; set; }

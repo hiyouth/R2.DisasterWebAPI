@@ -8,11 +8,11 @@ namespace R2.Disaster.WebAPI.Model
 {
     public class ComprehensiveModel
     {
-        public EnumGeoDisasterType 灾害类型 { get; set; }
+        //public EnumGeoDisasterType 灾害类型 { get; set; }
 
         public int Id { get; set; }
         public string 统一编号 { get; set; }
-        public string 地理位置 { get; set; }
+        //public string 地理位置 { get; set; }
         public string 名称 { get; set; }
         public string 经度 { get; set; }
         public string 纬度 { get; set; }
@@ -34,6 +34,6 @@ namespace R2.Disaster.WebAPI.Model
         public string 今后变化趋势 { get; set; }
         public string 危害程度 { get; set; }
 
-        public string GBCodeId { get; set; }
+        //public string GBCodeId { get; set; }
     }
 }

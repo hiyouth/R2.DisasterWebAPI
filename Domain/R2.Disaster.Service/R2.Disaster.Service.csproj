@@ -33,6 +33,8 @@
     <Compile Include="DomainServiceBase.cs" />
     <Compile Include="GeoDisaster\Investigation\DebrisFlowService.cs" />
     <Compile Include="GeoDisaster\Investigation\IDebrisFlowService.cs" />
+    <Compile Include="GeoDisaster\IPhyGeoDisasterService.cs" />
+    <Compile Include="GeoDisaster\PhyGeoDisasterService.cs" />
     <Compile Include="ICanExecuteExpress.cs" />
     <Compile Include="Sample\BookService.cs" />
     <Compile Include="GeoDisaster\ComprehensiveService.cs" />

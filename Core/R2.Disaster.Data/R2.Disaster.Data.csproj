@@ -39,6 +39,7 @@
     <Compile Include="Mapping\GeoDisaster\MassPres\WorkingGuideCardMap.cs" />
     <Compile Include="Mapping\GeoDisaster\MassPres\PrePlanMap.cs" />
     <Compile Include="Mapping\GeoDisaster\MassPres\MassPatrolMap.cs" />
+    <Compile Include="Mapping\GeoDisaster\PhygeoDisasterMap.cs" />
     <Compile Include="R2DisasterDatabaseInit.cs" />
     <Compile Include="Mapping\GeoDisaster\ComprehensiveMap.cs" />
     <Compile Include="Mapping\GeoDisaster\Investigation\DebrisFlowMap.cs">

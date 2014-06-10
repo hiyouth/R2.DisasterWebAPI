@@ -18,8 +18,8 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.Emergency
     /// </summary>
     public partial class DamageReport
     {
-        public virtual Comprehensive Comprehensive { get; set; }
-        public int ComprehensiveId { get; set; }
+        public virtual PhyGeoDisaster PhyGeoDisaster { get; set; }
+        public int PhyGeoDisasterId { get; set; }
 
         public int Id { get; set; }
         public string 灾险情地点 { get; set; }

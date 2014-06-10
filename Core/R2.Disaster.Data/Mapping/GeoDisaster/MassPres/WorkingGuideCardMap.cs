@@ -19,8 +19,8 @@ namespace R2.Disaster.Data.Mapping.GeoDisaster.MassPres
             //this.Property(c => c.统一编号).IsRequired();
             this.Property(w=> w.名称).IsRequired();
 
-            this.HasRequired(w => w.Comprehensive)
-                .WithRequiredDependent(c => c.WorkingGuideCard);
+            this.HasRequired(w => w.PhyGeoDisaster)
+                .WithRequiredDependent(p => p.WorkingGuideCard);
         }
     }
 }

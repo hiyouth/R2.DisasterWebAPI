@@ -13,9 +13,9 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.MassPres
     {
         public int Id { get; set; }
 
-        public Comprehensive Comprehensive { get; set; }
+        public PhyGeoDisaster PhyGeoDisaster { get; set; }
+        public int PhyGeoDisasterId { get; set; }
 
-        public int ComprehensiveId { get; set; }
         /// <summary>
         ///  巡查时间
         /// </summary>

@@ -18,8 +18,9 @@ namespace R2.Disaster.Data.Mapping.GeoDisaster.MassPres
 
             this.Property(m => m.PatrolTime).IsRequired();
 
-            this.HasRequired(m => m.Comprehensive)
-                .WithMany().HasForeignKey(m => m.ComprehensiveId);
+            this.HasRequired(m => m.PhyGeoDisaster)
+                .WithMany(p => p.MassPatrols)
+                .HasForeignKey(m => m.PhyGeoDisasterId);
         }
     }
 }

@@ -18,7 +18,7 @@ using System.Collections.Generic;
     /// </summary>
     public partial class PrePlan
     {
-        public Comprehensive Comprehensive { get; set; }
+        public PhyGeoDisaster PhyGeoDisaster { get; set; }
 
         public int Id { get; set; }
         public string 统一编号 { get; set; }

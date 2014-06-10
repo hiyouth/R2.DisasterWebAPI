@@ -19,9 +19,9 @@ namespace R2.Disaster.Data.Mapping.GeoDisaster.Investigation.Emergency
             this.Property(d=>d.灾险情地点).IsRequired();
             this.Property(d => d.发生时间).IsRequired();
 
-            this.HasRequired(d => d.Comprehensive)
-                .WithMany(c => c.DamageReports)
-                .HasForeignKey(d => d.ComprehensiveId);
+            this.HasRequired(d => d.PhyGeoDisaster)
+                .WithMany(p=> p.DamageReports)
+                .HasForeignKey(d => d.PhyGeoDisasterId);
         }
     }
 }

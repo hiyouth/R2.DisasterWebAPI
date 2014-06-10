@@ -97,7 +97,7 @@ namespace R2.Disaster.Service.GeoDisaster
             var eps = DynamicLinqExpressions.True<Comprehensive>();
             if (!String.IsNullOrEmpty(keyword))
             {
-                eps = eps.And(c => c.地理位置.Contains(keyword));
+                eps = eps.And(c => c.PhyGeoDisaster.地理位置.Contains(keyword));
             }
             return eps;
         }
@@ -107,7 +107,7 @@ namespace R2.Disaster.Service.GeoDisaster
             var eps = DynamicLinqExpressions.True<Comprehensive>();
             if (!String.IsNullOrEmpty(gbcode))
             {
-                eps = eps.And(c => c.GBCodeId.Contains(gbcode));
+                eps = eps.And(c => c.PhyGeoDisaster.GBCodeId.Contains(gbcode));
             }
             return eps;
         }
@@ -138,7 +138,7 @@ namespace R2.Disaster.Service.GeoDisaster
             var eps = DynamicLinqExpressions.True<Comprehensive>();
             if (type!=null)
             {
-                eps = eps.And(c => c.灾害类型 == type);
+                eps = eps.And(c => c.PhyGeoDisaster.灾害类型 == type);
             }
             return eps;
         }
