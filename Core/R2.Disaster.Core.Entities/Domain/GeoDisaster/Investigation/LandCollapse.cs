@@ -20,16 +20,23 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation
         public virtual Comprehensive Comprehensive { get; set; }
         public int Id { get; set; }
         #region 具体属性
-        public string 统一编号 { get; set; }
-        public string 名称 { get; set; }
+        //public string 统一编号 { get; set; }
+        //public string 名称 { get; set; }
         public string 野外编号 { get; set; }
         public string 室内编号 { get; set; }
-        public Nullable<int> X坐标 { get; set; }
-        public Nullable<int> Y坐标 { get; set; }
+        //public Nullable<int> X坐标 { get; set; }
+        //public Nullable<int> Y坐标 { get; set; }
         public Nullable<float> 标高 { get; set; }
-        public string 经度 { get; set; }
-        public string 纬度 { get; set; }
-        public string 地理位置 { get; set; }
+        //public Nullable<double> 灾害体积 { get; set; }
+        //public Nullable<float> 威胁财产 { get; set; }
+        //public Nullable<int> 威胁人口 { get; set; }
+        //public string 经度 { get; set; }
+        //public string 纬度 { get; set; }
+        //public string 地理位置 { get; set; }
+        //public Nullable<int> 死亡人口 { get; set; }
+        //public string 灾情等级 { get; set; }
+        //public string 险情等级 { get; set; }
+
         public Nullable<int> 单体陷坑坑号1 { get; set; }
         public string 单体陷坑形状1 { get; set; }
         public Nullable<float> 单体陷坑坑口规模1 { get; set; }
@@ -170,9 +177,9 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation
         public string 地下水源枯竭 { get; set; }
         public string 地下水井突水 { get; set; }
         public string 掩埋地面物资 { get; set; }
-        public Nullable<int> 死亡人口 { get; set; }
+      
         public Nullable<float> 直接损失 { get; set; }
-        public string 灾情等级 { get; set; }
+        
         public Nullable<int> 新增陷坑 { get; set; }
         public Nullable<float> 扩大陷区 { get; set; }
         public Nullable<float> 潜在毁田 { get; set; }
@@ -181,9 +188,9 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation
         public Nullable<float> 新陷区面积 { get; set; }
         public Nullable<float> 断路 { get; set; }
         public string 其他危害 { get; set; }
-        public Nullable<int> 威胁人口 { get; set; }
-        public Nullable<float> 威胁财产 { get; set; }
-        public string 险情等级 { get; set; }
+        
+        
+       
         public bool 隐患点 { get; set; }
         public bool 防灾预案 { get; set; }
         public bool 多媒体 { get; set; }
@@ -204,7 +211,7 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation
         public string 省名 { get; set; }
         public string 县名 { get; set; }
         public string 街道 { get; set; }
-        public Nullable<double> 灾害体积 { get; set; }
+        
         public string 平面示意图路径 { get; set; }
         public string 剖面示意图路径 { get; set; }
 
