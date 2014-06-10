@@ -3,12 +3,34 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using R2.Disaster.WebAPI.Model;
 using R2.Disaster.CoreEntities.Domain.GeoDisaster;
 using AutoMapper;
+using R2.Disaster.Data;
+using R2.Disaster.Repository;
+using R2.Disaster.Service.GeoDisaster;
+using R2.Disaster.Service.GeoDisaster.Investigation;
+using R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation;
 
 namespace R2.Disaster.WebAPI.Tests
 {
     [TestClass]
     public class AutoMapperTest
     {
+         private IDbContext _db;
+        private IRepository<DebrisFlow> _re;
+        private IRepository<GBCode> _reGBCode;
+        private IDebrisFlowService _service;
+
+        public AutoMapperTest()
+        {
+        }
+
+        [TestInitialize()]
+        public void MyTestInitialize()
+        {
+            this._db = new R2DisasterContext();
+            this._re = new EFRepository<DebrisFlow>(this._db);
+            this._reGBCode = new EFRepository<GBCode>(this._db);
+            this._service = new DebrisFlowService(this._re);
+        }
         [TestMethod]
         public void TestAutoMapperPlainCopy()
         {
@@ -44,8 +66,15 @@ namespace R2.Disaster.WebAPI.Tests
         [TestMethod]
         public void TestComplexAutoMapper()
         {
-
-
+            DebrisFlow d=this._service.GetById(1);
+            
+            
+            var comprehensiveModel = new ComprehensiveModel();
+            Mapper.CreateMap<Comprehensive, ComprehensiveModel>();
+            Mapper.CreateMap<DebrisFlow, DebrisFlowModel>()
+                .ForMember("ComprehensiveModel", o => o.UseValue(d.Comprehensive));
+            DebrisFlowModel m = Mapper.Map<DebrisFlow, DebrisFlowModel>
+                (d);
         }
     }
 }
