@@ -13,7 +13,7 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation
 
         #region 具体属性 
         public int Id { get; set; }
-        public string 统一编号 { get; set; }
+        //public string 统一编号 { get; set; }
         //public string 名称 { get; set; }
         public string 野外编号 { get; set; }
         public string 室内编号 { get; set; }
