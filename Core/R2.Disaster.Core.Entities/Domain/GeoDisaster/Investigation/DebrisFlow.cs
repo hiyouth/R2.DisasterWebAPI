@@ -14,16 +14,19 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation
         #region 具体属性 
         public int Id { get; set; }
         public string 统一编号 { get; set; }
-        public string 名称 { get; set; }
+        //public string 名称 { get; set; }
         public string 野外编号 { get; set; }
         public string 室内编号 { get; set; }
-        public string 经度 { get; set; }
-        public string 纬度 { get; set; }
-        public string 地理位置 { get; set; }
+        //public string 经度 { get; set; }
+        //public string 纬度 { get; set; }
+        //public string 地理位置 { get; set; }
+        //public int 威胁人口 { get; set; }
+        //public double 威胁财产 { get; set; }
+       // public string 险情等级 { get; set; }
         public double 最大标高 { get; set; }
         public double 最小标高 { get; set; }
-        public int X坐标 { get; set; }
-        public int Y坐标 { get; set; }
+        //public int X坐标 { get; set; }
+        //public int Y坐标 { get; set; }
         public string 水系名称 { get; set; }
         public string 主河名称 { get; set; }
         public string 相对主河位置 { get; set; }
@@ -71,9 +74,9 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation
         public bool 监测措施 { get; set; }
         public string 监测措施类型 { get; set; }
         public string 威胁危害对象 { get; set; }
-        public int 威胁人口 { get; set; }
-        public double 威胁财产 { get; set; }
-        public string 险情等级 { get; set; }
+       
+ 
+       
         public string 灾害史发生时间1 { get; set; }
         public int 灾害史死亡人口1 { get; set; }
         public double 灾害史损失牲畜1 { get; set; }
