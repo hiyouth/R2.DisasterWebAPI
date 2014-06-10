@@ -178,7 +178,7 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation
         public string 地下水井突水 { get; set; }
         public string 掩埋地面物资 { get; set; }
       
-        public double 直接损失 { get; set; }
+        //public double 直接损失 { get; set; }
         
         public int 新增陷坑 { get; set; }
         public double 扩大陷区 { get; set; }

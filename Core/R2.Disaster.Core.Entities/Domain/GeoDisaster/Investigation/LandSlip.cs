@@ -13,19 +13,19 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation
         public int Id { get; set; }
 
         #region 具体属性
-        public string 统一编号 { get; set; }
-        public string 名称 { get; set; }
+        //public string 统一编号 { get; set; }
+        //public string 名称 { get; set; }
         public string 野外编号 { get; set; }
         public string 室内编号 { get; set; }
         public string 斜坡类型 { get; set; }
         public string 崩塌类型 { get; set; }
-        public string 地理位置 { get; set; }
-        public double X坐标 { get; set; }
-        public double Y坐标 { get; set; }
+        //public string 地理位置 { get; set; }
+        //public double X坐标 { get; set; }
+        //public double Y坐标 { get; set; }
         public double 坡顶标高 { get; set; }
         public double 坡脚标高 { get; set; }
-        public string 经度 { get; set; }
-        public string 纬度 { get; set; }
+        //public string 经度 { get; set; }
+        //public string 纬度 { get; set; }
         public string 地层时代 { get; set; }
         public string 地层岩性 { get; set; }
         public string 构造部位 { get; set; }
@@ -44,7 +44,7 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation
         public double 坡长 { get; set; }
         public double 坡宽 { get; set; }
         public double 规模 { get; set; }
-        public string 规模等级 { get; set; }
+        //public string 规模等级 { get; set; }
         public double 坡度 { get; set; }
         public double 坡向 { get; set; }
         public string 岩体结构类型 { get; set; }
@@ -129,13 +129,13 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation
         public bool 隐患点 { get; set; }
         public bool 防灾预案 { get; set; }
         public bool 多媒体 { get; set; }
-        public double 死亡人口 { get; set; }
+        //public double 死亡人口 { get; set; }
         public int 毁坏房屋 { get; set; }
         public double 毁路 { get; set; }
         public double 毁渠 { get; set; }
         public string 其它危害 { get; set; }
-        public double 直接损失 { get; set; }
-        public string 灾情等级 { get; set; }
+        //public double 直接损失 { get; set; }
+        //public string 灾情等级 { get; set; }
         public int 威胁人口 { get; set; }
         public int 威胁财产 { get; set; }
         public string 险情等级 { get; set; }

@@ -13,17 +13,17 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation
         public int Id { get; set; }
 
         #region 具体属性
-        public string 统一编号 { get; set; }
-        public string 名称 { get; set; }
+        //public string 统一编号 { get; set; }
+        //public string 名称 { get; set; }
         public string 发生时间 { get; set; }
         public string 野外编号 { get; set; }
         public string 室内编号 { get; set; }
-        public int X坐标 { get; set; }
-        public int Y坐标 { get; set; }
-        public string 经度 { get; set; }
-        public string 纬度 { get; set; }
+        //public int X坐标 { get; set; }
+        //public int Y坐标 { get; set; }
+        //public string 经度 { get; set; }
+        //public string 纬度 { get; set; }
         public string 沉降类型 { get; set; }
-        public string 地理位置 { get; set; }
+        //public string 地理位置 { get; set; }
         public string 沉降中心位置 { get; set; }
         public string 沉降中心经度 { get; set; }
         public string 沉降中心纬度 { get; set; }
@@ -60,7 +60,7 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation
         public string 省名 { get; set; }
         public string 县名 { get; set; }
         public string 街道 { get; set; }
-        public double 灾害体积 { get; set; }
+        //public double 灾害体积 { get; set; }
         public string 平面示意图路径 { get; set; }
         public string 剖面示意图路径 { get; set; }
         #endregion

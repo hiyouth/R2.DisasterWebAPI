@@ -9,21 +9,21 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation
         public int Id { get; set; }
 
         #region 具体属性
-        public string 统一编号 { get; set; }
-        public string 名称 { get; set; }
+        //public string 统一编号 { get; set; }
+        //public string 名称 { get; set; }
         public string 野外编号 { get; set; }
         public string 室内编号 { get; set; }
         public string 滑坡年代 { get; set; }
         public string 滑坡时间 { get; set; }
         public string 滑坡类型 { get; set; }
         public string 滑体性质 { get; set; }
-        public double X坐标 { get; set; }
-        public double Y坐标 { get; set; }
+        //public double X坐标 { get; set; }
+        //public double Y坐标 { get; set; }
         public float 冠 { get; set; }
         public float 趾 { get; set; }
-        public string 经度 { get; set; }
-        public string 纬度 { get; set; }
-        public string 地理位置 { get; set; }
+        //public string 经度 { get; set; }
+        //public string 纬度 { get; set; }
+        //public string 地理位置 { get; set; }
         public string 地层时代 { get; set; }
         public string 地层岩性 { get; set; }
         public string 构造部位 { get; set; }
@@ -122,13 +122,13 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation
         public string 今后变化趋势 { get; set; }
         public bool 隐患点 { get; set; }
         public float 毁坏房屋 { get; set; }
-        public int 死亡人口 { get; set; }
-        public float 直接损失 { get; set; }
-        public string 灾情等级 { get; set; }
+        //public int 死亡人口 { get; set; }
+        //public float 直接损失 { get; set; }
+        //public string 灾情等级 { get; set; }
         public float 威胁住户 { get; set; }
-        public int 威胁人口 { get; set; }
-        public float 威胁财产 { get; set; }
-        public string 险情等级 { get; set; }
+        //public int 威胁人口 { get; set; }
+        //public float 威胁财产 { get; set; }
+        //public string 险情等级 { get; set; }
         public bool 防灾预案 { get; set; }
         public bool 多媒体 { get; set; }
         public string 监测建议 { get; set; }
@@ -144,7 +144,7 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation
         public byte[] 平面示意图 { get; set; }
         public byte[] 剖面示意图 { get; set; }
         public string 滑坡情况 { get; set; }
-        public double 灾害体积 { get; set; }
+        //public double 灾害体积 { get; set; }
 
         #endregion
     }

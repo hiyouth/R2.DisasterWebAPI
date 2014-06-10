@@ -155,7 +155,7 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation
         public double 毁坏房屋 { get; set; }
         public string 阻断交通 { get; set; }
      
-        public double 直接损失 { get; set; }
+        //public double 直接损失 { get; set; }
         //public string 灾情等级 { get; set; }
         public bool 隐患点 { get; set; }
         public double 威胁房屋 { get; set; }
@@ -179,7 +179,7 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation
         public string 省名 { get; set; }
         public string 县名 { get; set; }
         public string 街道 { get; set; }
-        public double 灾害体积 { get; set; }
+        //public double 灾害体积 { get; set; }
         public string 平面示意图路径 { get; set; }
         public string 剖面示意图路径 { get; set; }
 
