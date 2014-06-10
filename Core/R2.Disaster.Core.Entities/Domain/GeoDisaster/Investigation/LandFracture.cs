@@ -12,16 +12,18 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation
         public virtual Comprehensive Comprehensive { get; set; }
         public int Id { get; set; }
         #region  具体属性
-        public string 统一编号 { get; set; }
-        public string 名称 { get; set; }
+        //public string 统一编号 { get; set; }
+        //public string 名称 { get; set; }
         public string 野外编号 { get; set; }
         public string 室内编号 { get; set; }
-        public int X坐标 { get; set; }
-        public int Y坐标 { get; set; }
-        public int 标高 { get; set; }
-        public string 经度 { get; set; }
-        public string 纬度 { get; set; }
-        public string 地理位置 { get; set; }
+        //public int X坐标 { get; set; }
+        //public int Y坐标 { get; set; }
+        //public int 标高 { get; set; }
+        //public string 规模等级 { get; set; }
+        //public string 经度 { get; set; }
+        //public string 纬度 { get; set; }
+        //public string 地理位置 { get; set; }
+        //   public int 死亡人口 { get; set; }
         public int 单缝缝号1 { get; set; }
         public string 单缝形态1 { get; set; }
         public string 单缝延伸方向1 { get; set; }
@@ -82,7 +84,7 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation
         public string 盛发截止时间 { get; set; }
         public string 停止时间 { get; set; }
         public string 目前发展情况 { get; set; }
-        public string 规模等级 { get; set; }
+      
         public string 成因类型 { get; set; }
         public string 裂缝区地貌特征 { get; set; }
         public string 裂缝与地貌走向关系 { get; set; }
@@ -152,15 +154,15 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation
         public double 水理作用开挖深度 { get; set; }
         public double 毁坏房屋 { get; set; }
         public string 阻断交通 { get; set; }
-        public int 死亡人口 { get; set; }
+     
         public double 直接损失 { get; set; }
-        public string 灾情等级 { get; set; }
+        //public string 灾情等级 { get; set; }
         public bool 隐患点 { get; set; }
         public double 威胁房屋 { get; set; }
         public string 交通隐患 { get; set; }
-        public int 威胁人口 { get; set; }
-        public double 威胁财产 { get; set; }
-        public string 险情等级 { get; set; }
+        //public int 威胁人口 { get; set; }
+        //public double 威胁财产 { get; set; }
+        //public string 险情等级 { get; set; }
         public string 发展预测 { get; set; }
         public bool 防灾预案 { get; set; }
         public bool 多媒体 { get; set; }
