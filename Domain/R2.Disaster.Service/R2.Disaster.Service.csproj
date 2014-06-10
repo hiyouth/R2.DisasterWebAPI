@@ -31,6 +31,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="DomainServiceBase.cs" />
+    <Compile Include="GeoDisaster\Investigation\DebrisFlowService.cs" />
+    <Compile Include="GeoDisaster\Investigation\IDebrisFlowService.cs" />
     <Compile Include="ICanExecuteExpress.cs" />
     <Compile Include="Sample\BookService.cs" />
     <Compile Include="GeoDisaster\ComprehensiveService.cs" />
@@ -56,9 +58,7 @@
       <Name>R2.Disaster.Repository</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="GeoDisaster\Investigation\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Reference Include="System" />
   </ItemGroup>

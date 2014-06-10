@@ -1,4 +1,5 @@
-﻿using System;
+﻿using R2.Disaster.Service.GeoDisaster.Investigation;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -9,6 +10,11 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster.Investigation
 {
     public class DebrisFlowController : ApiController
     {
+        private IDebrisFlowService _debrisFlowService;
+        public DebrisFlowController(IDebrisFlowService debirsFlowService)
+        {
+            this._debrisFlowService = debirsFlowService;
+        }
         // GET api/debrisflow
         public IEnumerable<string> Get()
         {
@@ -16,7 +22,7 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster.Investigation
         }
 
         // GET api/debrisflow/5
-        public string GetBy(int id)
+        public string Get(int id)
         {
             return "value";
         }

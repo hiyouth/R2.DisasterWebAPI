@@ -95,8 +95,9 @@ namespace R2.Disaster.Service.Tests
                 GBCodeId = "370101",
                 DebrisFlow = new DebrisFlow()
                 {
-                    统一编号 = "370101040001",
-                    名称 = "西蒋峪村北侧地面塌陷333"
+                    //统一编号 = "370101040001",
+                    //名称 = "西蒋峪村北侧地面塌陷333"
+                    室内编号="3333333"
                 }
             };
 
@@ -111,8 +112,10 @@ namespace R2.Disaster.Service.Tests
                 GBCodeId = "370102",
                 LandFracture = new LandFracture()
                 {
-                    统一编号 = "370101060001",
-                    名称 = "东凤凰村地裂缝33"
+                    //统一编号 = "370101060001",
+                    //名称 = "东凤凰村地裂缝33"
+                    //地理位置 = "安城镇东凤凰村西南",
+                    野外编号="dddddddd",
                 },
                 DamageReports = new List<DamageReport>()
                 {

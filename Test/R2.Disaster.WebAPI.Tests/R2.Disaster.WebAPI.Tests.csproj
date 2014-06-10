@@ -81,6 +81,7 @@
     <Compile Include="GHComprehensiveServiceTest.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="AutoMapperTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Core\R2.Disaster.Core.Entities\R2.Disaster.CoreEntities.csproj">
