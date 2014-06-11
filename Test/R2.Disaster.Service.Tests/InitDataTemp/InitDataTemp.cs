@@ -88,13 +88,17 @@ namespace R2.Disaster.Service.Tests
             PhyGeoDisaster phy = new PhyGeoDisaster()
             {
                 GBCodeId ="370101",
-                地理位置 = "西蒋峪村北侧",
+                Location = "西蒋峪村北侧",
                 灾害类型 = EnumGeoDisasterType.DebrisFlow,
+                Investigated=true,
+                Name = "西蒋峪村北侧地面塌陷333",
             };
             Comprehensive c = new Comprehensive()
             {
                 统一编号 = "370101040001",
                 名称 = "西蒋峪村北侧地面塌陷333",
+                地理位置= "西蒋峪村北侧",
+                GBCodeId = "370101",
                 险情等级=" 大型",
                 DebrisFlow = new DebrisFlow()
                 {
@@ -105,8 +109,10 @@ namespace R2.Disaster.Service.Tests
             PhyGeoDisaster phy1 = new PhyGeoDisaster()
             {
                 GBCodeId = "370101",
-                地理位置 = "西蒋峪村北侧",
+                Location = "西蒋峪村北侧",
                 灾害类型 = EnumGeoDisasterType.LandFracture,
+                Investigated=true,
+                Name = "东凤凰村地裂缝33",
                 DamageReports = new List<DamageReport>()
                 {
                     new DamageReport(){
@@ -137,6 +143,9 @@ namespace R2.Disaster.Service.Tests
             {
                 统一编号 = "370101060001",
                 名称 = "东凤凰村地裂缝33",
+                地理位置 = "西蒋峪村北侧",
+                GBCodeId = "370101",
+                灾害类型=EnumGeoDisasterType.LandFracture,
 
                 险情等级 = "大型",
                 LandFracture = new LandFracture()

@@ -11,7 +11,7 @@ namespace R2.Disaster.WebAPI.Model
     /// </summary>
     public partial class DebrisFlowModel
     {
-        public virtual ComprehensiveModel ComprehensiveModel { get; set; }
+        public virtual ComprehensiveSimplify ComprehensiveModel { get; set; }
 
         #region 具体属性 
         public int Id { get; set; }

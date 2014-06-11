@@ -12,6 +12,7 @@ using System.Web.Routing;
 using System.Web.Mvc;
 using System.Net.Http;
 using System.Web.Optimization;
+using R2.Disaster.WebAPI.Infrastructure;
 
 namespace R2.Disaster.WebAPI
 {
@@ -27,6 +28,11 @@ namespace R2.Disaster.WebAPI
             var resolver = new AutofacWebApiDependencyResolver(
                 EngineContext.Current.ContainerManager.Container);
             GlobalConfiguration.Configuration.DependencyResolver = resolver;
+
+            //注册AutoMapper
+            //TODO：这里可能产生耦合，考虑是否使用接口
+            var mapperConfig = new AutoMapperRegister();
+            mapperConfig.Register();
             
 
             //GlobalConfiguration.Configuration.DependencyResolver

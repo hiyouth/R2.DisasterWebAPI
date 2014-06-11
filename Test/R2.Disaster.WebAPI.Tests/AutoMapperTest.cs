@@ -1,14 +1,14 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using R2.Disaster.WebAPI.Model;
 using R2.Disaster.CoreEntities.Domain.GeoDisaster;
 using AutoMapper;
 using R2.Disaster.Data;
 using R2.Disaster.Repository;
-using R2.Disaster.Service.GeoDisaster;
 using R2.Disaster.Service.GeoDisaster.Investigation;
 using R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation;
 using R2.Disaster.WebAPI.Model.Investigation;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace R2.Disaster.WebAPI.Tests
 {
@@ -19,6 +19,7 @@ namespace R2.Disaster.WebAPI.Tests
         private IRepository<DebrisFlow> _re;
         private IRepository<GBCode> _reGBCode;
         private IDebrisFlowService _service;
+        private IComprehensiveService _serviceCpl;
 
         public AutoMapperTest()
         {
@@ -31,6 +32,7 @@ namespace R2.Disaster.WebAPI.Tests
             this._re = new EFRepository<DebrisFlow>(this._db);
             this._reGBCode = new EFRepository<GBCode>(this._db);
             this._service = new DebrisFlowService(this._re);
+            this._serviceCpl = new ComprehensiveService(new EFRepository<Comprehensive>(this._db));
         }
         [TestMethod]
         public void TestAutoMapperPlainCopy()
@@ -70,12 +72,133 @@ namespace R2.Disaster.WebAPI.Tests
             DebrisFlow d=this._service.GetById(1);
             
             
-            var comprehensiveModel = new ComprehensiveModel();
-            Mapper.CreateMap<Comprehensive, ComprehensiveModel>();
+            var comprehensiveModel = new ComprehensiveSimplify();
+            Mapper.CreateMap<Comprehensive, ComprehensiveSimplify>();
             Mapper.CreateMap<DebrisFlow, DebrisFlowModel>()
-                .ForMember("ComprehensiveModel", o => o.UseValue(d.Comprehensive));
+                .ForMember("ComprehensiveModel", o => o.MapFrom(e => e.Comprehensive));
             DebrisFlowModel m = Mapper.Map<DebrisFlow, DebrisFlowModel>
                 (d);
         }
+
+        [TestMethod]
+        public void TestComprehensiveToComprehensiveModel()
+        {
+            Comprehensive c= this._serviceCpl.GetById(1);
+
+            Mapper.CreateMap<Comprehensive, ComprehensiveSimplify>();
+             ComprehensiveSimplify model = Mapper.Map<ComprehensiveSimplify>(c);
+          //   model = Mapper.Map(c.PhyGeoDisaster, model);
+        }
+
+        [TestMethod]
+        public void TestSample()
+        {
+            Comprehensive cmp = new Comprehensive()
+            {
+                Id = 1,
+                名称 = "1111",
+                //PhyGeoDisaster = new PhyGeoDisaster()
+                //{
+                //    Location="dddddd"
+                //}
+            };
+            Mapper.CreateMap<Comprehensive, ComprehensiveSimplify>();
+            ComprehensiveSimplify model = Mapper.Map<ComprehensiveSimplify>(cmp);
+            Assert.AreEqual("1111", model.名称);
+            Assert.AreEqual("dddddd", model.地理位置);
+        }
+
+        [TestMethod]
+        public void TestAutoMapperFlattingSample()
+        {
+            var customer = new Customer
+            {
+                Name = "George Costanza"
+            };
+            var order = new Order
+            {
+                Customer = customer
+            };
+            var bosco = new Product
+            {
+                Name = "Bosco",
+                Price = 4.99m
+            };
+            order.AddOrderLineItem(bosco, 15);
+
+            // Configure AutoMapper
+           // Mapper.Initialize(cfg=>cfg.SourceMemberNamingConvention=
+           
+            Mapper.CreateMap<Order, OrderDto>();
+            Mapper.AssertConfigurationIsValid();
+
+            // Perform mapping
+
+            OrderDto dto = Mapper.Map<Order, OrderDto>(order);
+
+            Assert.AreEqual("George Costanza", dto.Name);
+            Assert.AreEqual(74.85m, dto.Total);
+
+        }
     }
+
+    #region TestClass
+    public class Order
+    {
+        private readonly IList<OrderLineItem> _orderLineItems = new List<OrderLineItem>();
+
+        public Customer Customer { get; set; }
+
+        public OrderLineItem[] GetOrderLineItems()
+        {
+            return _orderLineItems.ToArray();
+        }
+
+        public void AddOrderLineItem(Product product, int quantity)
+        {
+            _orderLineItems.Add(new OrderLineItem(product, quantity));
+        }
+
+        public decimal GetTotal()
+        {
+            return _orderLineItems.Sum(li => li.GetTotal());
+        }
+    }
+
+    public class Product
+    {
+        public decimal Price { get; set; }
+        public string Name { get; set; }
+    }
+
+    public class OrderLineItem
+    {
+        public OrderLineItem(Product product, int quantity)
+        {
+            Product = product;
+            Quantity = quantity;
+        }
+
+        public Product Product { get; private set; }
+        public int Quantity { get; private set; }
+
+        public decimal GetTotal()
+        {
+            return Quantity * Product.Price;
+        }
+    }
+
+    public class Customer
+    {
+        public string Name { get; set; }
+    }
+
+    public class OrderDto
+    {
+        public string Name { get; set; }
+        public decimal Total { get; set; }
+    }
+
+
+    #endregion
 }

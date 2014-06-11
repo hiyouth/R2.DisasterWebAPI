@@ -18,15 +18,16 @@ namespace R2.Disaster.Data.Mapping.GeoDisaster
 
             //this.Property(c => c.名称).IsRequired();
             this.Property(c => c.灾害类型).IsRequired();
-            this.Property(c => c.地理位置).IsRequired();
+            this.Property(c => c.Location).IsRequired();
+            this.Property(p => p.Investigated).IsRequired();
 
             //配置同GBCode的关系
             this.HasRequired(c => c.GBCode)
              .WithMany().HasForeignKey(g => g.GBCodeId);
 
               //配置同Comprehensive综合表的关系
-            this.HasRequired(p => p.Comprehensive)
-                .WithRequiredPrincipal(c => c.PhyGeoDisaster);
+            this.HasRequired(p => p.Comprehensive).WithRequiredPrincipal();
+              //  .WithRequiredPrincipal(c => c.PhyGeoDisaster);
 
 
 

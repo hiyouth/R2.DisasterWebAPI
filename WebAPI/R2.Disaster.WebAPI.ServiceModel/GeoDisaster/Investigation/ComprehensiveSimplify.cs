@@ -6,13 +6,34 @@ using System.Web;
 
 namespace R2.Disaster.WebAPI.Model.Investigation
 {
-    public class ComprehensiveModel
+    /// <summary>
+    /// 地质调查基础数据的简单模型
+    /// </summary>
+    public class ComprehensiveSimplify
     {
-        //public EnumGeoDisasterType 灾害类型 { get; set; }
-
+        /// <summary>
+        /// 主键编号
+        /// </summary>
         public int Id { get; set; }
+
+        /// <summary>
+        /// 统一编号
+        /// </summary>
         public string 统一编号 { get; set; }
-        //public string 地理位置 { get; set; }
+
+        /// <summary>
+        /// 灾害类型
+        /// </summary>
+        public virtual EnumGeoDisasterType 灾害类型 { get; set; }
+
+        /// <summary>
+        /// 行政区编码
+        /// </summary>
+        public virtual GBCode GBCode { get; set; }
+
+        public string 地理位置 { get; set; }
+
+       
         public string 名称 { get; set; }
         public string 经度 { get; set; }
         public string 纬度 { get; set; }
@@ -33,7 +54,5 @@ namespace R2.Disaster.WebAPI.Model.Investigation
         public double 标高 { get; set; }
         public string 今后变化趋势 { get; set; }
         public string 危害程度 { get; set; }
-
-        //public string GBCodeId { get; set; }
     }
 }

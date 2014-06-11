@@ -17,19 +17,26 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster
         private bool _deleted = false;
 
         public int Id { get; set; }
+
+        /// <summary>
+        /// 物理点表示名称
+        /// 这个名称和地质调查综合表中的名称可以不同
+        /// </summary>
+        public String Name { get; set; }
+
         /// <summary>
         /// 地理位置描述，必要属性，不允许Null
         /// </summary>
-        public String 地理位置 { get; set; }
+        public String Location { get; set; }
 
         /// <summary>
         /// 行政区编码，必要属性，不允许Null
         /// </summary>
-        public GBCode GBCode { get; set; }
+        public virtual GBCode GBCode { get; set; }
         public string GBCodeId { get; set; }
 
         /// <summary>
-        /// 灾害类型，必要属性
+        /// 灾害类型，必要属性，不允许Null
         /// </summary>
         public EnumGeoDisasterType 灾害类型 { get; set; }
 

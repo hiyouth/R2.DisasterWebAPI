@@ -19,7 +19,7 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation
             //this._damageReports = new List<DamageReport>();
         }
 
-        public virtual PhyGeoDisaster PhyGeoDisaster { get; set; }
+        //public virtual PhyGeoDisaster PhyGeoDisaster { get; set; }
 
         /// <summary>
         /// 泥石流
@@ -56,9 +56,32 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation
         public virtual LandFracture LandFracture { get; set; }
 
 
-
+        /// <summary>
+        /// 主键编号
+        /// </summary>
         public int Id { get; set; }
+
+        /// <summary>
+        /// 统一编号
+        /// </summary>
         public string 统一编号 { get; set; }
+
+        /// <summary>
+        /// 灾害类型
+        /// </summary>
+        public virtual EnumGeoDisasterType 灾害类型 { get; set; }
+
+        /// <summary>
+        /// 行政区编码
+        /// </summary>
+        public virtual GBCode GBCode { get; set; }
+
+        /// <summary>
+        /// 行政区编码外键标示
+        /// </summary>
+        public string GBCodeId { get; set; }
+
+        public string 地理位置 { get; set; }
 
         public string 名称 { get; set; }
         public string 经度 { get; set; }

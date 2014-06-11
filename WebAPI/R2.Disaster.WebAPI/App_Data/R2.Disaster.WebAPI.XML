@@ -488,7 +488,7 @@
         </member>
         <member name="M:R2.Disaster.WebAPI.Controllers.GeoDisaster.Investigation.InvestigationController.GetByUIdCompletely(System.String)">
             <summary>
-            通过统一编号查询灾害点完整综合信息，（不建议调用）
+            通过统一编号查询灾害点地质调查综合信息
             </summary>
             <param name="uid">统一编号</param>
             <returns>地质灾害完整信息</returns>
@@ -519,13 +519,20 @@
             <param name="y2">矩形右上角Y</param>
             <returns>符合条件的实体信息</returns>
         </member>
-        <member name="M:R2.Disaster.WebAPI.Controllers.GeoDisaster.Investigation.InvestigationController.GetByIdCompletely(System.Int32)">
+        <member name="M:R2.Disaster.WebAPI.Controllers.GeoDisaster.Investigation.InvestigationController.GetById(System.Int32)">
             <summary>
-            通过主键编号精准查询唯一的灾害点完整信息（一个完整的灾害点实体，可能包含众多信息，不建议调用）
+            通过主键编号精准查询唯一的灾害点地质调查完整实体
             请根据业务调用具体实体
             </summary>
             <param name="id">灾害点唯一编号</param>
             <returns>灾害点完整信息</returns>
+        </member>
+        <member name="M:R2.Disaster.WebAPI.Controllers.GeoDisaster.Investigation.InvestigationController.GetSimplifyById(System.Int32)">
+            <summary>
+            通过灾害点编号获取灾害点简要实体
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
         </member>
         <member name="M:R2.Disaster.WebAPI.Controllers.GeoDisaster.Investigation.InvestigationController.GetByMulityplyConditions(System.Nullable{R2.Disaster.CoreEntities.Domain.GeoDisaster.EnumGeoDisasterType},System.String,System.String,System.String)">
             <summary>
@@ -542,12 +549,6 @@
             新增地质灾害实体
             </summary>
             <param name="ghc">地质灾害实体</param>
-        </member>
-        <member name="M:R2.Disaster.WebAPI.Controllers.GeoDisaster.Investigation.InvestigationController.NewSimplify(R2.Disaster.WebAPI.Model.Investigation.ComprehensiveModel)">
-            <summary>
-            新增一个只包含简要信息的地质灾害实体
-            </summary>
-            <param name="ghcm"></param>
         </member>
     </members>
 </doc>

@@ -40,7 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
-    <Compile Include="GeoDisaster\Investigation\ComprehensiveModel.cs" />
+    <Compile Include="GeoDisaster\Investigation\ComprehensiveSimplify.cs" />
     <Compile Include="GeoDisaster\Investigation\DebrisFlowModel.cs" />
     <Compile Include="GeoDisaster\PhyGeoDisasterModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
