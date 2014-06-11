@@ -8,6 +8,7 @@ using R2.Disaster.Repository;
 using R2.Disaster.Service.GeoDisaster;
 using R2.Disaster.Service.GeoDisaster.Investigation;
 using R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation;
+using R2.Disaster.WebAPI.Model.Investigation;
 
 namespace R2.Disaster.WebAPI.Tests
 {

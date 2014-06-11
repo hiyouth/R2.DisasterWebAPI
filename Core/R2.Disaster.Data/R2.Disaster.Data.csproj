@@ -41,7 +41,7 @@
     <Compile Include="Mapping\GeoDisaster\MassPres\MassPatrolMap.cs" />
     <Compile Include="Mapping\GeoDisaster\PhygeoDisasterMap.cs" />
     <Compile Include="R2DisasterDatabaseInit.cs" />
-    <Compile Include="Mapping\GeoDisaster\ComprehensiveMap.cs" />
+    <Compile Include="Mapping\GeoDisaster\Investigation\ComprehensiveMap.cs" />
     <Compile Include="Mapping\GeoDisaster\Investigation\DebrisFlowMap.cs">
       <SubType>Code</SubType>
     </Compile>

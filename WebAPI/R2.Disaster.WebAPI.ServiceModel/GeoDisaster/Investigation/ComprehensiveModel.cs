@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace R2.Disaster.WebAPI.Model
+namespace R2.Disaster.WebAPI.Model.Investigation
 {
     public class ComprehensiveModel
     {

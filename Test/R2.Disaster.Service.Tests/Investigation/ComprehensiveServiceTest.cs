@@ -6,6 +6,7 @@ using R2.Disaster.Repository;
 using R2.Disaster.CoreEntities;
 using R2.Disaster.CoreEntities.Domain.GeoDisaster;
 using R2.Disaster.Service.GeoDisaster;
+using R2.Disaster.Service.GeoDisaster.Investigation;
 
 namespace R2.Disaster.Service.Tests
 {

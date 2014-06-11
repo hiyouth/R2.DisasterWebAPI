@@ -1,4 +1,5 @@
 ﻿using R2.Disaster.CoreEntities.Domain.GeoDisaster.Emergency;
+using R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation;
 using R2.Disaster.CoreEntities.Domain.GeoDisaster.MassPres;
 using System;
 using System.Collections.Generic;

@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Domain\GeoDisaster\Comprehensive.cs" />
+    <Compile Include="Domain\GeoDisaster\Investigation\Comprehensive.cs" />
     <Compile Include="Domain\GeoDisaster\Emergency\DamageReport.cs" />
     <Compile Include="Domain\GeoDisaster\Emergency\EmergencySurvey.cs" />
     <Compile Include="Domain\GeoDisaster\EnumGeoDisasterType.cs" />

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 
-namespace R2.Disaster.Service.GeoDisaster
+namespace R2.Disaster.Service.GeoDisaster.Investigation
 {
     public interface IComprehensiveService:ICanExecuteExpress<Comprehensive>
     {

@@ -13,6 +13,8 @@ using R2.Disaster.Service.GeoDisaster;
 using R2.Disaster.WebAPI.Controllers.GeoDisaster;
 using R2.Disaster.WebAPI.Model;
 using AutoMapper;
+using R2.Disaster.Service.GeoDisaster.Investigation;
+using R2.Disaster.WebAPI.Controllers.GeoDisaster.Investigation;
 
 namespace R2.Disaster.WebAPI.Tests
 {
@@ -44,7 +46,7 @@ namespace R2.Disaster.WebAPI.Tests
             IDbContext db = new R2DisasterContext();
             IRepository<Comprehensive> re = new EFRepository<Comprehensive>(db);
             IComprehensiveService s = new ComprehensiveService(re);
-            GeoDisasterController c = new GeoDisasterController(s);
+            InvestigationController c = new InvestigationController(s);
             string a=null;
             c.GetByUIdCompletely(a);
         }

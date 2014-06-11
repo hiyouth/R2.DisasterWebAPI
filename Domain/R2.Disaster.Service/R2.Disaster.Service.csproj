@@ -37,8 +37,8 @@
     <Compile Include="GeoDisaster\PhyGeoDisasterService.cs" />
     <Compile Include="ICanExecuteExpress.cs" />
     <Compile Include="Sample\BookService.cs" />
-    <Compile Include="GeoDisaster\ComprehensiveService.cs" />
-    <Compile Include="GeoDisaster\IComprehensiveService.cs" />
+    <Compile Include="GeoDisaster\Investigation\ComprehensiveService.cs" />
+    <Compile Include="GeoDisaster\Investigation\IComprehensiveService.cs" />
     <Compile Include="Sample\IBookService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

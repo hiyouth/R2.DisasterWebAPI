@@ -9,7 +9,7 @@ using R2.Helper.Linq;
 using R2.Disaster.CoreEntities.Domain.GeoDisaster;
 using R2.Helper.GIS;
 
-namespace R2.Disaster.Service.GeoDisaster
+namespace R2.Disaster.Service.GeoDisaster.Investigation
 {
     /// <summary>
     /// 地质灾害调查表类实体服务

@@ -4,29 +4,31 @@ using R2.Disaster.CoreEntities;
 using R2.Disaster.CoreEntities.Domain.GeoDisaster;
 using R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation;
 using R2.Disaster.Service.GeoDisaster;
+using R2.Disaster.Service.GeoDisaster.Investigation;
 using R2.Disaster.WebAPI.Model;
+using R2.Disaster.WebAPI.Model.Investigation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Web.Http;
 
-namespace R2.Disaster.WebAPI.Controllers.GeoDisaster
+namespace R2.Disaster.WebAPI.Controllers.GeoDisaster.Investigation
 {
     /// <summary>
     /// 地质灾害综合信息服务
     /// </summary>
-    public class GeoDisasterController:ApiController
+    public class InvestigationController:ApiController
     {
         private IComprehensiveService _cpsService;
-        public GeoDisasterController(IComprehensiveService cpsService)
+        public InvestigationController(IComprehensiveService cpsService)
         {
             this._cpsService = cpsService;
             Mapper.CreateMap<Comprehensive, ComprehensiveModel>();
             Mapper.CreateMap<ComprehensiveModel, Comprehensive>();
         }
 
-        public GeoDisasterController()
+        public InvestigationController()
         {
 
         }

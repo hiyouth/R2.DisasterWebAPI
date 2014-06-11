@@ -2,6 +2,7 @@
 namespace R2.Disaster.WebAPI.Model
 {
     using R2.Disaster.WebAPI.Model;
+    using R2.Disaster.WebAPI.Model.Investigation;
     using System;
     using System.Collections.Generic;
 
