@@ -55,12 +55,15 @@ namespace R2.Disaster.Service.GeoDisaster
         #region 表达式树
         public Expression<Func<PhyGeoDisaster, Boolean>> GetExpressionByLocation(string keyword)
         {
-            var eps = DynamicLinqExpressions.True<PhyGeoDisaster>();
-            if (!String.IsNullOrEmpty(keyword))
-            {
-                eps = eps.And(p => p.Location.Contains(keyword));
-            }
-            return eps;
+            //var eps = DynamicLinqExpressions.True<PhyGeoDisaster>();
+            //if (!String.IsNullOrEmpty(keyword))
+            //{
+            //    eps = eps.And(p => p.Location.Contains(keyword));
+            //}
+            //return eps;
+            Expression<Func<PhyGeoDisaster,Boolean>> condtion = p=>p.Location.Contains(keyword);
+        //    LinqEntityHelper.GetExpressionForSingle<PhyGeoDisaster, EnumGeoDisasterType>(null, condtion);
+            return LinqEntityHelper.GetExpressionForSingle<PhyGeoDisaster, String>(keyword, condtion);
         }
 
         public Expression<Func<PhyGeoDisaster, Boolean>> GetExpressionByGBCode(List<string> gbcodes)
@@ -75,8 +78,7 @@ namespace R2.Disaster.Service.GeoDisaster
                 {
                     if (!String.IsNullOrEmpty(regionCode))
                     {
-                        string tempGbCode = regionCode;
-                        eps = eps.Or(p=> p.GBCodeId == tempGbCode);
+                        eps = eps.Or(p => p.GBCodeId == regionCode);
                     }
                 }
             }
