@@ -20,10 +20,5 @@ namespace R2.Disaster.Service.GeoDisaster.Investigation
         IQueryable<Comprehensive> GetByKeyWord(string keyWord);
         IQueryable<Comprehensive> GetByRect(double x1, double x2, double y1, double y2);
         IQueryable<Comprehensive> GetByCircle(double x, double y, double radious);
-        //Expression<Func<Comprehensive, Boolean>> GetExpressionByUnifiedId(string uid);
-        //Expression<Func<Comprehensive, Boolean>> GetExpressionByName(string name);
-        //Expression<Func<Comprehensive, Boolean>> GetExpressionBySituationLev(string situation);
-        //Expression<Func<Comprehensive, Boolean>> GetExpressionByDangerousLev(string dangerous);
-        //Expression<Func<Comprehensive, Boolean>> GetExpressionByDisasterType(EnumGeoDisasterType? type);
     }
 }
