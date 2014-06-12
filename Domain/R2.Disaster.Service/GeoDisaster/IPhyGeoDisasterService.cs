@@ -11,7 +11,7 @@ namespace R2.Disaster.Service.GeoDisaster
     {
         void New(PhyGeoDisaster phy);
         PhyGeoDisaster GetById(int id);
-        IQueryable<PhyGeoDisaster> GetByConditions(string gbcodeId, EnumGeoDisasterType type);
+        IQueryable<PhyGeoDisaster> GetByConditions(List<string> gbcodeIds, List<EnumGeoDisasterType> types);
         IQueryable<PhyGeoDisaster> GetByKeyWord(string keyword);
     }
 }

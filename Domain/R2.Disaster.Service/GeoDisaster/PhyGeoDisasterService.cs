@@ -32,10 +32,11 @@ namespace R2.Disaster.Service.GeoDisaster
             return phyGeoDisaster;
         }
 
-        public IQueryable<PhyGeoDisaster> GetByConditions( string gbcode, EnumGeoDisasterType type)
+        public IQueryable<PhyGeoDisaster> GetByConditions( List<string> gbcodes, 
+            List<EnumGeoDisasterType> type)
         {
             var eps = DynamicLinqExpressions.True<PhyGeoDisaster>();
-            eps = eps.And(this.GetExpressionByGBCode(gbcode))
+            eps = eps.And(this.GetExpressionByGBCode(gbcodes))
                     .And(this.GetExpressionByDisasterType(type));
             IQueryable<PhyGeoDisaster> phys = this.ExecuteConditions(eps);
             return phys;
@@ -62,23 +63,38 @@ namespace R2.Disaster.Service.GeoDisaster
             return eps;
         }
 
-        public Expression<Func<PhyGeoDisaster, Boolean>> GetExpressionByGBCode(string gbcode)
+        public Expression<Func<PhyGeoDisaster, Boolean>> GetExpressionByGBCode(List<string> gbcodes)
         {
+            //如果为null，表示忽略此条件
             var eps = DynamicLinqExpressions.True<PhyGeoDisaster>();
-            if (!String.IsNullOrEmpty(gbcode))
+            if (gbcodes != null&&gbcodes.Count!=0)
             {
-                eps = eps.And(p => p.GBCodeId.Contains(gbcode));
+                //如果不为null，则初始条件为False，多个gbcodes间为“OR”关系，有一个满足则，此条件成立
+                eps = DynamicLinqExpressions.False<PhyGeoDisaster>();
+                foreach (var regionCode in gbcodes)
+                {
+                    if (!String.IsNullOrEmpty(regionCode))
+                    {
+                        string tempGbCode = regionCode;
+                        eps = eps.Or(p=> p.GBCodeId == tempGbCode);
+                    }
+                }
             }
             return eps;
         }
 
         public Expression<Func<PhyGeoDisaster, Boolean>> GetExpressionByDisasterType(
-            EnumGeoDisasterType? type)
+            List<EnumGeoDisasterType> types)
         {
             var eps = DynamicLinqExpressions.True<PhyGeoDisaster>();
-            if (type != null)
+            if (types != null && types.Count != 0)
             {
-                eps = eps.And(p => p.DisasterType == type);
+                //如果不为null，则初始条件为False，多个gbcodes间为“OR”关系，有一个满足则，此条件成立
+                eps = DynamicLinqExpressions.False<PhyGeoDisaster>();
+                foreach (var type in types)
+                {
+                   eps = eps.Or(p => p.DisasterType == type);
+                }
             }
             return eps;
         }

@@ -135,8 +135,8 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster.Investigation
         /// <param name="situationLev">灾情级别</param>
         /// <returns></returns>
         //通过行政区编码、灾害类型、险情大小、灾情大小进行查询
-        public IList<ComprehensiveSimplify> GetSimplifyByConditions(EnumGeoDisasterType? type=null,string gbcode=null,
-            string dangerLev=null,string situationLev=null)
+        public IList<ComprehensiveSimplify> GetSimplifyByConditions(List<EnumGeoDisasterType> type=null,
+            List<string> gbcode=null, List<string >dangerLev=null,List<string> situationLev=null)
         {
             IQueryable<Comprehensive> comprehensives =
                 this._cpsService.GetByContions(gbcode, situationLev, dangerLev, type);

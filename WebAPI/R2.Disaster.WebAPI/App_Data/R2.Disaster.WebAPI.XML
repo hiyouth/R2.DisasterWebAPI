@@ -534,7 +534,7 @@
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:R2.Disaster.WebAPI.Controllers.GeoDisaster.Investigation.InvestigationController.GetSimplifyByConditions(System.Nullable{R2.Disaster.CoreEntities.Domain.GeoDisaster.EnumGeoDisasterType},System.String,System.String,System.String)">
+        <member name="M:R2.Disaster.WebAPI.Controllers.GeoDisaster.Investigation.InvestigationController.GetSimplifyByConditions(System.Collections.Generic.List{R2.Disaster.CoreEntities.Domain.GeoDisaster.EnumGeoDisasterType},System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String})">
             <summary>
             通过行政区编码、灾害类型、险情大小、灾情大小查询灾害点简要信息
             </summary>
@@ -550,21 +550,41 @@
             </summary>
             <param name="ghc">地质灾害实体</param>
         </member>
+        <member name="T:R2.Disaster.WebAPI.Controllers.GeoDisaster.PhyGeoDisasterController">
+            <summary>
+            地质灾害物理点实体控制器
+            </summary>
+        </member>
         <member name="M:R2.Disaster.WebAPI.Controllers.GeoDisaster.PhyGeoDisasterController.Get(System.Int32)">
             <summary>
-            通过编号获取物理点实体信息
+            通过编号获取物理点实体信息，物理点信息会关联大量信息，
+            如无特殊需求，请不要随意调用
             </summary>
-            <param name="id"></param>
+            <param name="id">物理点编号</param>
+            <returns></returns>
+        </member>
+        <member name="M:R2.Disaster.WebAPI.Controllers.GeoDisaster.PhyGeoDisasterController.GetSimplifyById(System.Int32)">
+            <summary>
+            通过编号获取物理点简要信息
+            </summary>
+            <param name="id">物理点编号</param>
             <returns></returns>
         </member>
         <member name="M:R2.Disaster.WebAPI.Controllers.GeoDisaster.PhyGeoDisasterController.Get(System.String)">
+             <summary>
+             通过名称、地理位置进行物理点检索
+             可以将需要忽略的条件设置为Null
+             </summary>
+            <param name="keyword">关键字</param>
+             <returns>物理点简要信息</returns>
+        </member>
+        <member name="M:R2.Disaster.WebAPI.Controllers.GeoDisaster.PhyGeoDisasterController.Get(System.Collections.Generic.List{System.String},System.Collections.Generic.List{R2.Disaster.CoreEntities.Domain.GeoDisaster.EnumGeoDisasterType})">
             <summary>
-            通过名称、地理位置进行物理点检索
-            可以将需要忽略的条件设置为Null
+            通过行政区编码，灾害类型进行查询
             </summary>
-            <param name="name">灾害点名称关键字</param>
-            <param name="location">地理位置关键字</param>
-            <returns></returns>
+            <param name="gbcodes">多个行政区编码</param>
+            <param name="types">多种灾害类型</param>
+            <returns>物理点简要信息</returns>
         </member>
     </members>
 </doc>
