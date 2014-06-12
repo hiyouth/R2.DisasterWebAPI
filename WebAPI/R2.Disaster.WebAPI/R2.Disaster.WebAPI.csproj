@@ -83,7 +83,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Infrastructure\AutoMapperRegister.cs" />
+    <Compile Include="Infrastructure\AutoMapperRegistrar.cs" />
     <Compile Include="Infrastructure\DenpendencyRegistrar.cs" />
     <Compile Include="Infrastructure\R2DependencyResolver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

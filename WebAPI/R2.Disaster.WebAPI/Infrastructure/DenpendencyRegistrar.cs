@@ -20,10 +20,11 @@ namespace R2.Disaster.WebAPI
             builder.RegisterType<R2DisasterContext>().As<IDbContext>().InstancePerRequest();
             builder.RegisterGeneric(typeof(EFRepository<>)).As(typeof(IRepository<>)).InstancePerRequest();
             builder.RegisterType<BookRepository>().As<IBookRepository>().InstancePerRequest();
-            builder.RegisterType<BookService>().As<IBookService>().InstancePerRequest();
 
+            builder.RegisterType<BookService>().As<IBookService>().InstancePerRequest();
             builder.RegisterType<ComprehensiveService>().As<IComprehensiveService>().InstancePerRequest();
             builder.RegisterType<DebrisFlowService>().As<IDebrisFlowService>().InstancePerRequest();
+            builder.RegisterType<PhyGeoDisasterService>().As<IPhyGeoDisasterService>().InstancePerRequest();
         }
 
         public int Order

@@ -15,7 +15,7 @@ namespace R2.Disaster.Service.GeoDisaster.Investigation
         IQueryable<Comprehensive> GetSimilarByUnifiedId(string uid);
         IQueryable<Comprehensive> GetByName(string name);
         Comprehensive GetById(int id);
-        IQueryable<Comprehensive> GetByMultiplyContions(string gbCode, string situationLev,
+        IQueryable<Comprehensive> GetByContions(string gbCode, string situationLev,
             string dangerousLev, EnumGeoDisasterType? type);
         IQueryable<Comprehensive> GetByKeyWord(string keyWord);
         IQueryable<Comprehensive> GetByRect(double x1, double x2, double y1, double y2);

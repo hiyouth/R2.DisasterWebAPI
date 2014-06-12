@@ -10,5 +10,8 @@ namespace R2.Disaster.Service.GeoDisaster
     public interface IPhyGeoDisasterService
     {
         void New(PhyGeoDisaster phy);
+        PhyGeoDisaster GetById(int id);
+        IQueryable<PhyGeoDisaster> GetByConditions(string gbcodeId, EnumGeoDisasterType type);
+        IQueryable<PhyGeoDisaster> GetByKeyWord(string keyword);
     }
 }

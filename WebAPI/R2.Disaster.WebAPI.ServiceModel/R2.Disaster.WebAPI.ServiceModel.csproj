@@ -42,7 +42,7 @@
     <Compile Include="Class1.cs" />
     <Compile Include="GeoDisaster\Investigation\ComprehensiveSimplify.cs" />
     <Compile Include="GeoDisaster\Investigation\DebrisFlowModel.cs" />
-    <Compile Include="GeoDisaster\PhyGeoDisasterModel.cs" />
+    <Compile Include="GeoDisaster\PhyGeoDisasterSimplify.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

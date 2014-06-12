@@ -38,7 +38,7 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster.Investigation
         /// </summary>
         /// <param name="uid">统一编号</param>
         /// <returns>地质灾害完整信息</returns>
-        public IList<Comprehensive> GetByUIdCompletely (string uid)
+        public IList<Comprehensive> GetByUId(string uid)
         {
             if (String.IsNullOrEmpty(uid))
                 throw new Exception("灾害点的统一编号不能为Null或者空字符串");
@@ -55,7 +55,7 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster.Investigation
         /// </summary>
         /// <param name="keyWord">关键字</param>
         /// <returns>符合条件的实体信息</returns>
-        public IList<ComprehensiveSimplify> GetByKeyWord(string keyWord)
+        public IList<ComprehensiveSimplify> GetSimplifyByKeyWord(string keyWord)
         {
             if (String.IsNullOrEmpty(keyWord))
                 throw new Exception("查询的关键字不允许是类型“null”或者空字符串");
@@ -72,7 +72,7 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster.Investigation
         /// <param name="y">圆心Y</param>
         /// <param name="radius">半径</param>
         /// <returns>符合条件的实体信息</returns>
-        public IList<ComprehensiveSimplify> GetByCircle(double x, double y, double radius)
+        public IList<ComprehensiveSimplify> GetSimplifyByCircle(double x, double y, double radius)
         {
             IQueryable<Comprehensive> comprehensives = this._cpsService.GetByCircle(
                 x, y, radius);
@@ -89,7 +89,7 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster.Investigation
         /// <param name="y1">矩形左下角Y</param>
         /// <param name="y2">矩形右上角Y</param>
         /// <returns>符合条件的实体信息</returns>
-        public IList<ComprehensiveSimplify> GetByRect(double x1, double x2, double y1, double y2)
+        public IList<ComprehensiveSimplify> GetSimplifyByRect(double x1, double x2, double y1, double y2)
         {
             IQueryable<Comprehensive> comprehensives = this._cpsService.GetByRect(
                 x1, x2, y1, y2);
@@ -135,11 +135,11 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster.Investigation
         /// <param name="situationLev">灾情级别</param>
         /// <returns></returns>
         //通过行政区编码、灾害类型、险情大小、灾情大小进行查询
-        public IList<ComprehensiveSimplify> GetByMulityplyConditions(EnumGeoDisasterType? type=null,string gbcode=null,
+        public IList<ComprehensiveSimplify> GetSimplifyByConditions(EnumGeoDisasterType? type=null,string gbcode=null,
             string dangerLev=null,string situationLev=null)
         {
             IQueryable<Comprehensive> comprehensives =
-                this._cpsService.GetByMultiplyContions(gbcode, situationLev, dangerLev, type);
+                this._cpsService.GetByContions(gbcode, situationLev, dangerLev, type);
             IList<ComprehensiveSimplify> cpsModels = Mapper.Map<IQueryable<Comprehensive>,
             IList<ComprehensiveSimplify>>(comprehensives);
             return cpsModels;

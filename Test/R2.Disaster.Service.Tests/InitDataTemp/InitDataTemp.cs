@@ -89,8 +89,7 @@ namespace R2.Disaster.Service.Tests
             {
                 GBCodeId ="370101",
                 Location = "西蒋峪村北侧",
-                灾害类型 = EnumGeoDisasterType.DebrisFlow,
-                Investigated=true,
+                DisasterType = EnumGeoDisasterType.DebrisFlow,
                 Name = "西蒋峪村北侧地面塌陷333",
             };
             Comprehensive c = new Comprehensive()
@@ -110,8 +109,7 @@ namespace R2.Disaster.Service.Tests
             {
                 GBCodeId = "370101",
                 Location = "西蒋峪村北侧",
-                灾害类型 = EnumGeoDisasterType.LandFracture,
-                Investigated=true,
+                DisasterType = EnumGeoDisasterType.LandFracture,
                 Name = "东凤凰村地裂缝33",
                 DamageReports = new List<DamageReport>()
                 {

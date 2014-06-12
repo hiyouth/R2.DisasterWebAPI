@@ -31,7 +31,7 @@ namespace R2.Disaster.WebAPI
 
             //注册AutoMapper
             //TODO：这里可能产生耦合，考虑是否使用接口
-            var mapperConfig = new AutoMapperRegister();
+            var mapperConfig = new AutoMapperRegistrar();
             mapperConfig.Register();
             
 

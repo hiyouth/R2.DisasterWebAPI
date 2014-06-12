@@ -48,7 +48,7 @@ namespace R2.Disaster.WebAPI.Tests
             IComprehensiveService s = new ComprehensiveService(re);
             InvestigationController c = new InvestigationController(s);
             string a=null;
-            c.GetByUIdCompletely(a);
+            c.GetByUId(a);
         }
 
 

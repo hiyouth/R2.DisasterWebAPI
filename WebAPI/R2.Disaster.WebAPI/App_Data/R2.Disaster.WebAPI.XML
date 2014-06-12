@@ -486,21 +486,21 @@
             地质灾害综合信息服务
             </summary>
         </member>
-        <member name="M:R2.Disaster.WebAPI.Controllers.GeoDisaster.Investigation.InvestigationController.GetByUIdCompletely(System.String)">
+        <member name="M:R2.Disaster.WebAPI.Controllers.GeoDisaster.Investigation.InvestigationController.GetByUId(System.String)">
             <summary>
             通过统一编号查询灾害点地质调查综合信息
             </summary>
             <param name="uid">统一编号</param>
             <returns>地质灾害完整信息</returns>
         </member>
-        <member name="M:R2.Disaster.WebAPI.Controllers.GeoDisaster.Investigation.InvestigationController.GetByKeyWord(System.String)">
+        <member name="M:R2.Disaster.WebAPI.Controllers.GeoDisaster.Investigation.InvestigationController.GetSimplifyByKeyWord(System.String)">
             <summary>
             通过关键字检索灾害点简要信息，关键字将检索灾害点名称、灾害点地理位置、统一编号
             </summary>
             <param name="keyWord">关键字</param>
             <returns>符合条件的实体信息</returns>
         </member>
-        <member name="M:R2.Disaster.WebAPI.Controllers.GeoDisaster.Investigation.InvestigationController.GetByCircle(System.Double,System.Double,System.Double)">
+        <member name="M:R2.Disaster.WebAPI.Controllers.GeoDisaster.Investigation.InvestigationController.GetSimplifyByCircle(System.Double,System.Double,System.Double)">
             <summary>
             空间“圆”查询
             </summary>
@@ -509,7 +509,7 @@
             <param name="radius">半径</param>
             <returns>符合条件的实体信息</returns>
         </member>
-        <member name="M:R2.Disaster.WebAPI.Controllers.GeoDisaster.Investigation.InvestigationController.GetByRect(System.Double,System.Double,System.Double,System.Double)">
+        <member name="M:R2.Disaster.WebAPI.Controllers.GeoDisaster.Investigation.InvestigationController.GetSimplifyByRect(System.Double,System.Double,System.Double,System.Double)">
             <summary>
             空间“矩形”查询
             </summary>
@@ -534,7 +534,7 @@
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:R2.Disaster.WebAPI.Controllers.GeoDisaster.Investigation.InvestigationController.GetByMulityplyConditions(System.Nullable{R2.Disaster.CoreEntities.Domain.GeoDisaster.EnumGeoDisasterType},System.String,System.String,System.String)">
+        <member name="M:R2.Disaster.WebAPI.Controllers.GeoDisaster.Investigation.InvestigationController.GetSimplifyByConditions(System.Nullable{R2.Disaster.CoreEntities.Domain.GeoDisaster.EnumGeoDisasterType},System.String,System.String,System.String)">
             <summary>
             通过行政区编码、灾害类型、险情大小、灾情大小查询灾害点简要信息
             </summary>
@@ -549,6 +549,22 @@
             新增地质灾害实体
             </summary>
             <param name="ghc">地质灾害实体</param>
+        </member>
+        <member name="M:R2.Disaster.WebAPI.Controllers.GeoDisaster.PhyGeoDisasterController.Get(System.Int32)">
+            <summary>
+            通过编号获取物理点实体信息
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:R2.Disaster.WebAPI.Controllers.GeoDisaster.PhyGeoDisasterController.Get(System.String)">
+            <summary>
+            通过名称、地理位置进行物理点检索
+            可以将需要忽略的条件设置为Null
+            </summary>
+            <param name="name">灾害点名称关键字</param>
+            <param name="location">地理位置关键字</param>
+            <returns></returns>
         </member>
     </members>
 </doc>

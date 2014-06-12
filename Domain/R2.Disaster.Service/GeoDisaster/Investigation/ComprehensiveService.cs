@@ -220,7 +220,7 @@ namespace R2.Disaster.Service.GeoDisaster.Investigation
         }
 
         
-        public IQueryable<Comprehensive> GetByMultiplyContions(string gbCode, 
+        public IQueryable<Comprehensive> GetByContions(string gbCode, 
             string situationLev, string dangerousLev, EnumGeoDisasterType? type)
         {
             var eps = DynamicLinqExpressions.True<Comprehensive>();
