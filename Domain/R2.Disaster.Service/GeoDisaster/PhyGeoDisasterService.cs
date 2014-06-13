@@ -33,7 +33,7 @@ namespace R2.Disaster.Service.GeoDisaster
         }
 
         public IQueryable<PhyGeoDisaster> GetByConditions( List<string> gbcodes, 
-            List<EnumGeoDisasterType> type)
+            List<EnumGeoDisasterType?> type)
         {
             var eps = DynamicLinqExpressions.True<PhyGeoDisaster>();
             eps = eps.And(this.GetExpressionByGBCode(gbcodes))
@@ -86,7 +86,7 @@ namespace R2.Disaster.Service.GeoDisaster
         }
 
         public Expression<Func<PhyGeoDisaster, Boolean>> GetExpressionByDisasterType(
-            List<EnumGeoDisasterType> types)
+            List<EnumGeoDisasterType?> types)
         {
             var eps = DynamicLinqExpressions.True<PhyGeoDisaster>();
             if (types != null && types.Count != 0)
@@ -111,5 +111,28 @@ namespace R2.Disaster.Service.GeoDisaster
             return eps;
         }
         #endregion
+
+
+        public IQueryable<PhyGeoDisaster> GetByConditions(string gbCode, EnumGeoDisasterType? type)
+        {
+            List<String> gbCodes = null;
+            if (!String.IsNullOrEmpty(gbCode))
+            {
+                gbCodes = new List<string>()
+                {
+                    gbCode
+                };
+            }
+            List<EnumGeoDisasterType?> types = null;
+            if (type!=null)
+            {
+                types = new List<EnumGeoDisasterType?>()
+                {
+                    type
+                };
+            }
+            IQueryable<PhyGeoDisaster> phys = this.GetByConditions(gbCodes, types);
+            return phys;
+        }
     }
 }

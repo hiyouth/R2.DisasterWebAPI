@@ -486,6 +486,12 @@
             地质灾害综合信息服务
             </summary>
         </member>
+        <member name="M:R2.Disaster.WebAPI.Controllers.GeoDisaster.Investigation.InvestigationController.#ctor(R2.Disaster.Service.GeoDisaster.Investigation.IComprehensiveService)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="cpsService"></param>
+        </member>
         <member name="M:R2.Disaster.WebAPI.Controllers.GeoDisaster.Investigation.InvestigationController.GetByUId(System.String)">
             <summary>
             通过统一编号查询灾害点地质调查综合信息
@@ -534,21 +540,28 @@
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:R2.Disaster.WebAPI.Controllers.GeoDisaster.Investigation.InvestigationController.GetSimplifyByConditions(System.Collections.Generic.List{R2.Disaster.CoreEntities.Domain.GeoDisaster.EnumGeoDisasterType},System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String})">
+        <member name="M:R2.Disaster.WebAPI.Controllers.GeoDisaster.Investigation.InvestigationController.GetSimplifyByConditions(R2.Disaster.WebAPI.ServiceModel.GeoDisaster.Investigation.InvestigationQueryCondition)">
+             <summary>
+             通过行政区编码、灾害类型、险情大小、灾情大小查询灾害点简要信息（POST）
+             </summary>
+            <param name="condition">InvestigationCondition类型</param>
+             <returns>地质调查实体简要信息</returns>
+        </member>
+        <member name="M:R2.Disaster.WebAPI.Controllers.GeoDisaster.Investigation.InvestigationController.GetSimplifyByConditions(System.Nullable{R2.Disaster.CoreEntities.Domain.GeoDisaster.EnumGeoDisasterType},System.String,System.String,System.String)">
             <summary>
-            通过行政区编码、灾害类型、险情大小、灾情大小查询灾害点简要信息
+             通过行政区编码、灾害类型、险情大小、灾情大小查询灾害点简要信息（Get）
             </summary>
-            <param name="type">灾害类型: 01泥石流；02地面塌陷；04地裂缝；08滑坡；16崩塌；32地面沉降；64滑坡</param>
+            <param name="type">类型</param>
             <param name="gbcode">行政区编码</param>
-            <param name="dangerLev">险情级别</param>
-            <param name="situationLev">灾情级别</param>
-            <returns></returns>
+            <param name="dangerLev">险情等级</param>
+            <param name="situationLev">灾情等级</param>
+            <returns>地质调查实体简要信息</returns>
         </member>
         <member name="M:R2.Disaster.WebAPI.Controllers.GeoDisaster.Investigation.InvestigationController.New(R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation.Comprehensive)">
             <summary>
             新增地质灾害实体
             </summary>
-            <param name="ghc">地质灾害实体</param>
+            <param name="comprehensive">地质灾害实体</param>
         </member>
         <member name="T:R2.Disaster.WebAPI.Controllers.GeoDisaster.PhyGeoDisasterController">
             <summary>
@@ -578,9 +591,17 @@
             <param name="keyword">关键字</param>
              <returns>物理点简要信息</returns>
         </member>
-        <member name="M:R2.Disaster.WebAPI.Controllers.GeoDisaster.PhyGeoDisasterController.Get(System.Collections.Generic.List{System.String},System.Collections.Generic.List{R2.Disaster.CoreEntities.Domain.GeoDisaster.EnumGeoDisasterType})">
+        <member name="M:R2.Disaster.WebAPI.Controllers.GeoDisaster.PhyGeoDisasterController.Get(System.String,System.Nullable{R2.Disaster.CoreEntities.Domain.GeoDisaster.EnumGeoDisasterType})">
             <summary>
-            通过行政区编码，灾害类型进行查询
+            通过行政区编码，灾害类型进行查询(Get)
+            </summary>
+            <param name="gbcodes">行政区编码</param>
+            <param name="types">灾害类型</param>
+            <returns>物理点简要信息</returns>
+        </member>
+        <member name="M:R2.Disaster.WebAPI.Controllers.GeoDisaster.PhyGeoDisasterController.Get(R2.Disaster.WebAPI.ServiceModel.GeoDisaster.PhyGeoDisasterQueryCondition)">
+            <summary>
+            通过行政区编码，灾害类型进行查询(POST)
             </summary>
             <param name="gbcodes">多个行政区编码</param>
             <param name="types">多种灾害类型</param>

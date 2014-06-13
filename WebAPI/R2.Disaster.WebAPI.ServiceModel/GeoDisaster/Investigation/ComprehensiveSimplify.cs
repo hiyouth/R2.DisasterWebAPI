@@ -24,12 +24,12 @@ namespace R2.Disaster.WebAPI.Model.Investigation
         /// <summary>
         /// 灾害类型
         /// </summary>
-        public virtual EnumGeoDisasterType 灾害类型 { get; set; }
+        public  EnumGeoDisasterType 灾害类型 { get; set; }
 
         /// <summary>
         /// 行政区编码
         /// </summary>
-        public virtual GBCode GBCode { get; set; }
+        public  GBCode GBCode { get; set; }
 
         public string 地理位置 { get; set; }
 

@@ -7,6 +7,7 @@ using R2.Disaster.Service.GeoDisaster;
 using R2.Disaster.Service.GeoDisaster.Investigation;
 using R2.Disaster.WebAPI.Model;
 using R2.Disaster.WebAPI.Model.Investigation;
+using R2.Disaster.WebAPI.ServiceModel.GeoDisaster.Investigation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,16 +22,16 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster.Investigation
     public class InvestigationController:ApiController
     {
         private IComprehensiveService _cpsService;
+        
+        /// <summary>
+        /// 构造函数
+        /// </summary>
+        /// <param name="cpsService"></param>
         public InvestigationController(IComprehensiveService cpsService)
         {
             this._cpsService = cpsService;
             //Mapper.CreateMap<Comprehensive, ComprehensiveModel>();
             //Mapper.CreateMap<ComprehensiveModel, Comprehensive>();
-        }
-
-        public InvestigationController()
-        {
-
         }
 
         /// <summary>
@@ -127,29 +128,44 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster.Investigation
         }
 
         /// <summary>
-        /// 通过行政区编码、灾害类型、险情大小、灾情大小查询灾害点简要信息
+        /// 通过行政区编码、灾害类型、险情大小、灾情大小查询灾害点简要信息（POST）
         /// </summary>
-        /// <param name="type">灾害类型: 01泥石流；02地面塌陷；04地裂缝；08滑坡；16崩塌；32地面沉降；64滑坡</param>
-        /// <param name="gbcode">行政区编码</param>
-        /// <param name="dangerLev">险情级别</param>
-        /// <param name="situationLev">灾情级别</param>
-        /// <returns></returns>
-        //通过行政区编码、灾害类型、险情大小、灾情大小进行查询
-        public IList<ComprehensiveSimplify> GetSimplifyByConditions(List<EnumGeoDisasterType> type=null,
-            List<string> gbcode=null, List<string >dangerLev=null,List<string> situationLev=null)
+        ///<param name="condition">InvestigationCondition类型</param>
+        /// <returns>地质调查实体简要信息</returns>
+       [HttpPost]
+        public IList<ComprehensiveSimplify> GetSimplifyByConditions([FromBody]InvestigationQueryCondition condition)
         {
             IQueryable<Comprehensive> comprehensives =
-                this._cpsService.GetByContions(gbcode, situationLev, dangerLev, type);
+                this._cpsService.GetByConditions(condition.GbCodes, condition.SituationLevs
+                , condition.DangerLevs, condition.Types);
             IList<ComprehensiveSimplify> cpsModels = Mapper.Map<IQueryable<Comprehensive>,
             IList<ComprehensiveSimplify>>(comprehensives);
             return cpsModels;
         }
 
         /// <summary>
+       ///  通过行政区编码、灾害类型、险情大小、灾情大小查询灾害点简要信息（Get）
+        /// </summary>
+        /// <param name="type">类型</param>
+        /// <param name="gbcode">行政区编码</param>
+        /// <param name="dangerLev">险情等级</param>
+        /// <param name="situationLev">灾情等级</param>
+       /// <returns>地质调查实体简要信息</returns>
+       public IList<ComprehensiveSimplify> GetSimplifyByConditions(EnumGeoDisasterType? type = null,
+           String gbcode = null, String dangerLev = null, String situationLev = null)
+       {
+           IQueryable<Comprehensive> comprehensives =
+               this._cpsService.GetByConditions(gbcode, situationLev, dangerLev, type);
+           IList<ComprehensiveSimplify> cpsModels = Mapper.Map<IQueryable<Comprehensive>,
+           IList<ComprehensiveSimplify>>(comprehensives);
+           return cpsModels;
+       }
+
+        /// <summary>
         /// 新增地质灾害实体
         /// </summary>
-        /// <param name="ghc">地质灾害实体</param>
-        public void New(Comprehensive comprehensive)
+       /// <param name="comprehensive">地质灾害实体</param>
+        public void New([FromBody]Comprehensive comprehensive)
         {
             this._cpsService.New(comprehensive);
         }

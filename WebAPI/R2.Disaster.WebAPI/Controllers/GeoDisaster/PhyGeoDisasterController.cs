@@ -2,6 +2,7 @@
 using R2.Disaster.CoreEntities.Domain.GeoDisaster;
 using R2.Disaster.Service.GeoDisaster;
 using R2.Disaster.WebAPI.Model;
+using R2.Disaster.WebAPI.ServiceModel.GeoDisaster;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -68,36 +69,35 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster
         }
 
         /// <summary>
-        /// 通过行政区编码，灾害类型进行查询
+        /// 通过行政区编码，灾害类型进行查询(Get)
         /// </summary>
-        /// <param name="gbcodes">多个行政区编码</param>
-        /// <param name="types">多种灾害类型</param>
+        /// <param name="gbcodes">行政区编码</param>
+        /// <param name="types">灾害类型</param>
         /// <returns>物理点简要信息</returns>
-        public IList<PhyGeoDisasterSimplify> Get(List<string> gbcodes=null,
-            List<EnumGeoDisasterType> types=null)
+        public IList<PhyGeoDisasterSimplify> Get(string gbcode=null,
+            EnumGeoDisasterType? type=null)
         {
             IQueryable<PhyGeoDisaster> phys =
-                  this._phyService.GetByConditions(gbcodes,types);
+                  this._phyService.GetByConditions(gbcode, type);
             IList<PhyGeoDisasterSimplify> phyModels = Mapper.Map<IQueryable<PhyGeoDisaster>,
             IList<PhyGeoDisasterSimplify>>(phys);
             return phyModels;
         }
 
-
-
-        // POST api/phygeodisaster
-        public void Post([FromBody]string value)
+        /// <summary>
+        /// 通过行政区编码，灾害类型进行查询(POST)
+        /// </summary>
+        /// <param name="gbcodes">多个行政区编码</param>
+        /// <param name="types">多种灾害类型</param>
+        /// <returns>物理点简要信息</returns>
+        [HttpPost]
+        public IList<PhyGeoDisasterSimplify> Get([FromBody]PhyGeoDisasterQueryCondition conditions)
         {
-        }
-
-        // PUT api/phygeodisaster/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE api/phygeodisaster/5
-        public void Delete(int id)
-        {
+            IQueryable<PhyGeoDisaster> phys =
+                  this._phyService.GetByConditions(conditions.GBCodes, conditions.Types);
+            IList<PhyGeoDisasterSimplify> phyModels = Mapper.Map<IQueryable<PhyGeoDisaster>,
+            IList<PhyGeoDisasterSimplify>>(phys);
+            return phyModels;
         }
     }
 }

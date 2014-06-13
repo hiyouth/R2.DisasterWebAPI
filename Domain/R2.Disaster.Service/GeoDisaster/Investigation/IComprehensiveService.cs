@@ -15,10 +15,13 @@ namespace R2.Disaster.Service.GeoDisaster.Investigation
         IQueryable<Comprehensive> GetSimilarByUnifiedId(string uid);
         IQueryable<Comprehensive> GetByName(string name);
         Comprehensive GetById(int id);
-        IQueryable<Comprehensive> GetByContions(List<string> gbCodes,
-            List<string> situationLevs, List<string> dangerousLevs, List<EnumGeoDisasterType> types);
+        IQueryable<Comprehensive> GetByConditions(List<string> gbCodes,
+            List<string> situationLevs, List<string> dangerousLevs, List<EnumGeoDisasterType?> types);
+        IQueryable<Comprehensive> GetByConditions(String gbCode,String situationLev,String dangerous,
+            EnumGeoDisasterType? type);
         IQueryable<Comprehensive> GetByKeyWord(string keyWord);
         IQueryable<Comprehensive> GetByRect(double x1, double x2, double y1, double y2);
         IQueryable<Comprehensive> GetByCircle(double x, double y, double radious);
+
     }
 }

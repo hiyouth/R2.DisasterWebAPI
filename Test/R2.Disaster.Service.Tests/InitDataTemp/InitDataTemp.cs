@@ -177,7 +177,7 @@ namespace R2.Disaster.Service.Tests
             IRepository<Category> re = new EFRepository<Category>(db);
 
             Category c = new Category()
-            {
+            {   
                 Name = "Testname",
                 Book = new Book()
                 {

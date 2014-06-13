@@ -14,7 +14,7 @@ namespace R2.Disaster.Service.GeoDisaster.Investigation
     /// <summary>
     /// 地质灾害调查表类实体服务
     /// </summary>
-    public class ComprehensiveService:DomainServiceBase<Comprehensive>,IComprehensiveService
+    public class ComprehensiveService : DomainServiceBase<Comprehensive>, IComprehensiveService
     {
         private IRepository<Comprehensive> _comprehensiveRepository;
 
@@ -23,7 +23,7 @@ namespace R2.Disaster.Service.GeoDisaster.Investigation
         /// </summary>
         /// <param name="comprehensiveRepository"></param>
         public ComprehensiveService(IRepository<Comprehensive> comprehensiveRepository)
-            :base(comprehensiveRepository)
+            : base(comprehensiveRepository)
         {
             this._comprehensiveRepository = comprehensiveRepository;
         }
@@ -61,9 +61,9 @@ namespace R2.Disaster.Service.GeoDisaster.Investigation
         /// <returns></returns>
         public IQueryable<Comprehensive> GetByName(string name)
         {
-            var q= from c in this._comprehensiveRepository.Table
-                   where c.名称.Contains(name)
-                   select c;
+            var q = from c in this._comprehensiveRepository.Table
+                    where c.名称.Contains(name)
+                    select c;
             return q;
         }
 
@@ -85,7 +85,7 @@ namespace R2.Disaster.Service.GeoDisaster.Investigation
         public Expression<Func<Comprehensive, Boolean>> GetExpressionByUnifiedId(string uid)
         {
             var eps = DynamicLinqExpressions.True<Comprehensive>();
-            if(!String.IsNullOrEmpty(uid))
+            if (!String.IsNullOrEmpty(uid))
             {
                 eps = eps.And(c => c.统一编号.Contains(uid));
             }
@@ -155,7 +155,7 @@ namespace R2.Disaster.Service.GeoDisaster.Investigation
         }
 
         public Expression<Func<Comprehensive, Boolean>> GetExpressionByDisasterType(
-            List<EnumGeoDisasterType> types)
+            List<EnumGeoDisasterType?> types)
         {
             var eps = DynamicLinqExpressions.True<Comprehensive>();
             if (types != null && types.Count != 0)
@@ -164,7 +164,10 @@ namespace R2.Disaster.Service.GeoDisaster.Investigation
                 eps = DynamicLinqExpressions.False<Comprehensive>();
                 foreach (var type in types)
                 {
-                    eps = eps.Or(p => p.灾害类型 == type);
+                    if (type != null)
+                    {
+                        eps = eps.Or(p => p.灾害类型 == type);
+                    }
                 }
             }
             return eps;
@@ -231,7 +234,7 @@ namespace R2.Disaster.Service.GeoDisaster.Investigation
 
         public IQueryable<Comprehensive> GetByCircle(double x, double y, double radius)
         {
-            var eps = this.GetExpressionByCircle(x,y,radius);
+            var eps = this.GetExpressionByCircle(x, y, radius);
             IQueryable<Comprehensive> comprehensives = this.ExecuteConditions(eps);
             return comprehensives;
         }
@@ -246,9 +249,9 @@ namespace R2.Disaster.Service.GeoDisaster.Investigation
             return comprehensives;
         }
 
-        
-        public IQueryable<Comprehensive> GetByContions(List<string> gbCodes,
-            List<string> situationLevs, List<string> dangerousLevs, List<EnumGeoDisasterType> types)
+
+        public IQueryable<Comprehensive> GetByConditions(List<string> gbCodes,
+            List<string> situationLevs, List<string> dangerousLevs, List<EnumGeoDisasterType?> types)
         {
             var eps = DynamicLinqExpressions.True<Comprehensive>();
             eps = eps.And(this.GetExpressionByGBCode(gbCodes))
@@ -257,6 +260,47 @@ namespace R2.Disaster.Service.GeoDisaster.Investigation
                 .And(this.GetExpressionByDangerousLev(dangerousLevs));
             IQueryable<Comprehensive> comprehensives = this.ExecuteConditions(eps);
             return comprehensives;
+        }
+
+
+        public IQueryable<Comprehensive> GetByConditions(string gbCode,
+            string situationLev, string dangerous, EnumGeoDisasterType? type)
+        {
+            List<String> gbCodes = null;
+            if (!String.IsNullOrEmpty(gbCode))
+            {
+                gbCodes = new List<string>()
+                {
+                    gbCode
+                };
+            }
+
+            List<String> situationLevs = null;
+            if (!String.IsNullOrEmpty(situationLev))
+            {
+                situationLevs = new List<string>()
+                {
+                    situationLev
+                };
+            }
+
+            List<String> dangerousLevs = null;
+            if (!String.IsNullOrEmpty(dangerous))
+            {
+                dangerousLevs = new List<string>()
+                {
+                    dangerous
+                };
+            }
+
+            List<EnumGeoDisasterType?> types = null;
+            if (type != null)
+            {
+                types = new List<EnumGeoDisasterType?>();
+                types.Add(type);
+            }
+
+            return this.GetByConditions(gbCodes, situationLevs, dangerousLevs, types);
         }
     }
 }
