@@ -134,5 +134,11 @@ namespace R2.Disaster.Service.GeoDisaster
             IQueryable<PhyGeoDisaster> phys = this.GetByConditions(gbCodes, types);
             return phys;
         }
+
+
+        public void Update(PhyGeoDisaster phy)
+        {
+            this._repositoryPhy.Update(phy);
+        }
     }
 }
