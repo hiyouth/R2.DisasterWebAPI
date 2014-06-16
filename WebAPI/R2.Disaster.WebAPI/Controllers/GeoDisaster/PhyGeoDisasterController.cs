@@ -99,5 +99,19 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster
             IList<PhyGeoDisasterSimplify>>(phys);
             return phyModels;
         }
+
+        public void New(PhyGeoDisaster phy)
+        {
+            if (phy == null)
+                throw new Exception("无法新增空的PhyGeoDisaster实体");
+            this._phyService.New(phy);
+        }
+
+        public void Update(PhyGeoDisaster phy)
+        {
+            if (phy == null)
+                throw new Exception("无法新增值为Null的PhyGeoDisaster实体");
+            this._phyService.Update(phy);
+        }
     }
 }
