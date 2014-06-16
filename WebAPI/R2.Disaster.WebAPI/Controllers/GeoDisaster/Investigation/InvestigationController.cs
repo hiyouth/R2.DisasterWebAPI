@@ -43,7 +43,7 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster.Investigation
         {
             if (String.IsNullOrEmpty(uid))
                 throw new Exception("灾害点的统一编号不能为Null或者空字符串");
-            IQueryable<Comprehensive> g=_cpsService.GetSimilarByUnifiedId(uid);
+            IQueryable<Comprehensive> g=_cpsService.GetByUnifiedId(uid);
            
             //JsonSerializerSettings a = new JsonSerializerSettings();
             //a.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
@@ -114,9 +114,9 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster.Investigation
         }
 
         /// <summary>
-        /// 通过灾害点编号获取灾害点简要实体
+        /// 通过主键编号获取灾害点简要实体
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="id">灾害点唯一编号</param>
         /// <returns></returns>
         public ComprehensiveSimplify GetSimplifyById(int id)
         {

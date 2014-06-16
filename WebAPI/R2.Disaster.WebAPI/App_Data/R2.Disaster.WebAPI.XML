@@ -535,9 +535,9 @@
         </member>
         <member name="M:R2.Disaster.WebAPI.Controllers.GeoDisaster.Investigation.InvestigationController.GetSimplifyById(System.Int32)">
             <summary>
-            通过灾害点编号获取灾害点简要实体
+            通过主键编号获取灾害点简要实体
             </summary>
-            <param name="id"></param>
+            <param name="id">灾害点唯一编号</param>
             <returns></returns>
         </member>
         <member name="M:R2.Disaster.WebAPI.Controllers.GeoDisaster.Investigation.InvestigationController.GetSimplifyByConditions(R2.Disaster.WebAPI.ServiceModel.GeoDisaster.Investigation.InvestigationQueryCondition)">
@@ -606,6 +606,17 @@
             <param name="gbcodes">多个行政区编码</param>
             <param name="types">多种灾害类型</param>
             <returns>物理点简要信息</returns>
+        </member>
+        <member name="T:R2.Disaster.WebAPI.Controllers.GeoDisaster.MassPres.PrePlanController">
+            <summary>
+            防灾预案相关服务
+            </summary>
+        </member>
+        <member name="M:R2.Disaster.WebAPI.Controllers.GeoDisaster.MassPres.PrePlanController.Get">
+            <summary>
+            通过 主键编号查询
+            </summary>
+            <returns></returns>
         </member>
     </members>
 </doc>

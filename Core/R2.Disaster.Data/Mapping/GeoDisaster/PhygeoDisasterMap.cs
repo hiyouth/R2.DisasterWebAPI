@@ -29,7 +29,7 @@ namespace R2.Disaster.Data.Mapping.GeoDisaster
             this.HasRequired(p => p.Comprehensive).WithRequiredPrincipal();
               //  .WithRequiredPrincipal(c => c.PhyGeoDisaster);
 
-
+            this.HasRequired(p => p.PrePlan).WithRequiredPrincipal();
 
             //配置一对多关系，既可以在一方配置，也可以在另外一方配置
             this.HasMany(p => p.DamageReports)

@@ -17,9 +17,11 @@ namespace R2.Disaster.Data.Mapping.GeoDisaster.MassPres
             this.HasKey(p => p.Id);
 
             this.Property(m => m.名称).IsRequired();
-            this.HasOptional(p => p.PhyGeoDisaster)
-                .WithOptionalDependent(c => c.PrePlan)
-                .Map(p => p.MapKey("PhyGeoDisasterId"));
+
+            //this.HasOptional(p => p.PhyGeoDisaster)
+            //    .WithOptionalDependent(c => c.PrePlan)
+            //    .Map(p => p.MapKey("PhyGeoDisasterId"));
+            
         }
     }
 }
