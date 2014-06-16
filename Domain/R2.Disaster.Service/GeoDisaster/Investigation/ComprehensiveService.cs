@@ -46,7 +46,7 @@ namespace R2.Disaster.Service.GeoDisaster.Investigation
         /// </summary>
         /// <param name="uid"></param>
         /// <returns></returns>
-        public IQueryable<Comprehensive> GetSimilarByUnifiedId(string uid)
+        public IQueryable<Comprehensive> GetByUnifiedId(string uid)
         {
             var q = from c in this._comprehensiveRepository.Table
                     where c.统一编号.Contains(uid)
@@ -301,6 +301,15 @@ namespace R2.Disaster.Service.GeoDisaster.Investigation
             }
 
             return this.GetByConditions(gbCodes, situationLevs, dangerousLevs, types);
+        }
+
+
+        public Comprehensive GetByPhyId(int id)
+        {
+            //Comprehensive地质调查表被配置为同主表PhyGeodisaster一对一关系，
+            //且Comprehensive实体的主键也是其外键，即Comprehensive的主键/外键是一个键
+            //且其等于PhyGeoDisaster表的主键
+            return this.GetById(id);
         }
     }
 }
