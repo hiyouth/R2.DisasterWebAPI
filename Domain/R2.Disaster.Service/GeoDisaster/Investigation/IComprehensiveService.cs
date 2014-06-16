@@ -11,10 +11,24 @@ namespace R2.Disaster.Service.GeoDisaster.Investigation
     public interface IComprehensiveService:ICanExecuteExpress<Comprehensive>
     {
         Comprehensive GetByUnifiedID(string uid);
-        void New(Comprehensive ghc);
-        IQueryable<Comprehensive> GetSimilarByUnifiedId(string uid);
-        IQueryable<Comprehensive> GetByName(string name);
+
+        /// <summary>
+        /// 通过自身主键编号获取实体
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         Comprehensive GetById(int id);
+
+        /// <summary>
+        /// 通过物理灾害点编号获取实体
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        Comprehensive GetByPhyId(int id);
+        void New(Comprehensive ghc);
+        IQueryable<Comprehensive> GetByUnifiedId(string uid);
+        IQueryable<Comprehensive> GetByName(string name);
+       
         IQueryable<Comprehensive> GetByConditions(List<string> gbCodes,
             List<string> situationLevs, List<string> dangerousLevs, List<EnumGeoDisasterType?> types);
         IQueryable<Comprehensive> GetByConditions(String gbCode,String situationLev,String dangerous,
