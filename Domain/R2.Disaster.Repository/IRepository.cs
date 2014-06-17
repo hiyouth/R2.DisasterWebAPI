@@ -11,6 +11,7 @@ namespace R2.Disaster.Repository
         void Insert(T entity);
         void Update(T entity);
         void Delete(T entity);
+        void Delete(object id);
         IQueryable<T> Table { get; }
     }
 }
