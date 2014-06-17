@@ -29,6 +29,7 @@ namespace R2.Disaster.Data.Mapping.GeoDisaster
             this.HasRequired(p => p.Comprehensive).WithRequiredPrincipal();
               //  .WithRequiredPrincipal(c => c.PhyGeoDisaster);
 
+            //配置同PrePlan实体的关系，1对1，PrePlan的主键也是其外键
             this.HasRequired(p => p.PrePlan).WithRequiredPrincipal();
 
             //配置一对多关系，既可以在一方配置，也可以在另外一方配置
