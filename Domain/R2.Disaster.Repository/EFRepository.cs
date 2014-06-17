@@ -119,5 +119,12 @@ namespace R2.Disaster.Repository
                 return _entities;
             }
         }
+
+
+        public void Delete(object id)
+        {
+            T entity=this.GetById(id);
+            this.Delete(entity);
+        }
     }
 }
