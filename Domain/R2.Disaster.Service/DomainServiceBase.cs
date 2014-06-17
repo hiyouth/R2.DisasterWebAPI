@@ -31,6 +31,11 @@ namespace R2.Disaster.Service
             this._repository.Update(entity);
         }
 
+        public T Get(object id)
+        {
+            return this._repository.GetById(id);
+        }
+
         public void Delete(T entity)
         {
             this._repository.Delete(entity);

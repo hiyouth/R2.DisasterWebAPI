@@ -216,13 +216,13 @@ namespace R2.Disaster.Service.GeoDisaster.Investigation
 
 
 
-        public Comprehensive Get(int id)
-        {
-            var q = from c in this._comprehensiveRepository.Table
-                    where c.Id == id
-                    select c;
-            return q.FirstOrDefault();
-        }
+        //public Comprehensive Get(object id)
+        //{
+        //    var q = from c in this._comprehensiveRepository.Table
+        //            where c.Id == Int32.Parse(id.ToString())
+        //            select c;
+        //    return q.FirstOrDefault();
+        //}
 
         public IQueryable<Comprehensive> GetByRect(
               double x1, double x2, double y1, double y2)

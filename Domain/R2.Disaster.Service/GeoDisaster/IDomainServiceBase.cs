@@ -17,6 +17,6 @@ namespace R2.Disaster.Service.GeoDisaster
 
         void New(T preplan);
 
-         T Get(int id);
+         T Get(object id);
     }
 }

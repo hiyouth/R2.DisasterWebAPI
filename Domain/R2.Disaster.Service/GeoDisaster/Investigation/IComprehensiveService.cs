@@ -14,13 +14,6 @@ namespace R2.Disaster.Service.GeoDisaster.Investigation
         Comprehensive GetByUnifiedID(string uid);
 
         /// <summary>
-        /// 通过自身主键编号获取实体
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        Comprehensive Get(int id);
-
-        /// <summary>
         /// 通过物理灾害点编号获取实体
         /// </summary>
         /// <param name="id"></param>
