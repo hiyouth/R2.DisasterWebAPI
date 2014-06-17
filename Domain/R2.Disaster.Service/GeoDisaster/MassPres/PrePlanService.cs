@@ -19,7 +19,7 @@ namespace R2.Disaster.Service.GeoDisaster.MassPres
             this._repoistoryPrePlan = repositoryPrePlan;
         }
 
-        public PrePlan GetById(int id)
+        public PrePlan Get(int id)
         {
             PrePlan prePlan=this._repoistoryPrePlan.GetById(id);
             return prePlan;
