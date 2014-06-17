@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace R2.Disaster.Service.GeoDisaster.MassPres
 {
-    public interface IPrePlanService
+    public interface IPrePlanService:IDomainServiceBase<PrePlan>
     {
-        /// <summary>
-        /// 通过主键编号查询预案信息
-        /// </summary>
-        /// <param name="id">防灾预案实体编号</param>
-        /// <returns></returns>
-        PrePlan GetById(int id);
+        ///// <summary>
+        ///// 通过主键编号查询预案信息
+        ///// </summary>
+        ///// <param name="id">防灾预案实体编号</param>
+        ///// <returns></returns>
+        //PrePlan Get(int id);
 
         /// <summary>
         /// 通过防灾预案所属的物理点Id查询信息
@@ -37,6 +37,5 @@ namespace R2.Disaster.Service.GeoDisaster.MassPres
         /// <param name="keyWord">关键字</param>
         /// <returns></returns>
         IQueryable<PrePlan> GetByKeyWord(string keyWord);
-
     }
 }
