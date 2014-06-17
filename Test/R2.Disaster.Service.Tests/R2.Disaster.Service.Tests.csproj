@@ -59,6 +59,7 @@
   <ItemGroup>
     <Compile Include="Investigation\ComprehensiveServiceTest.cs" />
     <Compile Include="InitDataTemp\InitDataTemp.cs" />
+    <Compile Include="PhyGeoDisasterTest.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
