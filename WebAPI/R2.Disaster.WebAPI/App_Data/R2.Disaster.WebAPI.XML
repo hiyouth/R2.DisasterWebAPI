@@ -612,11 +612,68 @@
             防灾预案相关服务
             </summary>
         </member>
-        <member name="M:R2.Disaster.WebAPI.Controllers.GeoDisaster.MassPres.PrePlanController.Get">
+        <member name="M:R2.Disaster.WebAPI.Controllers.GeoDisaster.MassPres.PrePlanController.#ctor(R2.Disaster.Service.GeoDisaster.MassPres.IPrePlanService)">
             <summary>
-            通过 主键编号查询
+            构造函数
+            </summary>
+            <param name="preplanService"></param>
+        </member>
+        <member name="M:R2.Disaster.WebAPI.Controllers.GeoDisaster.MassPres.PrePlanController.Get(System.Int32)">
+            <summary>
+            通过主键编号查询
+            <param name="id">主键编号</param>
             </summary>
             <returns></returns>
+        </member>
+        <member name="M:R2.Disaster.WebAPI.Controllers.GeoDisaster.MassPres.PrePlanController.GetByPhyId(System.Int32)">
+            <summary>
+            通过Phy物理点编号查询
+            </summary>
+            <param name="id">物理点相关唯一编号</param>
+            <returns></returns>
+        </member>
+        <member name="M:R2.Disaster.WebAPI.Controllers.GeoDisaster.MassPres.PrePlanController.GetByUId(System.String)">
+            <summary>
+            通过统一编号查询
+            </summary>
+            <param name="uid">统一编号编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:R2.Disaster.WebAPI.Controllers.GeoDisaster.MassPres.PrePlanController.GetByKeyWords(System.String)">
+            <summary>
+            通过关键字检索
+            </summary>
+            <param name="keyword"></param>
+            <returns></returns>
+        </member>
+        <member name="M:R2.Disaster.WebAPI.Controllers.GeoDisaster.MassPres.PrePlanController.Update(R2.Disaster.CoreEntities.Domain.GeoDisaster.MassPres.PrePlan)">
+            <summary>
+            更新
+            </summary>
+            <param name="preplan">需要更新的实体对象</param>
+        </member>
+        <member name="M:R2.Disaster.WebAPI.Controllers.GeoDisaster.MassPres.PrePlanController.Delete(R2.Disaster.CoreEntities.Domain.GeoDisaster.MassPres.PrePlan)">
+            <summary>
+            删除
+            </summary>
+            <param name="preplan">需要删除的实体对象</param>
+        </member>
+        <member name="M:R2.Disaster.WebAPI.Controllers.GeoDisaster.MassPres.PrePlanController.Delete(System.Int32)">
+            <summary>
+            删除
+            </summary>
+            <param name="id">需要删除的实体对象的主键</param>
+        </member>
+        <member name="M:R2.Disaster.WebAPI.Controllers.GeoDisaster.MassPres.PrePlanController.New(R2.Disaster.CoreEntities.Domain.GeoDisaster.MassPres.PrePlan)">
+            <summary>
+            新增
+            被新增的实体，必须有其相对应的PhyGeoDiaster信息存在，且PrePlan的主键（外键）
+            必须同PhyGeoDiaster主键相同；
+            如果新增的PrePlan实体没有对应的PhyGeoDiaster，则应当调用PhyGeoDiaster的New接口
+            并给PhyGeoDiaster的PrePlan导航属性赋值，以完成在新增PrePlan的信息的同时，PhyGeoDiaster
+            物理点信息也同样有相应的信息
+            </summary>
+            <param name="preplan">需要新增的防灾预案实体</param>
         </member>
     </members>
 </doc>
