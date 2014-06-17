@@ -7,7 +7,7 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.MassPres
     /// </summary>
     public class MassPre
     {
-        public virtual PhyGeoDisaster PhyGeoDisaster { get; set; }
+        //public virtual PhyGeoDisaster PhyGeoDisaster { get; set; }
 
         public int Id { get; set; }
 
