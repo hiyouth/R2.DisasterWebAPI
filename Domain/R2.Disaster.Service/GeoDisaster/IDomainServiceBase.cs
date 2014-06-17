@@ -13,7 +13,7 @@ namespace R2.Disaster.Service.GeoDisaster
 
          void Delete(T preplan);
 
-         void Delete(int id);
+         void Delete(object id);
 
         void New(T preplan);
 
