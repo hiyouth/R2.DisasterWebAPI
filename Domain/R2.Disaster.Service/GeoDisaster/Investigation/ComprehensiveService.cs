@@ -216,7 +216,7 @@ namespace R2.Disaster.Service.GeoDisaster.Investigation
 
 
 
-        public Comprehensive GetById(int id)
+        public Comprehensive Get(int id)
         {
             var q = from c in this._comprehensiveRepository.Table
                     where c.Id == id
@@ -309,7 +309,7 @@ namespace R2.Disaster.Service.GeoDisaster.Investigation
             //Comprehensive地质调查表被配置为同主表PhyGeodisaster一对一关系，
             //且Comprehensive实体的主键也是其外键，即Comprehensive的主键/外键是一个键
             //且其等于PhyGeoDisaster表的主键
-            return this.GetById(id);
+            return this.Get(id);
         }
     }
 }

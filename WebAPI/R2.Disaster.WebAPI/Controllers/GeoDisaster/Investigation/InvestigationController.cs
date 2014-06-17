@@ -109,7 +109,7 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster.Investigation
         {
             if (id <= 0)
                 throw new Exception("不存在这样的灾害点信息主键编号");
-           Comprehensive g = _cpsService.GetById(id);
+           Comprehensive g = _cpsService.Get(id);
            return g;
         }
 
@@ -122,7 +122,7 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster.Investigation
         {
             if (id <= 0)
                 throw new Exception("不存在这样的灾害点信息主键编号");
-            Comprehensive g = _cpsService.GetById(id);
+            Comprehensive g = _cpsService.Get(id);
             ComprehensiveSimplify c = Mapper.Map<ComprehensiveSimplify>(g);
             return c;
         }

@@ -83,7 +83,7 @@ namespace R2.Disaster.WebAPI.Tests
         [TestMethod]
         public void TestComprehensiveToComprehensiveModel()
         {
-            Comprehensive c= this._serviceCpl.GetById(1);
+            Comprehensive c= this._serviceCpl.Get(1);
 
             Mapper.CreateMap<Comprehensive, ComprehensiveSimplify>();
              ComprehensiveSimplify model = Mapper.Map<ComprehensiveSimplify>(c);

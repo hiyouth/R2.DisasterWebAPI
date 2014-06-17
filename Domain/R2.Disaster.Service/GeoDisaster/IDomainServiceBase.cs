@@ -8,6 +8,7 @@ namespace R2.Disaster.Service.GeoDisaster
 {
     public interface IDomainServiceBase<T> where T:class
     {
+
         void Update(T preplan);
 
          void Delete(T preplan);
