@@ -25,5 +25,25 @@ namespace R2.Disaster.Service
         {
             return this._repository.Table.Where(condition.Compile()).AsQueryable<T>();
         }
+
+        public void Update(T entity)
+        {
+            this._repository.Update(entity);
+        }
+
+        public void Delete(T entity)
+        {
+            this._repository.Delete(entity);
+        }
+
+        public void Delete(int id)
+        {
+            this._repository.Delete(id);
+        }
+
+        public void New(T entity)
+        {
+            this._repository.Insert(entity);
+        }
     }
 }
