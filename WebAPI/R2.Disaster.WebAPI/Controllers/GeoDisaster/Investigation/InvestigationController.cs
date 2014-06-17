@@ -19,7 +19,7 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster.Investigation
     /// <summary>
     /// 地质灾害综合信息服务
     /// </summary>
-    public class InvestigationController:ApiController
+    public class InvestigationController:EntityControllerBase<Comprehensive,int>
     {
         private IComprehensiveService _cpsService;
         
@@ -28,6 +28,7 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster.Investigation
         /// </summary>
         /// <param name="cpsService"></param>
         public InvestigationController(IComprehensiveService cpsService)
+            :base(cpsService)
         {
             this._cpsService = cpsService;
             //Mapper.CreateMap<Comprehensive, ComprehensiveModel>();
@@ -61,7 +62,7 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster.Investigation
             if (String.IsNullOrEmpty(keyWord))
                 throw new Exception("查询的关键字不允许是类型“null”或者空字符串");
             IQueryable<Comprehensive> comprehensives = this._cpsService.GetByKeyWord(keyWord);
-            IList<ComprehensiveSimplify> cpsModels =Mapper.Map<IQueryable<Comprehensive>,
+            IList<ComprehensiveSimplify> cpsModels = Mapper.Map<IQueryable<Comprehensive>,
                 IList<ComprehensiveSimplify>>(comprehensives);
             return cpsModels;
         }
@@ -161,13 +162,13 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster.Investigation
            return cpsModels;
        }
 
-        /// <summary>
-        /// 新增地质灾害实体
-        /// </summary>
-       /// <param name="comprehensive">地质灾害实体</param>
-        public void New([FromBody]Comprehensive comprehensive)
-        {
-            this._cpsService.New(comprehensive);
-        }
+       // /// <summary>
+       // /// 新增地质灾害实体
+       // /// </summary>
+       ///// <param name="comprehensive">地质灾害实体</param>
+       // public void New([FromBody]Comprehensive comprehensive)
+       // {
+       //     this._cpsService.New(comprehensive);
+       // }
     }
 }

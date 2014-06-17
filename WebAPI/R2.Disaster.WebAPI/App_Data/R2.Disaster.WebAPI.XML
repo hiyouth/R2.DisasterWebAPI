@@ -481,6 +481,55 @@
             </summary>
             <param name="documentPath">The physical path to XML document.</param>
         </member>
+        <member name="T:R2.Disaster.WebAPI.Controllers.EntityControllerBase`2">
+            <summary>
+            实体类控制器基类
+            </summary>
+            <typeparam name="T">实体类型</typeparam>
+            <typeparam name="U">实体主键类型</typeparam>
+        </member>
+        <member name="M:R2.Disaster.WebAPI.Controllers.EntityControllerBase`2.#ctor(R2.Disaster.Service.GeoDisaster.IDomainServiceBase{`0})">
+            <summary>
+            构造函数
+            </summary>
+            <param name="domainServiceBase"></param>
+        </member>
+        <member name="M:R2.Disaster.WebAPI.Controllers.EntityControllerBase`2.Get(`1)">
+            <summary>
+            通过主键编号查询
+            <param name="id">主键编号</param>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:R2.Disaster.WebAPI.Controllers.EntityControllerBase`2.Update(`0)">
+            <summary>
+            更新
+            </summary>
+            <param name="entity">需要更新的实体对象</param>
+        </member>
+        <member name="M:R2.Disaster.WebAPI.Controllers.EntityControllerBase`2.Delete(`0)">
+            <summary>
+            删除
+            </summary>
+            <param name="entity">需要删除的实体对象</param>
+        </member>
+        <member name="M:R2.Disaster.WebAPI.Controllers.EntityControllerBase`2.Delete(`1)">
+            <summary>
+            删除
+            </summary>
+            <param name="id">需要删除的实体对象的主键</param>
+        </member>
+        <member name="M:R2.Disaster.WebAPI.Controllers.EntityControllerBase`2.New(`0)">
+            <summary>
+            新增
+            被新增的实体，必须有其相对应的PhyGeoDiaster信息存在，且PrePlan的主键（外键）
+            必须同PhyGeoDiaster主键相同；
+            如果新增的PrePlan实体没有对应的PhyGeoDiaster，则应当调用PhyGeoDiaster的New接口
+            并给PhyGeoDiaster的PrePlan导航属性赋值，以完成在新增PrePlan的信息的同时，PhyGeoDiaster
+            物理点信息也同样有相应的信息
+            </summary>
+            <param name="entity">需要新增的实体</param>
+        </member>
         <member name="T:R2.Disaster.WebAPI.Controllers.GeoDisaster.Investigation.InvestigationController">
             <summary>
             地质灾害综合信息服务
@@ -556,12 +605,6 @@
             <param name="dangerLev">险情等级</param>
             <param name="situationLev">灾情等级</param>
             <returns>地质调查实体简要信息</returns>
-        </member>
-        <member name="M:R2.Disaster.WebAPI.Controllers.GeoDisaster.Investigation.InvestigationController.New(R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation.Comprehensive)">
-            <summary>
-            新增地质灾害实体
-            </summary>
-            <param name="comprehensive">地质灾害实体</param>
         </member>
         <member name="T:R2.Disaster.WebAPI.Controllers.GeoDisaster.PhyGeoDisasterController">
             <summary>

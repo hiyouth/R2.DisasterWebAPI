@@ -74,6 +74,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\EntityControllerBase.cs" />
     <Compile Include="Controllers\GeoDisaster\Investigation\InvestigationController.cs" />
     <Compile Include="Controllers\GeoDisaster\Investigation\DebrisFlowController.cs" />
     <Compile Include="Controllers\GeoDisaster\PhyGeoDisasterController.cs" />
