@@ -41,7 +41,7 @@ namespace R2.Disaster.Service
             this._repository.Delete(entity);
         }
 
-        public void Delete(int id)
+        public void Delete(object id)
         {
             this._repository.Delete(id);
         }
