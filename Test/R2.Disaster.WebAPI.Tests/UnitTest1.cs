@@ -9,6 +9,7 @@ namespace R2.Disaster.WebAPI.Tests
         [TestMethod]
         public void TestMethod1()
         {
+
         }
     }
 }
