@@ -62,6 +62,7 @@
     <Compile Include="SampleData\Computer.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="- 2013.xls" />
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
