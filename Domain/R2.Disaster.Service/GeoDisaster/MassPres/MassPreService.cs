@@ -29,11 +29,13 @@ namespace R2.Disaster.Service.GeoDisaster.MassPres
 
         public IQueryable<MassPre> GetByKeyWord(string keyWord)
         {
-            //var eps = DynamicLinqExpressions.False<MassPre>();
-            //var epsName = LinqEntityHelper.GetExpressionForSingle<MassPre, String>
-            //    (keyWord, m => m.名称.Contains(keyWord));
-            //var  epsUid=LinqEntityHelper.GetExpressionForSingle<
-            return null;
+            var eps = DynamicLinqExpressions.False<MassPre>();
+            var epsName = LinqEntityHelper.GetExpressionForSingle<MassPre, String>
+                (keyWord, m => m.名称.Contains(keyWord));
+            var epsUid = LinqEntityHelper.GetExpressionForSingle<MassPre, String>
+            (keyWord, m => m.统一编号.Contains(keyWord));
+            eps = eps.Or(epsName).Or(epsUid);
+            return this.ExecuteConditions(eps);
         }
 
         #region 表达式树
