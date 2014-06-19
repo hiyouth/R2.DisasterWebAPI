@@ -18,6 +18,6 @@ namespace R2.Disaster.Service.GeoDisaster.MassPres
         /// <returns></returns>
         IQueryable<MassPre> GetByKeyWord(string keyWord);
 
-        IQueryable<MassPre> GetByGBCode(string gbcode);
+        //IQueryable<MassPre> GetByGBCode(string gbcode);
     }
 }
