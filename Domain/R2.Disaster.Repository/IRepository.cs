@@ -9,6 +9,7 @@ namespace R2.Disaster.Repository
     public partial interface IRepository<T>
     {
         T GetById(object id);
+
         void Insert(T entity);
 
         void Insert(IList<T> entities);

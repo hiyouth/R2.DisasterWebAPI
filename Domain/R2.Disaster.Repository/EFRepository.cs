@@ -126,5 +126,26 @@ namespace R2.Disaster.Repository
             T entity=this.GetById(id);
             this.Delete(entity);
         }
+
+
+        public void Insert(System.Collections.Generic.IList<T> entities)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update(System.Collections.Generic.IList<T> entities)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Delete(System.Collections.Generic.IList<T> entities)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Delete(System.Collections.Generic.IList<object> id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
