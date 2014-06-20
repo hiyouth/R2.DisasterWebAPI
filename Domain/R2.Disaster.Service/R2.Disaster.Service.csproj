@@ -30,8 +30,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="DomainServiceBase.cs" />
-    <Compile Include="GeoDisaster\IDomainServiceBase.cs" />
+    <Compile Include="EntityServiceBase.cs" />
+    <Compile Include="GeoDisaster\IEntityServiceBase.cs" />
     <Compile Include="GeoDisaster\Investigation\DebrisFlowService.cs" />
     <Compile Include="GeoDisaster\Investigation\IDebrisFlowService.cs" />
     <Compile Include="GeoDisaster\IPhyGeoDisasterService.cs" />

@@ -1,5 +1,6 @@
 ﻿using R2.Disaster.Service.GeoDisaster;
 using System;
+using System.Collections.Generic;
 using System.Web.Http;
 
 namespace R2.Disaster.WebAPI.Controllers
@@ -65,7 +66,7 @@ namespace R2.Disaster.WebAPI.Controllers
         /// </summary>
         /// <param name="id">需要删除的实体对象的主键</param>
         [HttpGet]
-        public void Delete(U id)
+        public void DeleteKey(U id)
         {
             if (id ==null)
                 throw new Exception("参数不合法，没有这样的防灾预案编号");
@@ -88,5 +89,53 @@ namespace R2.Disaster.WebAPI.Controllers
                 throw new ArgumentNullException("entity");
             this._domainServiceBase.New(entity);
         }
+
+        /// <summary>
+        /// 新增（一组）
+        /// </summary>
+        /// <param name="entities">一组相关实体</param>
+        [HttpPost]
+        public void NewSet([FromBody] List<T> entities)
+        {
+            if (entities == null)
+                throw new ArgumentException("entities");
+            this._domainServiceBase.New(entities);
+        }
+
+        /// <summary>
+        /// 更新（一组）
+        /// </summary>
+        /// <param name="entities">一组相关实体</param>
+        [HttpPost]
+        public void UpdateSet([FromBody] List<T> entities)
+        {
+            if (entities == null)
+                throw new ArgumentException("entities");
+            this._domainServiceBase.Update(entities);
+        }
+
+        /// <summary>
+        /// 删除（一组）
+        /// </summary>
+          /// <param name="entities">一组相关实体</param>
+          [HttpPost]
+          public void DeleteSet([FromBody] List<T> entities)
+          {
+              if (entities == null)
+                  throw new ArgumentException("entities");
+              this._domainServiceBase.Delete(entities);
+          }
+
+        /// <summary>
+        /// 删除（一组）
+        /// </summary>
+        /// <param name="ids">一组实体的主键</param>
+          [HttpPost]
+          public void DeleteKeySet([FromBody] List<U> ids)
+          {
+              if (ids == null)
+                  throw new ArgumentException("entities");
+              this._domainServiceBase.Delete(ids);
+          }
     }
 }

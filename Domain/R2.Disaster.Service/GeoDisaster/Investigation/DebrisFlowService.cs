@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace R2.Disaster.Service.GeoDisaster.Investigation
 {
-    public class DebrisFlowService : DomainServiceBase<DebrisFlow>,IDebrisFlowService
+    public class DebrisFlowService : EntityServiceBase<DebrisFlow>,IDebrisFlowService
     {
         private IRepository<DebrisFlow> _repositoryDebrisFlow;
         public DebrisFlowService(IRepository<DebrisFlow> repositoryDebrisFlow)

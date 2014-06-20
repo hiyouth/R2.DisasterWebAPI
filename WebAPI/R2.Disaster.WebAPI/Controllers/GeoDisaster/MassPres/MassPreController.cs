@@ -15,6 +15,11 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster.MassPres
     public class MassPreController :EntityControllerBase<MassPre,int>
     {
         private IMassPreService _massPreService;
+
+        /// <summary>
+        /// 构造函数
+        /// </summary>
+        /// <param name="massPreService"></param>
         public MassPreController(IMassPreService massPreService)
             :base(massPreService)
         {

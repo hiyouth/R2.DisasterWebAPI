@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace R2.Disaster.Service.GeoDisaster
 {
-    public class PhyGeoDisasterService:DomainServiceBase<PhyGeoDisaster>,IPhyGeoDisasterService
+    public class PhyGeoDisasterService:EntityServiceBase<PhyGeoDisaster>,IPhyGeoDisasterService
     {
         private IRepository<PhyGeoDisaster> _repositoryPhy;
         public PhyGeoDisasterService(IRepository<PhyGeoDisaster> repositoryPhy)

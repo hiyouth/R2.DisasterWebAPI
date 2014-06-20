@@ -14,7 +14,7 @@ namespace R2.Disaster.Service.GeoDisaster.Investigation
     /// <summary>
     /// 地质灾害调查表类实体服务
     /// </summary>
-    public class ComprehensiveService : DomainServiceBase<Comprehensive>, IComprehensiveService
+    public class ComprehensiveService : EntityServiceBase<Comprehensive>, IComprehensiveService
     {
         private IRepository<Comprehensive> _comprehensiveRepository;
 

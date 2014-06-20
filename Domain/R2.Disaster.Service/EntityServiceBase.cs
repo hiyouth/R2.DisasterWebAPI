@@ -1,4 +1,5 @@
 ﻿using R2.Disaster.Repository;
+using R2.Disaster.Service.GeoDisaster;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace R2.Disaster.Service
 {
-    public class DomainServiceBase<T>
+    public class EntityServiceBase<T>
     {
         protected IRepository<T> _repository;
 
-        public DomainServiceBase(IRepository<T> repository)
+        public EntityServiceBase(IRepository<T> repository)
         {
             this._repository = repository;
         }
@@ -49,6 +50,27 @@ namespace R2.Disaster.Service
         public void New(T entity)
         {
             this._repository.Insert(entity);
+        }
+
+
+        public void Update(IList<T> entities)
+        {
+            this._repository.Update(entities);
+        }
+
+        public void Delete(IList<T> entities)
+        {
+            this._repository.Delete(entities);
+        }
+
+        public void Delete(IList<object> ids)
+        {
+            this._repository.Delete(ids);
+        }
+
+        public void New(IList<T> entities)
+        {
+            this._repository.Insert(entities);
         }
     }
 }

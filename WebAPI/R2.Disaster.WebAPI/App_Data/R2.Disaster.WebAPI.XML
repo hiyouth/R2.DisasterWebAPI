@@ -488,7 +488,7 @@
             <typeparam name="T">实体类型</typeparam>
             <typeparam name="U">实体主键类型</typeparam>
         </member>
-        <member name="M:R2.Disaster.WebAPI.Controllers.EntityControllerBase`2.#ctor(R2.Disaster.Service.GeoDisaster.IDomainServiceBase{`0})">
+        <member name="M:R2.Disaster.WebAPI.Controllers.EntityControllerBase`2.#ctor(R2.Disaster.Service.GeoDisaster.IEntityServiceBase{`0})">
             <summary>
             构造函数
             </summary>
@@ -513,7 +513,7 @@
             </summary>
             <param name="entity">需要删除的实体对象</param>
         </member>
-        <member name="M:R2.Disaster.WebAPI.Controllers.EntityControllerBase`2.Delete(`1)">
+        <member name="M:R2.Disaster.WebAPI.Controllers.EntityControllerBase`2.DeleteKey(`1)">
             <summary>
             删除
             </summary>
@@ -529,6 +529,30 @@
             物理点信息也同样有相应的信息
             </summary>
             <param name="entity">需要新增的实体</param>
+        </member>
+        <member name="M:R2.Disaster.WebAPI.Controllers.EntityControllerBase`2.NewSet(System.Collections.Generic.List{`0})">
+            <summary>
+            新增（一组）
+            </summary>
+            <param name="entities">一组相关实体</param>
+        </member>
+        <member name="M:R2.Disaster.WebAPI.Controllers.EntityControllerBase`2.UpdateSet(System.Collections.Generic.List{`0})">
+            <summary>
+            更新（一组）
+            </summary>
+            <param name="entities">一组相关实体</param>
+        </member>
+        <member name="M:R2.Disaster.WebAPI.Controllers.EntityControllerBase`2.DeleteSet(System.Collections.Generic.List{`0})">
+            <summary>
+            删除（一组）
+            </summary>
+            <param name="entities">一组相关实体</param>
+        </member>
+        <member name="M:R2.Disaster.WebAPI.Controllers.EntityControllerBase`2.DeleteKeySet(System.Collections.Generic.List{`1})">
+            <summary>
+            删除（一组）
+            </summary>
+            <param name="ids">一组实体的主键</param>
         </member>
         <member name="T:R2.Disaster.WebAPI.Controllers.GeoDisaster.Investigation.InvestigationController">
             <summary>
@@ -602,6 +626,12 @@
             <summary>
             群测群防基本信息服务
             </summary>
+        </member>
+        <member name="M:R2.Disaster.WebAPI.Controllers.GeoDisaster.MassPres.MassPreController.#ctor(R2.Disaster.Service.GeoDisaster.MassPres.IMassPreService)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="massPreService"></param>
         </member>
         <member name="M:R2.Disaster.WebAPI.Controllers.GeoDisaster.MassPres.MassPreController.GetByUid(System.String)">
             <summary>

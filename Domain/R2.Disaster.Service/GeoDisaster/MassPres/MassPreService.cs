@@ -10,13 +10,13 @@ using System.Threading.Tasks;
 
 namespace R2.Disaster.Service.GeoDisaster.MassPres
 {
-    public class MassPreService:DomainServiceBase<MassPre>,IMassPreService
+    public class MassPreService:EntityServiceBase<MassPre>,IMassPreService
     {
-        //private IRepository<MassPre> _repositoryMassPre;
+        private IRepository<MassPre> _repositoryMassPre;
         public MassPreService(IRepository<MassPre> repoistoryMassPre)
             :base(repoistoryMassPre)
         {
-            
+            this._repositoryMassPre = repoistoryMassPre;
         }
 
         public IQueryable<MassPre> GetByUid(string uid)
