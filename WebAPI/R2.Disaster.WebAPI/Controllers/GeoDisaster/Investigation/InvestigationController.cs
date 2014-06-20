@@ -100,19 +100,19 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster.Investigation
             return cpsModels;
         }
 
-        /// <summary>
-        /// 通过主键编号精准查询唯一的灾害点地质调查完整实体
-        /// 请根据业务调用具体实体
-        /// </summary>
-        /// <param name="id">灾害点唯一编号</param>
-        /// <returns>灾害点完整信息</returns>
-        public Comprehensive GetById(int id)
-        {
-            if (id <= 0)
-                throw new Exception("不存在这样的灾害点信息主键编号");
-           Comprehensive g = _cpsService.Get(id);
-           return g;
-        }
+        ///// <summary>
+        ///// 通过主键编号精准查询唯一的灾害点地质调查完整实体
+        ///// 请根据业务调用具体实体
+        ///// </summary>
+        ///// <param name="id">灾害点唯一编号</param>
+        ///// <returns>灾害点完整信息</returns>
+        //public Comprehensive Get(int id)
+        //{
+        //    if (id <= 0)
+        //        throw new Exception("不存在这样的灾害点信息主键编号");
+        //   Comprehensive g = _cpsService.Get(id);
+        //   return g;
+        //}
 
         /// <summary>
         /// 通过主键编号获取灾害点简要实体

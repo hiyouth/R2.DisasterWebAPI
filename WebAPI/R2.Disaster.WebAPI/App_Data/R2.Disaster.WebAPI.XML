@@ -574,14 +574,6 @@
             <param name="y2">矩形右上角Y</param>
             <returns>符合条件的实体信息</returns>
         </member>
-        <member name="M:R2.Disaster.WebAPI.Controllers.GeoDisaster.Investigation.InvestigationController.GetById(System.Int32)">
-            <summary>
-            通过主键编号精准查询唯一的灾害点地质调查完整实体
-            请根据业务调用具体实体
-            </summary>
-            <param name="id">灾害点唯一编号</param>
-            <returns>灾害点完整信息</returns>
-        </member>
         <member name="M:R2.Disaster.WebAPI.Controllers.GeoDisaster.Investigation.InvestigationController.GetSimplifyById(System.Int32)">
             <summary>
             通过主键编号获取灾害点简要实体
@@ -605,6 +597,25 @@
             <param name="dangerLev">险情等级</param>
             <param name="situationLev">灾情等级</param>
             <returns>地质调查实体简要信息</returns>
+        </member>
+        <member name="T:R2.Disaster.WebAPI.Controllers.GeoDisaster.MassPres.MassPreController">
+            <summary>
+            群测群防基本信息服务
+            </summary>
+        </member>
+        <member name="M:R2.Disaster.WebAPI.Controllers.GeoDisaster.MassPres.MassPreController.GetByUid(System.String)">
+            <summary>
+            根据统一编号查询
+            </summary>
+            <param name="uid">统一编号</param>
+            <returns>满足条件的群测群防基本信息实体</returns>
+        </member>
+        <member name="M:R2.Disaster.WebAPI.Controllers.GeoDisaster.MassPres.MassPreController.GetByKeyWord(System.String)">
+            <summary>
+            关键字查询，关键字将检索名称和统一编号
+            </summary>
+            <param name="keyword">关键字</param>
+            <returns>一组满足条件的实体</returns>
         </member>
         <member name="T:R2.Disaster.WebAPI.Controllers.GeoDisaster.PhyGeoDisasterController">
             <summary>

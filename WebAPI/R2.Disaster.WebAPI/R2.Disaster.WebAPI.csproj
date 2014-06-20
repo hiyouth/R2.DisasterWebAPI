@@ -77,6 +77,7 @@
     <Compile Include="Controllers\EntityControllerBase.cs" />
     <Compile Include="Controllers\GeoDisaster\Investigation\InvestigationController.cs" />
     <Compile Include="Controllers\GeoDisaster\Investigation\DebrisFlowController.cs" />
+    <Compile Include="Controllers\GeoDisaster\MassPres\MassPreController.cs" />
     <Compile Include="Controllers\GeoDisaster\PhyGeoDisasterController.cs" />
     <Compile Include="Controllers\GeoDisaster\MassPres\PrePlanController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
