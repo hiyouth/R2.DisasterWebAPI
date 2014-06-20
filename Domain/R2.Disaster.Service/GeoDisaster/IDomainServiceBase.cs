@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace R2.Disaster.Service.GeoDisaster
 {
-    public interface IDomainServiceBase<T> where T:class
+    public interface IEntityServiceBase<T> where T:class
     {
 
         void Update(T preplan);

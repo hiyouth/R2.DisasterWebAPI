@@ -10,17 +10,17 @@ namespace R2.Disaster.Repository
     {
         T GetById(object id);
 
-        void Insert(T entity);
+        void Insert(T entity,bool saved=true);
 
         void Insert(IList<T> entities);
-        void Update(T entity);
+        void Update(T entity,bool saved=true);
 
         void Update(IList<T> entities);
-        void Delete(T entity);
+        void Delete(T entity,bool saved=true);
 
         void Delete(IList<T> entities);
 
-        void Delete(object id);
+        void Delete(object id,bool saved=true);
 
         void Delete(IList<object> id);
 

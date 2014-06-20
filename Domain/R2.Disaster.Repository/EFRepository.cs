@@ -3,6 +3,7 @@ using System.Data.Entity;
 using System.Data.Entity.Validation;
 using System.Linq;
 using R2.Disaster.Data;
+using System.Collections.Generic;
 
 namespace R2.Disaster.Repository
 {
@@ -28,7 +29,7 @@ namespace R2.Disaster.Repository
             return this.Entities.Find(id);
         }
 
-        public virtual void Insert(T entity)
+        public virtual void Insert(T entity, bool saved=true)
         {
             try
             {
@@ -37,7 +38,10 @@ namespace R2.Disaster.Repository
 
                 this.Entities.Add(entity);
 
-                this._context.SaveChanges();
+                if (saved)
+                {
+                    this._context.SaveChanges();
+                }
             }
             catch (DbEntityValidationException dbEx)
             {
@@ -53,14 +57,17 @@ namespace R2.Disaster.Repository
             }
         }
 
-        public virtual void Update(T entity)
+        public virtual void Update(T entity,bool saved=true)
         {
             try
             {
                 if (entity == null)
                     throw new ArgumentNullException("entity");
 
-                this._context.SaveChanges();
+                if (saved)
+                {
+                    this._context.SaveChanges();
+                }
             }
             catch (DbEntityValidationException dbEx)
             {
@@ -76,7 +83,7 @@ namespace R2.Disaster.Repository
             }
         }
 
-        public virtual void Delete(T entity)
+        public virtual void Delete(T entity ,bool saved =true)
         {
             try
             {
@@ -85,7 +92,10 @@ namespace R2.Disaster.Repository
 
                 this.Entities.Remove(entity);
 
-                this._context.SaveChanges();
+                if (saved)
+                {
+                    this._context.SaveChanges();
+                }
             }
             catch (DbEntityValidationException dbEx)
             {
@@ -105,7 +115,6 @@ namespace R2.Disaster.Repository
         {
             get
             {
-                
                 return this.Entities;
             }
         }
@@ -121,31 +130,108 @@ namespace R2.Disaster.Repository
         }
 
 
-        public void Delete(object id)
+        public void Delete(object id,bool saved=true)
         {
             T entity=this.GetById(id);
-            this.Delete(entity);
+            this.Delete(entity,saved);
         }
 
 
-        public void Insert(System.Collections.Generic.IList<T> entities)
+        public void Insert(IList<T> entities)
         {
-            throw new NotImplementedException();
+            foreach (var entity in entities)
+            {
+                this.Insert(entity,false);
+            }
+            try
+            {
+                this._context.SaveChanges();
+            }
+            catch (DbEntityValidationException dbEx)
+            {
+                var msg = string.Empty;
+
+                foreach (var validationErrors in dbEx.EntityValidationErrors)
+                    foreach (var validationError in validationErrors.ValidationErrors)
+                        msg += string.Format("Property: {0} Error: {1}", validationError.PropertyName, validationError.ErrorMessage) + Environment.NewLine;
+
+                var fail = new Exception(msg, dbEx);
+                //Debug.WriteLine(fail.Message, fail);
+                throw fail;
+            }
         }
 
-        public void Update(System.Collections.Generic.IList<T> entities)
+        public void Update(IList<T> entities)
         {
-            throw new NotImplementedException();
+            foreach (var entity in entities)
+            {
+                this.Update(entity,false);
+            }
+            try
+            {
+                this._context.SaveChanges();
+            }
+            catch (DbEntityValidationException dbEx)
+            {
+                var msg = string.Empty;
+
+                foreach (var validationErrors in dbEx.EntityValidationErrors)
+                    foreach (var validationError in validationErrors.ValidationErrors)
+                        msg += Environment.NewLine + string.Format("Property: {0} Error: {1}", validationError.PropertyName, validationError.ErrorMessage);
+
+                var fail = new Exception(msg, dbEx);
+                //Debug.WriteLine(fail.Message, fail);
+                throw fail;
+            }
         }
 
-        public void Delete(System.Collections.Generic.IList<T> entities)
+        public void Delete(IList<T> entities)
         {
-            throw new NotImplementedException();
+            foreach (var entity in entities)
+            {
+                this.Delete(entity,false);
+            }
+            try
+            {
+                this._context.SaveChanges();
+            }
+            catch (DbEntityValidationException dbEx)
+            {
+                var msg = string.Empty;
+
+                foreach (var validationErrors in dbEx.EntityValidationErrors)
+                    foreach (var validationError in validationErrors.ValidationErrors)
+                        msg += Environment.NewLine + string.Format("Property: {0} Error: {1}", validationError.PropertyName, validationError.ErrorMessage);
+
+                var fail = new Exception(msg, dbEx);
+                //Debug.WriteLine(fail.Message, fail);
+                throw fail;
+            }
         }
 
-        public void Delete(System.Collections.Generic.IList<object> id)
+        public void Delete(IList<object> ids)
         {
-            throw new NotImplementedException();
+            foreach (var id  in ids)
+            {
+                this.Delete(id, false);
+            }
+            try
+            {
+                 this._context.SaveChanges();
+            }
+            catch (DbEntityValidationException dbEx)
+            {
+                //TODO: 验证有太多重复代码，考虑提取，用Attribute特性？
+               var msg = string.Empty;
+
+                foreach (var validationErrors in dbEx.EntityValidationErrors)
+                    foreach (var validationError in validationErrors.ValidationErrors)
+                        msg += Environment.NewLine + string.Format("Property: {0} Error: {1}", validationError.PropertyName, validationError.ErrorMessage);
+
+                var fail = new Exception(msg, dbEx);
+                //Debug.WriteLine(fail.Message, fail);
+                throw fail;
+            }
         }
     }
 }

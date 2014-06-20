@@ -12,13 +12,13 @@ namespace R2.Disaster.WebAPI.Controllers
     public class EntityControllerBase<T,U>:ApiController
         where T: class
     {
-        private IDomainServiceBase<T> _domainServiceBase;
+        private IEntityServiceBase<T> _domainServiceBase;
 
         /// <summary>
         /// 构造函数
         /// </summary>
         /// <param name="domainServiceBase"></param>
-        public EntityControllerBase(IDomainServiceBase<T> domainServiceBase)
+        public EntityControllerBase(IEntityServiceBase<T> domainServiceBase)
         {
             this._domainServiceBase = domainServiceBase;
         }
