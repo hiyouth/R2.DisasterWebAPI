@@ -134,6 +134,11 @@ namespace R2.Disaster.Service.Tests
                 PrePlan = new PrePlan()
                 {
                     名称 = "菜园子同益乡政府东斜坡111111",
+                },
+                MassPre = new MassPre()
+                {
+                    名称 = "甘井子区南关岭街道大北技校修配厂斜坡",
+                    统一编号="370101"
                 }
             };
 
