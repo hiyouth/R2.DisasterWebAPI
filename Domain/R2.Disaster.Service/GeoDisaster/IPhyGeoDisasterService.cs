@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace R2.Disaster.Service.GeoDisaster
 {
-    public interface IPhyGeoDisasterService
+    public interface IPhyGeoDisasterService:IEntityServiceBase<PhyGeoDisaster>
     {
         void New(PhyGeoDisaster phy);
         void Update(PhyGeoDisaster phy);
