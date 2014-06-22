@@ -91,6 +91,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include=".gitignore" />
     <Content Include="App_Data\install\create_required_data.sql" />
     <Content Include="App_Data\install\create_sample_data.sql" />
     <Content Include="Areas\HelpPage\HelpPage.css" />
