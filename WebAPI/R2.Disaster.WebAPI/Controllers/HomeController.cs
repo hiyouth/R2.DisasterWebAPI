@@ -30,5 +30,10 @@ namespace R2.Disaster.WebAPI.Controllers
             }
             return View();
         }
+
+        public ActionResult Chat()
+        {
+            return View();
+        }
     }
 }
