@@ -40,6 +40,8 @@
     <Compile Include="Mapping\GeoDisaster\MassPres\PrePlanMap.cs" />
     <Compile Include="Mapping\GeoDisaster\MassPres\MassPatrolMap.cs" />
     <Compile Include="Mapping\GeoDisaster\PhyGeoDisasterMap.cs" />
+    <Compile Include="Mapping\Monitor\RainfallStationMap.cs" />
+    <Compile Include="Mapping\Monitor\RainfallMap.cs" />
     <Compile Include="R2DisasterDatabaseInit.cs" />
     <Compile Include="Mapping\GeoDisaster\Investigation\ComprehensiveMap.cs" />
     <Compile Include="Mapping\GeoDisaster\Investigation\DebrisFlowMap.cs">
@@ -80,9 +82,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Mapping\GeoDisaster\Monitor\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

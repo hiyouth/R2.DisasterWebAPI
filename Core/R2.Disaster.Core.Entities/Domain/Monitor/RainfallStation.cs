@@ -8,6 +8,9 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.Monitor
 {
     public class RainfallStation
     {
+        /// <summary>
+        /// 雨量站编号
+        /// </summary>
         public String Id { get; set; }
 
         /// <summary>
@@ -24,19 +27,7 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.Monitor
 
         public string Address { get; set; }
 
-        /// <summary>
-        /// 所属省名
-        /// </summary>
-        public string Provinc { get; set; }
-
-        /// <summary>
-        /// 所属市名
-        /// </summary>
-        public string City { get; set; }
-
-        /// <summary>
-        /// 所属县名
-        /// </summary>
-        public string County { get; set; }
+        public virtual GBCode GBCode { get; set; }
+        public int GBCodeId { get; set; }
     }
 }
