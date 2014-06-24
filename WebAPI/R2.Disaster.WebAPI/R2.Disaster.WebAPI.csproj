@@ -81,6 +81,7 @@
     <Compile Include="Controllers\GeoDisaster\PhyGeoDisasterController.cs" />
     <Compile Include="Controllers\GeoDisaster\MassPres\PrePlanController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\Monitor\RainfallStationController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

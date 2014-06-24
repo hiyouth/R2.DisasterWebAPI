@@ -1,4 +1,4 @@
-﻿using R2.Disaster.Service.GeoDisaster;
+﻿using R2.Disaster.Service;
 using System;
 using System.Collections.Generic;
 using System.Web.Http;

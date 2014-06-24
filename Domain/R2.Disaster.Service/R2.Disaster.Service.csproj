@@ -41,6 +41,8 @@
     <Compile Include="GeoDisaster\PhyGeoDisasterService.cs" />
     <Compile Include="ICanExecuteExpress.cs" />
     <Compile Include="IEntityServiceBase.cs" />
+    <Compile Include="Monitor\IRainfallStationService.cs" />
+    <Compile Include="Monitor\RainfallStationService.cs" />
     <Compile Include="Sample\BookService.cs" />
     <Compile Include="GeoDisaster\Investigation\ComprehensiveService.cs" />
     <Compile Include="GeoDisaster\Investigation\IComprehensiveService.cs" />

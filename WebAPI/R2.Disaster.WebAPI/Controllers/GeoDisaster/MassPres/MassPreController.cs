@@ -3,9 +3,6 @@ using R2.Disaster.Service.GeoDisaster.MassPres;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Web.Http;
 
 namespace R2.Disaster.WebAPI.Controllers.GeoDisaster.MassPres
 {

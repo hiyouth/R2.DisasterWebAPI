@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace R2.Disaster.Service.GeoDisaster
+namespace R2.Disaster.Service
 {
     public interface IEntityServiceBase<T> where T:class
     {

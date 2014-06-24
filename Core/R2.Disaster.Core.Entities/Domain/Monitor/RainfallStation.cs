@@ -23,11 +23,20 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.Monitor
         /// </summary>
         public double Lat { get; set; }
 
+        /// <summary>
+        /// 站点名称
+        /// </summary>
         public string StationName { get; set; }
 
+        /// <summary>
+        /// 站点地址
+        /// </summary>
         public string Address { get; set; }
 
+        /// <summary>
+        /// 站点行政区编号
+        /// </summary>
         public virtual GBCode GBCode { get; set; }
-        public int GBCodeId { get; set; }
+        public String GBCodeId { get; set; }
     }
 }
