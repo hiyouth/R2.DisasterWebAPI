@@ -5,6 +5,8 @@ using System.Linq;
 using System.Threading;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.SignalR;
+using SignalRChat;
 
 namespace R2.Disaster.WebAPI.Controllers
 {
@@ -28,12 +30,27 @@ namespace R2.Disaster.WebAPI.Controllers
                     Thread.Sleep(250);
                 }
             }
+            SendMessage("Index","Invoke Index");
             return View();
         }
 
         public ActionResult Chat()
         {
+            SendMessage("Chat","Invoke Chat");
             return View();
+        }
+
+        public ActionResult Notification()
+        {
+            //ChatHub
+            return View();
+        }
+
+        public static void SendMessage(string name,string message)
+        {
+            GlobalHost.ConnectionManager.
+                GetHubContext<NotificationHub>().
+                Clients.All.sendMessage(name,message);
         }
     }
 }

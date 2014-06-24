@@ -49,6 +49,7 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster.Investigation
             //JsonSerializerSettings a = new JsonSerializerSettings();
             //a.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
             //string s = JsonConvert.SerializeObject(g, a);
+            HomeController.SendMessage("Investigation", "Invoke");
             return g.ToList();
         }
 
