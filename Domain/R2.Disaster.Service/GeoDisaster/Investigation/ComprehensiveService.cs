@@ -191,12 +191,21 @@ namespace R2.Disaster.Service.GeoDisaster.Investigation
         public Expression<Func<Comprehensive, Boolean>> GetExpressionByRect(
             double x1, double x2, double y1, double y2)
         {
+            //var eps = DynamicLinqExpressions.True<Comprehensive>();
+            //eps = eps.And(a =>
+            //                          LonLatHelper.ConvertToDegreeStyleFromString(a.经度) > y1 &&
+            //                          LonLatHelper.ConvertToDegreeStyleFromString(a.经度) < y2 &&
+            //                          LonLatHelper.ConvertToDegreeStyleFromString(a.纬度) > x1 &&
+            //                          LonLatHelper.ConvertToDegreeStyleFromString(a.纬度) < x2);
+            //return eps;
             var eps = DynamicLinqExpressions.True<Comprehensive>();
-            eps = eps.And(a =>
-                                      LonLatHelper.ConvertToDegreeStyleFromString(a.经度) > y1 &&
-                                      LonLatHelper.ConvertToDegreeStyleFromString(a.经度) < y2 &&
-                                      LonLatHelper.ConvertToDegreeStyleFromString(a.纬度) > x1 &&
-                                      LonLatHelper.ConvertToDegreeStyleFromString(a.纬度) < x2);
+            eps = eps.And(
+                 c => LonLatHelper.GetLonLatIsInRect(
+                     x1, x2, y1, y2
+                   , LonLatHelper.ConvertToDegreeStyleFromString(c.经度)
+                   , LonLatHelper.ConvertToDegreeStyleFromString(c.纬度)
+                   )
+            );
             return eps;
         }
 
