@@ -11,6 +11,7 @@ using R2.Disaster.Service.GeoDisaster;
 using R2.Disaster.Service.GeoDisaster.Investigation;
 using R2.Disaster.CoreEntities.Domain.GeoDisaster.MassPres;
 using R2.Disaster.Service.GeoDisaster.MassPres;
+using R2.Disaster.Service.Monitor;
 
 namespace R2.Disaster.WebAPI
 {
@@ -28,6 +29,7 @@ namespace R2.Disaster.WebAPI
             builder.RegisterType<DebrisFlowService>().As<IDebrisFlowService>().InstancePerRequest();
             builder.RegisterType<PhyGeoDisasterService>().As<IPhyGeoDisasterService>().InstancePerRequest();
             builder.RegisterType<MassPreService>().As<IMassPreService>().InstancePerRequest();
+            builder.RegisterType<RainfallStationService>().As<IRainfallStationService>().InstancePerRequest();
         }
 
         public int Order
