@@ -45,6 +45,7 @@
     <Compile Include="GeoDisaster\Investigation\InvestigationQueryCondtion.cs" />
     <Compile Include="GeoDisaster\PhyGeoDisasterQueryCondition.cs" />
     <Compile Include="GeoDisaster\PhyGeoDisasterSimplify.cs" />
+    <Compile Include="Monitor\RainfallQueryCondition.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

@@ -82,6 +82,7 @@
     <Compile Include="Controllers\GeoDisaster\MassPres\PrePlanController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Monitor\RainfallStationController.cs" />
+    <Compile Include="Controllers\Monitor\RainfallController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -340,6 +341,10 @@
     <ProjectReference Include="..\..\Core\R2.Disaster.Data\R2.Disaster.Data.csproj">
       <Project>{415dc4a2-12f3-4dd8-a313-f7b56d0e69d6}</Project>
       <Name>R2.Disaster.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Domain\R2.Disaster.Model\R2.Disaster.Model.csproj">
+      <Project>{f5dee8ec-c5f4-44d4-a88c-6a14cb661717}</Project>
+      <Name>R2.Disaster.Model</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Domain\R2.Disaster.Repository\R2.Disaster.Repository.csproj">
       <Project>{253d148e-94ee-4652-b13d-b867df4ad86a}</Project>

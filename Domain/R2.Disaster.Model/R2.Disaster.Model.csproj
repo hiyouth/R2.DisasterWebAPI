@@ -39,7 +39,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Monitor\RainfallGroupedByStation.cs" />
+    <Compile Include="Monitor\RainfallTimeAndValue.cs" />
+    <Compile Include="Monitor\SumRainfall.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\R2.Disaster.Core.Entities\R2.Disaster.CoreEntities.csproj">
+      <Project>{a35eeb0e-144a-4c26-8a86-bd316a5a654f}</Project>
+      <Name>R2.Disaster.CoreEntities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
