@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace R2.Domain.Model.Monitor
 {
-    public class SumRainfall
+    public class    SumRainfall
     {
         public RainfallStation RainfallStation { get; set; }
         public double SumValue { get; set; }

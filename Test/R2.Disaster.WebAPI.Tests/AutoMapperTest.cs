@@ -9,6 +9,12 @@ using R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation;
 using R2.Disaster.WebAPI.Model.Investigation;
 using System.Collections.Generic;
 using System.Linq;
+using R2.Disaster.CoreEntities.Domain.GeoDisaster.Monitor;
+using R2.Domain.Model.Monitor;
+using R2.Disaster.Service.Monitor;
+using System.Linq;
+using System.Linq.Expressions;
+using System;
 
 namespace R2.Disaster.WebAPI.Tests
 {
@@ -106,6 +112,46 @@ namespace R2.Disaster.WebAPI.Tests
             ComprehensiveSimplify model = Mapper.Map<ComprehensiveSimplify>(cmp);
             Assert.AreEqual("1111", model.名称);
             Assert.AreEqual("dddddd", model.地理位置);
+        }
+
+        [TestMethod]
+        public void TestAutoMapperGroupLinq()
+        {
+            Rainfall rainfall1 = new Rainfall()
+            {
+                Value = 1,
+                RainfallStation = new RainfallStation()
+                {
+                    Id = "D1010",
+                    StationName = "A"
+                }
+            };
+            Rainfall rainfall2 = new Rainfall()
+            {
+                Value = 1.01,
+                RainfallStation = new RainfallStation()
+                {
+                    Id = "D2020",
+                    StationName = "B"
+                }
+            };
+            Rainfall rainfall3 = new Rainfall()
+            {
+                Value = 1.01,
+                RainfallStation = new RainfallStation()
+                {
+                    Id = "D2020",
+                    StationName = "B"
+                }
+            };
+            List<Rainfall> rainfalls = new List<Rainfall> { rainfall1,rainfall2,rainfall3};
+            Mapper.CreateMap<IQueryable<Rainfall>, SumRainfall>()
+           .ForMember(s => s.SumValue, opt => opt.MapFrom(a => a.Sum(r => r.Value)));
+            List<SumRainfall> sumrainfalls = RainfallService.GetSumFromRainfalls(DateTime.Now,DateTime.Now,
+                rainfalls.AsQueryable()).ToList();
+            Assert.AreEqual(2,sumrainfalls.Count);
+            Assert.AreEqual(1, sumrainfalls[0].SumValue);
+            Assert.AreEqual(2.02, sumrainfalls[1].SumValue);
         }
 
         [TestMethod]
