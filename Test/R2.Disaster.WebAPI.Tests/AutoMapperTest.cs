@@ -114,45 +114,7 @@ namespace R2.Disaster.WebAPI.Tests
             Assert.AreEqual("dddddd", model.地理位置);
         }
 
-        [TestMethod]
-        public void TestAutoMapperGroupLinq()
-        {
-            Rainfall rainfall1 = new Rainfall()
-            {
-                Value = 1,
-                RainfallStation = new RainfallStation()
-                {
-                    Id = "D1010",
-                    StationName = "A"
-                }
-            };
-            Rainfall rainfall2 = new Rainfall()
-            {
-                Value = 1.01,
-                RainfallStation = new RainfallStation()
-                {
-                    Id = "D2020",
-                    StationName = "B"
-                }
-            };
-            Rainfall rainfall3 = new Rainfall()
-            {
-                Value = 1.01,
-                RainfallStation = new RainfallStation()
-                {
-                    Id = "D2020",
-                    StationName = "B"
-                }
-            };
-            List<Rainfall> rainfalls = new List<Rainfall> { rainfall1,rainfall2,rainfall3};
-            Mapper.CreateMap<IQueryable<Rainfall>, SumRainfall>()
-           .ForMember(s => s.SumValue, opt => opt.MapFrom(a => a.Sum(r => r.Value)));
-            List<SumRainfall> sumrainfalls = RainfallService.GetSumFromRainfalls(DateTime.Now,DateTime.Now,
-                rainfalls.AsQueryable()).ToList();
-            Assert.AreEqual(2,sumrainfalls.Count);
-            Assert.AreEqual(1, sumrainfalls[0].SumValue);
-            Assert.AreEqual(2.02, sumrainfalls[1].SumValue);
-        }
+    
 
         [TestMethod]
         public void TestAutoMapperFlattingSample()

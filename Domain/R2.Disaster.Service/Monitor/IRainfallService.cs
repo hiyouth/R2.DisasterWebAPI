@@ -3,6 +3,7 @@ using R2.Domain.Model.Monitor;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -20,22 +21,24 @@ namespace R2.Disaster.Service.Monitor
         /// <returns></returns>
         IQueryable<SumRainfall> GetSumByStationIds(DateTime stime, DateTime etime, List<string> stationIds=null);
 
+        IQueryable<SumRainfall> GetSumByStationIds(Expression<Func<Rainfall, Boolean>> condition);
+
         /// <summary>
-        /// 根据指定的站点编号，查询某时间点的雨量值，stationIds=null时表示不指定站点编号而查询所有
+        /// 根据指定的筛选条件，查询某时间点的雨量值
         /// </summary>
         /// <param name="stime"></param>
         /// <param name="stationIds"></param>
         /// <returns></returns>
-        IQueryable<Rainfall> GetByStationIds(DateTime stime,List<string> stationIds=null);
+        IQueryable<Rainfall> GetByCondition(Expression<Func<Rainfall, Boolean>> condition);
 
         /// <summary>
-        /// 根据指定的站点编号，查询某段时间内的雨量值，stationIds=null时表示不指定站点编号而查询所有
+        /// 根据指定的筛选条件，查询某段时间内的雨量值（按StationId分组）
         /// </summary>
         /// <param name="stime"></param>
         /// <param name="etime"></param>
         /// <param name="stationIds"></param>
         /// <returns></returns>
-        IQueryable<RainfallGroupedByStation> GetByStationIds(DateTime stime, DateTime etime,
-            List<String> stationIds = null);
+        IQueryable<RainfallGroupedByStation> GetStaionIdGroupByCondition(
+            Expression<Func<Rainfall, Boolean>> condition);
     }
 }
