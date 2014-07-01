@@ -3,6 +3,7 @@ using R2.Disaster.Service.Monitor;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web.Http;
 
 namespace R2.Disaster.WebAPI.Controllers.Monitor
 {
@@ -27,7 +28,8 @@ namespace R2.Disaster.WebAPI.Controllers.Monitor
         /// </summary>
         /// <param name="name">关键字</param>
         /// <returns></returns>
-        IList<RainfallStation> GetByName(string name)
+        [HttpGet]
+        public IList<RainfallStation> GetByName([FromUri]string name)
         {
             if (String.IsNullOrEmpty(name))
                 throw new Exception("关键字不能为Null或者空字符");
@@ -40,7 +42,7 @@ namespace R2.Disaster.WebAPI.Controllers.Monitor
         /// </summary>
         /// <param name="code">编号</param>
         /// <returns></returns>
-        IList<RainfallStation> GetByGBCode(string code)
+        public IList<RainfallStation> GetByGBCode(string code)
         {
             if (String.IsNullOrEmpty(code))
                 throw new Exception("关键字不能为Null或者空字符");
@@ -55,7 +57,7 @@ namespace R2.Disaster.WebAPI.Controllers.Monitor
         /// <param name="y">圆心Y</param>
         /// <param name="radius">半径</param>
         /// <returns></returns>
-        IList<RainfallStation> GetByCircle(double x, double y, double radius)
+        public IList<RainfallStation> GetByCircle(double x, double y, double radius)
         {
             if (radius <= 0)
                 throw new Exception("圆的半径不应为小于或者等于0的数值");
@@ -71,7 +73,7 @@ namespace R2.Disaster.WebAPI.Controllers.Monitor
         /// <param name="y1"></param>
         /// <param name="y2"></param>
         /// <returns></returns>
-        IList<RainfallStation> GetByRect(double x1, double x2, double y1, double y2)
+        public IList<RainfallStation> GetByRect(double x1, double x2, double y1, double y2)
         {
             List<RainfallStation> lists = this._rainfallStationService
                 .GetByRect(x1, x2, y1, y2).ToList();

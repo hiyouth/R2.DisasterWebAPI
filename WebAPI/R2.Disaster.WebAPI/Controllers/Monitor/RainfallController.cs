@@ -1,9 +1,12 @@
 ﻿using R2.Disaster.CoreEntities.Domain.GeoDisaster.Monitor;
 using R2.Disaster.Service.Monitor;
 using R2.Domain.Model.Monitor;
+using R2.Helper.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
+using System.Web.Http;
 
 namespace R2.Disaster.WebAPI.Controllers.Monitor
 {
@@ -16,7 +19,6 @@ namespace R2.Disaster.WebAPI.Controllers.Monitor
         /// <summary>
         /// 构造函数
         /// </summary>
-        /// <param name="rainfallStationService"></param>
         public RainfallController(IRainfallService rainfallService)
             : base(rainfallService)
         {
@@ -31,7 +33,8 @@ namespace R2.Disaster.WebAPI.Controllers.Monitor
         /// <param name="etime">终止时间</param>
         /// <param name="stationIds">一组站点Id，“，”分隔</param>
         /// <returns></returns>
-        IList<SumRainfall> GetSumByStationIds(DateTime stime,DateTime etime,string stationIds=null)
+        [HttpGet]
+        public IList<SumRainfall> GetSum(DateTime stime, DateTime etime, string stationIds = null)
         {
             if (stime==null || etime==null)
                 throw new Exception("输入的时间段值有误");
@@ -47,22 +50,31 @@ namespace R2.Disaster.WebAPI.Controllers.Monitor
         }
 
         /// <summary>
-        /// 根据站点编号，查询一个时间点上的
+        /// 查询一个时间点上的，所有满足StationIds条件的雨量值
         /// </summary>
         /// <param name="timing"></param>
         /// <param name="stationIds"></param>
         /// <returns></returns>
-        IList<Rainfall> GetByStationIdsWithTiming(DateTime timing, string stationIds = null)
+        public IList<Rainfall> GetByStationIdsWithTiming(DateTime timing, string stationIds = null)
         {
             if (timing == null)
                 throw new Exception("不存在这样的时间点参数");
             List<String> stationIdList = null;
-            if (stationIds != null)
+            if (!String.IsNullOrEmpty(stationIds))
             {
                 string[] ids = stationIds.Split(',');
             }
+
+            Expression<Func<Rainfall,Boolean>> funcStationIds=
+                LinqEntityHelper.GetExpressionForSingle<Rainfall, List<String>>(stationIdList,
+                r => stationIds.Contains(r.RainfallStation.Id));
+            Expression<Func<Rainfall, Boolean>> funcTiming =
+                r => r.CollectTime == timing;
+            var eps = DynamicLinqExpressions.True<Rainfall>()
+                .And(funcStationIds)
+                .And(funcTiming);
             IQueryable<Rainfall> rains =
-                this._rainfallStationService.GetByStationIds(timing, stationIdList);
+                this._rainfallStationService.GetByCondition(eps);
             return rains.ToList();
         }
 
@@ -73,19 +85,30 @@ namespace R2.Disaster.WebAPI.Controllers.Monitor
         /// <param name="etime"></param>
         /// <param name="stationIds"></param>
         /// <returns></returns>
-        IList<RainfallGroupedByStation> GetByStationIdsWithTimeline(
+        public IList<RainfallGroupedByStation> GetGroupByStation(
             DateTime stime, DateTime etime, string stationIds = null)
         {
             if (stime == null || etime == null)
                 throw new Exception("输入的时间段值有误");
             List<String> stationIdList = null;
-            if (stationIds != null)
+            if (!String.IsNullOrEmpty(stationIds))
             {
                 string[] ids = stationIds.Split(',');
                 stationIdList = ids.ToList();
             }
+            Expression<Func<Rainfall, Boolean>> funcStationIds =
+                     LinqEntityHelper.GetExpressionForSingle<Rainfall, List<String>>(stationIdList,
+                      r => stationIds.Contains(r.RainfallStation.Id));
+
+            Expression<Func<Rainfall, Boolean>> funcTimeline =
+                    r => r.CollectTime >= stime && r.CollectTime <= etime;
+            var eps = DynamicLinqExpressions.True<Rainfall>()
+                .And(funcStationIds)
+                .And(funcTimeline);
+
             IQueryable<RainfallGroupedByStation> rains =
-                this._rainfallStationService.GetByStationIds(stime, etime, stationIdList);
+                this._rainfallStationService.GetStaionIdGroupByCondition(eps);
+
             return rains.ToList();
         }
     }

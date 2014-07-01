@@ -162,14 +162,5 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster.Investigation
            IList<ComprehensiveSimplify>>(comprehensives);
            return cpsModels;
        }
-
-       // /// <summary>
-       // /// 新增地质灾害实体
-       // /// </summary>
-       ///// <param name="comprehensive">地质灾害实体</param>
-       // public void New([FromBody]Comprehensive comprehensive)
-       // {
-       //     this._cpsService.New(comprehensive);
-       // }
     }
 }
