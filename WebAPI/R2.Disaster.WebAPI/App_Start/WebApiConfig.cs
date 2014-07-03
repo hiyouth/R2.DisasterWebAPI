@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace R2.Disaster.WebAPI
 {
@@ -12,6 +13,10 @@ namespace R2.Disaster.WebAPI
             // Web API configuration and services
 
             // Web API routes
+            //开启CORS协议以允许跨域访问
+            var cors = new EnableCorsAttribute("*", "*", "*");
+            config.EnableCors(cors);
+
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(

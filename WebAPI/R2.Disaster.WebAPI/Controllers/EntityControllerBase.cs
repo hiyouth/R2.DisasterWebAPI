@@ -1,6 +1,8 @@
 ﻿using R2.Disaster.Service;
 using System;
 using System.Collections.Generic;
+using System.Net;
+using System.Net.Http;
 using System.Web.Http;
 
 namespace R2.Disaster.WebAPI.Controllers
@@ -34,8 +36,6 @@ namespace R2.Disaster.WebAPI.Controllers
             T entity = this._domainServiceBase.Get(id);
             return entity;
         }
-
-
 
         /// <summary>
         /// 更新
