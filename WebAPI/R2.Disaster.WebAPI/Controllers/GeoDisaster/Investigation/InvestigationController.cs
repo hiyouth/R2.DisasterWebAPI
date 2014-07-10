@@ -128,7 +128,7 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster.Investigation
             ComprehensiveSimplify c = Mapper.Map<ComprehensiveSimplify>(g);
             return c;
         }
-
+              
         /// <summary>
         /// 通过行政区编码、灾害类型、险情大小、灾情大小查询灾害点简要信息（POST）
         /// </summary>
