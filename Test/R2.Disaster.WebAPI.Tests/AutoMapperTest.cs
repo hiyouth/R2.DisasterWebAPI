@@ -80,9 +80,9 @@ namespace R2.Disaster.WebAPI.Tests
             
             var comprehensiveModel = new ComprehensiveSimplify();
             Mapper.CreateMap<Comprehensive, ComprehensiveSimplify>();
-            Mapper.CreateMap<DebrisFlow, DebrisFlowSimplify>()
+            Mapper.CreateMap<DebrisFlow, DebrisFlowModel>()
                 .ForMember("ComprehensiveModel", o => o.MapFrom(e => e.Comprehensive));
-            DebrisFlowSimplify m = Mapper.Map<DebrisFlow, DebrisFlowSimplify>
+            DebrisFlowModel m = Mapper.Map<DebrisFlow, DebrisFlowModel>
                 (d);
         }
 
