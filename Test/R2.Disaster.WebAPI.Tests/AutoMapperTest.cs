@@ -75,14 +75,14 @@ namespace R2.Disaster.WebAPI.Tests
         [TestMethod]
         public void TestComplexAutoMapper()
         {
-            DebrisFlow d=this._service.GetById(1);
+            DebrisFlow d=this._service.Get(1);
             
             
             var comprehensiveModel = new ComprehensiveSimplify();
             Mapper.CreateMap<Comprehensive, ComprehensiveSimplify>();
-            Mapper.CreateMap<DebrisFlow, DebrisFlowModel>()
+            Mapper.CreateMap<DebrisFlow, DebrisFlowSimplify>()
                 .ForMember("ComprehensiveModel", o => o.MapFrom(e => e.Comprehensive));
-            DebrisFlowModel m = Mapper.Map<DebrisFlow, DebrisFlowModel>
+            DebrisFlowSimplify m = Mapper.Map<DebrisFlow, DebrisFlowSimplify>
                 (d);
         }
 

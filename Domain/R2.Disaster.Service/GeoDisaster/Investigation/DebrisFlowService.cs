@@ -18,10 +18,10 @@ namespace R2.Disaster.Service.GeoDisaster.Investigation
         }
 
 
-        public DebrisFlow GetById(int id)
-        {
-            DebrisFlow debrisFlow=this._repositoryDebrisFlow.GetById(id);
-            return debrisFlow;
-        }
+        //public DebrisFlow GetById(int id)
+        //{
+        //    DebrisFlow debrisFlow=this._repositoryDebrisFlow.GetById(id);
+        //    return debrisFlow;
+        //}
     }
 }

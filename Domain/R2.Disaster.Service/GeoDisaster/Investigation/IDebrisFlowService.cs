@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace R2.Disaster.Service.GeoDisaster.Investigation
 {
-    public interface IDebrisFlowService
+    public interface IDebrisFlowService : IEntityServiceBase<DebrisFlow>, ICanExecuteExpress<DebrisFlow>
     {
-        DebrisFlow GetById(int id);
+        //DebrisFlow GetById(int id);
     }
 }

@@ -40,7 +40,7 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster.Investigation
         /// </summary>
         /// <param name="uid">统一编号</param>
         /// <returns>地质灾害完整信息</returns>
-        public IList<Comprehensive> GetByUId(string uid)
+        public IList<Comprehensive> GetCompleteByUId(string uid)
         {
             if (String.IsNullOrEmpty(uid))
                 throw new Exception("灾害点的统一编号不能为Null或者空字符串");
@@ -58,7 +58,7 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster.Investigation
         /// </summary>
         /// <param name="keyWord">关键字</param>
         /// <returns>符合条件的实体信息</returns>
-        public IList<ComprehensiveSimplify> GetSimplifyByKeyWord(string keyWord)
+        public IList<ComprehensiveSimplify> GetByKeyWord(string keyWord)
         {
             if (String.IsNullOrEmpty(keyWord))
                 throw new Exception("查询的关键字不允许是类型“null”或者空字符串");
@@ -75,7 +75,7 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster.Investigation
         /// <param name="y">圆心Y</param>
         /// <param name="radius">半径</param>
         /// <returns>符合条件的实体信息</returns>
-        public IList<ComprehensiveSimplify> GetSimplifyByCircle(double x, double y, double radius)
+        public IList<ComprehensiveSimplify> GetByCircle(double x, double y, double radius)
         {
             IQueryable<Comprehensive> comprehensives = this._cpsService.GetByCircle(
                 x, y, radius);
@@ -92,7 +92,7 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster.Investigation
         /// <param name="y1">矩形左下角Y</param>
         /// <param name="y2">矩形右上角Y</param>
         /// <returns>符合条件的实体信息</returns>
-        public IList<ComprehensiveSimplify> GetSimplifyByRect(double x1, double x2, double y1, double y2)
+        public IList<ComprehensiveSimplify> GetByRect(double x1, double x2, double y1, double y2)
         {
             IQueryable<Comprehensive> comprehensives = this._cpsService.GetByRect(
                 x1, x2, y1, y2);
@@ -120,7 +120,7 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster.Investigation
         /// </summary>
         /// <param name="id">灾害点唯一编号</param>
         /// <returns></returns>
-        public ComprehensiveSimplify GetSimplifyById(int id)
+        public ComprehensiveSimplify GetById(int id)
         {
             if (id <= 0)
                 throw new Exception("不存在这样的灾害点信息主键编号");
@@ -135,7 +135,7 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster.Investigation
         ///<param name="condition">InvestigationCondition类型</param>
         /// <returns>地质调查实体简要信息</returns>
        [HttpPost]
-        public IList<ComprehensiveSimplify> GetSimplifyByConditions([FromBody]InvestigationQueryCondition condition)
+        public IList<ComprehensiveSimplify> GetByConditions([FromBody]InvestigationQueryCondition condition)
         {
             IQueryable<Comprehensive> comprehensives =
                 this._cpsService.GetByConditions(condition.GbCodes, condition.SituationLevs
@@ -153,7 +153,7 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster.Investigation
         /// <param name="dangerLev">险情等级</param>
         /// <param name="situationLev">灾情等级</param>
        /// <returns>地质调查实体简要信息</returns>
-       public IList<ComprehensiveSimplify> GetSimplifyByConditions(EnumGeoDisasterType? type = null,
+       public IList<ComprehensiveSimplify> GetByConditions(EnumGeoDisasterType? type = null,
            String gbcode = null, String dangerLev = null, String situationLev = null)
        {
            IQueryable<Comprehensive> comprehensives =

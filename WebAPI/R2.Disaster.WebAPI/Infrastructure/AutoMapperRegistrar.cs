@@ -31,6 +31,10 @@ namespace R2.Disaster.WebAPI.Infrastructure
             Mapper.CreateMap<IQueryable<Rainfall>, RainfallGroupedByStation>()
                 .ForMember(r => r.RainfallStation, opt => opt.MapFrom(g => g.FirstOrDefault().RainfallStation))
                 .ForMember(r => r.RainfallTimeAndValues, opt => opt.MapFrom(g => g));
+
+            //配置泥石流到泥石流实体的投影
+            Mapper.CreateMap<DebrisFlow, DebrisFlowModel>()
+                .ForMember(d => d.ComprehensiveSimplify, opt => opt.MapFrom(d => d.Comprehensive));
         }
     }
 }
