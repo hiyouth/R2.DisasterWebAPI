@@ -5,6 +5,7 @@ using System.Web.Http.Cors;
 
 namespace WebService.Controllers
 {
+    //[EnableCors(origins: "*", headers: "*", methods: "*")]
     public class TestCorsController : ApiController
     {
         public HttpResponseMessage Get()

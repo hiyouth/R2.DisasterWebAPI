@@ -84,6 +84,36 @@ namespace R2.Disaster.Core.DependencyManagement
             return false ;
         }
 
+        public object ResolveUnregistered(Type type, ILifetimeScope scope = null)
+        {
+            if (scope == null)
+            {
+                //no scope specified
+                scope = Scope();
+            }
+            var constructors = type.GetConstructors();
+            foreach (var constructor in constructors)
+            {
+                try
+                {
+                    var parameters = constructor.GetParameters();
+                    var parameterInstances = new List<object>();
+                    foreach (var parameter in parameters)
+                    {
+                        var service = Resolve(parameter.ParameterType, scope);
+                        if (service == null) throw new Exception("Unkown dependency");
+                        parameterInstances.Add(service);
+                    }
+                    return Activator.CreateInstance(type, parameterInstances.ToArray());
+                }
+                catch (Exception ex)
+                {
+
+                }
+            }
+            throw new Exception("No contructor was found that had all the dependencies satisfied.");
+        }
+
         public bool IsRegistered(Type serviceType, ILifetimeScope scope = null)
         {
             if (scope == null)
