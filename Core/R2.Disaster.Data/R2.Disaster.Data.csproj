@@ -80,6 +80,7 @@
     <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Mapping\GeoDisaster\PotentialThreats\ThreatMap.cs" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
