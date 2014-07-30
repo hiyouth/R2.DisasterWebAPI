@@ -27,7 +27,7 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.PotentialThreats
         /// <summary>
         /// 隐患状态，开放属性，自定义需要存储的信息
         /// </summary>
-        public String[] ThreatStatus { get; set; }
+        public String ThreatStatus { get; set; }
 
         /// <summary>
         /// 备注
