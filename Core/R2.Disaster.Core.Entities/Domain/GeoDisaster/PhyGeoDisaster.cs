@@ -36,7 +36,15 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster
         /// </summary>
         public String Location { get; set; }
 
+        /// <summary>
+        /// 经度，X
+        /// </summary>
+        public double Lon { get; set; }
 
+        /// <summary>
+        /// 纬度，Y
+        /// </summary>
+        public double Lat { get; set; }
 
         /// <summary>
         /// 行政区编码，必要属性，不允许Null
