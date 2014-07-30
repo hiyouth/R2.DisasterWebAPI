@@ -1,6 +1,7 @@
 ﻿using R2.Disaster.CoreEntities.Domain.GeoDisaster.Emergency;
 using R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation;
 using R2.Disaster.CoreEntities.Domain.GeoDisaster.MassPres;
+using R2.Disaster.CoreEntities.Domain.GeoDisaster.PotentialThreats;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +20,12 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster
         public int Id { get; set; }
 
         /// <summary>
+        /// 给予用户一个自定义的标示键，以便于用户可以使用一个自定义的键位来串接整个灾害实体关系
+        /// 但本属性并不会作为真正的主键
+        /// </summary>
+        public string CustomizeId { get; set; }
+
+        /// <summary>
         /// 物理点表示名称
         /// 这个名称和地质调查综合表中的名称可以不同
         /// </summary>
@@ -28,6 +35,8 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster
         /// 地理位置描述，必要属性，不允许Null
         /// </summary>
         public String Location { get; set; }
+
+
 
         /// <summary>
         /// 行政区编码，必要属性，不允许Null
@@ -80,6 +89,11 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster
         public virtual PrePlan PrePlan { get; set; }
 
         /// <summary>
+        /// 隐患
+        /// </summary>
+        public virtual Threat Threat { get; set; }
+
+        /// <summary>
         /// 灾情速报
         /// </summary>
         public virtual ICollection<DamageReport> DamageReports { get; set; }
@@ -93,5 +107,7 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster
         /// 群测群防巡查记录
         /// </summary>
         public virtual ICollection<MassPatrol> MassPatrols { get; set; }
+
+
     }
 }
