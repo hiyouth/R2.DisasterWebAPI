@@ -17,6 +17,9 @@ namespace R2.Disaster.Data.Mapping.GeoDisaster.PotentialThreats
 
             this.Property(t=> t.Name).IsRequired();
             this.Property(t => t.DisasterType).IsRequired();
+
+            this.HasRequired(c => c.GBCode)
+       .WithMany().HasForeignKey(g => g.GBCodeId);
         }
     }
 }
