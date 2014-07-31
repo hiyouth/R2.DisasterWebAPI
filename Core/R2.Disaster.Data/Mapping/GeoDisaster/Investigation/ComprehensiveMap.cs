@@ -23,6 +23,20 @@ namespace R2.Disaster.Data.Mapping.GeoDisaster.Investigation
             this.HasRequired(c => c.GBCode)
            .WithMany().HasForeignKey(g => g.GBCodeId);
 
+            this.HasRequired(c => c.DebrisFlow).WithRequiredPrincipal();
+
+            this.HasRequired(c => c.LandCollapse).WithRequiredPrincipal();
+
+            this.HasRequired(c => c.LandFracture).WithRequiredPrincipal();
+
+            this.HasRequired(c => c.LandSlide).WithRequiredPrincipal();
+
+            this.HasRequired(c => c.LandSlip).WithRequiredPrincipal();
+
+            this.HasRequired(c => c.LandSubsidence).WithRequiredPrincipal();
+
+            this.HasRequired(c => c.Slope).WithRequiredPrincipal();
+
             //配置一对多关系，既可以在一方配置，也可以在另外一方配置
             //this.HasMany(c => c.DamageReports)
             //    .WithRequired(d => d.Comprehensive)

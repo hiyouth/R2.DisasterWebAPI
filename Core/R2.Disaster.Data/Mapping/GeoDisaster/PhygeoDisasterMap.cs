@@ -25,9 +25,14 @@ namespace R2.Disaster.Data.Mapping.GeoDisaster
             this.HasRequired(c => c.GBCode)
              .WithMany().HasForeignKey(g => g.GBCodeId);
 
-              //配置同Comprehensive综合表的关系
-            this.HasRequired(p => p.Comprehensive).WithRequiredPrincipal();
-              //  .WithRequiredPrincipal(c => c.PhyGeoDisaster);
+            //配置同Comprehensive综合表的关系
+            this.HasMany(p => p.Comprehensives)
+                .WithRequired(c => c.PhyGeoDisaster)
+                .HasForeignKey(c => c.PhyGeoDisasterId).WillCascadeOnDelete(false);
+            //this.HasRequired(p => p.Comprehensive).WithRequiredPrincipal();
+
+            //  .WithRequiredPrincipal(c => c.PhyGeoDisaster);
+
 
             //配置同PrePlan实体的关系，1对1，PrePlan的主键也是其外键
             this.HasRequired(p => p.PrePlan).WithRequiredPrincipal();
@@ -41,7 +46,7 @@ namespace R2.Disaster.Data.Mapping.GeoDisaster
             //配置一对多关系，既可以在一方配置，也可以在另外一方配置
             this.HasMany(p => p.DamageReports)
                 .WithRequired(d => d.PhyGeoDisaster)
-                .HasForeignKey(d=>d.PhyGeoDisasterId);
+                .HasForeignKey(d => d.PhyGeoDisasterId);
 
             this.HasMany(p => p.EmergencySurveys)
                 .WithRequired(e => e.PhyGeoDisaster)

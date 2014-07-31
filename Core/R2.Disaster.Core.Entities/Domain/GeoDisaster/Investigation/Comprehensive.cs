@@ -19,7 +19,8 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation
             //this._damageReports = new List<DamageReport>();
         }
 
-        //public virtual PhyGeoDisaster PhyGeoDisaster { get; set; }
+        public virtual PhyGeoDisaster PhyGeoDisaster { get; set; }
+        public int PhyGeoDisasterId { get; set; }
 
         /// <summary>
         /// 泥石流

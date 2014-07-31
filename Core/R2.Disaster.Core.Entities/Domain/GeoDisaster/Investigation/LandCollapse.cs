@@ -17,7 +17,7 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation
     /// </summary>
     public partial class LandCollapse:BaseEntity
     {
-        public virtual Comprehensive Comprehensive { get; set; }
+        //public virtual Comprehensive Comprehensive { get; set; }
         //public int Id { get; set; }
         #region 具体属性
         //public string 统一编号 { get; set; }

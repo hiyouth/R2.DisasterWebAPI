@@ -160,8 +160,8 @@ namespace R2.Disaster.Service.Tests
                 }
             };
 
-            phy1.Comprehensive = c1;
-            phy.Comprehensive = c;
+            //phy1.Comprehensive = c1;
+            //phy.Comprehensive = c;
 
             this._service.New(phy);
             this._service.New(phy1);

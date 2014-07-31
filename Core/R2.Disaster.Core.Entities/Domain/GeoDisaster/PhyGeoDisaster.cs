@@ -70,10 +70,7 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster
             set { _deleted = value; }
         }
 
-        /// <summary>
-        /// 基础调查信息
-        /// </summary>
-        public virtual Comprehensive Comprehensive { get; set; }
+
 
         /// <summary>
         /// 群测群防基本信息
@@ -115,6 +112,11 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster
         /// 群测群防巡查记录
         /// </summary>
         public virtual ICollection<MassPatrol> MassPatrols { get; set; }
+
+        /// <summary>
+        /// 基础调查信息
+        /// </summary>
+        public virtual ICollection<Comprehensive> Comprehensives { get; set; }
 
 
     }
