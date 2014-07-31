@@ -12,6 +12,8 @@ namespace R2.Disaster.CoreEntities
         /// </summary>
         public int Id { get; set; }
 
+        public DateTime? RecordTime { get; set; }
+
         public override bool Equals(object obj)
         {
             return Equals(obj as BaseEntity);
