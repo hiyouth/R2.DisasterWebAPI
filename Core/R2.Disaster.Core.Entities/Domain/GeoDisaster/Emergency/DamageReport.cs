@@ -16,12 +16,12 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.Emergency
     /// <summary>
     /// 灾情速报实体
     /// </summary>
-    public partial class DamageReport
+    public partial class DamageReport:BaseEntity
     {
         public virtual PhyGeoDisaster PhyGeoDisaster { get; set; }
         public int PhyGeoDisasterId { get; set; }
 
-        public int Id { get; set; }
+        //public int Id { get; set; }
         public string 灾险情地点 { get; set; }
         public DateTime 发生时间 { get; set; }
         public EnumGeoDisasterType 灾害类型 { get; set; }

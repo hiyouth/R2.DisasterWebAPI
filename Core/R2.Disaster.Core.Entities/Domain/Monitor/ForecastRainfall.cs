@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.Monitor
 {
-    public class ForecastRainfall
+    public class ForecastRainfall:BaseEntity
     {
-        public int Id { get; set; }
+        //public int Id { get; set; }
         /// <summary>
         /// 24H，48H，72H
         /// </summary>

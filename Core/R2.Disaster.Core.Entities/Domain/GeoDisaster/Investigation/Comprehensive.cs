@@ -7,7 +7,7 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation
     /// <summary>
     /// 地质灾害调查数据综合表
     /// </summary>
-    public partial class Comprehensive
+    public partial class Comprehensive:BaseEntity
     {
         
         //private bool _investigated=true;
@@ -56,10 +56,10 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation
         public virtual LandFracture LandFracture { get; set; }
 
 
-        /// <summary>
-        /// 主键编号
-        /// </summary>
-        public int Id { get; set; }
+        ///// <summary>
+        ///// 主键编号
+        ///// </summary>
+        //public int Id { get; set; }
 
         /// <summary>
         /// 统一编号

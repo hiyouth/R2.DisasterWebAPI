@@ -9,9 +9,9 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.PotentialThreats
     /// <summary>
     /// 隐患点相关信息，江西地灾设定属性，其他项目可忽略
     /// </summary>
-    public class Threat
+    public class Threat:BaseEntity
     {
-        public int Id { get; set; }
+        //public int Id { get; set; }
 
         /// <summary>
         /// 给予用户一个自定义的标示键，以便于用户可以使用一个自定义的键位来串接整个灾害实体关系

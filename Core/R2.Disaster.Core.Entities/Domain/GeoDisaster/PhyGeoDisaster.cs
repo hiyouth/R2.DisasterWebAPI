@@ -13,11 +13,11 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster
     /// <summary>
     /// 地质灾害物理点
     /// </summary>
-    public class PhyGeoDisaster
+    public class PhyGeoDisaster:BaseEntity
     {
         private bool _deleted = false;
 
-        public int Id { get; set; }
+        //public int Id { get; set; }
 
         /// <summary>
         /// 给予用户一个自定义的标示键，以便于用户可以使用一个自定义的键位来串接整个灾害实体关系

@@ -5,11 +5,11 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.MassPres
     /// <summary>
     /// 地质灾害调查，群测群防避险卡
     /// </summary>
-    public class AvoidRiskCard
+    public class AvoidRiskCard:BaseEntity
     {
         public virtual PhyGeoDisaster PhyGeoDisaster { get; set; }
 
-        public int Id { get; set; }
+        //public int Id { get; set; }
         public string 统一编号 { get; set; }
         public string 名称 { get; set; }
         public string 野外编号 { get; set; }

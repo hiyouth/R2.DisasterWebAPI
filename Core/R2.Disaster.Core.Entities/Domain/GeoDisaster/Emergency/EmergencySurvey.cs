@@ -16,12 +16,18 @@ using System.Collections.Generic;
     /// <summary>
     /// 应急调查实体
     /// </summary>
-    public partial class EmergencySurvey
+    public partial class EmergencySurvey:BaseEntity
     {
         public PhyGeoDisaster PhyGeoDisaster { get; set; }
         public int PhyGeoDisasterId { get; set; }
 
-        public int Id { get; set; }
+        //public int Id { get; set; }
+
+        ///// <summary>
+        ///// 记录时间
+        ///// </summary>
+        //public DateTime RecordTime { get; set; }
+
         public string 应急调查点 { get; set; }
         public double X坐标 { get; set; }
         public double Y坐标 { get; set; }
