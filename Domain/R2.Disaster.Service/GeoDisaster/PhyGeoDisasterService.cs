@@ -20,10 +20,10 @@ namespace R2.Disaster.Service.GeoDisaster
             this._repositoryPhy = repositoryPhy;
         }
 
-        public void New(PhyGeoDisaster phy)
-        {
-            this._repositoryPhy.Insert(phy);
-        }
+        //public void New(PhyGeoDisaster phy)
+        //{
+        //    this._repositoryPhy.Insert(phy);
+        //}
 
 
         public PhyGeoDisaster GetById(int id)
