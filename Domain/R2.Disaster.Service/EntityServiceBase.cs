@@ -1,4 +1,5 @@
-﻿using R2.Disaster.Repository;
+﻿using R2.Disaster.CoreEntities;
+using R2.Disaster.Repository;
 using R2.Disaster.Service.GeoDisaster;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace R2.Disaster.Service
 {
-    public class EntityServiceBase<T>
+    public class EntityServiceBase<T> 
     {
         protected IRepository<T> _repository;
 
@@ -49,6 +50,11 @@ namespace R2.Disaster.Service
 
         public void New(T entity)
         {
+                //if (entity.GetType().BaseType == typeof(BaseEntity))
+                //{
+                //    BaseEntity t = entity as BaseEntity;
+                //    t.RecordTime = DateTime.Now;
+                //}
             this._repository.Insert(entity);
         }
 
@@ -70,6 +76,14 @@ namespace R2.Disaster.Service
 
         public void New(IList<T> entities)
         {
+            //foreach (var entity in entities)
+            //{
+            //    if (entity.GetType().BaseType == typeof(BaseEntity))
+            //    {
+            //        BaseEntity t = entity as BaseEntity;
+            //        t.RecordTime = DateTime.Now;
+            //    }
+            //}
             this._repository.Insert(entities);
         }
     }
