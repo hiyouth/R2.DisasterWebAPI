@@ -99,10 +99,10 @@ namespace R2.Disaster.Service.Tests
                 地理位置= "西蒋峪村北侧",
                 GBCodeId = "370101",
                 险情等级=" 大型",
-                DebrisFlow = new DebrisFlow()
-                {
-                    室内编号="3333333"
-                }
+                //DebrisFlow = new DebrisFlow()
+                //{
+                //    室内编号="3333333"
+                //}
             };
 
             PhyGeoDisaster phy1 = new PhyGeoDisaster()
@@ -131,15 +131,15 @@ namespace R2.Disaster.Service.Tests
                         应急调查点="甘井子区南关岭街道大北技校修配厂斜坡"
                     }
                 },
-                PrePlan = new PrePlan()
-                {
-                    名称 = "菜园子同益乡政府东斜坡111111",
-                },
-                MassPre = new MassPre()
-                {
-                    名称 = "甘井子区南关岭街道大北技校修配厂斜坡",
-                    统一编号="370101"
-                }
+                //PrePlan = new PrePlan()
+                //{
+                //    名称 = "菜园子同益乡政府东斜坡111111",
+                //},
+                //MassPre = new MassPre()
+                //{
+                //    名称 = "甘井子区南关岭街道大北技校修配厂斜坡",
+                //    统一编号="370101"
+                //}
             };
 
             Comprehensive c1 = new Comprehensive()
@@ -151,13 +151,13 @@ namespace R2.Disaster.Service.Tests
                 灾害类型=EnumGeoDisasterType.LandFracture,
 
                 险情等级 = "大型",
-                LandFracture = new LandFracture()
-                {
-                    //统一编号 = "370101060001",
-                    //名称 = "东凤凰村地裂缝33"
-                    //地理位置 = "安城镇东凤凰村西南",
-                    野外编号 = "dddddddd",
-                }
+                //LandFracture = new LandFracture()
+                //{
+                //    //统一编号 = "370101060001",
+                //    //名称 = "东凤凰村地裂缝33"
+                //    //地理位置 = "安城镇东凤凰村西南",
+                //    野外编号 = "dddddddd",
+                //}
             };
 
             //phy1.Comprehensive = c1;

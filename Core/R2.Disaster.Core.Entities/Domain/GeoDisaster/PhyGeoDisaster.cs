@@ -75,28 +75,28 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster
         /// <summary>
         /// 群测群防基本信息
         /// </summary>
-        public virtual MassPre MassPre { get; set; }
+        public virtual ICollection<MassPre> MassPres { get; set; }
 
         /// <summary>
         /// 避险明白卡
         /// </summary>
-        public virtual AvoidRiskCard AvoidRiskCard { get; set; }
+        public virtual ICollection<AvoidRiskCard> AvoidRiskCards { get; set; }
 
         /// <summary>
         /// 工作明白卡
         /// </summary>
-        public virtual WorkingGuideCard WorkingGuideCard { get; set; }
+        public virtual ICollection<WorkingGuideCard> WorkingGuideCards { get; set; }
 
 
         /// <summary>
         /// 防灾预案
         /// </summary>
-        public virtual PrePlan PrePlan { get; set; }
+        public virtual ICollection<PrePlan> PrePlans { get; set; }
 
         /// <summary>
         /// 隐患
         /// </summary>
-        public virtual Threat Threat { get; set; }
+        public virtual ICollection<Threat> Threats { get; set; }
 
         /// <summary>
         /// 灾情速报

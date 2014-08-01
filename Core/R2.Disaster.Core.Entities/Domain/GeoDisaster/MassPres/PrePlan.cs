@@ -21,6 +21,10 @@ using System.Collections.Generic;
         //public PhyGeoDisaster PhyGeoDisaster { get; set; }
 
         //public int Id { get; set; }
+
+        public virtual PhyGeoDisaster PhyGeoDisaster { get; set; }
+        public int PhyGeoDisasterId { get; set; }
+
         public string 统一编号 { get; set; }
         public string 名称 { get; set; }
         public string 野外编号 { get; set; }

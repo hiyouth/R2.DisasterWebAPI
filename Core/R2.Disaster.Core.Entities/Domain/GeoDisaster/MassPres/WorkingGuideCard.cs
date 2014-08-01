@@ -9,6 +9,7 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.MassPres
     public class WorkingGuideCard:BaseEntity
     {
         public virtual PhyGeoDisaster PhyGeoDisaster { get; set; }
+        public int PhyGeoDisasterId { get; set; }
 
         //public int Id { get; set; }
         public string 名称 { get; set; }

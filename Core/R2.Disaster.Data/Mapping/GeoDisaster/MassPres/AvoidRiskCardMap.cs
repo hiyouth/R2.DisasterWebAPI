@@ -20,7 +20,8 @@ namespace R2.Disaster.Data.Mapping.GeoDisaster.MassPres
             this.Property(c => c.名称).IsRequired();
 
             this.HasRequired(a => a.PhyGeoDisaster)
-                .WithRequiredDependent(c => c.AvoidRiskCard);
+               .WithMany(p => p.AvoidRiskCards)
+               .HasForeignKey(a => a.PhyGeoDisasterId);
         }
     }
 }

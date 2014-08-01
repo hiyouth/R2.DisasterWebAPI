@@ -19,6 +19,9 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.PotentialThreats
         /// </summary>
         public string CustomizeId { get; set; }
 
+        public virtual PhyGeoDisaster PhyGeoDisaster { get; set; }
+        public int PhyGeoDisasterId { get; set; }
+
         /// <summary>
         /// 隐患点来源
         /// </summary>

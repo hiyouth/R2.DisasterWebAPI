@@ -23,25 +23,34 @@ namespace R2.Disaster.Data.Mapping.GeoDisaster
 
             //配置同GBCode的关系
             this.HasRequired(c => c.GBCode)
-             .WithMany().HasForeignKey(g => g.GBCodeId);
+             .WithMany().HasForeignKey(g => g.GBCodeId).WillCascadeOnDelete(false);
 
             //配置同Comprehensive综合表的关系
             this.HasMany(p => p.Comprehensives)
                 .WithRequired(c => c.PhyGeoDisaster)
-                .HasForeignKey(c => c.PhyGeoDisasterId).WillCascadeOnDelete(false);
+                .HasForeignKey(c => c.PhyGeoDisasterId);
             //this.HasRequired(p => p.Comprehensive).WithRequiredPrincipal();
 
             //  .WithRequiredPrincipal(c => c.PhyGeoDisaster);
 
 
-            //配置同PrePlan实体的关系，1对1，PrePlan的主键也是其外键
-            this.HasRequired(p => p.PrePlan).WithRequiredPrincipal();
+            //配置同PrePlan实体的关系，1对多，PrePlan的主键也是其外键
+            this.HasMany(p => p.PrePlans)
+           .WithRequired(pre => pre.PhyGeoDisaster)
+           .HasForeignKey(pre => pre.PhyGeoDisasterId);
+            //this.HasRequired(p => p.PrePlan).WithRequiredPrincipal();
 
-            //配置同PrePlan实体的关系，1对1，PrePlan的主键也是其外键
-            this.HasRequired(p => p.Threat).WithRequiredPrincipal();
+            //配置Threat实体的关系，1对多，PrePlan的主键也是其外键
+            this.HasMany(p => p.Threats)
+            .WithRequired(pre => pre.PhyGeoDisaster)
+             .HasForeignKey(pre => pre.PhyGeoDisasterId);
+            //this.HasRequired(p => p.Threat).WithRequiredPrincipal();
 
-            //配置同MassPre实体的关系，1对1，MassPre的主键也是其外键
-            this.HasRequired(p => p.MassPre).WithRequiredPrincipal();
+            //配置同MassPre实体的关系，1对多，MassPre的主键也是其外键
+            //this.HasRequired(p => p.MassPre).WithRequiredPrincipal();
+            this.HasMany(p => p.MassPres)
+             .WithRequired(m => m.PhyGeoDisaster)
+             .HasForeignKey(m => m.PhyGeoDisasterId);
 
             //配置一对多关系，既可以在一方配置，也可以在另外一方配置
             this.HasMany(p => p.DamageReports)
@@ -51,6 +60,8 @@ namespace R2.Disaster.Data.Mapping.GeoDisaster
             this.HasMany(p => p.EmergencySurveys)
                 .WithRequired(e => e.PhyGeoDisaster)
                  .HasForeignKey(e => e.PhyGeoDisasterId);
+
+
         }
     }
 }

@@ -8,6 +8,7 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.MassPres
     public class AvoidRiskCard:BaseEntity
     {
         public virtual PhyGeoDisaster PhyGeoDisaster { get; set; }
+        public int PhyGeoDisasterId { get; set; }
 
         //public int Id { get; set; }
         public string 统一编号 { get; set; }
