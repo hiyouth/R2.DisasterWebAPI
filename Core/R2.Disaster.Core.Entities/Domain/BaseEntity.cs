@@ -12,7 +12,15 @@ namespace R2.Disaster.CoreEntities
         /// </summary>
         public int Id { get; set; }
 
+        /// <summary>
+        /// 数据录入时间
+        /// </summary>
         public DateTime? RecordTime { get; set; }
+
+        /// <summary>
+        /// 数据是否已通过审核
+        /// </summary>
+        public bool Examined { get; set; }
 
         public override bool Equals(object obj)
         {
