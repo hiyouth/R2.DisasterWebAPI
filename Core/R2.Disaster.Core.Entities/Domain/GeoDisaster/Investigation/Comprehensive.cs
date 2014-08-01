@@ -82,10 +82,7 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation
         /// </summary>
         public string GBCodeId { get; set; }
 
-        /// <summary>
-        /// 给予用户一个自定义的主键，以便于用户可以使用一个自定义的键位来串接整个灾害实体关系
-        /// </summary>
-        public string CustomizeId { get; set; }
+
 
 
         public string 地理位置 { get; set; }

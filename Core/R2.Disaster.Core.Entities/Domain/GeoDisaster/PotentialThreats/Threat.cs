@@ -13,12 +13,6 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.PotentialThreats
     {
         //public int Id { get; set; }
 
-        /// <summary>
-        /// 给予用户一个自定义的标示键，以便于用户可以使用一个自定义的键位来串接整个灾害实体关系
-        /// 但本属性并不会作为真正的主键
-        /// </summary>
-        public string CustomizeId { get; set; }
-
         public virtual PhyGeoDisaster PhyGeoDisaster { get; set; }
         public int PhyGeoDisasterId { get; set; }
 
