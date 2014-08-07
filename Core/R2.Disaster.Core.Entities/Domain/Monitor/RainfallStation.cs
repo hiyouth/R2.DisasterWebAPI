@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.Monitor
 {
-    public class RainfallStation
+    public class RainfallStation:BaseEntity
     {
         /// <summary>
         /// 雨量站编号
         /// </summary>
-        public String Id { get; set; }
+        public String StationId { get; set; }
 
         /// <summary>
         /// 经度

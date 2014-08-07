@@ -10,7 +10,7 @@ namespace R2.Disaster.CoreEntities
         /// <summary>
         /// Gets or sets the entity identifier
         /// </summary>
-        public int Id { get; set; }
+        public virtual int Id { get; set; }
 
         /// <summary>
         /// 数据录入时间
