@@ -4,13 +4,14 @@ using System.Data.Entity.Validation;
 using System.Linq;
 using R2.Disaster.Data;
 using System.Collections.Generic;
+using R2.Disaster.CoreEntities;
 
 namespace R2.Disaster.Repository
 {
     /// <summary>
     /// Entity Framework repository
     /// </summary>
-    public partial class EFRepository<T> : IRepository<T> where T : class
+    public partial class EFRepository<T> : IRepository<T> where T :BaseEntity
     {
         private readonly IDbContext _context;
         private IDbSet<T> _entities;
@@ -29,6 +30,13 @@ namespace R2.Disaster.Repository
             return this.Entities.Find(id);
         }
 
+        /// <summary>
+        /// 插入
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <param name="saved">表示是否真的插入执行插入，如果false表示只是先添加到实体集合中，而不
+        /// 调用SaveChange方法</param>
+        /// <returns>新增实体的主键</returns>
         public virtual void Insert(T entity, bool saved=true)
         {
             try
