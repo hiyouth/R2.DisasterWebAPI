@@ -79,6 +79,7 @@ namespace R2.Disaster.Data
         /// <returns>DbSet</returns>
         public new IDbSet<TEntity> Set<TEntity>() where TEntity : class
         {
+            //DbSet sets = base.Set<TEntity>();
             return base.Set<TEntity>();
         }
         
