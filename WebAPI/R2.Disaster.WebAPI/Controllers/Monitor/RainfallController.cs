@@ -67,7 +67,7 @@ namespace R2.Disaster.WebAPI.Controllers.Monitor
 
             Expression<Func<Rainfall,Boolean>> funcStationIds=
                 LinqEntityHelper.GetExpressionForSingle<Rainfall, List<String>>(stationIdList,
-                r => stationIds.Contains(r.RainfallStation.Id));
+                r => stationIds.Contains(r.RainfallStation.StationId));
             Expression<Func<Rainfall, Boolean>> funcTiming =
                 r => r.CollectTime == timing;
             var eps = DynamicLinqExpressions.True<Rainfall>()
@@ -98,7 +98,7 @@ namespace R2.Disaster.WebAPI.Controllers.Monitor
             }
             Expression<Func<Rainfall, Boolean>> funcStationIds =
                      LinqEntityHelper.GetExpressionForSingle<Rainfall, List<String>>(stationIdList,
-                      r => stationIds.Contains(r.RainfallStation.Id));
+                      r => stationIds.Contains(r.RainfallStation.StationId));
 
             Expression<Func<Rainfall, Boolean>> funcTimeline =
                     r => r.CollectTime >= stime && r.CollectTime <= etime;

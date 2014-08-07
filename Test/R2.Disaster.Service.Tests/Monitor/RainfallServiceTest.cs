@@ -31,7 +31,7 @@ namespace R2.Disaster.Service.Tests.Monitor
                 Value = 1,
                 RainfallStation = new RainfallStation()
                 {
-                    Id = "D1010",
+                    StationId = "D1010",
                     StationName = "A"
                 },
                 CollectTime = new DateTime(2014,6,29,17,10,0)
@@ -41,7 +41,7 @@ namespace R2.Disaster.Service.Tests.Monitor
                 Value = 1.01,
                 RainfallStation = new RainfallStation()
                 {
-                    Id = "D2020",
+                    StationId = "D2020",
                     StationName = "B"
                 },
                  CollectTime = new DateTime(2014,7,1,17,10,0)
@@ -51,7 +51,7 @@ namespace R2.Disaster.Service.Tests.Monitor
                 Value = 1.01,
                 RainfallStation = new RainfallStation()
                 {
-                    Id = "D2020",
+                    StationId = "D2020",
                     StationName = "B"
                 },
                  CollectTime = new DateTime(2014,6,30,17,10,0)

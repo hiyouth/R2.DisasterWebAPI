@@ -30,7 +30,7 @@ namespace R2.Disaster.Service.Tests
         {
             this._db = new R2DisasterContext();
             this._re = new EFRepository<PhyGeoDisaster>(this._db);
-            this._reGBCode = new EFRepository<GBCode>(this._db);
+            //this._reGBCode = new EFRepository<GBCode>(this._db);
             this._service = new PhyGeoDisasterService(this._re);
         }
         

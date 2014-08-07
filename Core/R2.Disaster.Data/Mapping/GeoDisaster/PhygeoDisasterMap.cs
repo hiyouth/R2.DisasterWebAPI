@@ -17,12 +17,13 @@ namespace R2.Disaster.Data.Mapping.GeoDisaster
             this.HasKey(p => p.Id);
 
             //this.Property(c => c.名称).IsRequired();
-            this.Property(c => c.DisasterType).IsRequired();
-            this.Property(c => c.Location).IsRequired();
+            //this.Property(c => c.DisasterType).IsRequired();
+            //this.Property(c => c.Location).IsRequired();
             //this.Property(p => p.Investigated).IsRequired();
 
             //配置同GBCode的关系
-            this.HasRequired(c => c.GBCode)
+            
+            this.HasOptional(c => c.GBCode)
              .WithMany().HasForeignKey(g => g.GBCodeId).WillCascadeOnDelete(false);
 
             //配置同Comprehensive综合表的关系

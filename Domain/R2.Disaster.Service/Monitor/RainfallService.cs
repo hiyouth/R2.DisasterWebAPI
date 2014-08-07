@@ -23,7 +23,7 @@ namespace R2.Disaster.Service.Monitor
             DateTime stime, DateTime etime, List<string> stationIds = null)
         {
            // if(stationIds
-            Expression<Func<Rainfall,Boolean>> selector = r=>stationIds.Contains(r.RallfallStationId)
+            Expression<Func<Rainfall,Boolean>> selector = r=>stationIds.Contains(r.RainfallStation.StationId)
                 && (r.CollectTime<=etime&&r.CollectTime>=stime);
             IQueryable<Rainfall> rainfalls = this.ExecuteConditions(selector);
             return RainfallService.GetGroupFromSources<Rainfall, SumRainfall>(rainfalls, r => r.RainfallStation.Id);

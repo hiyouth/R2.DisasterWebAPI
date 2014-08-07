@@ -1,4 +1,5 @@
-﻿using R2.Disaster.Service;
+﻿using R2.Disaster.CoreEntities;
+using R2.Disaster.Service;
 using System;
 using System.Collections.Generic;
 using System.Net;
@@ -13,7 +14,7 @@ namespace R2.Disaster.WebAPI.Controllers
     /// <typeparam name="T">实体类型</typeparam>
     /// <typeparam name="U">实体主键类型</typeparam>
     public class EntityControllerBase<T,U>:ApiController
-        where T: class
+        where T: BaseEntity
     {
         private IEntityServiceBase<T> _domainServiceBase;
 
@@ -83,11 +84,12 @@ namespace R2.Disaster.WebAPI.Controllers
         /// </summary>
         /// <param name="entity">需要新增的实体</param>
         [HttpPost]
-        public void New([FromBody]T entity)
+        public object New([FromBody]T entity)
         {
             if (entity == null)
                 throw new ArgumentNullException("entity");
             this._domainServiceBase.New(entity);
+            return entity.Id;
         }
 
         /// <summary>
@@ -95,11 +97,17 @@ namespace R2.Disaster.WebAPI.Controllers
         /// </summary>
         /// <param name="entities">一组相关实体</param>
         [HttpPost]
-        public void NewSet([FromBody] List<T> entities)
+        public List<Object> NewSet([FromBody] List<T> entities)
         {
             if (entities == null)
                 throw new ArgumentException("entities");
             this._domainServiceBase.New(entities);
+            List<Object> ids = new List<object>();
+            foreach (var t in entities)
+            {
+                ids.Add(t.Id);
+            }
+            return ids;
         }
 
         /// <summary>
