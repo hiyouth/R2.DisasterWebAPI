@@ -7,6 +7,7 @@ using R2.Disaster.CoreEntities;
 using R2.Disaster.CoreEntities.Domain.GeoDisaster;
 using R2.Disaster.Service.GeoDisaster;
 using R2.Disaster.Service.GeoDisaster.Investigation;
+using System.Collections.Generic;
 
 namespace R2.Disaster.Service.Tests
 {
@@ -16,6 +17,7 @@ namespace R2.Disaster.Service.Tests
         private IDbContext _db;
         private IRepository<Comprehensive> _re;
         private IComprehensiveService _service;
+
         public ComprehensiveServiceTest()
         {
             
@@ -54,18 +56,27 @@ namespace R2.Disaster.Service.Tests
         public void Test_InsertComperhensive()
         {
 
-           // Comprehensive c = new Comprehensive()
-           // {
-           //     统一编号 = "370101040001",
-           //     名称 = "西蒋峪村北侧地面塌陷333",
-           //     灾害类型 = "塌陷",
-           //     国标代码 = "370101",
-           //     DebrisFlow = new DebrisFlow()
-           //     {
-           //         统一编号 = "370101040001",
-           //         名称 = "西蒋峪村北侧地面塌陷333"
-           //     }
-           // };
+            List<Comprehensive> lists = new List<Comprehensive>();
+           
+            Comprehensive c = new Comprehensive()
+            {
+                统一编号 = "370101040001",
+                名称 = "西蒋峪村北侧地面塌陷333",
+                灾害类型 = EnumGeoDisasterType.DebrisFlow,
+                GBCodeId = "370101",
+                  地理位置 = "西蒋峪村北侧地面塌陷333",
+                DebrisFlow = new DebrisFlow()
+                {
+                    野外编号="dsadfasdfasfd",
+                 //   统一编号 = "370101040001",
+                }
+            };
+             lists.Add(c);
+             PhyGeoDisaster phy = new PhyGeoDisaster()
+             {
+                 Comprehensives = lists
+             };
+             this._service.New(c);
            // Comprehensive c1 = new Comprehensive()
            // {
            //     统一编号 = "370101040004",

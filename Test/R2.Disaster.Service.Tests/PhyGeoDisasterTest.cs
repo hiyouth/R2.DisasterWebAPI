@@ -8,6 +8,7 @@ using R2.Disaster.Repository;
 using R2.Disaster.Service.GeoDisaster.Investigation;
 using R2.Disaster.Service.GeoDisaster;
 using R2.Disaster.CoreEntities.Domain.GeoDisaster.MassPres;
+using R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation;
 
 namespace R2.Disaster.Service.Tests
 {
@@ -71,6 +72,47 @@ namespace R2.Disaster.Service.Tests
         // public void MyTestCleanup() { }
         //
         #endregion
+
+        [TestMethod]
+        public void Test_Insert()
+        {
+
+            List<Comprehensive> lists = new List<Comprehensive>();
+
+            Comprehensive c = new Comprehensive()
+            {
+                统一编号 = "370101040001",
+                名称 = "西蒋峪村北侧地面塌陷333",
+                灾害类型 = EnumGeoDisasterType.DebrisFlow,
+                GBCodeId = "370101",
+                地理位置 = "西蒋峪村北侧地面塌陷333",
+                DebrisFlow = new DebrisFlow()
+                {
+                    野外编号 = "dsadfasdfasfd",
+                    //   统一编号 = "370101040001",
+                }
+            };
+            lists.Add(c);
+            PhyGeoDisaster phy = new PhyGeoDisaster()
+            {
+                Comprehensives = lists
+            };
+            this._service.New(phy);
+            // Comprehensive c1 = new Comprehensive()
+            // {
+            //     统一编号 = "370101040004",
+            //     名称 = "西蒋峪村北侧地面塌陷77777",
+            //     灾害类型 = "塌陷",
+            //     国标代码 = "370101",
+            //     LandSubsidence = new LandSubsidence()
+            //     {
+            //         统一编号 = "370101040001",
+            //         名称 = "西蒋峪村北侧地面塌陷333"
+            //     }
+            // };
+            //this._service.New(c);
+            // this._service.New(c1);
+        }
 
         [TestMethod]
         public void TestUpdateNavigatorPropertySubValue()
