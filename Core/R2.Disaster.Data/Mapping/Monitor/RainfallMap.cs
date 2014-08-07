@@ -16,7 +16,8 @@ namespace R2.Disaster.Data.Mapping.Monitor
             this.HasKey(r => r.Id);
 
             this.HasRequired(r => r.RainfallStation)
-                .WithMany().HasForeignKey(r => r.RallfallStationId);
+                .WithMany()
+                .HasForeignKey(r => r.RallfallStationId);
         }
     }
 }
