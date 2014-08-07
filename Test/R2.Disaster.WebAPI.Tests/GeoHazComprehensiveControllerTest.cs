@@ -35,7 +35,7 @@ namespace R2.Disaster.WebAPI.Tests
         {
             this._db = new R2DisasterContext();
             this._re = new EFRepository<Comprehensive>(this._db);
-            this._reGBCode = new EFRepository<GBCode>(this._db);
+            //this._reGBCode = new EFRepository<GBCode>(this._db);
             this._service = new ComprehensiveService(this._re);
         }
 
