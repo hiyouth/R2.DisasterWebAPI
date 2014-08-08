@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using ExpressionSerialization;
 using R2.Disaster.CoreEntities.Domain.GeoDisaster;
 using R2.Disaster.Service.GeoDisaster;
 using R2.Disaster.WebAPI.Model;
@@ -8,7 +9,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Web.Hosting;
 using System.Web.Http;
+using System.Xml.Linq;
 
 namespace R2.Disaster.WebAPI.Controllers.GeoDisaster
 {
@@ -18,26 +21,16 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster
     public class PhyGeoDisasterController :EntityControllerBase<PhyGeoDisaster,int>
     {
         private IPhyGeoDisasterService _phyService;
+
+        /// <summary>
+        /// 构造函数
+        /// </summary>
+        /// <param name="phyService"></param>
         public PhyGeoDisasterController(IPhyGeoDisasterService phyService)
             :base(phyService)
         {
             this._phyService = phyService;
         }
-
-       ///// <summary>
-       ///// 通过编号获取物理点实体信息，物理点信息会关联大量信息，
-       ///// 如无特殊需求，请不要随意调用
-       ///// </summary>
-       ///// <param name="id">物理点编号</param>
-       ///// <returns></returns>
-       // public PhyGeoDisaster Get(int id)
-       // {
-       //     if (id <= 0)
-       //         throw new Exception("不存在这样的物理点信息主键编号");
-       //     PhyGeoDisaster phy = this._phyService.GetById(id);
-       //     return phy;
-       // }
-
 
         /// <summary>
         /// 通过编号获取物理点简要信息
@@ -51,6 +44,23 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster
             PhyGeoDisaster phy = this._phyService.GetById(id);
             PhyGeoDisasterSimplify phyModel = Mapper.Map<PhyGeoDisasterSimplify>(phy);
             return phyModel;
+        }
+
+        /// <summary>
+        /// 自定义查询条件，建议高级用户及服务无法满足查询条件时使用
+        /// 自定义查询条件以表达式树（ExpresstionTree）的形式组合
+        /// </summary>
+        /// <param name="x">由ExpressionSerilizer序列化得到，相关DLL请和服务负责人联系</param>
+        /// <returns>物理点完整信息</returns>
+        [HttpPost]
+        public IList<PhyGeoDisaster> GetByExpression([FromBody]XElement x)
+        {
+            //TODO:后期回顾整理
+            var serializer = new ExpressionSerializer(HostingEnvironment.MapPath("~/bin/R2.Disaster.CoreEntities.dll"));
+            var newPredicate = serializer.Deserialize<Func<PhyGeoDisaster, bool>>(x);
+            IQueryable<PhyGeoDisaster> query= this._phyService.ExecuteConditions(newPredicate);
+            IList<PhyGeoDisaster> lists = query.ToList();
+            return lists;
         }
 
         /// <summary>
@@ -72,8 +82,8 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster
         /// <summary>
         /// 通过行政区编码，灾害类型进行查询(Get)
         /// </summary>
-        /// <param name="gbcodes">行政区编码</param>
-        /// <param name="types">灾害类型</param>
+        /// <param name="gbcode">行政区编码</param>
+        /// <param name="type">灾害类型</param>
         /// <returns>物理点简要信息</returns>
         public IList<PhyGeoDisasterSimplify> Get(string gbcode=null,
             EnumGeoDisasterType? type=null)
@@ -86,10 +96,9 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster
         }
 
         /// <summary>
-        /// 通过行政区编码，灾害类型进行查询(POST)
+        /// 通过组合条件查询
         /// </summary>
-        /// <param name="gbcodes">多个行政区编码</param>
-        /// <param name="types">多种灾害类型</param>
+        /// <param name="conditions">多条件组合</param>
         /// <returns>物理点简要信息</returns>
         [HttpPost]
         public IList<PhyGeoDisasterSimplify> Get([FromBody]PhyGeoDisasterQueryCondition conditions)
@@ -100,19 +109,5 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster
             IList<PhyGeoDisasterSimplify>>(phys);
             return phyModels;
         }
-
-        //public void New(PhyGeoDisaster phy)
-        //{
-        //    if (phy == null)
-        //        throw new Exception("无法新增空的PhyGeoDisaster实体");
-        //    this._phyService.New(phy);
-        //}
-
-        //public void Update(PhyGeoDisaster phy)
-        //{
-        //    if (phy == null)
-        //        throw new Exception("无法更新新增值为Null的PhyGeoDisaster实体");
-        //    this._phyService.Update(phy);
-        //}
     }
 }
