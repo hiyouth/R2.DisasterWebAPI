@@ -1,4 +1,6 @@
 ﻿
+using ExpressionSerialization;
+using Newtonsoft.Json;
 using R2.Disaster.CoreEntities;
 using R2.Disaster.Repository;
 using R2.Disaster.Service;
@@ -8,6 +10,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Web.Http;
+using System.Xml.Linq;
 
 namespace ProductsApp.Controllers
 {
@@ -29,6 +32,14 @@ namespace ProductsApp.Controllers
 
         public ProductsController()
         {
+        }
+
+        [HttpPost]
+        public void TestExpresstion([FromBody] XElement s)
+        {
+            //XElement x = JsonConvert.DeserializeObject<XElement>(s);
+            var serializer = new ExpressionSerializer();
+            var newPredicate = serializer.Deserialize<Func<string, bool>>(s);
         }
 
         public Book GetAllProducts()
