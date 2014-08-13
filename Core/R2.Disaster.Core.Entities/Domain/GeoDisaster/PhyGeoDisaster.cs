@@ -2,6 +2,7 @@
 using R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation;
 using R2.Disaster.CoreEntities.Domain.GeoDisaster.MassPres;
 using R2.Disaster.CoreEntities.Domain.GeoDisaster.PotentialThreats;
+using R2.Disaster.CoreEntities.Domain.GeoDisaster.Relocation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -110,6 +111,49 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster
         /// </summary>
         public virtual ICollection<Comprehensive> Comprehensives { get; set; }
 
+        /// <summary>
+        /// 应急调查报告
+        /// </summary>
+        public virtual ICollection<EmergencySurveyReport> EmergencySurveyReports { get; set; }
 
+        /// <summary>
+        /// 移民搬迁信息综合表
+        /// </summary>
+        public virtual ICollection<RelocationComprehensive> RelocationComprehensives { get; set; }
+
+        /// <summary>
+        /// 移民搬迁核查结果认定表（崩塌）
+        /// </summary>
+        public virtual ICollection<RelocationLandSlipCheck> RelocationLandSlipChecks { get; set; }
+
+        /// <summary>
+        /// 移民搬迁核查结果认定表（滑坡）
+        /// </summary>
+        public virtual ICollection<RelocationLandSlideCheck> RelocationLandSlideChecks { get; set; }
+
+        /// <summary>
+        /// 移民搬迁核查结果认定表（泥石流）
+        /// </summary>
+        public virtual ICollection<RelocationDebrisFlowCheck> RelocationDebrisFlowChecks { get; set; }
+
+        /// <summary>
+        /// 移民搬迁核查结果认定表（斜坡）
+        /// </summary>
+        public virtual ICollection<RelocationSlopeCheck> RelocationSlopeChecks { get; set; }
+
+        /// <summary>
+        /// 移民搬迁核查结果认定表（地面塌陷）
+        /// </summary>
+        public virtual ICollection<RelocationLandCollapseCheck> RelocationLandCollapseChecks { get; set; }
+
+        /// <summary>
+        /// 移民搬迁安置地评价表
+        /// </summary>
+        public virtual ICollection<RelocationPlaceEvaluation> RelocationPlaceEvaluations { set; get; }
+
+        /// <summary>
+        /// 月报速报
+        /// </summary>
+        public virtual ICollection<MonthlyReport> MonthlyReports { get; set; }
     }
 }

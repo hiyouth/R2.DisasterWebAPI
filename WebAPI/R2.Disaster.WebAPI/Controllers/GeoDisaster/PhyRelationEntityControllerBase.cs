@@ -19,8 +19,8 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster
         }
 
         /// <summary>
-        /// 通过主键编号查询
-        /// <param name="id">主键编号</param>
+        /// 通过物理点主键编号查询
+        /// <param name="id">物理点主键编号</param>
         /// </summary>
         /// <returns></returns>
         public IList<T> GetByPhyId([FromUri] int id)
