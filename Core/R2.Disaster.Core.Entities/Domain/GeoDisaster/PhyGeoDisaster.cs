@@ -64,8 +64,6 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster
             set { _deleted = value; }
         }
 
-
-
         /// <summary>
         /// 群测群防基本信息
         /// </summary>

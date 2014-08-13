@@ -15,7 +15,7 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation
     /// <summary>
     /// 地质灾害调查——地面塌陷
     /// </summary>
-    public partial class LandCollapse:BaseEntity
+    public partial class LandCollapse : BaseEntity
     {
         //public virtual Comprehensive Comprehensive { get; set; }
         //public int Id { get; set; }

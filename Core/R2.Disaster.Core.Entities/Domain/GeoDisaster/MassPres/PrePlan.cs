@@ -16,14 +16,13 @@ using System.Collections.Generic;
     /// <summary>
     /// 防灾预案实体
     /// </summary>
-    public partial class PrePlan:BaseEntity
+    public partial class PrePlan : PhyRelationEntity
     {
         //public PhyGeoDisaster PhyGeoDisaster { get; set; }
 
         //public int Id { get; set; }
 
         public virtual PhyGeoDisaster PhyGeoDisaster { get; set; }
-        public int PhyGeoDisasterId { get; set; }
 
         public string 统一编号 { get; set; }
         public string 名称 { get; set; }

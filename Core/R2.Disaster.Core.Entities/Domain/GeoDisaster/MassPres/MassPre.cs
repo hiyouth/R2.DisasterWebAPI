@@ -5,14 +5,13 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.MassPres
     /// <summary>
     /// 地质灾害调查，群测群防实体，不合理，不能用作标准，根据实际情况调整
     /// </summary>
-    public class MassPre:BaseEntity
+    public class MassPre : PhyRelationEntity
     {
-        //public virtual PhyGeoDisaster PhyGeoDisaster { get; set; }
+        public virtual PhyGeoDisaster PhyGeoDisaster { get; set; }
 
         //public int Id { get; set; }
 
-        public virtual PhyGeoDisaster PhyGeoDisaster { get; set; }
-        public int PhyGeoDisasterId { get; set; }
+
 
         public string 统一编号 { get; set; }
         public string 名称 { get; set; }

@@ -9,12 +9,11 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.MassPres
     /// <summary>
     /// 地质灾害巡查实体
     /// </summary>
-    public class MassPatrol:BaseEntity
+    public class MassPatrol : PhyRelationEntity
     {
         //public int Id { get; set; }
+        public virtual PhyGeoDisaster PhyGeoDisaster { get; set; }
 
-        public PhyGeoDisaster PhyGeoDisaster { get; set; }
-        public int PhyGeoDisasterId { get; set; }
 
         /// <summary>
         ///  巡查时间

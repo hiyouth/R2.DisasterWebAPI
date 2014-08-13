@@ -7,20 +7,14 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation
     /// <summary>
     /// 地质灾害调查数据综合表
     /// </summary>
-    public partial class Comprehensive:BaseEntity
+    public partial class Comprehensive : PhyRelationEntity
     {
-        
-        //private bool _investigated=true;
-        //private ICollection<DamageReport> _damageReports;
-        //private ICollection<EmergencySurvey> _emergencySurveys;
-
         public Comprehensive()
         {
             //this._damageReports = new List<DamageReport>();
         }
 
         public virtual PhyGeoDisaster PhyGeoDisaster { get; set; }
-        public int PhyGeoDisasterId { get; set; }
 
         /// <summary>
         /// 泥石流

@@ -16,11 +16,10 @@ using System.Collections.Generic;
     /// <summary>
     /// 应急调查实体
     /// </summary>
-    public partial class EmergencySurvey:BaseEntity
+    public partial class EmergencySurvey : PhyRelationEntity
     {
-        public PhyGeoDisaster PhyGeoDisaster { get; set; }
-        public int PhyGeoDisasterId { get; set; }
 
+        public virtual PhyGeoDisaster PhyGeoDisaster { get; set; }
         //public int Id { get; set; }
 
         ///// <summary>

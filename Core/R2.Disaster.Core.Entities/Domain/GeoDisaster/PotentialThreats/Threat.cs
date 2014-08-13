@@ -9,17 +9,20 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.PotentialThreats
     /// <summary>
     /// 隐患点相关信息，江西地灾设定属性，其他项目可忽略
     /// </summary>
-    public class Threat:BaseEntity
+    public class Threat : PhyRelationEntity
     {
         //public int Id { get; set; }
 
         public virtual PhyGeoDisaster PhyGeoDisaster { get; set; }
-        public int PhyGeoDisasterId { get; set; }
-
         /// <summary>
         /// 隐患点来源
         /// </summary>
         public String ThreatSource { get; set; }
+
+        /// <summary>
+        /// 当前隐患点是否处于激活状态（隐患点有可能治理消除，也有可能再次成为隐患点）
+        /// </summary>
+        public bool IsActive { get; set; }
 
         /// <summary>
         /// 隐患状态，开放属性，自定义需要存储的信息

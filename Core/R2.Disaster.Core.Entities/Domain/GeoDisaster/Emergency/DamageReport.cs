@@ -16,10 +16,9 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.Emergency
     /// <summary>
     /// 灾情速报实体
     /// </summary>
-    public partial class DamageReport:BaseEntity
+    public partial class DamageReport:PhyRelationEntity
     {
         public virtual PhyGeoDisaster PhyGeoDisaster { get; set; }
-        public int PhyGeoDisasterId { get; set; }
 
         //public int Id { get; set; }
         public string 灾险情地点 { get; set; }

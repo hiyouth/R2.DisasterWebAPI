@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.MassPres
 {
-    public class MonthlyReport:BaseEntity
+    public class MonthlyReport : PhyRelationEntity
     {
     }
 }

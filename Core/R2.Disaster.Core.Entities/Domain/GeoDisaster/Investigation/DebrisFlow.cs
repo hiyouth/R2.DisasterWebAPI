@@ -7,7 +7,7 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation
     /// <summary>
     /// 业务对象，地质灾害调查——泥石流实体
     /// </summary>
-    public partial class DebrisFlow:BaseEntity
+    public partial class DebrisFlow : BaseEntity
     {
         //public virtual Comprehensive Comprehensive { get; set; }
 

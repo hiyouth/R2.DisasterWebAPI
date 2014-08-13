@@ -7,7 +7,7 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation
     /// <summary>
     /// 业务对象，地质灾害调查---地面沉降
     /// </summary>
-    public partial class LandSubsidence:BaseEntity
+    public partial class LandSubsidence : BaseEntity
     {
         //public virtual Comprehensive Comprehensive { get; set; }
         //public int Id { get; set; }
