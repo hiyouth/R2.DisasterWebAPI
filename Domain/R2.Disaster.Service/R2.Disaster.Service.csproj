@@ -39,8 +39,10 @@
     <Compile Include="GeoDisaster\MassPres\MassPreService.cs" />
     <Compile Include="GeoDisaster\MassPres\PrePlanService.cs" />
     <Compile Include="GeoDisaster\PhyGeoDisasterService.cs" />
+    <Compile Include="GeoDisaster\PhyRelationEntityServiceBase.cs" />
     <Compile Include="ICanExecuteExpress.cs" />
     <Compile Include="IEntityServiceBase.cs" />
+    <Compile Include="GeoDisaster\IPhyRelationEntityServiceBase.cs" />
     <Compile Include="Monitor\IRainfallService.cs" />
     <Compile Include="Monitor\IRainfallStationService.cs" />
     <Compile Include="Monitor\RainfallService.cs" />

@@ -9,7 +9,7 @@ using System.Text;
 namespace R2.Disaster.Service.GeoDisaster.Investigation
 {
     public interface IComprehensiveService:ICanExecuteExpress<Comprehensive>
-        ,IEntityServiceBase<Comprehensive>
+        ,IPhyRelationEntityService<Comprehensive>
     {
         Comprehensive GetByUnifiedID(string uid);
 

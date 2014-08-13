@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace R2.Disaster.Service.GeoDisaster.MassPres
 {
-    public interface IPrePlanService:IEntityServiceBase<PrePlan>,ICanExecuteExpress<PrePlan>
+    public interface IPrePlanService:IPhyRelationEntityService<PrePlan>,ICanExecuteExpress<PrePlan>
     {
         ///// <summary>
         ///// 通过主键编号查询预案信息

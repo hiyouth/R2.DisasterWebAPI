@@ -32,6 +32,7 @@ namespace R2.Disaster.Service.GeoDisaster
             return phyGeoDisaster;
         }
 
+
         public IQueryable<PhyGeoDisaster> GetByConditions( List<string> gbcodes, 
             List<EnumGeoDisasterType?> type)
         {
@@ -139,6 +140,13 @@ namespace R2.Disaster.Service.GeoDisaster
         public void Update(PhyGeoDisaster phy)
         {
             this._repositoryPhy.Update(phy);
+        }
+
+
+        public IQueryable<PhyGeoDisaster> GetByIds(int[] ids)
+        {
+            Expression<Func<PhyGeoDisaster, bool>> predicate = p => ids.Contains(p.Id);
+            return this.ExecuteConditions(predicate);
         }
     }
 }

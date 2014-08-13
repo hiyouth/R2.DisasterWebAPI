@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace R2.Disaster.Service.GeoDisaster.MassPres
 {
-    public class PrePlanService:EntityServiceBase<PrePlan>,IPrePlanService
+    public class PrePlanService:PhyRelationEntityService<PrePlan>,IPrePlanService,ICanExecuteExpress<PrePlan>
     {
         private IRepository<PrePlan> _repoistoryPrePlan;
         public PrePlanService(IRepository<PrePlan> repositoryPrePlan)

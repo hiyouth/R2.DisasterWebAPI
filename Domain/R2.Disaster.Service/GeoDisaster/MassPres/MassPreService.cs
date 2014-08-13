@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace R2.Disaster.Service.GeoDisaster.MassPres
 {
-    public class MassPreService:EntityServiceBase<MassPre>,IMassPreService
+    public class MassPreService:PhyRelationEntityService<MassPre>,IMassPreService
     {
         private IRepository<MassPre> _repositoryMassPre;
         public MassPreService(IRepository<MassPre> repoistoryMassPre)

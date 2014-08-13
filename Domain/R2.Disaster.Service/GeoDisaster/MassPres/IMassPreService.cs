@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace R2.Disaster.Service.GeoDisaster.MassPres
 {
-    public interface IMassPreService:IEntityServiceBase<MassPre>
+    public interface IMassPreService:IPhyRelationEntityService<MassPre>
     {
         IQueryable<MassPre >GetByUid(string uid);
 

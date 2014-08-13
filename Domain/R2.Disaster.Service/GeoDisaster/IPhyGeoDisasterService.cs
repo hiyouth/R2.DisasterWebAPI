@@ -10,10 +10,8 @@ namespace R2.Disaster.Service.GeoDisaster
 {
     public interface IPhyGeoDisasterService:IEntityServiceBase<PhyGeoDisaster>
     {
-        void New(PhyGeoDisaster phy);
-        void Update(PhyGeoDisaster phy);
         PhyGeoDisaster GetById(int id);
-
+        IQueryable<PhyGeoDisaster> GetByIds(int[] ids);
         /// <summary>
         /// 根据条件，返回符合条件的集合
         /// </summary>
