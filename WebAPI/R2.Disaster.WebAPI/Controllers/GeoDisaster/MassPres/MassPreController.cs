@@ -9,7 +9,7 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster.MassPres
     /// <summary>
     /// 群测群防基本信息服务
     /// </summary>
-    public class MassPreController :EntityControllerBase<MassPre,int>
+    public class MassPreController :PhyRelationEntityController<MassPre>
     {
         private IMassPreService _massPreService;
 

@@ -79,6 +79,7 @@
     <Compile Include="Controllers\GeoDisaster\MassPres\MassPreController.cs" />
     <Compile Include="Controllers\GeoDisaster\MassPres\PrePlanController.cs" />
     <Compile Include="Controllers\GeoDisaster\PhyGeoDisasterController.cs" />
+    <Compile Include="Controllers\GeoDisaster\PhyRelationEntityControllerBase.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Monitor\RainfallStationController.cs" />
     <Compile Include="Controllers\Monitor\RainfallController.cs" />
@@ -88,6 +89,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\AutoMapperRegistrar.cs" />
+    <Compile Include="Infrastructure\AutoMapperResolvers\AttributeExitedReslover.cs" />
     <Compile Include="Infrastructure\DenpendencyRegistrar.cs" />
     <Compile Include="Infrastructure\R2DependencyResolver.cs" />
     <Compile Include="Infrastructure\Signal\ChatHub.cs">

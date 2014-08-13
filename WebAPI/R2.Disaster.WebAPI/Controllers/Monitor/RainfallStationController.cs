@@ -10,7 +10,7 @@ namespace R2.Disaster.WebAPI.Controllers.Monitor
     /// <summary>
     /// 雨量站点服务
     /// </summary>
-    public class RainfallStationController : EntityControllerBase<RainfallStation,String>
+    public class RainfallStationController : EntityControllerBase<RainfallStation>
     {
         private IRainfallStationService _rainfallStationService;
         /// <summary>

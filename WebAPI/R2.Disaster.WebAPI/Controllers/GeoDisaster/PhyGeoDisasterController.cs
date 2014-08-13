@@ -18,7 +18,7 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster
     /// <summary>
     /// 地质灾害物理点实体控制器
     /// </summary>
-    public class PhyGeoDisasterController :EntityControllerBase<PhyGeoDisaster,int>
+    public class PhyGeoDisasterController :EntityControllerBase<PhyGeoDisaster>
     {
         private IPhyGeoDisasterService _phyService;
 
@@ -37,7 +37,7 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster
         /// </summary>
         /// <param name="id">物理点编号</param>
         /// <returns></returns>
-        public PhyGeoDisasterSimplify GetSimplifyById(int id)
+        public PhyGeoDisasterSimplify GetById(int id)
         {
             if (id <= 0)
                 throw new Exception("不存在这样的物理点信息主键编号");
@@ -47,20 +47,60 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster
         }
 
         /// <summary>
+        /// 根据一组物理点Id，获取一组物理点简要信息
+        /// </summary>
+        /// <param name="ids">多个物理点的Id，使用“，”分隔</param>
+        /// <returns></returns>
+        public IList<PhyGeoDisasterSimplify> GetByIds(String ids)
+        {
+            if (String.IsNullOrEmpty(ids))
+                throw new Exception("参数非法");
+            String[] phyIds = ids.Split(',');
+           // TODO:RRDL
+           int[] phyIdsInt = Array.ConvertAll<String,int>(phyIds,id=>Convert.ToInt32(id));
+           IQueryable<PhyGeoDisaster> query = this._phyService.GetByIds(phyIdsInt);
+           List<PhyGeoDisaster> lists = query.ToList();
+           IList<PhyGeoDisasterSimplify> phyModels = Mapper.Map<IQueryable<PhyGeoDisaster>,
+ IList<PhyGeoDisasterSimplify>>(query);
+           return phyModels;
+        }
+
+        /// <summary>
         /// 自定义查询条件，建议高级用户及服务无法满足查询条件时使用
         /// 自定义查询条件以表达式树（ExpresstionTree）的形式组合
         /// </summary>
-        /// <param name="x">由ExpressionSerilizer序列化得到，相关DLL请和服务负责人联系</param>
+        /// <param name="x">由ExpressionSerilizer序列化得到，相关请和服务负责人联系</param>
         /// <returns>物理点完整信息</returns>
         [HttpPost]
-        public IList<PhyGeoDisaster> GetByExpression([FromBody]XElement x)
+        public IList<PhyGeoDisasterSimplify> GetByExpression([FromBody]XElement x)
         {
             //TODO:后期回顾整理
             var serializer = new ExpressionSerializer(HostingEnvironment.MapPath("~/bin/R2.Disaster.CoreEntities.dll"));
             var newPredicate = serializer.Deserialize<Func<PhyGeoDisaster, bool>>(x);
             IQueryable<PhyGeoDisaster> query= this._phyService.ExecuteConditions(newPredicate);
-            IList<PhyGeoDisaster> lists = query.ToList();
-            return lists;
+            IList<PhyGeoDisaster> phyGeos = query.ToList();
+            IList<PhyGeoDisasterSimplify> phyModels = Mapper.Map<IQueryable<PhyGeoDisaster>,
+    IList<PhyGeoDisasterSimplify>>(query);
+            return phyModels;
+        }
+
+        /// <summary>
+        /// 根据多个物理点的唯一编号，获取一个指明该物理点各项属性是否存在的指示器
+        /// </summary>
+        /// <param name="phyIds">多个物理点Id，使用“，”分隔</param>
+        /// <returns></returns>
+        public IList<PhyAttributeIndicator> GetIndicator(String ids)
+        {
+            if (String.IsNullOrEmpty(ids))
+                throw new Exception("参数非法");
+            String[] phyIds = ids.Split(','); 
+            // TODO:RRDL
+            int[] phyIdsInt = Array.ConvertAll<String, int>(phyIds, id => Convert.ToInt32(id));
+            IQueryable<PhyGeoDisaster> query = this._phyService.GetByIds(phyIdsInt);
+            List<PhyGeoDisaster> phys = query.ToList();
+            IList<PhyAttributeIndicator> phyIdicators = Mapper.Map<IQueryable<PhyGeoDisaster>,
+                IList<PhyAttributeIndicator>>(query);
+            return phyIdicators;
         }
 
         /// <summary>

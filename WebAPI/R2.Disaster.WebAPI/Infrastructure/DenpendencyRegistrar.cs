@@ -28,6 +28,7 @@ namespace R2.Disaster.WebAPI
             builder.RegisterType<ComprehensiveService>().As<IComprehensiveService>().InstancePerRequest();
             builder.RegisterType<DebrisFlowService>().As<IDebrisFlowService>().InstancePerRequest();
             builder.RegisterType<PhyGeoDisasterService>().As<IPhyGeoDisasterService>().InstancePerRequest();
+         //   builder.RegisterType<Phy>().As<IPhyGeoDisasterService>().InstancePerRequest();
             builder.RegisterType<MassPreService>().As<IMassPreService>().InstancePerRequest();
             builder.RegisterType<RainfallStationService>().As<IRainfallStationService>().InstancePerRequest();
         }

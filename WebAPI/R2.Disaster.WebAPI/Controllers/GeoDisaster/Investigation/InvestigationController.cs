@@ -19,7 +19,7 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster.Investigation
     /// <summary>
     /// 地质灾害综合信息服务
     /// </summary>
-    public class InvestigationController:EntityControllerBase<Comprehensive,int>
+    public class InvestigationController:PhyRelationEntityController<Comprehensive>
     {
         private IComprehensiveService _cpsService;
         

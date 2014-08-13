@@ -12,7 +12,7 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster.MassPres
     /// <summary>
     /// 防灾预案相关服务
     /// </summary>
-    public class PrePlanController : ApiController
+    public class PrePlanController :PhyRelationEntityController<PrePlan>
     {
         private IPrePlanService _preplanService;
 
@@ -21,6 +21,7 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster.MassPres
         /// </summary>
         /// <param name="preplanService"></param>
         public PrePlanController(IPrePlanService preplanService )
+            :base(preplanService)
         {
             this._preplanService = preplanService;
         }

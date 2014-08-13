@@ -13,7 +13,7 @@ namespace R2.Disaster.WebAPI.Controllers
     /// </summary>
     /// <typeparam name="T">实体类型</typeparam>
     /// <typeparam name="U">实体主键类型</typeparam>
-    public class EntityControllerBase<T,U>:ApiController
+    public class EntityControllerBase<T>:ApiController
         where T: BaseEntity
     {
         private IEntityServiceBase<T> _domainServiceBase;
@@ -32,7 +32,7 @@ namespace R2.Disaster.WebAPI.Controllers
         /// <param name="id">主键编号</param>
         /// </summary>
         /// <returns></returns>
-        public T Get([FromUri]U id)
+        public T Get([FromUri]object id)
         {
             T entity = this._domainServiceBase.Get(id);
             return entity;
@@ -67,7 +67,7 @@ namespace R2.Disaster.WebAPI.Controllers
         /// </summary>
         /// <param name="id">需要删除的实体对象的主键</param>
         [HttpGet]
-        public void DeleteKey(U id)
+        public void DeleteKey(object id)
         {
             if (id ==null)
                 throw new Exception("参数不合法，没有这样的防灾预案编号");
@@ -139,7 +139,7 @@ namespace R2.Disaster.WebAPI.Controllers
         /// </summary>
         /// <param name="ids">一组实体的主键</param>
           [HttpPost]
-          public void DeleteKeySet([FromBody] List<U> ids)
+          public void DeleteKeySet([FromBody] List<object> ids)
           {
               if (ids == null)
                   throw new ArgumentException("entities");
