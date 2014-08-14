@@ -34,7 +34,8 @@ namespace R2.Disaster.WebAPI.Controllers
         /// <returns></returns>
         public T Get([FromUri]object id)
         {
-            T entity = this._domainServiceBase.Get(id);
+            int idNum = Int32.Parse(id.ToString());
+            T entity = this._domainServiceBase.Get(idNum);
             return entity;
         }
 

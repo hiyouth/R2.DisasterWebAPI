@@ -46,6 +46,7 @@
     <Compile Include="GeoDisaster\PhyGeoDisasterQueryCondition.cs" />
     <Compile Include="GeoDisaster\PhyGeoDisasterSimplify.cs" />
     <Compile Include="GeoDisaster\PhyAttributeIndicator.cs" />
+    <Compile Include="GeoDisaster\PhyAttributeCountIndicator.cs" />
     <Compile Include="Monitor\RainfallQueryCondition.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

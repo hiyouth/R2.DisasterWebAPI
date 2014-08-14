@@ -19,6 +19,8 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.PotentialThreats
         /// </summary>
         public String ThreatSource { get; set; }
 
+        public String SourceId { get; set; }
+
         /// <summary>
         /// 当前隐患点是否处于激活状态（隐患点有可能治理消除，也有可能再次成为隐患点）
         /// </summary>
@@ -72,13 +74,16 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.PotentialThreats
         /// </summary>
         public double Y { get; set; }
 
+        public String 经度 { get; set; }
+        public String 纬度 { get; set; }
+
         public int 规模 { get; set; }
 
         public int 威胁人口 { get; set; }
 
         public double 威胁财产 { get; set; }
 
-        public String 检测人员 { get; set; }
+        public String 监测人员 { get; set; }
 
         public String 监测人员手机 { get; set; }
 

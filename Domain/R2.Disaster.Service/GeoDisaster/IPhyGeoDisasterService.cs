@@ -19,6 +19,8 @@ namespace R2.Disaster.Service.GeoDisaster
         /// <returns></returns>
         IQueryable<PhyGeoDisaster> ExecuteConditions(Expression<Func<PhyGeoDisaster , bool>> condition);
 
+        PhyGeoDisaster GetByCustomizeId(string cusomizeId);
+
         IQueryable<PhyGeoDisaster> GetByConditions(List<string> gbcodeIds, List<EnumGeoDisasterType?> types);
         IQueryable<PhyGeoDisaster> GetByConditions(string gbCode, EnumGeoDisasterType? type);
         IQueryable<PhyGeoDisaster> GetByKeyWord(string keyword);

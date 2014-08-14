@@ -5,6 +5,7 @@ using R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation;
 using R2.Disaster.CoreEntities.Domain.GeoDisaster.MassPres;
 using R2.Disaster.CoreEntities.Domain.GeoDisaster.Monitor;
 using R2.Disaster.CoreEntities.Domain.GeoDisaster.PotentialThreats;
+using R2.Disaster.CoreEntities.Domain.GeoDisaster.Relocation;
 using R2.Disaster.WebAPI.Infrastructure.AutoMapperResolvers;
 using R2.Disaster.WebAPI.Model;
 using R2.Disaster.WebAPI.Model.Investigation;
@@ -38,25 +39,45 @@ namespace R2.Disaster.WebAPI.Infrastructure
                 .ForMember(r => r.RainfallTimeAndValues, opt => opt.MapFrom(g => g));
 
             //Mapper.CreateMap<Comprehensive,bool>().
-            Mapper.CreateMap<PhyGeoDisaster, PhyAttributeIndicator>()
-                .ForMember(dest => dest.HasInvestigation,
-                opt => opt.ResolveUsing<AttributeExitedResolver<PhyGeoDisaster, Comprehensive>>().ConstructedBy(() => new AttributeExitedResolver<PhyGeoDisaster, Comprehensive>("Comprehensives")))
-                .ForMember(dest => dest.HasAvoidRiskCards,
-                opt => opt.ResolveUsing<AttributeExitedResolver<PhyGeoDisaster, AvoidRiskCard>>().ConstructedBy(() => new AttributeExitedResolver<PhyGeoDisaster, AvoidRiskCard>("AvoidRiskCards")))
-                .ForMember(dest => dest.HasDamageReports,
-                opt => opt.ResolveUsing<AttributeExitedResolver<PhyGeoDisaster, DamageReport>>().ConstructedBy(() => new AttributeExitedResolver<PhyGeoDisaster, DamageReport>("DamageReports")))
-                    .ForMember(dest => dest.HasEmergencySurveys,
-                opt => opt.ResolveUsing<AttributeExitedResolver<PhyGeoDisaster, EmergencySurvey>>().ConstructedBy(() => new AttributeExitedResolver<PhyGeoDisaster, EmergencySurvey>("EmergencySurveys")))
-                    .ForMember(dest => dest.HasMassPatrols,
-                opt => opt.ResolveUsing<AttributeExitedResolver<PhyGeoDisaster, MassPatrol>>().ConstructedBy(() => new AttributeExitedResolver<PhyGeoDisaster, MassPatrol>("MassPatrols")))
-                     .ForMember(dest => dest.HasMassPres,
-                opt => opt.ResolveUsing<AttributeExitedResolver<PhyGeoDisaster, MassPre>>().ConstructedBy(() => new AttributeExitedResolver<PhyGeoDisaster, MassPre>("MassPres")))
-                   .ForMember(dest => dest.HasPrePlans,
-                opt => opt.ResolveUsing<AttributeExitedResolver<PhyGeoDisaster, PrePlan>>().ConstructedBy(() => new AttributeExitedResolver<PhyGeoDisaster, PrePlan>("PrePlans")))
-                   .ForMember(dest => dest.HasThreats,
-                opt => opt.ResolveUsing<AttributeExitedResolver<PhyGeoDisaster, Threat>>().ConstructedBy(() => new AttributeExitedResolver<PhyGeoDisaster, Threat>("Threats")))
-                 .ForMember(dest => dest.HasWorkingGuideCards,
-                opt => opt.ResolveUsing<AttributeExitedResolver<PhyGeoDisaster, WorkingGuideCard>>().ConstructedBy(() => new AttributeExitedResolver<PhyGeoDisaster, WorkingGuideCard>("WorkingGuideCards")));
+            Mapper.CreateMap<PhyGeoDisaster, PhyAttributeCountIndicator>()
+                .ForMember(dest => dest.Investigation,
+                opt => opt.ResolveUsing<AttributeCountResolver<PhyGeoDisaster, Comprehensive>>().ConstructedBy(() => new AttributeCountResolver<PhyGeoDisaster, Comprehensive>("Comprehensives")))
+                .ForMember(dest => dest.AvoidRiskCards,
+                opt => opt.ResolveUsing<AttributeCountResolver<PhyGeoDisaster, AvoidRiskCard>>().ConstructedBy(() => new AttributeCountResolver<PhyGeoDisaster, AvoidRiskCard>("AvoidRiskCards")))
+                .ForMember(dest => dest.DamageReports,
+                opt => opt.ResolveUsing<AttributeCountResolver<PhyGeoDisaster, DamageReport>>().ConstructedBy(() => new AttributeCountResolver<PhyGeoDisaster, DamageReport>("DamageReports")))
+                    .ForMember(dest => dest.EmergencySurveys,
+                opt => opt.ResolveUsing<AttributeCountResolver<PhyGeoDisaster, EmergencySurvey>>().ConstructedBy(() => new AttributeCountResolver<PhyGeoDisaster, EmergencySurvey>("EmergencySurveys")))
+                    .ForMember(dest => dest.EmergencySurveyReports,
+                opt => opt.ResolveUsing<AttributeCountResolver<PhyGeoDisaster, MassPatrol>>().ConstructedBy(() => new AttributeCountResolver<PhyGeoDisaster, MassPatrol>("MassPatrols")))
+                     .ForMember(dest => dest.MassPres,
+                opt => opt.ResolveUsing<AttributeCountResolver<PhyGeoDisaster, MassPre>>().ConstructedBy(() => new AttributeCountResolver<PhyGeoDisaster, MassPre>("MassPres")))
+                   .ForMember(dest => dest.PrePlans,
+                opt => opt.ResolveUsing<AttributeCountResolver<PhyGeoDisaster, PrePlan>>().ConstructedBy(() => new AttributeCountResolver<PhyGeoDisaster, PrePlan>("PrePlans")))
+                   .ForMember(dest => dest.Threats,
+                opt => opt.ResolveUsing<AttributeCountResolver<PhyGeoDisaster, Threat>>().ConstructedBy(() => new AttributeCountResolver<PhyGeoDisaster, Threat>("Threats")))
+                 .ForMember(dest => dest.WorkingGuideCards,
+                opt => opt.ResolveUsing<AttributeCountResolver<PhyGeoDisaster, WorkingGuideCard>>().ConstructedBy(() => new AttributeCountResolver<PhyGeoDisaster, WorkingGuideCard>("WorkingGuideCards")))
+
+                .ForMember(dest => dest.EmergencySurveyReports,
+                opt => opt.ResolveUsing<AttributeCountResolver<PhyGeoDisaster, EmergencySurveyReport>>().ConstructedBy(() => new AttributeCountResolver<PhyGeoDisaster, EmergencySurveyReport>("EmergencySurveyReports")))
+                  .ForMember(dest => dest.RelocationComprehensives,
+                opt => opt.ResolveUsing<AttributeCountResolver<PhyGeoDisaster, RelocationComprehensive>>().ConstructedBy(() => new AttributeCountResolver<PhyGeoDisaster, RelocationComprehensive>("RelocationComprehensives")))
+                  .ForMember(dest => dest.RelocationLandSlipChecks,
+                opt => opt.ResolveUsing<AttributeCountResolver<PhyGeoDisaster, RelocationLandSlipCheck>>().ConstructedBy(() => new AttributeCountResolver<PhyGeoDisaster, RelocationLandSlipCheck>("RelocationLandSlipChecks")))
+                  .ForMember(dest => dest.RelocationLandSlideChecks,
+                opt => opt.ResolveUsing<AttributeCountResolver<PhyGeoDisaster, RelocationLandSlideCheck>>().ConstructedBy(() => new AttributeCountResolver<PhyGeoDisaster, RelocationLandSlideCheck>("RelocationLandSlideChecks")))
+                  .ForMember(dest => dest.RelocationDebrisFlowChecks,
+                opt => opt.ResolveUsing<AttributeCountResolver<PhyGeoDisaster, RelocationDebrisFlowCheck>>().ConstructedBy(() => new AttributeCountResolver<PhyGeoDisaster, RelocationDebrisFlowCheck>("RelocationDebrisFlowChecks")))
+                  .ForMember(dest => dest.RelocationSlopeChecks,
+                opt => opt.ResolveUsing<AttributeCountResolver<PhyGeoDisaster, RelocationSlopeCheck>>().ConstructedBy(() => new AttributeCountResolver<PhyGeoDisaster, RelocationSlopeCheck>("RelocationSlopeChecks")))
+                  .ForMember(dest => dest.RelocationLandCollapseChecks,
+                opt => opt.ResolveUsing<AttributeCountResolver<PhyGeoDisaster, RelocationLandCollapseCheck>>().ConstructedBy(() => new AttributeCountResolver<PhyGeoDisaster, RelocationLandCollapseCheck>("RelocationLandCollapseChecks")))
+                  .ForMember(dest => dest.RelocationPlaceEvaluations,
+                opt => opt.ResolveUsing<AttributeCountResolver<PhyGeoDisaster, RelocationPlaceEvaluation>>().ConstructedBy(() => new AttributeCountResolver<PhyGeoDisaster, RelocationPlaceEvaluation>("RelocationPlaceEvaluations")))
+                  .ForMember(dest => dest.MonthlyReports,
+                opt => opt.ResolveUsing<AttributeCountResolver<PhyGeoDisaster, MonthlyReport>>().ConstructedBy(() => new AttributeCountResolver<PhyGeoDisaster, MonthlyReport>("MonthlyReports")));
+
               
                 //.ForMember(dest => dest.HasMassPres,
                 //    opt => opt.ResolveUsing < AttributeExitedResolver<ICollection<MassPre>>>());

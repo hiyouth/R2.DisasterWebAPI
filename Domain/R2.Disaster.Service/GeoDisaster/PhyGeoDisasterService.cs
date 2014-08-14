@@ -148,5 +148,14 @@ namespace R2.Disaster.Service.GeoDisaster
             Expression<Func<PhyGeoDisaster, bool>> predicate = p => ids.Contains(p.Id);
             return this.ExecuteConditions(predicate);
         }
+
+
+        public PhyGeoDisaster GetByCustomizeId(string cusomizeId)
+        {
+            var queryResult = (from a in this._repositoryPhy.Table
+                               where a.CustomizeId == cusomizeId
+                               select a).FirstOrDefault();
+            return queryResult;
+        }
     }
 }

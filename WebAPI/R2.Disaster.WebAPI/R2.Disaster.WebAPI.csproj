@@ -100,6 +100,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\AutoMapperResolvers\AttributeCountReslover.cs" />
     <Compile Include="Infrastructure\AutoMapperRegistrar.cs" />
     <Compile Include="Infrastructure\AutoMapperResolvers\AttributeExitedReslover.cs" />
     <Compile Include="Infrastructure\DenpendencyRegistrar.cs" />
