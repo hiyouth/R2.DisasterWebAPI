@@ -47,6 +47,21 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster
         }
 
         /// <summary>
+        /// 根据自定义编号查询物理点简要信息
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        /// lx 2014年8月4日15:39:22
+        public PhyGeoDisasterSimplify GetByCustomizeId(string cusolizeId)
+        {
+            if (string.IsNullOrWhiteSpace(cusolizeId))
+                throw new Exception(@"查询的自定义编号不允许时类型“null”或者空字符串");
+            PhyGeoDisaster phy = this._phyService.GetByCustomizeId(cusolizeId);
+            PhyGeoDisasterSimplify phyModel = Mapper.Map<PhyGeoDisasterSimplify>(phy);
+            return phyModel;
+        }
+
+        /// <summary>
         /// 根据一组物理点Id，获取一组物理点简要信息
         /// </summary>
         /// <param name="ids">多个物理点的Id，使用“，”分隔</param>
@@ -75,8 +90,9 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster
         public IList<PhyGeoDisasterSimplify> GetByExpression([FromBody]XElement x)
         {
             //TODO:后期回顾整理
-            var serializer = new ExpressionSerializer(HostingEnvironment.MapPath("~/bin/R2.Disaster.CoreEntities.dll"));
-            var newPredicate = serializer.Deserialize<Func<PhyGeoDisaster, bool>>(x);
+            //var serializer = new ExpressionSerializer(HostingEnvironment.MapPath("~/bin/R2.Disaster.CoreEntities.dll"));
+         //   var newPredicate = serializer.Deserialize<Func<PhyGeoDisaster, bool>>(x);
+            var newPredicate = SerializeHelper.DeserializeExpression<PhyGeoDisaster, bool>(x);
             IQueryable<PhyGeoDisaster> query= this._phyService.ExecuteConditions(newPredicate);
             IList<PhyGeoDisaster> phyGeos = query.ToList();
             IList<PhyGeoDisasterSimplify> phyModels = Mapper.Map<IQueryable<PhyGeoDisaster>,
@@ -89,7 +105,7 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster
         /// </summary>
         /// <param name="phyIds">多个物理点Id，使用“，”分隔</param>
         /// <returns></returns>
-        public IList<PhyAttributeIndicator> GetIndicator(String ids)
+        public IList<PhyAttributeCountIndicator> GetIndicator(String ids)
         {
             if (String.IsNullOrEmpty(ids))
                 throw new Exception("参数非法");
@@ -98,8 +114,8 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster
             int[] phyIdsInt = Array.ConvertAll<String, int>(phyIds, id => Convert.ToInt32(id));
             IQueryable<PhyGeoDisaster> query = this._phyService.GetByIds(phyIdsInt);
             List<PhyGeoDisaster> phys = query.ToList();
-            IList<PhyAttributeIndicator> phyIdicators = Mapper.Map<IQueryable<PhyGeoDisaster>,
-                IList<PhyAttributeIndicator>>(query);
+            IList<PhyAttributeCountIndicator> phyIdicators = Mapper.Map<IQueryable<PhyGeoDisaster>,
+                IList<PhyAttributeCountIndicator>>(query);
             return phyIdicators;
         }
 
