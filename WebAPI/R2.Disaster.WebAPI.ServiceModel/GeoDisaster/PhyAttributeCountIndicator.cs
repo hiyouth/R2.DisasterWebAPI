@@ -11,7 +11,7 @@ namespace R2.Disaster.WebAPI.ServiceModel.GeoDisaster
     /// </summary>
     public class PhyAttributeCountIndicator
     {
-        public int Investigation { get; set; }
+        public int Investigations { get; set; }
         public int MassPatrols { get; set; }
         public int EmergencySurveys { get; set; }
         public int DamageReports { get; set; }

@@ -102,7 +102,6 @@
     </Compile>
     <Compile Include="Infrastructure\AutoMapperResolvers\AttributeCountReslover.cs" />
     <Compile Include="Infrastructure\AutoMapperRegistrar.cs" />
-    <Compile Include="Infrastructure\AutoMapperResolvers\AttributeExitedReslover.cs" />
     <Compile Include="Infrastructure\DenpendencyRegistrar.cs" />
     <Compile Include="Infrastructure\R2DependencyResolver.cs" />
     <Compile Include="Infrastructure\Signal\ChatHub.cs">

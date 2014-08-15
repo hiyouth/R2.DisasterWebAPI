@@ -86,5 +86,10 @@ namespace R2.Disaster.Service
             //}
             this._repository.Insert(entities);
         }
+
+        public IQueryable<T> FindAll()
+        {
+            return this._repository.Table;
+        }
     }
 }

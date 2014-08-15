@@ -44,6 +44,8 @@
     <Compile Include="GeoDisaster\MassPres\PrePlanService.cs" />
     <Compile Include="GeoDisaster\PhyGeoDisasterService.cs" />
     <Compile Include="GeoDisaster\PhyRelationEntityServiceBase.cs" />
+    <Compile Include="GeoDisaster\PotentialThreats\IThreatService.cs" />
+    <Compile Include="GeoDisaster\PotentialThreats\ThreatService.cs" />
     <Compile Include="GeoDisaster\Relocation\IRelocationComprehensiveService.cs" />
     <Compile Include="GeoDisaster\Relocation\IRelocationDebrisFlowCheckService.cs" />
     <Compile Include="GeoDisaster\Relocation\IRelocationLandCollapseCheckService.cs" />

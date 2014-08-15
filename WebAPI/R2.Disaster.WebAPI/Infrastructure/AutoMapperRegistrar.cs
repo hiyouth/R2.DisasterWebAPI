@@ -40,7 +40,7 @@ namespace R2.Disaster.WebAPI.Infrastructure
 
             //Mapper.CreateMap<Comprehensive,bool>().
             Mapper.CreateMap<PhyGeoDisaster, PhyAttributeCountIndicator>()
-                .ForMember(dest => dest.Investigation,
+                .ForMember(dest => dest.Investigations,
                 opt => opt.ResolveUsing<AttributeCountResolver<PhyGeoDisaster, Comprehensive>>().ConstructedBy(() => new AttributeCountResolver<PhyGeoDisaster, Comprehensive>("Comprehensives")))
                 .ForMember(dest => dest.AvoidRiskCards,
                 opt => opt.ResolveUsing<AttributeCountResolver<PhyGeoDisaster, AvoidRiskCard>>().ConstructedBy(() => new AttributeCountResolver<PhyGeoDisaster, AvoidRiskCard>("AvoidRiskCards")))
@@ -48,7 +48,7 @@ namespace R2.Disaster.WebAPI.Infrastructure
                 opt => opt.ResolveUsing<AttributeCountResolver<PhyGeoDisaster, DamageReport>>().ConstructedBy(() => new AttributeCountResolver<PhyGeoDisaster, DamageReport>("DamageReports")))
                     .ForMember(dest => dest.EmergencySurveys,
                 opt => opt.ResolveUsing<AttributeCountResolver<PhyGeoDisaster, EmergencySurvey>>().ConstructedBy(() => new AttributeCountResolver<PhyGeoDisaster, EmergencySurvey>("EmergencySurveys")))
-                    .ForMember(dest => dest.EmergencySurveyReports,
+                    .ForMember(dest => dest.MassPatrols,
                 opt => opt.ResolveUsing<AttributeCountResolver<PhyGeoDisaster, MassPatrol>>().ConstructedBy(() => new AttributeCountResolver<PhyGeoDisaster, MassPatrol>("MassPatrols")))
                      .ForMember(dest => dest.MassPres,
                 opt => opt.ResolveUsing<AttributeCountResolver<PhyGeoDisaster, MassPre>>().ConstructedBy(() => new AttributeCountResolver<PhyGeoDisaster, MassPre>("MassPres")))

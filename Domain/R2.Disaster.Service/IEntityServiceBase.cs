@@ -26,5 +26,7 @@ namespace R2.Disaster.Service
          void New(IList<T> entities);
 
          T Get(object id);
+
+         IQueryable<T> FindAll();
     }
 }
