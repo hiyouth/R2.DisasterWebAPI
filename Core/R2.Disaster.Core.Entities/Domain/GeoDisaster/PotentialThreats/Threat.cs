@@ -52,17 +52,17 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.PotentialThreats
         /// <summary>
         /// 乡镇
         /// </summary>
-        public String Towns { get; set; }
+        public string Towns { get; set; }
 
         /// <summary>
         /// 村
         /// </summary>
-        public String Village { get; set; }
+        public string Village { get; set; }
 
         /// <summary>
         /// 组
         /// </summary>
-        public String Group { get; set; }
+        public string Group { get; set; }
 
         /// <summary>
         /// 经度
@@ -74,8 +74,8 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.PotentialThreats
         /// </summary>
         public double Y { get; set; }
 
-        public String 经度 { get; set; }
-        public String 纬度 { get; set; }
+        public double 经度 { get; set; }
+        public double 纬度 { get; set; }
 
         public int 规模 { get; set; }
 
@@ -83,36 +83,37 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.PotentialThreats
 
         public double 威胁财产 { get; set; }
 
-        public String 监测人员 { get; set; }
+        public string 监测人员 { get; set; }
 
-        public String 监测人员手机 { get; set; }
+        public string 监测人员手机 { get; set; }
 
-        public String 村级责任人 { get; set; }
+        public string 村级责任人 { get; set; }
 
-        public String 村级责任人手机 { get; set; }
+        public string 村级责任人手机 { get; set; }
 
-        public String 潜在危害 { get; set; }
+        public string 潜在危害 { get; set; }
 
-        public String 地质环境条件 { get; set; }
+        public string 地质环境条件 { get; set; }
 
-        public String 变形特征及活动历史 { get; set; }
+        public string 变形特征及活动历史 { get; set; }
 
-        public String 稳定性分析 { get; set; }
+        public string 稳定性分析 { get; set; }
 
-        public String 诱发因素 { get; set; }
+        public string 诱发因素 { get; set; }
 
-        public String 监测方法 { get; set; }
+        public string 监测方法 { get; set; }
 
-        public String 防止建议{get;set;}
+        public string 防止建议 { get; set; }
 
-        public String 报警方法{get;set;}
+        public string 报警方法 { get; set; }
 
-        public String 预定避灾地点{get;set;}
+        public string 预定避灾地点 { get; set; }
 
-        public String 人员撤离路线{get;set;}
+        public string 人员撤离路线 { get; set; }
 
-        public String 搬迁或治理现状 { get; set; }
+        public string 搬迁或治理现状 { get; set; }
 
-        public String 相关图件照片 { get; set; }
+        public string 相关图件照片 { get; set; }
+
     }
 }

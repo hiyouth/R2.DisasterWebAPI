@@ -23,8 +23,8 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.MassPres
         public string 市 { get; set; }
         public string 县 { get; set; }
         public string 地理位置 { get; set; }
-        public string 经度 { get; set; }
-        public string 纬度 { get; set; }
+        public double 经度 { get; set; }
+        public double 纬度 { get; set; }
         public DateTime? 初始发现时间 { get; set; }
         public DateTime? 上报时间 { get; set; }
         public string 灾情险情类型 { get; set; }

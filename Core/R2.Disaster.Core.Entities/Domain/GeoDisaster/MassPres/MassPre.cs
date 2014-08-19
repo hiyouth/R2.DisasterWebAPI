@@ -17,8 +17,8 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.MassPres
         public string 名称 { get; set; }
         public string 县名 { get; set; }
 
-        public string 经度 { get; set; }
-        public string 纬度 { get; set; }
+        public double 经度 { get; set; }
+        public double 纬度 { get; set; }
         public double 规模 { get; set; }
         public double 长度 { get; set; }
         public double 宽度 { get; set; }

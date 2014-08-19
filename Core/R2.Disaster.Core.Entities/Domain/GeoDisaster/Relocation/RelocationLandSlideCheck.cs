@@ -19,8 +19,8 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.Relocation
         public string 县市区 { get; set; }
         public string 乡镇场 { get; set; }
         public string 村组及地名 { get; set; }
-        public string X { get; set; }
-        public string Y { get; set; }
+        public double X { get; set; }
+        public double Y { get; set; }
         public string 高程 { get; set; }
         public string 地层岩浆岩代号 { get; set; }
         public string 地层岩浆岩岩性 { get; set; }
