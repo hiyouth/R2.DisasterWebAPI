@@ -33,6 +33,11 @@ namespace R2.Disaster.Service
             this._repository.Update(entity);
         }
 
+        public void UpdateAttached(T entity)
+        {
+            this._repository.UpdateAttached(entity);
+        }
+
         public T Get(object id)
         {
             return this._repository.GetById(id);
@@ -59,9 +64,14 @@ namespace R2.Disaster.Service
         }
 
 
-        public void Update(IList<T> entities)
+        //public void Update(IList<T> entities)
+        //{
+        //    this._repository.Update(entities);
+        //}
+
+        public void UpdateRelationAttached(BaseEntity entity)
         {
-            this._repository.Update(entities);
+            this._repository.UpdateRelationAttached(entity);
         }
 
         public void Delete(IList<T> entities)

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using R2.Disaster.CoreEntities;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace R2.Disaster.Repository
@@ -13,9 +14,13 @@ namespace R2.Disaster.Repository
         void Insert(T entity,bool saved=true);
 
         void Insert(IList<T> entities);
-        void Update(T entity,bool saved=true);
 
-        void Update(IList<T> entities);
+        void Update(T entity);
+
+        void UpdateRelationAttached(BaseEntity entity);
+
+        void UpdateAttached(T entity);
+
         void Delete(T entity,bool saved=true);
 
         void Delete(IList<T> entities);

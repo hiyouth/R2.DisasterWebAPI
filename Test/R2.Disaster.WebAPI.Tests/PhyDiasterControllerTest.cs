@@ -42,6 +42,36 @@ namespace R2.Disaster.WebAPI.Tests
         }
 
         [TestMethod]
+        public void TestUpdateAttached()
+        {
+            List<Comprehensive> lists1 = new List<Comprehensive>();
+            
+            Comprehensive c1 = new Comprehensive()
+            {
+                Id=1,
+                统一编号 = "370101040001",
+                名称 = "西蒋峪村北侧地面塌陷00000000",
+                灾害类型 = EnumGeoDisasterType.DebrisFlow,
+                GBCodeId = "370101",
+                地理位置 = "西蒋峪村北侧地面塌陷333",
+                DebrisFlow = new DebrisFlow()
+                {
+                    Id = 1,
+                    野外编号 = "ccccccccc",
+                    //   统一编号 = "370101040001",
+                },
+                PhyGeoDisasterId =1
+            };
+            lists1.Add(c1);
+            PhyGeoDisaster phy1 = new PhyGeoDisaster()
+            {
+                Id=1,
+                Comprehensives = lists1
+            };
+            this._service.UpdateRelationAttached(phy1);
+        }
+
+        [TestMethod]
         //[ExpectedException(typeof(Exception))]
         public void TestNewPhySet()
         {

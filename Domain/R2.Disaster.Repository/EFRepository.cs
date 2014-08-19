@@ -6,6 +6,7 @@ using R2.Disaster.Data;
 using System.Collections.Generic;
 using R2.Disaster.CoreEntities;
 using System.Reflection;
+using System.Collections;
 
 namespace R2.Disaster.Repository
 {
@@ -66,32 +67,63 @@ namespace R2.Disaster.Repository
             }
         }
 
-        public virtual void UpdateAttached(T entity,bool save=true)
+        #region Update
+        /// <summary>
+        /// 更新，针对未被跟踪的实体，采用Attached方法来更新实体及实体相关的导航属性（深度遍历）
+        /// </summary>
+        /// <param name="entity"></param>
+        public virtual void UpdateRelationAttached(BaseEntity entity)
         {
             //this._context.DbSet(typeof(T)).Attach(entity);
             //entity.GetType().
            //indingFlags.
-          foreach (var propertyInfo in typeof(T).GetProperties())             
-          {                     //对象对应属性值变量(可以用列表添加)                    //是你的student 类型实例                
-              var v = propertyInfo.GetValue(entity, null);
-              if (v is BaseEntity)
-              {
-                  this._context.DbSet(v.GetType()).Attach(v);
-              }
-          }
+          this.AttachedAllBaseEntity(entity);
+          this._context.SaveChanges();
         }
 
-        public virtual void Update(T entity,bool saved=true)
+        /// <summary>
+        /// 递归函数，将entity及其导航属性以及导航属性的导航属性（递归）全部Attach跟踪起来
+        /// </summary>
+        /// <param name="entity"></param>
+        private void AttachedAllBaseEntity(BaseEntity entity)
+        {
+            foreach (var propertyInfo in entity.GetType().GetProperties())
+            {
+                var v = propertyInfo.GetValue(entity, null);
+                if (v is BaseEntity)
+                {
+                    //非集合类型
+                    this.AttachedAllBaseEntity(v as BaseEntity);
+                    this._context.DbSet(v.GetType()).Attach(v);
+                    this._context.Context.Entry(v).State = EntityState.Modified;
+                }
+                if (v is ICollection)
+                {
+                    //集合类型
+                    ICollection vs = v as ICollection;
+                    foreach (var item in vs)
+                    {
+                        //遍历集合类型下面的每一个元素
+                        this.AttachedAllBaseEntity(item as BaseEntity);
+                        Type type = item.GetType();
+                        this._context.DbSet(type).Attach(item);
+                        this._context.Context.Entry(item).State = EntityState.Modified;
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// 更新，针对已经被跟踪的实体（如是通过查询的方法得到的实体，再修改，在更新）做更新
+        /// </summary>
+        /// <param name="entity"></param>
+        public virtual void Update(T entity)
         {
             try
             {
                 if (entity == null)
                     throw new ArgumentNullException("entity");
-
-                if (saved)
-                {
                     this._context.SaveChanges();
-                }
             }
             catch (DbEntityValidationException dbEx)
             {
@@ -106,6 +138,36 @@ namespace R2.Disaster.Repository
                 throw fail;
             }
         }
+
+        /// <summary>
+        /// 更新，对于还没有被跟踪，比如，new 出来的实体做更新
+        /// </summary>
+        /// <param name="entity"></param>
+        public void UpdateAttached(T entity)
+        {
+            try
+            {
+                if (entity == null)
+                    throw new ArgumentNullException("entity");
+
+                this._context.DbSet(typeof(T)).Attach(entity);
+                this._context.Context.Entry(entity).State = EntityState.Modified;
+                this._context.SaveChanges();
+            }
+            catch (DbEntityValidationException dbEx)
+            {
+                var msg = string.Empty;
+
+                foreach (var validationErrors in dbEx.EntityValidationErrors)
+                    foreach (var validationError in validationErrors.ValidationErrors)
+                        msg += Environment.NewLine + string.Format("Property: {0} Error: {1}", validationError.PropertyName, validationError.ErrorMessage);
+
+                var fail = new Exception(msg, dbEx);
+                //Debug.WriteLine(fail.Message, fail);
+                throw fail;
+            }
+        }
+        #endregion
 
         public virtual void Delete(T entity ,bool saved =true)
         {
@@ -185,30 +247,6 @@ namespace R2.Disaster.Repository
             }
         }
 
-        public void Update(IList<T> entities)
-        {
-            foreach (var entity in entities)
-            {
-                this.Update(entity,false);
-            }
-            try
-            {
-                this._context.SaveChanges();
-            }
-            catch (DbEntityValidationException dbEx)
-            {
-                var msg = string.Empty;
-
-                foreach (var validationErrors in dbEx.EntityValidationErrors)
-                    foreach (var validationError in validationErrors.ValidationErrors)
-                        msg += Environment.NewLine + string.Format("Property: {0} Error: {1}", validationError.PropertyName, validationError.ErrorMessage);
-
-                var fail = new Exception(msg, dbEx);
-                //Debug.WriteLine(fail.Message, fail);
-                throw fail;
-            }
-        }
-
         public void Delete(IList<T> entities)
         {
             foreach (var entity in entities)
@@ -257,5 +295,8 @@ namespace R2.Disaster.Repository
                 throw fail;
             }
         }
+
+
+
     }
 }

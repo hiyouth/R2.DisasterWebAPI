@@ -1,4 +1,5 @@
-﻿using System;
+﻿using R2.Disaster.CoreEntities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,7 +12,11 @@ namespace R2.Disaster.Service
 
         void Update(T entity);
 
-        void Update(IList<T> entities);
+        //void Update(IList<T> entities);
+
+        void UpdateRelationAttached(BaseEntity entity);
+
+        void UpdateAttached(T entity);
 
         void Delete(T entity);
 
