@@ -215,7 +215,7 @@ namespace R2.Disaster.Service.GeoDisaster.Investigation
             eps = eps.And(a =>
                                         LonLatHelper.DistanceBetTwoPoints(
                                                 x, y,
-                                                a.经度,
+                                                 a.经度,
                                                 a.纬度
                                                 )
                                         <= radius);
