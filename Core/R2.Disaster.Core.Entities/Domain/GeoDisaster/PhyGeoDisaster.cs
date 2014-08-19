@@ -42,6 +42,11 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster
         public double Lat { get; set; }
 
         /// <summary>
+        /// 是否是隐患点，默认为“false”
+        /// </summary>
+        public bool IsThreat { get; set; }
+
+        /// <summary>
         /// 行政区编码，必要属性，不允许Null
         /// </summary>
         public virtual GBCode GBCode { get; set; }

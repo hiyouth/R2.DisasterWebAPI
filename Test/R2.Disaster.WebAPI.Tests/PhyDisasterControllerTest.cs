@@ -19,7 +19,7 @@ using R2.Disaster.WebAPI.Controllers.GeoDisaster.Investigation;
 namespace R2.Disaster.WebAPI.Tests
 {
     [TestClass]
-    public class PhyDiasterControllerTest
+    public class PhyDisasterControllerTest
     {
         private IDbContext _db;
         private IRepository<PhyGeoDisaster> _re;
@@ -27,7 +27,7 @@ namespace R2.Disaster.WebAPI.Tests
         private IPhyGeoDisasterService _service;
         private PhyGeoDisasterController _controller;
 
-        public PhyDiasterControllerTest()
+        public PhyDisasterControllerTest()
         {
         }
 
