@@ -202,8 +202,8 @@ namespace R2.Disaster.Service.GeoDisaster.Investigation
             eps = eps.And(
                  c => LonLatHelper.GetLonLatIsInRect(
                      x1, x2, y1, y2
-                   , LonLatHelper.ConvertToDegreeStyleFromString(c.经度)
-                   , LonLatHelper.ConvertToDegreeStyleFromString(c.纬度)
+                   , c.经度
+                   , c.纬度
                    )
             );
             return eps;
@@ -215,8 +215,8 @@ namespace R2.Disaster.Service.GeoDisaster.Investigation
             eps = eps.And(a =>
                                         LonLatHelper.DistanceBetTwoPoints(
                                                 x, y,
-                                                LonLatHelper.ConvertToDegreeStyleFromString(a.经度),
-                                                LonLatHelper.ConvertToDegreeStyleFromString(a.纬度)
+                                                a.经度,
+                                                a.纬度
                                                 )
                                         <= radius);
             return eps;

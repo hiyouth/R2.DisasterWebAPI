@@ -82,8 +82,8 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation
         public string 地理位置 { get; set; }
 
         public string 名称 { get; set; }
-        public string 经度 { get; set; }
-        public string 纬度 { get; set; }
+        public double 经度 { get; set; }
+        public double 纬度 { get; set; }
         public int 死亡人数 { get; set; }
         public int 威胁人口 { get; set; }
 
