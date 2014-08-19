@@ -11,7 +11,7 @@ using SignalRChat;
 namespace R2.Disaster.WebAPI.Controllers
 {
     /// <summary>
-    /// 构造函数
+    /// 构造函数，测试测试
     /// </summary>
     public class HomeController : Controller
     {
