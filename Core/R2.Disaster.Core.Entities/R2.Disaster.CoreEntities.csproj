@@ -53,6 +53,7 @@
     <Compile Include="Domain\GeoDisaster\MassPres\MassPre.cs" />
     <Compile Include="Domain\GeoDisaster\MassPres\MonthlyReport.cs" />
     <Compile Include="Domain\GeoDisaster\MassPres\PrePlan.cs" />
+    <Compile Include="Domain\GeoDisaster\MassPres\PreventionPlanning.cs" />
     <Compile Include="Domain\GeoDisaster\MassPres\WorkingGuideCard.cs" />
     <Compile Include="Domain\GeoDisaster\MassPres\AvoidRiskCard.cs" />
     <Compile Include="Domain\MineRecovery\MineArchive.cs" />
