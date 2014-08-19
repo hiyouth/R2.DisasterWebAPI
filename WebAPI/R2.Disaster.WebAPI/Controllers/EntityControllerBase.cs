@@ -40,7 +40,7 @@ namespace R2.Disaster.WebAPI.Controllers
         }
 
         /// <summary>
-        /// 更新
+        /// 更新，仅更新主实体，不会更新导航属性，性能高，推荐
         /// </summary>
         /// <param name="entity">需要更新的实体对象</param>
         [HttpPost]
@@ -48,7 +48,19 @@ namespace R2.Disaster.WebAPI.Controllers
         {
             if (entity == null)
                 throw new ArgumentNullException("entity");
-            this._domainServiceBase.Update(entity);
+            this._domainServiceBase.UpdateAttached(entity);
+        }
+
+        /// <summary>
+        ///更新， 除更新主实体外，还会更新导航属性及导航属性的导航属性（无限递归判定），性能较差
+        /// </summary>
+        /// <param name="entity"></param>
+        [HttpPost]
+        public void UpdateWithRelation([FromBody]T entity)
+        {
+            if (entity == null)
+                throw new ArgumentNullException("entity");
+            this._domainServiceBase.UpdateRelationAttached(entity);
         }
 
         /// <summary>
@@ -111,17 +123,17 @@ namespace R2.Disaster.WebAPI.Controllers
             return ids;
         }
 
-        /// <summary>
-        /// 更新（一组）
-        /// </summary>
-        /// <param name="entities">一组相关实体</param>
-        [HttpPost]
-        public void UpdateSet([FromBody] List<T> entities)
-        {
-            if (entities == null)
-                throw new ArgumentException("entities");
-            this._domainServiceBase.Update(entities);
-        }
+        ///// <summary>
+        ///// 更新（一组）
+        ///// </summary>
+        ///// <param name="entities">一组相关实体</param>
+        //[HttpPost]
+        //public void UpdateSet([FromBody] List<T> entities)
+        //{
+        //    if (entities == null)
+        //        throw new ArgumentException("entities");
+        //    this._domainServiceBase.Update(entities);
+        //}
 
         /// <summary>
         /// 删除（一组）
