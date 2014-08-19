@@ -6,6 +6,7 @@ using Autofac.Integration.WebApi;
 using R2.Disaster.Service;
 using R2.Disaster.Repository;
 using R2.Disaster.Data;
+using R2.Disaster.Service.GeoDisaster.PotentialThreats;
 using R2.Disaster.WebAPI.Controllers;
 using R2.Disaster.Service.GeoDisaster;
 using R2.Disaster.Service.GeoDisaster.Investigation;
@@ -47,6 +48,10 @@ namespace R2.Disaster.WebAPI
             builder.RegisterType<RelocationLandSlipCheckService>().As<IRelocationLandSlipCheckService>().InstancePerRequest();
             builder.RegisterType<RelocationSlopeCheckService>().As<IRelocationSlopeCheckService>().InstancePerRequest();
             builder.RegisterType<RelocationPlaceEvaluationService>().As<IRelocationPlaceEvaluationService>().InstancePerRequest();
+            //隐患点主表服务
+            builder.RegisterType<ThreatService>().As<IThreatService>().InstancePerRequest();
+            //防治规划
+            builder.RegisterType<PreventionPlanningService>().As<IPreventionPlanningService>().InstancePerRequest();
 
             builder.RegisterType<RainfallStationService>().As<IRainfallStationService>().InstancePerRequest();
         }

@@ -82,6 +82,7 @@
     <Compile Include="Controllers\GeoDisaster\MassPres\PrePlanController.cs" />
     <Compile Include="Controllers\GeoDisaster\PhyGeoDisasterController.cs" />
     <Compile Include="Controllers\GeoDisaster\PhyRelationEntityControllerBase.cs" />
+    <Compile Include="Controllers\GeoDisaster\PotentialThreats\ThreatController.cs" />
     <Compile Include="Controllers\GeoDisaster\Relocation\RelocationComprehensiveController.cs" />
     <Compile Include="Controllers\GeoDisaster\Relocation\RelocationDebrisFlowCheckController.cs" />
     <Compile Include="Controllers\GeoDisaster\Relocation\RelocationLandCollapseCheckController.cs" />

@@ -14,7 +14,7 @@ namespace R2.Disaster.Service.GeoDisaster.Investigation
     /// <summary>
     /// 地质灾害调查表类实体服务
     /// </summary>
-    public class ComprehensiveService :PhyRelationEntityService<Comprehensive>, IComprehensiveService
+    public class ComprehensiveService : PhyRelationEntityService<Comprehensive>, IComprehensiveService
     {
         private IRepository<Comprehensive> _comprehensiveRepository;
 
@@ -115,7 +115,7 @@ namespace R2.Disaster.Service.GeoDisaster.Investigation
                     if (!String.IsNullOrEmpty(regionCode))
                     {
                         string tempGbCode = regionCode;
-                        eps = eps.Or(p => p.GBCodeId == tempGbCode);
+                        eps = eps.Or(p => p.GBCodeId.StartsWith(tempGbCode));
                     }
                 }
             }
