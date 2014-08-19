@@ -20,8 +20,8 @@ namespace R2.Disaster.CoreEntities.Domain.MineRecovery
         public string 乡镇 { get; set; }
         public string 村 { get; set; }
         public string 组 { get; set; }
-        public string 经度 { get; set; }
-        public string 纬度 { get; set; }
+        public double 经度 { get; set; }
+        public double 纬度 { get; set; }
         public string 三区两线区位 { get; set; }
         public string 矿山名称 { get; set; }
         public string 遥感影像 { get; set; }

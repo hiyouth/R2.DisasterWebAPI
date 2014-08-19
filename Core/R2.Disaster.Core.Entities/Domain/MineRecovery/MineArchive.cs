@@ -32,8 +32,8 @@ namespace R2.Disaster.CoreEntities.Domain.MineRecovery
         public string 丘陵 { get; set; }
         public string 平原 { get; set; }
         public string 其他地貌 { get; set; }
-        public string 经度 { get; set; }
-        public string 纬度 { get; set; }
+        public double 经度 { get; set; }
+        public double 纬度 { get; set; }
         public string 拐点坐标 { get; set; }
         public string 企业类型 { get; set; }
         public string 国有经济 { get; set; }

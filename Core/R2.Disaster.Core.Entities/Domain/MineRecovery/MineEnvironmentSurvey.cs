@@ -27,8 +27,8 @@ namespace R2.Disaster.CoreEntities.Domain.MineRecovery
         public string 矿山所处地貌形态 { get; set; }
         public double X { get; set; }
         public double Y { get; set; }
-        public string 经度 { get; set; }
-        public string 纬度 { get; set; }
+        public double 经度 { get; set; }
+        public double 纬度 { get; set; }
         public string 矿区拐点坐标 { get; set; }
         public string 破坏区拐点坐标 { get; set; }
         public string 采矿许可证号 { get; set; }
