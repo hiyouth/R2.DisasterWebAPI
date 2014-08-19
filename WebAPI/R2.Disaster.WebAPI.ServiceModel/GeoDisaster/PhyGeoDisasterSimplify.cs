@@ -15,6 +15,22 @@ namespace R2.Disaster.WebAPI.Model
         public String Location { get; set; }
 
         /// <summary>
+        /// 物理点表示名称
+        /// 这个名称和地质调查综合表中的名称可以不同
+        /// </summary>
+        public String Name { get; set; }
+
+        /// <summary>
+        /// 经度，X
+        /// </summary>
+        public double Lon { get; set; }
+
+        /// <summary>
+        /// 纬度，Y
+        /// </summary>
+        public double Lat { get; set; }
+
+        /// <summary>
         /// 行政区编码，必要属性，不允许Null
         /// </summary>
         public GBCode GBCode { get; set; }
