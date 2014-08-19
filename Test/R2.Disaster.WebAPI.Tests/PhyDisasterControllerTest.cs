@@ -110,7 +110,7 @@ namespace R2.Disaster.WebAPI.Tests
                 {
                     野外编号 = "dsadfasdfasfd",
                     //   统一编号 = "370101040001",
-                }
+                } 
             };
 
             lists1.Add(c1);
