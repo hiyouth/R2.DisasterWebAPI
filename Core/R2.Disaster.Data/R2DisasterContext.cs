@@ -20,12 +20,14 @@ namespace R2.Disaster.Data
 
         static R2DisasterContext()
         {
+            
             Database.SetInitializer<R2DisasterContext>(new R2DisasterDatabaseInitiatlizar<R2DisasterContext>());
         }
 
         public R2DisasterContext()
             : base("name=R2Entities")
         {
+            
         //    this.Configuration.ProxyCreationEnabled = false;
         }
 
@@ -129,5 +131,11 @@ namespace R2.Disaster.Data
         }
 
         #endregion
+
+
+        public DbSet DbSet(Type entityType)
+        {
+            return this.Set(entityType);
+        }
     }
 }

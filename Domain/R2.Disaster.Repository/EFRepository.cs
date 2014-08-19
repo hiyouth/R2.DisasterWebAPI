@@ -5,6 +5,7 @@ using System.Linq;
 using R2.Disaster.Data;
 using System.Collections.Generic;
 using R2.Disaster.CoreEntities;
+using System.Reflection;
 
 namespace R2.Disaster.Repository
 {
@@ -63,6 +64,21 @@ namespace R2.Disaster.Repository
                 //Debug.WriteLine(fail.Message, fail);
                 throw fail;
             }
+        }
+
+        public virtual void UpdateAttached(T entity,bool save=true)
+        {
+            //this._context.DbSet(typeof(T)).Attach(entity);
+            //entity.GetType().
+           //indingFlags.
+          foreach (var propertyInfo in typeof(T).GetProperties())             
+          {                     //对象对应属性值变量(可以用列表添加)                    //是你的student 类型实例                
+              var v = propertyInfo.GetValue(entity, null);
+              if (v is BaseEntity)
+              {
+                  this._context.DbSet(v.GetType()).Attach(v);
+              }
+          }
         }
 
         public virtual void Update(T entity,bool saved=true)

@@ -84,9 +84,9 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster
 
         /// <summary>
         /// 自定义查询条件，建议高级用户及服务无法满足查询条件时使用
-        /// 自定义查询条件以表达式树（ExpresstionTree）的形式组合
+        /// 自定义查询条件以动态表达式树（Dynamic ExpresstionTree）的形式组合
         /// </summary>
-        /// <param name="x">由ExpressionSerilizer序列化得到，相关请和服务负责人联系</param>
+        /// <param name="x">由ExpressionSerilizer序列化得到，相关使用方法请参考RRDL</param>
         /// <returns>物理点完整信息</returns>
         [HttpPost]
         public IList<PhyGeoDisasterSimplify> GetByExpressionDynamic([FromBody]XElement x)
@@ -102,16 +102,28 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster
             return phyModels;
         }
 
+        /// <summary>
+        /// 自定义查询条件，建议高级用户及服务无法满足查询条件时使用
+        /// 自定义查询条件以表达式树（ExpresstionTree）的形式组合
+        /// </summary>
+        /// <param name="x">由ExpressionSerilizer序列化得到，相关使用方法请参考RRDL</param>
+        /// <returns>物理点完整信息</returns>
         [HttpPost]
         public IList<PhyGeoDisasterSimplify> GetByExpression([FromBody]XElement x)
         {
             //TODO:后期回顾整理(重要)
             var creator = new QueryCreator(this.FnGetDatabaseObjects);
 
-            var assemblies = new Assembly[] { typeof(PhyGeoDisaster).Assembly, typeof(ExpressionType).Assembly, typeof(IQueryable).Assembly };
+            var assemblies = new Assembly[]
+            { 
+                typeof(PhyGeoDisaster).Assembly,
+                typeof(ExpressionType).Assembly, 
+                typeof(IQueryable).Assembly,
+                typeof(Enum).Assembly
+            };
             var resolver = new TypeResolver(assemblies, new Type[] 
 			{ 
-                typeof(PhyGeoDisaster)
+                typeof(PhyGeoDisaster),typeof(Enum)
 			});
 
             CustomExpressionXmlConverter queryconverter = new QueryExpressionXmlConverter(creator, resolver);

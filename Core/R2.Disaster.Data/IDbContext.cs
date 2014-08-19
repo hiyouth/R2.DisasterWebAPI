@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 
 namespace R2.Disaster.Data
@@ -17,6 +18,8 @@ namespace R2.Disaster.Data
         /// </summary>
         /// <returns></returns>
         int SaveChanges();
+
+        DbSet DbSet(Type entityType);
 
         /// <summary>
         /// Creates a raw SQL query that will return elements of the given generic type.  The type can be any type that has properties that match the names of the columns returned from the query, or can be a simple primitive type. The type does not have to be an entity type. The results of this query are never tracked by the context even if the type of object returned is an entity type.
