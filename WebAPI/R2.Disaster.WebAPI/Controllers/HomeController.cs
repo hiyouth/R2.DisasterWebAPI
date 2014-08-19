@@ -10,6 +10,9 @@ using SignalRChat;
 
 namespace R2.Disaster.WebAPI.Controllers
 {
+    /// <summary>
+    /// 构造函数
+    /// </summary>
     public class HomeController : Controller
     {
         public ActionResult Index()
