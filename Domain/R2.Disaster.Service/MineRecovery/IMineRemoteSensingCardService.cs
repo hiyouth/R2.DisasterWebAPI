@@ -7,7 +7,9 @@ using R2.Disaster.CoreEntities.Domain.MineRecovery;
 
 namespace R2.Disaster.Service.MineRecovery
 {
-    public interface IMineRemoteSensingCardService:IEntityServiceBase<MineRemoteSensingCard>
+    public interface IMineRemoteSensingCardService:IEntityServiceBase<MineRemoteSensingCard>,
+        ICanExecuteExpress<MineRemoteSensingCard>
     {
+        MineRemoteSensingCard GetByUnifiedId(string uid);
     }
 }

@@ -8,7 +8,8 @@ using R2.Disaster.CoreEntities.Domain.MineRecovery;
 namespace R2.Disaster.Service.MineRecovery
 {
     public interface IMineEnvironmentSurveyService : IEntityServiceBase<MineEnvironmentSurvey>
+        ,ICanExecuteExpress<MineEnvironmentSurvey>
     {
-
+        MineEnvironmentSurvey GetByUnifiedId(string uid);
     }
 }

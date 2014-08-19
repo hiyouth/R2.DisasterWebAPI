@@ -24,5 +24,14 @@ namespace R2.Disaster.WebAPI.Controllers.MineRecovery
         {
             this._remoteCardService = remoteCardService;
         }
+
+        public MineRemoteSensingCard GetByUId(string uid)
+        {
+            if (String.IsNullOrEmpty(uid))
+            {
+                throw new Exception("传入的参数不能为空值");
+            }
+            return this._remoteCardService.GetByUnifiedId(uid);
+        }
     }
 }

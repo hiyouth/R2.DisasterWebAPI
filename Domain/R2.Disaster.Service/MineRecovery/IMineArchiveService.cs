@@ -7,7 +7,11 @@ using R2.Disaster.CoreEntities.Domain.MineRecovery;
 
 namespace R2.Disaster.Service.MineRecovery
 {
-    public interface IMineArchiveService:IEntityServiceBase<MineArchive>
+    public interface IMineArchiveService:IEntityServiceBase<MineArchive>,ICanExecuteExpress<MineArchive>
     {
+        IQueryable<MineArchive> GetByConditions(string gbCode, string mineSize, string productStatus,
+            string keyWord);
+
+        MineArchive GetByUnifiedId(string uid);
     }
 }

@@ -20,5 +20,23 @@ namespace R2.Disaster.WebAPI.Controllers.MineRecovery
         {
             this._mineArchiveService = mineArchiveService;
         }
+
+        public MineArchive GetByUId(string uid)
+        {
+            if (String.IsNullOrEmpty(uid))
+            {
+                throw new Exception("传入的参数不能为空值");
+            }
+            return this._mineArchiveService.GetByUnifiedId(uid);
+        }
+
+        public IList<MineArchive> GetByConditions(string gbCode = null, string mineSize = null,
+            string productStatus = null, string keyWord = null)
+        {
+            IQueryable<MineArchive> query = this._mineArchiveService.GetByConditions(
+                gbCode, mineSize, productStatus, keyWord);
+            IList<MineArchive> list = query.ToList();
+            return list;
+        }
     }
 }

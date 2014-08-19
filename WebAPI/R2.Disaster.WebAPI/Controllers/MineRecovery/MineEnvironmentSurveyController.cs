@@ -13,7 +13,7 @@ namespace R2.Disaster.WebAPI.Controllers.MineRecovery
     public class MineEnvironmentSurveyController:EntityControllerBase<MineEnvironmentSurvey>
     {
 
-        private IMineEnvironmentSurveyService _mintEnvironmentService;
+        private IMineEnvironmentSurveyService _mineEnvironmentService;
 
         /// <summary>
         /// 构造函数
@@ -22,7 +22,16 @@ namespace R2.Disaster.WebAPI.Controllers.MineRecovery
         public MineEnvironmentSurveyController(IMineEnvironmentSurveyService mintEnvironmentService)
             : base(mintEnvironmentService)
         {
-            this._mintEnvironmentService = mintEnvironmentService;
+            this._mineEnvironmentService = mintEnvironmentService;
+        }
+
+        public MineEnvironmentSurvey GetByUId(string uid)
+        {
+            if (String.IsNullOrEmpty(uid))
+            {
+                throw new Exception("传入的参数不能为空值");
+            }
+            return this._mineEnvironmentService.GetByUnifiedId(uid);
         }
     }
 }
