@@ -137,5 +137,15 @@ namespace R2.Disaster.Data
         {
             return this.Set(entityType);
         }
+
+        //public DbContext Context()
+        //{
+        //    return this;
+        //}
+
+        DbContext IDbContext.Context
+        {
+            get { return this; }
+        }
     }
 }
