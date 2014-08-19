@@ -10,5 +10,8 @@ namespace R2.Disaster.Service.GeoDisaster.Relocation
     public interface IRelocationComprehensiveService:IPhyRelationEntityService<RelocationComprehensive>
         , ICanExecuteExpress<RelocationComprehensive>
     {
+
+
+        IQueryable<RelocationComprehensive> GetByUnifiedId(string uid);
     }
 }

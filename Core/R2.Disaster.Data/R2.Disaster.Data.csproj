@@ -38,6 +38,7 @@
     <Compile Include="Mapping\GeoDisaster\MassPres\MassPreMap.cs" />
     <Compile Include="Mapping\GeoDisaster\MassPres\AvoidRiskCardMap.cs" />
     <Compile Include="Mapping\GeoDisaster\MassPres\MonthlyReportMap.cs" />
+    <Compile Include="Mapping\GeoDisaster\MassPres\PreventionPlanningMap.cs" />
     <Compile Include="Mapping\GeoDisaster\MassPres\WorkingGuideCardMap.cs" />
     <Compile Include="Mapping\GeoDisaster\MassPres\PrePlanMap.cs" />
     <Compile Include="Mapping\GeoDisaster\MassPres\MassPatrolMap.cs" />

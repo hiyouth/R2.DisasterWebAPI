@@ -80,6 +80,7 @@
     <Compile Include="Controllers\GeoDisaster\MassPres\MassPreController.cs" />
     <Compile Include="Controllers\GeoDisaster\MassPres\MonthlyReportController.cs" />
     <Compile Include="Controllers\GeoDisaster\MassPres\PrePlanController.cs" />
+    <Compile Include="Controllers\GeoDisaster\MassPres\PreventionPlanningController.cs" />
     <Compile Include="Controllers\GeoDisaster\PhyGeoDisasterController.cs" />
     <Compile Include="Controllers\GeoDisaster\PhyRelationEntityControllerBase.cs" />
     <Compile Include="Controllers\GeoDisaster\PotentialThreats\ThreatController.cs" />
