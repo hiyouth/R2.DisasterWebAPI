@@ -1,10 +1,16 @@
-﻿using R2.Disaster.CoreEntities;
+﻿using ExpressionSerialization;
+using R2.Disaster.CoreEntities;
+using R2.Disaster.CoreEntities.Domain.GeoDisaster;
 using R2.Disaster.Service;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
 using System.Net;
 using System.Net.Http;
+using System.Reflection;
 using System.Web.Http;
+using System.Xml.Linq;
 
 namespace R2.Disaster.WebAPI.Controllers
 {
@@ -157,6 +163,45 @@ namespace R2.Disaster.WebAPI.Controllers
               if (ids == null)
                   throw new ArgumentException("entities");
               this._domainServiceBase.Delete(ids);
+          }
+
+          dynamic FnGetDatabaseObjects(Type elementType)
+          {
+              return this._domainServiceBase.FindAll();
+          }
+
+         [HttpPost]
+          public virtual IList<T> GetByExpression([FromBody]XElement x)
+          {
+              //TODO:后期回顾整理(重要)
+              var creator = new QueryCreator(this.FnGetDatabaseObjects);
+
+              var assemblies = new Assembly[]
+            { 
+                typeof(PhyGeoDisaster).Assembly,
+                typeof(ExpressionType).Assembly, 
+                typeof(IQueryable).Assembly,
+                typeof(Enum).Assembly
+            };
+              var resolver = new TypeResolver(assemblies, new Type[] 
+			{ 
+                //typeof(PhyGeoDisaster),typeof(Enum)
+			});
+
+              CustomExpressionXmlConverter queryconverter = new QueryExpressionXmlConverter(creator, resolver);
+              CustomExpressionXmlConverter knowntypeconverter = new KnownTypeExpressionXmlConverter(resolver);
+              var serializer = new ExpressionSerializer(resolver, new CustomExpressionXmlConverter[] { queryconverter, knowntypeconverter });
+
+              Expression e = serializer.Deserialize(x);
+              MethodCallExpression m = (MethodCallExpression)e;
+              LambdaExpression lambda = Expression.Lambda(m);
+              Delegate fn = lambda.Compile();
+              dynamic result = fn.DynamicInvoke(new object[0]);
+              //dynamic array = Enumerable.ToArray(result);			
+              var array = Enumerable.ToArray(Enumerable.Cast<T>(result));
+   //           IList<PhyGeoDisasterSimplify> phyModels = Mapper.Map<IEnumerable<PhyGeoDisaster>,
+   //IList<PhyGeoDisasterSimplify>>(array);
+              return array;
           }
     }
 }
