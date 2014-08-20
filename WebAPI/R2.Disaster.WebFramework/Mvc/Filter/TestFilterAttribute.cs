@@ -25,6 +25,7 @@ namespace R2.Disaster.WebFramework.Mvc.Filter
             base.OnActionExecuting(actionContext);
             //actionContext.Response = actionContext.Response
             HttpResponseMessage message = new HttpResponseMessage(HttpStatusCode.OK);
+            
             //OK
         }
     }
@@ -35,7 +36,9 @@ namespace R2.Disaster.WebFramework.Mvc.Filter
         {         
             if (context.Exception is NotImplementedException)         
             {               
-                context.Response = new HttpResponseMessage(HttpStatusCode.OK);              
+                //context.Response = new HttpResponseMessage(HttpStatusCode.OK);
+                HttpResponseMessage message=context.Request.CreateResponse(HttpStatusCode.OK, "ddddd");
+                context.Response = message;
             }       
         } 
     } 
