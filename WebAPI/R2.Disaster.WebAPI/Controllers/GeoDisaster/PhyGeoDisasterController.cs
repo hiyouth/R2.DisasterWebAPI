@@ -109,34 +109,35 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster
         /// <param name="x">由ExpressionSerilizer序列化得到，相关使用方法请参考RRDL</param>
         /// <returns>物理点完整信息</returns>
         [HttpPost]
-        public IList<PhyGeoDisasterSimplify> GetByExpression([FromBody]XElement x)
+        public  IList<PhyGeoDisasterSimplify> GetSimplyfyByExpression([FromBody]XElement x)
         {
             //TODO:后期回顾整理(重要)
-            var creator = new QueryCreator(this.FnGetDatabaseObjects);
+            //var creator = new QueryCreator(this.FnGetDatabaseObjects);
 
-            var assemblies = new Assembly[]
-            { 
-                typeof(PhyGeoDisaster).Assembly,
-                typeof(ExpressionType).Assembly, 
-                typeof(IQueryable).Assembly,
-                typeof(Enum).Assembly
-            };
-            var resolver = new TypeResolver(assemblies, new Type[] 
-			{ 
-                typeof(PhyGeoDisaster),typeof(Enum)
-			});
+            //var assemblies = new Assembly[]
+            //{ 
+            //    typeof(PhyGeoDisaster).Assembly,
+            //    typeof(ExpressionType).Assembly, 
+            //    typeof(IQueryable).Assembly,
+            //    typeof(Enum).Assembly
+            //};
+            //var resolver = new TypeResolver(assemblies, new Type[] 
+            //{ 
+            //    typeof(PhyGeoDisaster),typeof(Enum)
+            //});
 
-            CustomExpressionXmlConverter queryconverter = new QueryExpressionXmlConverter(creator, resolver);
-            CustomExpressionXmlConverter knowntypeconverter = new KnownTypeExpressionXmlConverter(resolver);
-            var serializer = new ExpressionSerializer(resolver, new CustomExpressionXmlConverter[] { queryconverter, knowntypeconverter });
+            //CustomExpressionXmlConverter queryconverter = new QueryExpressionXmlConverter(creator, resolver);
+            //CustomExpressionXmlConverter knowntypeconverter = new KnownTypeExpressionXmlConverter(resolver);
+            //var serializer = new ExpressionSerializer(resolver, new CustomExpressionXmlConverter[] { queryconverter, knowntypeconverter });
 
-            Expression e = serializer.Deserialize(x);
-            MethodCallExpression m = (MethodCallExpression)e;
-            LambdaExpression lambda = Expression.Lambda(m);
-            Delegate fn = lambda.Compile();
-            dynamic result = fn.DynamicInvoke(new object[0]);
-            //dynamic array = Enumerable.ToArray(result);			
-            var array = Enumerable.ToArray(Enumerable.Cast<PhyGeoDisaster>(result));
+            //Expression e = serializer.Deserialize(x);
+            //MethodCallExpression m = (MethodCallExpression)e;
+            //LambdaExpression lambda = Expression.Lambda(m);
+            //Delegate fn = lambda.Compile();
+            //dynamic result = fn.DynamicInvoke(new object[0]);
+            ////dynamic array = Enumerable.ToArray(result);			
+            //var array = Enumerable.ToArray(Enumerable.Cast<PhyGeoDisaster>(result));
+            var array = base.GetByExpression(x);
             IList<PhyGeoDisasterSimplify> phyModels = Mapper.Map<IEnumerable<PhyGeoDisaster>,
  IList<PhyGeoDisasterSimplify>>(array);
             return phyModels;
