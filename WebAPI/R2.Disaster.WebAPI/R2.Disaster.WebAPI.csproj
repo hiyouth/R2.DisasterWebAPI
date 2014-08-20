@@ -99,6 +99,7 @@
     <Compile Include="Controllers\Monitor\RainfallController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\TestCorsController.cs" />
+    <Compile Include="Controllers\Test\ProductsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -386,6 +387,10 @@
     <ProjectReference Include="..\R2.Disaster.WebAPI.ServiceModel\R2.Disaster.WebAPI.ServiceModel.csproj">
       <Project>{0ca55583-5936-4858-acc1-35a57f3dd6c4}</Project>
       <Name>R2.Disaster.WebAPI.ServiceModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\R2.Disaster.WebFramework\R2.Disaster.WebFramework.csproj">
+      <Project>{3d8bd5f1-76ae-41dd-a26d-acccdff00eed}</Project>
+      <Name>R2.Disaster.WebFramework</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
