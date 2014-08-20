@@ -10,7 +10,7 @@ namespace R2.Disaster.Service.MineRecovery
     public interface IMineArchiveService:IEntityServiceBase<MineArchive>,ICanExecuteExpress<MineArchive>
     {
         IQueryable<MineArchive> GetByConditions(string gbCode, string mineSize, string productStatus,
-            string keyWord);
+            string keyWord,string exploitSolution);
 
         MineArchive GetByUnifiedId(string uid);
     }

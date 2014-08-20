@@ -31,10 +31,10 @@ namespace R2.Disaster.WebAPI.Controllers.MineRecovery
         }
 
         public IList<MineArchive> GetByConditions(string gbCode = null, string mineSize = null,
-            string productStatus = null, string keyWord = null)
+            string productStatus = null, string keyWord = null,string exploitSolution=null)
         {
             IQueryable<MineArchive> query = this._mineArchiveService.GetByConditions(
-                gbCode, mineSize, productStatus, keyWord);
+                gbCode, mineSize, productStatus, keyWord,exploitSolution);
             IList<MineArchive> list = query.ToList();
             return list;
         }
