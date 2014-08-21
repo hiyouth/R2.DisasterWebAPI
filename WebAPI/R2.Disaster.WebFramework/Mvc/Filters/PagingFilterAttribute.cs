@@ -9,9 +9,13 @@ using System.Web.Http.Controllers;
 using System.Net;
 using System.Net.Http;
 using AutoMapper;
+using R2.Disaster.WebAPI.ServiceModel;
 
 namespace R2.Disaster.WebFramework.Mvc.Filters
 {
+    /// <summary>
+    /// 分页过滤器，可以按照分页条件将实体集合分页
+    /// </summary>
     public class PagingFilterAttribute : ActionFilterAttribute
     {
         public String PageSizeName 
@@ -51,23 +55,24 @@ namespace R2.Disaster.WebFramework.Mvc.Filters
             ps = Int32.Parse(psString);
             pn = Int32.Parse(pnString);
 
-            IQueryable<Object> query;
+            Object content;
 
-            actionExecutedContext.Response.TryGetContentValue(out query);
+            actionExecutedContext.Response.TryGetContentValue(out content);
 
-            int totalCount = query.Count();
-
-            IQueryable<Object> pagingQuery = query.Skip(ps * (pn - 1)).Take(ps).Select(x => x);
-
-            //Mapper.CreateMap(typeof(PhyGeoDisaster), typeof(PhyGeoDisasterSimplify));
-
-            EntityPagingModel model = new EntityPagingModel()
+            EntityPagingModel model = null;
+            if (content is IEnumerable<Object>)
             {
-                EntityList = pagingQuery.ToList(),
-                PageNumber = pn,
-                PageSize = ps,
-                TotalCount = totalCount
-            };
+                IEnumerable<Object> query = content as IEnumerable<Object>;
+                IEnumerable<Object> pagingQuery = query.Skip(ps * (pn - 1)).Take(ps).Select(x => x);
+                int totalCount = query.Count();
+                model = new EntityPagingModel()
+                 {
+                     EntityList = pagingQuery.ToList(),
+                     PageNumber = pn,
+                     PageSize = ps,
+                     TotalCount = totalCount
+                 };
+            }
             HttpResponseMessage message = actionExecutedContext.
                 Request.CreateResponse(HttpStatusCode.OK, model);
             actionExecutedContext.Response = message;

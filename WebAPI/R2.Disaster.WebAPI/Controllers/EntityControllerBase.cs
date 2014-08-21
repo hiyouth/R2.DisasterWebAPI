@@ -2,6 +2,7 @@
 using R2.Disaster.CoreEntities;
 using R2.Disaster.CoreEntities.Domain.GeoDisaster;
 using R2.Disaster.Service;
+using R2.Disaster.WebFramework.Mvc.Filters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -171,7 +172,8 @@ namespace R2.Disaster.WebAPI.Controllers
           }
 
          [HttpPost]
-          public virtual IList<T> GetByExpression([FromBody]XElement x)
+         [PagingFilterAttribute]
+          public virtual IList<T> GetByExpression([FromBody]XElement x,[FromUri]int ps=10,[FromUri]int pn=1)
           {
               //TODO:后期回顾整理(重要)
               var creator = new QueryCreator(this.FnGetDatabaseObjects);

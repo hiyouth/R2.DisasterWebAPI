@@ -4,6 +4,7 @@ using R2.Disaster.CoreEntities.Domain.GeoDisaster;
 using R2.Disaster.Service.GeoDisaster;
 using R2.Disaster.WebAPI.Model;
 using R2.Disaster.WebAPI.ServiceModel.GeoDisaster;
+using R2.Disaster.WebFramework.Mvc.Filters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -109,7 +110,9 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster
         /// <param name="x">由ExpressionSerilizer序列化得到，相关使用方法请参考RRDL</param>
         /// <returns>物理点完整信息</returns>
         [HttpPost]
-        public  IList<PhyGeoDisasterSimplify> GetSimplyfyByExpression([FromBody]XElement x)
+        [PagingFilterWithMapper(typeof(PhyGeoDisaster),typeof(PhyGeoDisasterSimplify))]
+        public  IList<PhyGeoDisaster> GetSimplyfyByExpression([FromBody]XElement x,
+            int ps=10,int pn=1)
         {
             //TODO:后期回顾整理(重要)
             //var creator = new QueryCreator(this.FnGetDatabaseObjects);
@@ -137,10 +140,10 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster
             //dynamic result = fn.DynamicInvoke(new object[0]);
             ////dynamic array = Enumerable.ToArray(result);			
             //var array = Enumerable.ToArray(Enumerable.Cast<PhyGeoDisaster>(result));
-            var array = base.GetByExpression(x);
-            IList<PhyGeoDisasterSimplify> phyModels = Mapper.Map<IEnumerable<PhyGeoDisaster>,
- IList<PhyGeoDisasterSimplify>>(array);
-            return phyModels;
+            var array = base.GetByExpression(x, ps, pn);
+ //           IList<PhyGeoDisasterSimplify> phyModels = Mapper.Map<IEnumerable<PhyGeoDisaster>,
+ //IList<PhyGeoDisasterSimplify>>(array);
+            return array;
 
     //        IQueryable<PhyGeoDisaster> query = this._phyService.ExecuteConditions(newPredicate);
     //        IList<PhyGeoDisaster> phyGeos = query.ToList();
@@ -179,30 +182,32 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster
         /// </summary>
         ///<param name="keyword">关键字</param>
         /// <returns>物理点简要信息</returns>
-        public IList<PhyGeoDisasterSimplify> Get(string keyword)
+       [PagingFilterWithMapper(typeof(PhyGeoDisaster), typeof(PhyGeoDisasterSimplify))]
+        public IQueryable<PhyGeoDisaster> GetByKeyword(string keyword)
         {
             if (String.IsNullOrEmpty(keyword))
                 throw new Exception("查询的关键字不允许是类型“null”或者空字符串");
             IQueryable<PhyGeoDisaster> phyGeos = this._phyService.GetByKeyWord(keyword);
-            IList<PhyGeoDisasterSimplify> phyModels = Mapper.Map<IQueryable<PhyGeoDisaster>,
-                IList<PhyGeoDisasterSimplify>>(phyGeos);
-            return phyModels;
+            //IList<PhyGeoDisasterSimplify> phyModels = Mapper.Map<IQueryable<PhyGeoDisaster>,
+            //    IList<PhyGeoDisasterSimplify>>(phyGeos);
+            return phyGeos;
         }
 
-        /// <summary>
+         /// <summary>
         /// 通过行政区编码，灾害类型进行查询(Get)
         /// </summary>
         /// <param name="gbcode">行政区编码</param>
         /// <param name="type">灾害类型</param>
         /// <returns>物理点简要信息</returns>
-        public IList<PhyGeoDisasterSimplify> Get(string gbcode=null,
-            EnumGeoDisasterType? type=null)
+        [PagingFilterWithMapper(typeof(PhyGeoDisaster), typeof(PhyGeoDisasterSimplify))]
+        public IQueryable<PhyGeoDisaster> GetByConditions(string gbcode=null,
+            EnumGeoDisasterType? type=null,int ps=10,int pn=1)
         {
             IQueryable<PhyGeoDisaster> phys =
                   this._phyService.GetByConditions(gbcode, type);
-            IList<PhyGeoDisasterSimplify> phyModels = Mapper.Map<IQueryable<PhyGeoDisaster>,
-            IList<PhyGeoDisasterSimplify>>(phys);
-            return phyModels;
+            //IList<PhyGeoDisasterSimplify> phyModels = Mapper.Map<IQueryable<PhyGeoDisaster>,
+            //IList<PhyGeoDisasterSimplify>>(phys);
+            return phys;
         }
 
         /// <summary>

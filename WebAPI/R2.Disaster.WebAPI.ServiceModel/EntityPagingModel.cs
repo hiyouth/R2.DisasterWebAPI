@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace R2.Disaster.WebFramework.Mvc.Filters
+namespace R2.Disaster.WebAPI.ServiceModel
 {
     public class EntityPagingModel
     {

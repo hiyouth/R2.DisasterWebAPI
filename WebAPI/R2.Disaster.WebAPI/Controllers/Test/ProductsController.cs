@@ -11,7 +11,6 @@ using System.Linq;
 using System.Net;
 using System.Web.Http;
 using System.Xml.Linq;
-using R2.Disaster.WebFramework.Mvc.Filter;
 //using System.Web.Mvc;
 using System.Web;
 
@@ -27,12 +26,14 @@ namespace ProductsApp.Controllers
         //    new Product { Id = 2, Name = "Yo-yo", Category = "Toys", Price = 3.75M }, 
         //    new Product { Id = 3, Name = "Hammer", Category = "Hardware", Price = 16.99M } 
         //};
-        [HttpGet]
-        [NotImplExceptionFilter]
-        public void Index()
-        {
-            throw new NotImplementedException();
-        }
+        //[HttpGet]
+        //[TestFilter(typeof(String))]
+        //public IQueryable<String> Index(int ps=2,int pn=1)
+        //{
+        //    List<String> ss = new List<String> { "a", "b", "c", "d", "e", "f", "g", "h", "f" };
+        //    IQueryable<String> sq = ss.AsQueryable();
+        //    return sq;
+        //}
 
         public void Index(string name)
         {
