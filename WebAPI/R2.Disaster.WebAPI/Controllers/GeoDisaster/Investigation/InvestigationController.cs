@@ -8,6 +8,7 @@ using R2.Disaster.Service.GeoDisaster.Investigation;
 using R2.Disaster.WebAPI.Model;
 using R2.Disaster.WebAPI.Model.Investigation;
 using R2.Disaster.WebAPI.ServiceModel.GeoDisaster.Investigation;
+using R2.Disaster.WebFramework.Mvc.Filters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +20,7 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster.Investigation
     /// <summary>
     /// 地质灾害综合信息服务
     /// </summary>
+     [PagingFilterWithMapper(typeof(Comprehensive), typeof(ComprehensiveSimplify))]
     public class InvestigationController:PhyRelationEntityController<Comprehensive>
     {
         private IComprehensiveService _cpsService;
@@ -40,7 +42,7 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster.Investigation
         /// </summary>
         /// <param name="uid">统一编号</param>
         /// <returns>地质灾害完整信息</returns>
-        public IList<Comprehensive> GetCompleteByUId(string uid)
+        public Comprehensive GetCompleteByUId(string uid)
         {
             if (String.IsNullOrEmpty(uid))
                 throw new Exception("灾害点的统一编号不能为Null或者空字符串");
@@ -50,22 +52,23 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster.Investigation
             //a.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
             //string s = JsonConvert.SerializeObject(g, a);
             HomeController.SendMessage("Investigation", "Invoke");
-            return g.ToList();
+            return g.FirstOrDefault();
         }
 
         /// <summary>
         /// 通过关键字检索灾害点简要信息，关键字将检索灾害点名称、灾害点地理位置、统一编号
         /// </summary>
         /// <param name="keyWord">关键字</param>
-        /// <returns>符合条件的实体信息</returns>
-        public IList<ComprehensiveSimplify> GetByKeyWord(string keyWord)
+        /// <returns>符合条件的调查表简要信息</returns>
+   //    [PagingFilterWithMapper(typeof(Comprehensive), typeof(ComprehensiveSimplify))]
+        public IQueryable<Comprehensive> GetByKeyWord(string keyWord, int ps = 10, int pn = 1)
         {
             if (String.IsNullOrEmpty(keyWord))
                 throw new Exception("查询的关键字不允许是类型“null”或者空字符串");
             IQueryable<Comprehensive> comprehensives = this._cpsService.GetByKeyWord(keyWord);
-            IList<ComprehensiveSimplify> cpsModels = Mapper.Map<IQueryable<Comprehensive>,
-                IList<ComprehensiveSimplify>>(comprehensives);
-            return cpsModels;
+            //IList<ComprehensiveSimplify> cpsModels = Mapper.Map<IQueryable<Comprehensive>,
+            //    IList<ComprehensiveSimplify>>(comprehensives);
+            return comprehensives;
         }
 
         /// <summary>
@@ -75,13 +78,15 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster.Investigation
         /// <param name="y">圆心Y</param>
         /// <param name="radius">半径</param>
         /// <returns>符合条件的实体信息</returns>
-        public IList<ComprehensiveSimplify> GetByCircle(double x, double y, double radius)
+      
+       public IQueryable<Comprehensive> GetByCircle(double x, double y, double radius, int ps = 10,
+           int pn=1)
         {
-            IQueryable<Comprehensive> comprehensives = this._cpsService.GetByCircle(
+            IQueryable<Comprehensive> Comprehensive = this._cpsService.GetByCircle(
                 x, y, radius);
-            IList<ComprehensiveSimplify> cpsModels = Mapper.Map<IQueryable<Comprehensive>,
-                IList<ComprehensiveSimplify>>(comprehensives);
-            return cpsModels;
+            //IList<ComprehensiveSimplify> cpsModels = Mapper.Map<IQueryable<Comprehensive>,
+            //    IList<ComprehensiveSimplify>>(comprehensives);
+            return Comprehensive;
         }
 
         /// <summary>
@@ -92,13 +97,15 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster.Investigation
         /// <param name="y1">矩形左下角Y</param>
         /// <param name="y2">矩形右上角Y</param>
         /// <returns>符合条件的实体信息</returns>
-        public IList<ComprehensiveSimplify> GetByRect(double x1, double x2, double y1, double y2)
+     //   [PagingFilterWithMapper(typeof(Comprehensive), typeof(ComprehensiveSimplify))]
+        public IQueryable<Comprehensive> GetByRect(double x1, double x2, double y1, double y2,
+            int ps=10,int pn=1)
         {
             IQueryable<Comprehensive> comprehensives = this._cpsService.GetByRect(
                 x1, x2, y1, y2);
-            IList<ComprehensiveSimplify> cpsModels = Mapper.Map<IQueryable<Comprehensive>,
-                IList<ComprehensiveSimplify>>(comprehensives);
-            return cpsModels;
+            //IList<ComprehensiveSimplify> cpsModels = Mapper.Map<IQueryable<Comprehensive>,
+            //    IList<ComprehensiveSimplify>>(comprehensives);
+            return comprehensives;
         }
 
         ///// <summary>
@@ -135,14 +142,16 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster.Investigation
         ///<param name="condition">InvestigationCondition类型</param>
         /// <returns>地质调查实体简要信息</returns>
        [HttpPost]
-        public IList<ComprehensiveSimplify> GetByConditions([FromBody]InvestigationQueryCondition condition)
+     //  [PagingFilterWithMapper(typeof(Comprehensive), typeof(ComprehensiveSimplify))]
+        public IQueryable<Comprehensive> GetByConditions([FromBody]InvestigationQueryCondition condition
+           ,int ps=10,int pn=1)
         {
-            IQueryable<Comprehensive> comprehensives =
+            IQueryable<Comprehensive> Comprehensive =
                 this._cpsService.GetByConditions(condition.GbCodes, condition.SituationLevs
                 , condition.DangerLevs, condition.Types);
-            IList<ComprehensiveSimplify> cpsModels = Mapper.Map<IQueryable<Comprehensive>,
-            IList<ComprehensiveSimplify>>(comprehensives);
-            return cpsModels;
+            //IList<ComprehensiveSimplify> cpsModels = Mapper.Map<IQueryable<Comprehensive>,
+            //IList<ComprehensiveSimplify>>(comprehensives);
+            return Comprehensive;
         }
 
         /// <summary>
@@ -153,14 +162,15 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster.Investigation
         /// <param name="dangerLev">险情等级</param>
         /// <param name="situationLev">灾情等级</param>
        /// <returns>地质调查实体简要信息</returns>
-       public IList<ComprehensiveSimplify> GetByConditions(EnumGeoDisasterType? type = null,
-           String gbcode = null, String dangerLev = null, String situationLev = null)
+ //       [PagingFilterWithMapper(typeof(Comprehensive), typeof(ComprehensiveSimplify))]
+       public IQueryable<Comprehensive> GetByConditions(EnumGeoDisasterType? type = null,
+           String gbcode = null, String dangerLev = null, String situationLev = null,int ps=1,int pn=10)
        {
-           IQueryable<Comprehensive> comprehensives =
+           IQueryable<Comprehensive> Comprehensive =
                this._cpsService.GetByConditions(gbcode, situationLev, dangerLev, type);
-           IList<ComprehensiveSimplify> cpsModels = Mapper.Map<IQueryable<Comprehensive>,
-           IList<ComprehensiveSimplify>>(comprehensives);
-           return cpsModels;
+           //IList<ComprehensiveSimplify> cpsModels = Mapper.Map<IQueryable<Comprehensive>,
+           //IList<ComprehensiveSimplify>>(comprehensives);
+           return Comprehensive;
        }
     }
 }

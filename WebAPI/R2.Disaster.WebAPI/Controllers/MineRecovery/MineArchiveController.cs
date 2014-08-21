@@ -4,12 +4,14 @@ using System.Linq;
 using System.Web;
 using R2.Disaster.CoreEntities.Domain.MineRecovery;
 using R2.Disaster.Service.MineRecovery;
+using R2.Disaster.WebFramework.Mvc.Filters;
 
 namespace R2.Disaster.WebAPI.Controllers.MineRecovery
 {
     /// <summary>
     /// 矿山复绿基础档案表
     /// </summary>
+    [PagingFilter]
     public class MineArchiveController:EntityControllerBase<MineArchive>
     {
 
@@ -30,13 +32,14 @@ namespace R2.Disaster.WebAPI.Controllers.MineRecovery
             return this._mineArchiveService.GetByUnifiedId(uid);
         }
 
-        public IList<MineArchive> GetByConditions(string gbCode = null, string mineSize = null,
-            string productStatus = null, string keyWord = null,string exploitSolution=null)
+        public IQueryable<MineArchive> GetByConditions(string gbCode = null, string mineSize = null,
+            string productStatus = null, string keyWord = null,string exploitSolution=null,int ps=10,
+            int pn=1)
         {
             IQueryable<MineArchive> query = this._mineArchiveService.GetByConditions(
                 gbCode, mineSize, productStatus, keyWord,exploitSolution);
-            IList<MineArchive> list = query.ToList();
-            return list;
+            //IList<MineArchive> list = query.ToList();
+            return query;
         }
     }
 }

@@ -89,7 +89,7 @@
     <Compile Include="EmbeddedViews\EmbeddedViewVirtualPathProvider.cs" />
     <Compile Include="EmbeddedViews\IEmbeddedViewResolver.cs" />
     <Compile Include="Mvc\Filters\PagingFilterAttribute.cs" />
-    <Compile Include="Mvc\Filters\PagingFilterWithAutoMapperAttribute.cs" />
+    <Compile Include="Mvc\Filters\PagingFilterWithMapperAttribute.cs" />
     <Compile Include="Mvc\Filters\PagingHelper.cs" />
     <Compile Include="Mvc\Routes\IRouteProvider.cs" />
     <Compile Include="Mvc\Routes\IRoutePublisher.cs" />
