@@ -21,8 +21,8 @@ namespace R2.Disaster.Service.MineRecovery
 
         public MineEnvironmentSurvey GetByUnifiedId(string uid)
         {
-            return this._repositoryMineEnvironmentSurvey.Table.Where(this.GetExpressionByUnifiedId(uid))
-               .FirstOrDefault();
+            IQueryable<MineEnvironmentSurvey> query = this.ExecuteConditions(this.GetExpressionByUnifiedId(uid));
+            return query.FirstOrDefault();
         }
 
         #region 表达式树
