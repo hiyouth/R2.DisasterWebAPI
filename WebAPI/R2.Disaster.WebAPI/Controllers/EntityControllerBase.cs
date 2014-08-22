@@ -87,7 +87,7 @@ namespace R2.Disaster.WebAPI.Controllers
         /// </summary>
         /// <param name="id">需要删除的实体对象的主键</param>
         [HttpGet]
-        public void DeleteKey(object id)
+        public void DeleteKey(int id)
         {
             if (id ==null)
                 throw new Exception("参数不合法，没有这样的防灾预案编号");
