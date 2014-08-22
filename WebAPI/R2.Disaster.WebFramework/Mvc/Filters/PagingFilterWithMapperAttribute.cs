@@ -36,7 +36,6 @@ namespace R2.Disaster.WebFramework.Mvc.Filters
 
                 actionExecutedContext.Response.TryGetContentValue(out pagingModel);
 
-
                 IList<Object> objects = new List<Object>();
                 foreach (var item in pagingModel.EntityList)
                 {

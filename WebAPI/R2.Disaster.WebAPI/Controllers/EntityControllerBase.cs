@@ -172,7 +172,7 @@ namespace R2.Disaster.WebAPI.Controllers
           }
 
          [HttpPost]
-         [PagingFilterAttribute]
+         //[PagingFilter]
           public virtual IList<T> GetByExpression([FromBody]XElement x,[FromUri]int ps=10,[FromUri]int pn=1)
           {
               //TODO:后期回顾整理(重要)
@@ -183,11 +183,12 @@ namespace R2.Disaster.WebAPI.Controllers
                 typeof(PhyGeoDisaster).Assembly,
                 typeof(ExpressionType).Assembly, 
                 typeof(IQueryable).Assembly,
-                typeof(Enum).Assembly
+                typeof(Enum).Assembly,
+                typeof(DateTime).Assembly
             };
               var resolver = new TypeResolver(assemblies, new Type[] 
 			{ 
-                //typeof(PhyGeoDisaster),typeof(Enum)
+                typeof(PhyGeoDisaster),typeof(Enum),typeof(DateTime)
 			});
 
               CustomExpressionXmlConverter queryconverter = new QueryExpressionXmlConverter(creator, resolver);
