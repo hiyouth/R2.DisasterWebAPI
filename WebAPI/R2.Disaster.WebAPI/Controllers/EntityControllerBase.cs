@@ -89,8 +89,8 @@ namespace R2.Disaster.WebAPI.Controllers
         [HttpGet]
         public void DeleteKey(int id)
         {
-            if (id ==null)
-                throw new Exception("参数不合法，没有这样的防灾预案编号");
+            if (id <=0)
+                throw new Exception("参数不合法，没有这样的编号");
             this._domainServiceBase.Delete(id);
         }
 
