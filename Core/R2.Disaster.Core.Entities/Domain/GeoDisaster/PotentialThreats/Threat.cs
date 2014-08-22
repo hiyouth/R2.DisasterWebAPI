@@ -103,7 +103,7 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.PotentialThreats
 
         public string 监测方法 { get; set; }
 
-        public string 防止建议 { get; set; }
+        public string 防治建议 { get; set; }
 
         public string 报警方法 { get; set; }
 
