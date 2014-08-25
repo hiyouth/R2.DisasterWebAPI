@@ -17,6 +17,11 @@ namespace R2.Disaster.CoreEntities
         /// </summary>
         public string CustomizeId { get; set; }
 
+        /// <summary>
+        /// 数据录入时间
+        /// </summary>
+        public DateTime? RecordTime { get; set; }
+
         public override bool Equals(object obj)
         {
             return Equals(obj as BaseEntity);

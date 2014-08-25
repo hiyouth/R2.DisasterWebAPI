@@ -11,10 +11,6 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster
     /// </summary>
     public class GeoDisasterEntity:BaseEntity
     {
-        /// <summary>
-        /// 数据录入时间
-        /// </summary>
-        public DateTime? RecordTime { get; set; }
 
         /// <summary>
         /// 数据是否已通过审核

@@ -1,7 +1,9 @@
 ﻿using R2.Disaster.CoreEntities;
+using R2.Disaster.CoreEntities.Domain.GeoDisaster;
 using R2.Disaster.Repository;
 using R2.Disaster.Service.GeoDisaster;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -10,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace R2.Disaster.Service
 {
-    public class EntityServiceBase<T> 
+    public class EntityServiceBase<T>  where T:BaseEntity
     {
         protected IRepository<T> _repository;
 
@@ -60,6 +62,7 @@ namespace R2.Disaster.Service
                 //    BaseEntity t = entity as BaseEntity;
                 //    t.RecordTime = DateTime.Now;
                 //}
+            this.RecordTimeAllBaseEntity(entity);
             this._repository.Insert(entity);
         }
 
@@ -94,7 +97,40 @@ namespace R2.Disaster.Service
             //        t.RecordTime = DateTime.Now;
             //    }
             //}
+            foreach (var item in entities)
+            {
+                this.RecordTimeAllBaseEntity(item);
+            }
             this._repository.Insert(entities);
+        }
+
+        private void RecordTimeAllBaseEntity(BaseEntity entity)
+        {
+            entity.RecordTime = DateTime.Now;
+            foreach (var propertyInfo in entity.GetType().GetProperties())
+            {
+                var v = propertyInfo.GetValue(entity, null);
+                if (v is BaseEntity)
+                {
+                    //非集合类型
+                    BaseEntity subEntityBase = v as BaseEntity;
+                    this.RecordTimeAllBaseEntity(subEntityBase);
+                    //subEntityBase.RecordTime = DateTime.Now;
+                }
+                if (v is ICollection)
+                {
+                    //集合类型
+                    ICollection vs = v as ICollection;
+                    foreach (var item in vs)
+                    {
+                        //遍历集合类型下面的每一个元素
+                        BaseEntity subEntityBase = v as BaseEntity;
+                        this.RecordTimeAllBaseEntity(item as BaseEntity);
+                        //Type type = item.GetType();
+                        //subEntityBase.RecordTime = DateTime.Now;
+                    }
+                }
+            }
         }
 
         public IQueryable<T> FindAll()
