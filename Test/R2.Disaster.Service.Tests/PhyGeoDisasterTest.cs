@@ -10,6 +10,7 @@ using R2.Disaster.Service.GeoDisaster;
 using R2.Disaster.CoreEntities.Domain.GeoDisaster.MassPres;
 using R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation;
 using System.Linq;
+using R2.Disaster.CoreEntities;
 
 namespace R2.Disaster.Service.Tests
 {
@@ -22,6 +23,7 @@ namespace R2.Disaster.Service.Tests
         private IDbContext _db;
         private IRepository<PhyGeoDisaster> _re;
         private IPhyGeoDisasterService _service;
+        private IRepository<Book> _reBook;
         public PhyGeoDisasterTest()
         {
             //
@@ -65,6 +67,7 @@ namespace R2.Disaster.Service.Tests
         {
             this._db = new R2DisasterContext();
             this._re = new EFRepository<PhyGeoDisaster>(this._db);
+            this._reBook = new EFRepository<Book>(this._db);
             this._service = new PhyGeoDisasterService(this._re);
         }
         //
@@ -103,9 +106,13 @@ namespace R2.Disaster.Service.Tests
         [TestMethod]
         public void GetByCustomizeId()
         {
-            var queryResult = (from a in this._re.Table
-                               where a.CustomizeId == "1"
-                               select a).FirstOrDefault();            
+            //var queryResult = (from a in this._re.Table
+            //                   where a.CustomizeId == "1"
+            //                   select a).FirstOrDefault();            
+            var query = from b in this._reBook.Table
+                        where b.Name == "ddddd"
+                        select b;
+            var book = query.FirstOrDefault<Book>();
         }
     }
 }
