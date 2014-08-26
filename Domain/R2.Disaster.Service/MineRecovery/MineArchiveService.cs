@@ -81,7 +81,7 @@ namespace R2.Disaster.Service.MineRecovery
             var eps = DynamicLinqExpressions.True<MineArchive>();
             if (!String.IsNullOrEmpty(gbCode))
             {
-                eps = eps.And(m => m.编号.Contains(gbCode));
+                eps = eps.And(m => m.编号.StartsWith(gbCode));
             }
             return eps;
         }
