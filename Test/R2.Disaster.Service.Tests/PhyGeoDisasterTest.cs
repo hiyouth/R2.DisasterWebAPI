@@ -9,6 +9,7 @@ using R2.Disaster.Service.GeoDisaster.Investigation;
 using R2.Disaster.Service.GeoDisaster;
 using R2.Disaster.CoreEntities.Domain.GeoDisaster.MassPres;
 using R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation;
+using System.Linq;
 
 namespace R2.Disaster.Service.Tests
 {
@@ -98,56 +99,13 @@ namespace R2.Disaster.Service.Tests
                 Comprehensives = lists
             };
             this._service.New(phy);
-            // Comprehensive c1 = new Comprehensive()
-            // {
-            //     统一编号 = "370101040004",
-            //     名称 = "西蒋峪村北侧地面塌陷77777",
-            //     灾害类型 = "塌陷",
-            //     国标代码 = "370101",
-            //     LandSubsidence = new LandSubsidence()
-            //     {
-            //         统一编号 = "370101040001",
-            //         名称 = "西蒋峪村北侧地面塌陷333"
-            //     }
-            // };
-            //this._service.New(c);
-            // this._service.New(c1);
         }
-
         [TestMethod]
-        public void TestUpdateNavigatorPropertySubValue()
+        public void GetByCustomizeId()
         {
-            //PhyGeoDisaster p=this._service.GetById(2);
-            //string temp = p.PrePlan.名称+"abcedfg";
-            //p.PrePlan.名称 = temp;
-            //this._service.Update(p);
-
-            //PhyGeoDisaster pfinal = this._service.GetById(2);
-            //Assert.AreEqual(temp, pfinal.PrePlan.名称);
-        }
-
-        [TestMethod]
-        public void TestUpdateNavigatorComplexObject()
-        {
-            //PhyGeoDisaster p = this._service.GetById(1);
-            //Assert.IsNull(p.PrePlan);
-            //PrePlan newlyPreplan = new PrePlan()
-            //{
-            //    Id = p.Id,
-            //    名称="That is a test name for testing",
-            //    地理位置="测试地理位置",
-            //};
-            //p.PrePlan = newlyPreplan;
-            //this._service.Update(p);
-            //PhyGeoDisaster p1 = this._service.GetById(1);
-            //Assert.IsNotNull(p1);
-            //Assert.IsNotNull(p1.PrePlan);
-            //Assert.AreEqual(p1.PrePlan.地理位置, "测试地理位置");
-            //p1.PrePlan = null;
-            //this._service.Update(p1);
-            //PhyGeoDisaster p2 = this._service.GetById(1);
-            //Assert.IsNotNull(p2);
-            //Assert.IsNull(p2.PrePlan);
+            var queryResult = (from a in this._re.Table
+                               where a.CustomizeId == "1"
+                               select a).FirstOrDefault();            
         }
     }
 }

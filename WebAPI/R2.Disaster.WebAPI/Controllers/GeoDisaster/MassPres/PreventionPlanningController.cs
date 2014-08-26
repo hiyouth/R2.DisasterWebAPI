@@ -4,12 +4,14 @@ using System.Linq;
 using System.Web;
 using R2.Disaster.CoreEntities.Domain.GeoDisaster.MassPres;
 using R2.Disaster.Service.GeoDisaster.MassPres;
+using R2.Disaster.WebFramework.Mvc.Filters;
 
 namespace R2.Disaster.WebAPI.Controllers.GeoDisaster.MassPres
 {
     /// <summary>
     /// 防治规划
     /// </summary>
+    [PagingFilter]
     public class PreventionPlanningController:EntityControllerBase<PreventionPlanning>
     {
         private IPreventionPlanningService _planService;
