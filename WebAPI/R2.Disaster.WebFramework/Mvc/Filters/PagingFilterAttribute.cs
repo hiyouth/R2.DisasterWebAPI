@@ -48,13 +48,15 @@ namespace R2.Disaster.WebFramework.Mvc.Filters
         public override void OnActionExecuted(HttpActionExecutedContext actionExecutedContext)
         {
             base.OnActionExecuted(actionExecutedContext);
-            int ps;
-            int pn;
-            String  psString = actionExecutedContext.ActionContext.ActionArguments[PageSizeName].ToString();
-            String  pnString = actionExecutedContext.ActionContext.ActionArguments[PageNumberName].ToString();
-            ps = Int32.Parse(psString);
-            pn = Int32.Parse(pnString);
-
+            Object psParm;
+            Object pnParm;
+            actionExecutedContext.ActionContext.ActionArguments.TryGetValue(PageNumberName, out pnParm);
+            actionExecutedContext.ActionContext.ActionArguments.TryGetValue(PageSizeName, out psParm);
+            if (psParm == null || pnParm == null)
+                return;
+            int ps = Int32.Parse(psParm.ToString());
+            int pn = Int32.Parse(pnParm.ToString());
+            
             Object content;
 
             actionExecutedContext.Response.TryGetContentValue(out content);
