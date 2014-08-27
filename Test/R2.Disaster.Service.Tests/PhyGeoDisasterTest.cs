@@ -106,13 +106,14 @@ namespace R2.Disaster.Service.Tests
         [TestMethod]
         public void GetByCustomizeId()
         {
-            //var queryResult = (from a in this._re.Table
-            //                   where a.CustomizeId == "1"
-            //                   select a).FirstOrDefault();            
-            var query = from b in this._reBook.Table
-                        where b.Name == "ddddd"
-                        select b;
-            var book = query.FirstOrDefault<Book>();
+            IQueryable<PhyGeoDisaster> queryResult = from a in this._re.Table
+                                                      where a.CustomizeId == "1"
+                                                      select a;
+            List<PhyGeoDisaster> phys = queryResult.ToList();
+            //var query = from b in this._reBook.Table
+            //            where b.Name == "ddddd"
+            //            select b;
+            //Book book = query.FirstOrDefault<Book>();
         }
     }
 }
