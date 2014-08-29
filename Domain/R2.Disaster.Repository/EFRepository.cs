@@ -87,6 +87,11 @@ namespace R2.Disaster.Repository
         /// <param name="entity"></param>
         private void AttachedAllBaseEntity(BaseEntity entity)
         {
+            //将当前的entity进行附加
+            this._context.DbSet(entity.GetType()).Attach(entity);
+            this._context.Context.Entry(entity).State = EntityState.Modified;
+
+            //遍历entity的属性，并将导航属性Attach
             foreach (var propertyInfo in entity.GetType().GetProperties())
             {
                 var v = propertyInfo.GetValue(entity, null);
