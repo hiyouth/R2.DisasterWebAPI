@@ -16,7 +16,7 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.Relocation
 
 
         //public virtual PhyGeoDisaster PhyGeoDisaster { get; set; }
-        public int PhyGeoDisasterId { get; set; }
+        //public int PhyGeoDisasterId { get; set; }
 
         /// <summary>
         /// 泥石流
