@@ -29,5 +29,22 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster
             List<T> list = query.ToList();
             return list;
         }
+
+        /// <summary>
+        /// 通过一组物理点逐渐编号进行实体查询
+        /// </summary>
+        /// <param name="ids"></param>
+        /// <returns></returns>
+        public IList<T> GetByPhyIds([FromUri] string ids)
+        {
+            if (String.IsNullOrEmpty(ids))
+                throw new Exception("参数非法");
+            String[] phyIds = ids.Split(',');
+            // TODO:RRDL
+            int[] phyIdsInt = Array.ConvertAll<String, int>(phyIds, id => Convert.ToInt32(id));
+            IQueryable<T> query = this._phyRelationService.GetByPhyIds(phyIdsInt);
+            List<T> list = query.ToList();
+            return list;
+        }
     }
 }
