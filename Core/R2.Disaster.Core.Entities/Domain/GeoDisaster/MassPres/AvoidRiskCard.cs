@@ -66,5 +66,9 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.MassPres
         public string 日期月 { get; set; }
         public string 日期日 { get; set; }
         public string 编号 { get; set; }
+
+        public EnumGeoDisasterType 灾害类型 { get; set; }
+
+        public string 规模等级 { get; set; }
     }
 }
