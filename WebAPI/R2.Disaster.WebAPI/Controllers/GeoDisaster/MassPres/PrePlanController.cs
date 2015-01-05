@@ -12,7 +12,7 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster.MassPres
     /// <summary>
     /// 防灾预案相关服务
     /// </summary>
-    public class PrePlanController :PhyRelationEntityController<PrePlan>
+    public class PrePlanController : PhyRelationEntityController<PrePlan>
     {
         private IPrePlanService _preplanService;
 
@@ -20,8 +20,8 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster.MassPres
         /// 构造函数
         /// </summary>
         /// <param name="preplanService"></param>
-        public PrePlanController(IPrePlanService preplanService )
-            :base(preplanService)
+        public PrePlanController(IPrePlanService preplanService)
+            : base(preplanService)
         {
             this._preplanService = preplanService;
         }
@@ -33,11 +33,11 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster.MassPres
         /// <returns></returns>
         public PrePlan Get(int id)
         {
-                 if (id <= 0)
+            if (id <= 0)
                 throw new Exception("不存在这样的主键编号");
             //return new string[] { "value1", "value2" };
-                 PrePlan plan=this._preplanService.Get(id);
-                 return plan;
+            PrePlan plan = this._preplanService.Get(id);
+            return plan;
         }
 
         /// <summary>
@@ -86,7 +86,7 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster.MassPres
         [HttpPost]
         public void Update([FromBody]PrePlan preplan)
         {
-            if(preplan==null)
+            if (preplan == null)
                 throw new ArgumentNullException("preplan");
             this._preplanService.Update(preplan);
         }
@@ -125,7 +125,7 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster.MassPres
         /// </summary>
         /// <param name="preplan">需要新增的防灾预案实体</param>
         [HttpPost]
-        public void New([FromBody]PrePlan preplan)
+        public new void New([FromBody]PrePlan preplan)
         {
             if (preplan == null)
                 throw new ArgumentNullException("preplan");
