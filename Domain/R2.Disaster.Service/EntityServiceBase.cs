@@ -117,10 +117,10 @@ namespace R2.Disaster.Service
                     this.RecordTimeAllBaseEntity(subEntityBase);
                     //subEntityBase.RecordTime = DateTime.Now;
                 }
-                if (v is ICollection)
+                if (v is ICollection<BaseEntity>)
                 {
                     //集合类型
-                    ICollection vs = v as ICollection;
+                    ICollection<BaseEntity> vs = v as ICollection<BaseEntity>;
                     foreach (var item in vs)
                     {
                         //遍历集合类型下面的每一个元素

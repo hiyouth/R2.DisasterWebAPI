@@ -52,7 +52,7 @@ namespace R2.Disaster.WebAPI
             builder.RegisterType<ThreatService>().As<IThreatService>().InstancePerRequest();
             //防治规划
             builder.RegisterType<PreventionPlanningService>().As<IPreventionPlanningService>().InstancePerRequest();
-
+            builder.RegisterType<PrePlanService>().As<PrePlanService>().InstancePerRequest();
             builder.RegisterType<RainfallStationService>().As<IRainfallStationService>().InstancePerRequest();
         }
 
