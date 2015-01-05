@@ -36,6 +36,8 @@
     <Compile Include="GeoDisaster\Investigation\DebrisFlowService.cs" />
     <Compile Include="GeoDisaster\Investigation\IDebrisFlowService.cs" />
     <Compile Include="GeoDisaster\IPhyGeoDisasterService.cs" />
+    <Compile Include="GeoDisaster\MassPres\AvoidRiskCardService.cs" />
+    <Compile Include="GeoDisaster\MassPres\IAvoidRiskCardService.cs" />
     <Compile Include="GeoDisaster\MassPres\IMassPreService.cs" />
     <Compile Include="GeoDisaster\MassPres\IMonthlyReportService.cs" />
     <Compile Include="GeoDisaster\MassPres\IPrePlanService.cs" />
