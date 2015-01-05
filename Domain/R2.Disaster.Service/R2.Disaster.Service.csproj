@@ -42,10 +42,12 @@
     <Compile Include="GeoDisaster\MassPres\IMonthlyReportService.cs" />
     <Compile Include="GeoDisaster\MassPres\IPrePlanService.cs" />
     <Compile Include="GeoDisaster\MassPres\IPreventionPlanningService.cs" />
+    <Compile Include="GeoDisaster\MassPres\IWorkingGuideCardService.cs" />
     <Compile Include="GeoDisaster\MassPres\MassPreService.cs" />
     <Compile Include="GeoDisaster\MassPres\MonthlyReportService.cs" />
     <Compile Include="GeoDisaster\MassPres\PrePlanService.cs" />
     <Compile Include="GeoDisaster\MassPres\PreventionPlanningService.cs" />
+    <Compile Include="GeoDisaster\MassPres\WorkingGuideCardService.cs" />
     <Compile Include="GeoDisaster\PhyGeoDisasterService.cs" />
     <Compile Include="GeoDisaster\PhyRelationEntityServiceBase.cs" />
     <Compile Include="GeoDisaster\PotentialThreats\IThreatService.cs" />
