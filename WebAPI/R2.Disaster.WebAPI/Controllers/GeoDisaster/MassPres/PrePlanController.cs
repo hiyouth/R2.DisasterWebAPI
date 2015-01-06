@@ -124,12 +124,12 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster.MassPres
         /// 物理点信息也同样有相应的信息
         /// </summary>
         /// <param name="preplan">需要新增的防灾预案实体</param>
-        [HttpPost]
-        public new void New([FromBody]PrePlan preplan)
-        {
-            if (preplan == null)
-                throw new ArgumentNullException("preplan"); 
-            this._preplanService.New(preplan);
-        }
+        
+        //public new void New([FromBody]PrePlan preplan)
+        //{
+        //    if (preplan == null)
+        //        throw new ArgumentNullException("preplan"); 
+        //    this._preplanService.New(preplan);
+        //}
     }
 }
