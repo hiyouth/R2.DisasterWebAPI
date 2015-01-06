@@ -36,9 +36,9 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.MassPres
         public string 医疗救护值班电话 { get; set; }
         public string 本卡发放单位 { get; set; }
         public string 本卡发放单位联系电话 { get; set; }
-        public DateTime  发放日期 { get; set; }
+        public DateTime?  发放日期 { get; set; }
         public string 持卡单位或个人 { get; set; }
         public string 持卡单位或个人联系电话 { get; set; }
-        public DateTime 持卡日期 { get; set; }
+        public DateTime? 持卡日期 { get; set; }
     }
 }
