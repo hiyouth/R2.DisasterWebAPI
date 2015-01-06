@@ -1,14 +1,19 @@
 namespace Corner.Core
 {
-    using R2.Disaster.CoreEntities.Domain.GeoDisaster;
-    using R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation;
-    using System;
-    using System.Collections.Generic;
+    using R2.Disaster.CoreEntities;
+using R2.Disaster.CoreEntities.Domain.FiveScale;
+using R2.Disaster.CoreEntities.Domain.GeoDisaster;
+using R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation;
+using System;
+using System.Collections.Generic;
 
-    public partial class ComprehensiveFS
+    public partial class ComprehensiveFS:BaseEntity
     {
        
         public string 统一编号 { get; set; }
+
+        public FiveScaleProperty FiveScaleProerties{get;set;}
+        public string FiveScalePropertyId { get; set; }
 
         /// <summary>
         /// 泥石流
