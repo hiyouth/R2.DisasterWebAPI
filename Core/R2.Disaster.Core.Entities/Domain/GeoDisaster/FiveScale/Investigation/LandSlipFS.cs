@@ -1,9 +1,10 @@
 namespace Corner.Core
 {
+    using R2.Disaster.CoreEntities;
     using System;
     using System.Collections.Generic;
 
-    public partial class 不稳定斜坡主表
+    public partial class LandSlipFS:BaseEntity
     {
        
         public string 项目名称 { get; set; }
@@ -24,16 +25,16 @@ namespace Corner.Core
         public string 野外编号 { get; set; }
 
        
-        public string 室内编号 { get; set; }
+        public string 县市编号 { get; set; }
 
        
-        public string 县市编号 { get; set; }
+        public string 室内编号 { get; set; }
 
        
         public string 斜坡类型 { get; set; }
 
        
-        public string 斜坡变形趋势 { get; set; }
+        public string 崩塌类型 { get; set; }
 
        
         public string 省 { get; set; }
@@ -86,10 +87,8 @@ namespace Corner.Core
        
         public string 地震烈度 { get; set; }
 
-       
         public string 微地貌 { get; set; }
 
-       
         public string 地下水类型 { get; set; }
 
         public float? 年均降雨量 { get; set; }
@@ -102,86 +101,82 @@ namespace Corner.Core
 
         public float? 枯水位 { get; set; }
 
-       
         public string 相对河流位置 { get; set; }
 
        
         public string 土地利用 { get; set; }
 
-        public float? 最大坡高 { get; set; }
+        public float? 分布高程 { get; set; }
 
-        public float? 最大坡长 { get; set; }
+        public float? 坡高 { get; set; }
 
-        public float? 最大坡宽 { get; set; }
+        public float? 坡宽 { get; set; }
 
-        public float? 最大厚度 { get; set; }
+        public float? 坡长 { get; set; }
 
-        public float? 平均坡度 { get; set; }
+        public float? 厚度 { get; set; }
 
-        public float? 总体坡向 { get; set; }
-
-        public double? 预测体积 { get; set; }
+        public double? 规模 { get; set; }
 
        
-        public string 预测规模等级 { get; set; }
+        public string 规模等级 { get; set; }
 
-       
-        public string 坡面形态 { get; set; }
+        public float? 坡度 { get; set; }
+
+        public float? 坡向 { get; set; }
 
        
         public string 岩体结构类型 { get; set; }
 
         public float? 岩体厚度 { get; set; }
 
-        public int? 岩体裂隙组数 { get; set; }
+        public float? 岩体裂隙组数 { get; set; }
 
        
         public string 岩体块度 { get; set; }
 
-       
         public string 斜坡结构类型 { get; set; }
 
        
-        public string 控制面结构类型1 { get; set; }
+        public string 控制结构面类型1 { get; set; }
 
-        public int? 控制面结构倾向1 { get; set; }
+        public int? 控制结构面倾向1 { get; set; }
 
-        public int? 控制面结构倾角1 { get; set; }
+        public int? 控制结构面倾角1 { get; set; }
 
-        public float? 控制面结构长度1 { get; set; }
+        public float? 控制结构面长度1 { get; set; }
 
-        public float? 控制面结构间距1 { get; set; }
-
-       
-        public string 控制面结构类型2 { get; set; }
-
-        public int? 控制面结构倾向2 { get; set; }
-
-        public int? 控制面结构倾角2 { get; set; }
-
-        public float? 控制面结构长度2 { get; set; }
-
-        public float? 控制面结构间距2 { get; set; }
+        public float? 控制结构面间距1 { get; set; }
 
        
-        public string 控制面结构类型3 { get; set; }
+        public string 控制结构面类型2 { get; set; }
 
-        public int? 控制面结构倾向3 { get; set; }
+        public int? 控制结构面倾向2 { get; set; }
 
-        public int? 控制面结构倾角3 { get; set; }
+        public int? 控制结构面倾角2 { get; set; }
 
-        public float? 控制面结构长度3 { get; set; }
+        public float? 控制结构面长度2 { get; set; }
 
-        public float? 控制面结构间距3 { get; set; }
+        public float? 控制结构面间距2 { get; set; }
+
+       
+        public string 控制结构面类型3 { get; set; }
+
+        public int? 控制结构面倾向3 { get; set; }
+
+        public int? 控制结构面倾角3 { get; set; }
+
+        public float? 控制结构面长度3 { get; set; }
+
+        public float? 控制结构面间距3 { get; set; }
 
         public float? 全风化带深度 { get; set; }
 
-        public float? 卸荷裂隙深度 { get; set; }
+        public float? 卸荷裂缝深度 { get; set; }
 
        
         public string 土体名称 { get; set; }
 
-       
         public string 土体密实度 { get; set; }
 
        
@@ -197,15 +192,84 @@ namespace Corner.Core
 
         public int? 下伏基岩倾角 { get; set; }
 
-        public float? 下伏基岩埋深 { get; set; }
+        public int? 下伏基岩埋深 { get; set; }
 
-        public float? 地下水埋深 { get; set; }
+        public int? 形成时间年 { get; set; }
+
+        public int? 形成时间月 { get; set; }
+
+        public int? 形成时间日 { get; set; }
+
+        public int? 发生崩塌次数 { get; set; }
+
+        public int? 序号1 { get; set; }
+
+        public int? 发生时间年1 { get; set; }
+
+        public int? 发生时间月1 { get; set; }
+
+        public int? 发生时间日1 { get; set; }
+
+        public int? 发生时间时1 { get; set; }
+
+        public int? 发生时间分1 { get; set; }
+
+        public int? 发生时间秒1 { get; set; }
+
+        public double? 规模1 { get; set; }
 
        
-        public string 地下水露头 { get; set; }
+        public string 诱发因素1 { get; set; }
+
+        public int? 死亡人数1 { get; set; }
+
+        public double? 直接损失1 { get; set; }
+
+        public int? 序号2 { get; set; }
+
+        public int? 发生时间年2 { get; set; }
+
+        public int? 发生时间月2 { get; set; }
+
+        public int? 发生时间日2 { get; set; }
+
+        public int? 发生时间时2 { get; set; }
+
+        public int? 发生时间分2 { get; set; }
+
+        public int? 发生时间秒2 { get; set; }
+
+        public double? 规模2 { get; set; }
 
        
-        public string 地下水补给类型 { get; set; }
+        public string 诱发因素2 { get; set; }
+
+        public int? 死亡人数2 { get; set; }
+
+        public double? 直接损失2 { get; set; }
+
+        public int? 序号3 { get; set; }
+
+        public int? 发生时间年3 { get; set; }
+
+        public int? 发生时间月3 { get; set; }
+
+        public int? 发生时间日3 { get; set; }
+
+        public int? 发生时间时3 { get; set; }
+
+        public int? 发生时间分3 { get; set; }
+
+        public int? 发生时间秒3 { get; set; }
+
+        public double? 规模3 { get; set; }
+
+       
+        public string 诱发因素3 { get; set; }
+
+        public int? 死亡人数3 { get; set; }
+
+        public float? 直接损失3 { get; set; }
 
        
         public string 变形迹象名称1 { get; set; }
@@ -328,17 +392,54 @@ namespace Corner.Core
         public int? 变形迹象初现时间日8 { get; set; }
 
        
-        public string 可能失稳因素 { get; set; }
+        public string 危岩体可能失稳因素 { get; set; }
 
        
-        public string 目前稳定状态 { get; set; }
+        public string 危岩体目前稳定程度 { get; set; }
 
        
-        public string 今后变化趋势 { get; set; }
+        public string 危岩体今后变化趋势 { get; set; }
 
-        public float? 毁坏房屋户 { get; set; }
+        public int? 地下水埋深 { get; set; }
 
-        public float? 毁坏房屋间 { get; set; }
+       
+        public string 地下水露头 { get; set; }
+
+       
+        public string 地下水补给类型 { get; set; }
+
+        public float? 堆积体长度 { get; set; }
+
+        public float? 堆积体宽度 { get; set; }
+
+        public float? 堆积体厚度 { get; set; }
+
+        public double? 堆积体体积 { get; set; }
+
+        public float? 堆积体坡度 { get; set; }
+
+        public float? 堆积体坡向 { get; set; }
+
+       
+        public string 堆积体坡面形态 { get; set; }
+
+       
+        public string 堆积体稳定性 { get; set; }
+
+       
+        public string 堆积体可能失稳因素 { get; set; }
+
+       
+        public string 堆积体目前稳定性 { get; set; }
+
+       
+        public string 堆积体今后变化趋势 { get; set; }
+
+        public int? 死亡人口 { get; set; }
+
+        public int? 毁坏房屋户 { get; set; }
+
+        public int? 毁坏房屋间 { get; set; }
 
         public float? 毁路 { get; set; }
 
@@ -349,8 +450,21 @@ namespace Corner.Core
 
         public double? 直接损失 { get; set; }
 
+        public double? 间接损失 { get; set; }
+
        
         public string 灾情等级 { get; set; }
+
+       
+        public string 危害对象 { get; set; }
+
+       
+        public string 诱发灾害类型 { get; set; }
+
+       
+        public string 诱发灾害波及范围 { get; set; }
+
+        public double? 诱发灾害损失 { get; set; }
 
         public int? 威胁人口 { get; set; }
 
@@ -380,23 +494,26 @@ namespace Corner.Core
        
         public string 搬迁避让 { get; set; }
 
-       
-        public string 群测人员 { get; set; }
+        public bool 隐患点 { get; set; }
 
         public bool 遥感点 { get; set; }
+
         public bool 勘查点 { get; set; }
+
         public bool 测绘点 { get; set; }
+
+        public bool 防灾预案 { get; set; }
+
+        public bool 多媒体 { get; set; }
+
+       
+        public string 群测人员 { get; set; }
 
        
         public string 村长 { get; set; }
 
        
         public string 电话 { get; set; }
-
-        public bool 隐患点 { get; set; }
-
-        public bool 防灾预案 { get; set; }
-        public bool 多媒体 { get; set; }
 
        
         public string 调查负责人 { get; set; }
@@ -416,16 +533,22 @@ namespace Corner.Core
 
         public int? 填表日期日 { get; set; }
 
-        public string 野外记录信息 { get; set; }
-
         public bool 平面示意图 { get; set; }
 
         public bool 剖面示意图 { get; set; }
+
+        public bool 栅格素描图 { get; set; }
 
         public bool 矢量平面图 { get; set; }
 
         public bool 矢量剖面图 { get; set; }
 
+        public bool 矢量素描图 { get; set; }
+
+        public string 野外记录信息 { get; set; }
+
+       
+        public string 崩塌情况 { get; set; }
 
         public bool 录像 { get; set; }
 

@@ -1,10 +1,11 @@
 namespace Corner.Core
 {
+    using R2.Disaster.CoreEntities;
     using System;
     using System.Collections.Generic;
 
 
-    public partial class 地面塌陷主表
+    public partial class LandCollapseFS:BaseEntity
     {
        
         public string 项目名称 { get; set; }

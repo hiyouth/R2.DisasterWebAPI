@@ -1,12 +1,64 @@
 namespace Corner.Core
 {
+    using R2.Disaster.CoreEntities.Domain.GeoDisaster;
+    using R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation;
     using System;
     using System.Collections.Generic;
 
-    public partial class 汇总表
+    public partial class ComprehensiveFS
     {
        
         public string 统一编号 { get; set; }
+
+        /// <summary>
+        /// 泥石流
+        /// </summary>
+        public virtual DebrisFlowFS DebrisFlowFS { get; set; }
+        /// <summary>
+        /// 地面沉降
+        /// </summary>
+        public virtual LandSubsidenceFS LandSubsidenceFS { get; set; }
+
+        /// <summary>
+        /// 崩塌
+        /// </summary>
+        public virtual LandSlipFS LandSlipFS { get; set; }
+
+        /// <summary>
+        /// 斜坡
+        /// </summary>
+        public virtual SlopeFS SlopeFS { get; set; }
+
+        /// <summary>
+        /// 滑坡
+        /// </summary>
+        public virtual LandSlideFS LandSlideFS { get; set; }
+
+        /// <summary>
+        /// 地面塌陷
+        /// </summary>
+        public virtual LandCollapseFS LandCollapseFS { get; set; }
+
+        /// <summary>
+        /// 地裂缝
+        /// </summary>
+        public virtual LandFractureFS LandFractureFS { get; set; }
+
+
+        /// <summary>
+        /// 灾害类型
+        /// </summary>
+        public virtual EnumGeoDisasterType 灾害类型 { get; set; }
+
+        /// <summary>
+        /// 行政区编码
+        /// </summary>
+        public virtual GBCode GBCode { get; set; }
+
+        /// <summary>
+        /// 行政区编码外键标示
+        /// </summary>
+        public string GBCodeId { get; set; }
 
        
         public string 野外编号 { get; set; }
@@ -63,9 +115,6 @@ namespace Corner.Core
         public int? Y坐标 { get; set; }
 
         public float? 灾害体积 { get; set; }
-
-       
-        public string 灾害类型 { get; set; }
 
         public string 国际代码 { get; set; }
 

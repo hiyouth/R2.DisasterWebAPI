@@ -1,9 +1,10 @@
 namespace Corner.Core
 {
+    using R2.Disaster.CoreEntities;
     using System;
     using System.Collections.Generic;
 
-    public partial class 泥石流主表
+    public partial class DebrisFlowFS:BaseEntity
     {
        
         public string 项目名称 { get; set; }
