@@ -1,0 +1,28 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using R2.Disaster.CoreEntities.Domain.GeoDisaster.MassPres;
+using R2.Disaster.Repository;
+
+namespace R2.Disaster.Service.GeoDisaster.MassPres
+{
+    public class WorkingGuideCardService : PhyRelationEntityService<WorkingGuideCard>, IWorkingGuideCardService
+    {
+        private IRepository<WorkingGuideCard> _repository;
+        public WorkingGuideCardService(IRepository<WorkingGuideCard> repository)
+            : base(repository)
+        {
+            this._repository = repository;
+        }
+
+        public IQueryable<WorkingGuideCard> GetByUid(string uid)
+        {
+            var query = from c in this._repository.Table
+                        where c.统一编号 == uid
+                        select c;
+            return query;
+        }
+    }
+}

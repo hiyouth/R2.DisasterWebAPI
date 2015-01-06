@@ -19,7 +19,7 @@ using R2.Disaster.Service.GeoDisaster.Relocation;
 
 namespace R2.Disaster.WebAPI
 {
-    public class DenpendencyRegistrar:IDependencyRegistrar
+    public class DenpendencyRegistrar : IDependencyRegistrar
     {
         public void Register(ContainerBuilder builder, ITypeFinder typeFinder)
         {
@@ -32,7 +32,7 @@ namespace R2.Disaster.WebAPI
             builder.RegisterType<ComprehensiveService>().As<IComprehensiveService>().InstancePerRequest();
             builder.RegisterType<DebrisFlowService>().As<IDebrisFlowService>().InstancePerRequest();
             builder.RegisterType<PhyGeoDisasterService>().As<IPhyGeoDisasterService>().InstancePerRequest();
-         //   builder.RegisterType<Phy>().As<IPhyGeoDisasterService>().InstancePerRequest();
+            //   builder.RegisterType<Phy>().As<IPhyGeoDisasterService>().InstancePerRequest();
             builder.RegisterType<MassPreService>().As<IMassPreService>().InstancePerRequest();
             builder.RegisterType<MonthlyReportService>().As<IMonthlyReportService>().InstancePerRequest();
             builder.RegisterType<EmergencySurveyReportService>().As<IEmergencySurveyReportService>().InstancePerRequest();
@@ -52,7 +52,9 @@ namespace R2.Disaster.WebAPI
             builder.RegisterType<ThreatService>().As<IThreatService>().InstancePerRequest();
             //防治规划
             builder.RegisterType<PreventionPlanningService>().As<IPreventionPlanningService>().InstancePerRequest();
-            builder.RegisterType<PrePlanService>().As<PrePlanService>().InstancePerRequest();
+            builder.RegisterType<PrePlanService>().As<IPrePlanService>().InstancePerRequest();
+            builder.RegisterType<WorkingGuideCardService>().As<IWorkingGuideCardService>().InstancePerRequest();
+            builder.RegisterType<AvoidRiskCardService>().As<IAvoidRiskCardService>().InstancePerRequest();
             builder.RegisterType<RainfallStationService>().As<IRainfallStationService>().InstancePerRequest();
         }
 
