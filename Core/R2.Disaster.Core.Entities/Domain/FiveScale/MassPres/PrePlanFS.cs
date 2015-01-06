@@ -1,9 +1,10 @@
 namespace Corner.Core
 {
+    using R2.Disaster.CoreEntities;
     using System;
     using System.Collections.Generic;
 
-    public partial class PrePlanFS
+    public partial class PrePlanFS:BaseEntity
     {
         public string 统一编号 { get; set; }
 

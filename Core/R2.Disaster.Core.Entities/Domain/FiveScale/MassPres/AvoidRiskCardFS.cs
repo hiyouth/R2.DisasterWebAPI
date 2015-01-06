@@ -1,9 +1,10 @@
 namespace Corner.Core
 {
+    using R2.Disaster.CoreEntities;
     using System;
     using System.Collections.Generic;
 
-    public partial class 避险明白卡
+    public partial class AvoidRiskCardFS:BaseEntity
     {
        
         public string 名称 { get; set; }

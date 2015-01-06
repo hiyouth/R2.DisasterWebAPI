@@ -3,6 +3,7 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation
     using System;
     using System.Collections.Generic;
 
+    //滑坡
     public partial class LandSlide : BaseEntity
     {
         //public virtual Comprehensive Comprehensive { get; set; }
