@@ -32,11 +32,6 @@
   <ItemGroup>
     <Compile Include="IDbContext.cs" />
     <Compile Include="Mapping\FiveScale\Investigation\ComprehensiveFSMap.cs" />
-    <Compile Include="Mapping\FiveScale\Investigation\DebrisFlowFSMap.cs" />
-    <Compile Include="Mapping\FiveScale\Investigation\LandCollapseFSMap.cs" />
-    <Compile Include="Mapping\FiveScale\Investigation\LandFractureFSMap.cs" />
-    <Compile Include="Mapping\FiveScale\Investigation\LandSlideFSMap.cs" />
-    <Compile Include="Mapping\FiveScale\Investigation\LandSlipFSMap.cs" />
     <Compile Include="Mapping\FiveScale\Investigation\LandSubsidenceFSMap.cs" />
     <Compile Include="Mapping\FiveScale\Investigation\SlopeFSMap.cs" />
     <Compile Include="Mapping\FiveScale\MassPres\AvoidRiskCardFSMap.cs" />
