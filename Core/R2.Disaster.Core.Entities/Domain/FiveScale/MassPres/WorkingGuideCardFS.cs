@@ -11,7 +11,7 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.MassPres
     {
 
         public FiveScaleProperty FiveScaleProerties { get; set; }
-        public string FiveScalePropertyId { get; set; }
+        public int FiveScalePropertyId { get; set; }
 
         public string 名称 { get; set; }
         public string 野外编号 { get; set; }

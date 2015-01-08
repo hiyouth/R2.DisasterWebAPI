@@ -13,7 +13,7 @@ using System.Collections.Generic;
         public string 统一编号 { get; set; }
 
         public FiveScaleProperty FiveScaleProerties{get;set;}
-        public string FiveScalePropertyId { get; set; }
+        public int FiveScalePropertyId { get; set; }
 
         /// <summary>
         /// 泥石流

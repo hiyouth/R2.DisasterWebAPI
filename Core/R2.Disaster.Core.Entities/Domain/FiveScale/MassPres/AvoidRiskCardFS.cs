@@ -9,7 +9,7 @@ namespace Corner.Core
     {
 
         public FiveScaleProperty FiveScaleProerties { get; set; }
-        public string FiveScalePropertyId { get; set; }
+        public int FiveScalePropertyId { get; set; }
        
         public string 名称 { get; set; }
 
