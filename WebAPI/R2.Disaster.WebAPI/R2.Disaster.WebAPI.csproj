@@ -118,7 +118,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include=".gitignore" />
-    <Content Include="App_Data\install\create_all_gbcodes.sql" />
+    <Content Include="App_Data\install\create_all_gbcodes_2010.sql" />
+    <Content Include="App_Data\install\create_all_gbcodes_2006.sql" />
     <Content Include="App_Data\install\create_required_data.sql" />
     <Content Include="App_Data\install\create_sample_data.sql" />
     <Content Include="Areas\HelpPage\HelpPage.css" />

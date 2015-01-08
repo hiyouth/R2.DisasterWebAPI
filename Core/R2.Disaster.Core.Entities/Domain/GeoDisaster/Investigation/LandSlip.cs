@@ -137,7 +137,7 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation
         //public double 直接损失 { get; set; }
         //public string 灾情等级 { get; set; }
         public int 威胁人口 { get; set; }
-        public int 威胁财产 { get; set; }
+        public double 威胁财产 { get; set; }
         public string 险情等级 { get; set; }
         public string 监测建议 { get; set; }
         public string 防治建议 { get; set; }
