@@ -21,6 +21,9 @@ namespace R2.Disaster.Data.Mapping.GeoDisaster
             //this.Property(c => c.Location).IsRequired();
             //this.Property(p => p.Investigated).IsRequired();
 
+            //配置同1:5万数据的关系
+            this.HasOptional(c => c.FiveScaleProperty).WithOptionalDependent();
+
             //配置同GBCode的关系
             
             this.HasOptional(c => c.GBCode)

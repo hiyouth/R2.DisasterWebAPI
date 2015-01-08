@@ -1,16 +1,19 @@
-using R2.Disaster.CoreEntities;
-
 namespace Corner.Core
 {
-    using R2.Disaster.CoreEntities.Domain.GeoDisaster;
-    using R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation;
-    using System;
-    using System.Collections.Generic;
+    using R2.Disaster.CoreEntities;
+using R2.Disaster.CoreEntities.Domain.FiveScale;
+using R2.Disaster.CoreEntities.Domain.GeoDisaster;
+using R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation;
+using System;
+using System.Collections.Generic;
 
-    public partial class ComprehensiveFS : BaseEntity
+    public partial class ComprehensiveFS:BaseEntity
     {
-
+       
         public string 统一编号 { get; set; }
+
+        public FiveScaleProperty FiveScaleProerties{get;set;}
+        public string FiveScalePropertyId { get; set; }
 
         /// <summary>
         /// 泥石流
@@ -62,28 +65,28 @@ namespace Corner.Core
         /// </summary>
         public string GBCodeId { get; set; }
 
-
+       
         public string 野外编号 { get; set; }
 
-
+       
         public string 名称 { get; set; }
 
-
+       
         public string 省 { get; set; }
 
-
+       
         public string 市 { get; set; }
 
-
+       
         public string 县 { get; set; }
 
-
+       
         public string 地理位置 { get; set; }
 
-
+       
         public string 经度 { get; set; }
 
-
+       
         public string 纬度 { get; set; }
 
         public int? 发生时间年 { get; set; }
@@ -100,16 +103,16 @@ namespace Corner.Core
 
         public float? 威胁财产 { get; set; }
 
-
+       
         public string 目前稳定状态 { get; set; }
 
-
+       
         public string 灾害规模等级 { get; set; }
 
-
+       
         public string 灾情等级 { get; set; }
 
-
+       
         public string 险情等级 { get; set; }
 
         public int? X坐标 { get; set; }
@@ -129,10 +132,10 @@ namespace Corner.Core
 
         public bool 勘查 { get; set; }
 
-
+       
         public string 调查点类型 { get; set; }
 
-
+       
         public string 方向 { get; set; }
     }
 }

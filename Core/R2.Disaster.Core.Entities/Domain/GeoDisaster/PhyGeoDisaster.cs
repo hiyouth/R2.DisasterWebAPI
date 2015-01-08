@@ -1,4 +1,5 @@
-﻿using R2.Disaster.CoreEntities.Domain.GeoDisaster.Emergency;
+﻿using R2.Disaster.CoreEntities.Domain.FiveScale;
+using R2.Disaster.CoreEntities.Domain.GeoDisaster.Emergency;
 using R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation;
 using R2.Disaster.CoreEntities.Domain.GeoDisaster.MassPres;
 using R2.Disaster.CoreEntities.Domain.GeoDisaster.PotentialThreats;
@@ -115,6 +116,11 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster
         /// 基础调查信息
         /// </summary>
         public virtual ICollection<Comprehensive> Comprehensives { get; set; }
+
+        /// <summary>
+        /// 五万信息实体属性
+        /// </summary>
+        public virtual ICollection<FiveScaleProperty> FiveScaleProperty { get; set; }
 
         /// <summary>
         /// 应急调查报告

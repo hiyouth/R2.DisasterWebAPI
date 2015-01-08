@@ -1,4 +1,5 @@
-﻿using R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation;
+﻿using R2.Disaster.CoreEntities.Domain.FiveScale;
+using R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation;
 using System;
 
 namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.MassPres
@@ -9,7 +10,9 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.MassPres
     public class WorkingGuideCardFS : BaseEntity
     {
 
-        //public int Id { get; set; }
+        public FiveScaleProperty FiveScaleProerties { get; set; }
+        public string FiveScalePropertyId { get; set; }
+
         public string 名称 { get; set; }
         public string 野外编号 { get; set; }
         public string 统一编号 { get; set; }
