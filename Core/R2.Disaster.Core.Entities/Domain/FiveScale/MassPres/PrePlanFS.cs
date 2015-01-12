@@ -1,14 +1,14 @@
 namespace Corner.Core
 {
     using R2.Disaster.CoreEntities;
-    using R2.Disaster.CoreEntities.Domain.FiveScale;
+    using R2.Disaster.CoreEntities.Domain.GeoDisaster;
     using System;
     using System.Collections.Generic;
 
-    public partial class PrePlanFS:BaseEntity
+    public partial class PrePlanFS : PhyRelationEntity
     {
-        public FiveScaleProperty FiveScaleProerties { get; set; }
-        public int FiveScalePropertyId { get; set; }
+        public virtual PhyGeoDisaster PhyGeoDisaster { get; set; }
+       
         public string 统一编号 { get; set; }
 
         public string 名称 { get; set; }

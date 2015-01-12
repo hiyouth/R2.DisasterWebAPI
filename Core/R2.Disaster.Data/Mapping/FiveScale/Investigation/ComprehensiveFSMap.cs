@@ -12,6 +12,9 @@ namespace R2.Disaster.Data.Mapping.FiveScale.Investigation
     {
         public ComprehensiveFSMap()
         {
+            this.ToTable("ComprehensiveFSes");
+            this.HasKey(c => c.Id);
+
             this.HasRequired(c => c.GBCode)
        .WithMany().HasForeignKey(g => g.GBCodeId);
 

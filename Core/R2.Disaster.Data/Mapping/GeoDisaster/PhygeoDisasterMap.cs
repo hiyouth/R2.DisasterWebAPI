@@ -22,7 +22,21 @@ namespace R2.Disaster.Data.Mapping.GeoDisaster
             //this.Property(p => p.Investigated).IsRequired();
 
             //配置同1:5万数据的关系
-            this.HasOptional(c => c.FiveScaleProperty).WithOptionalDependent();
+            this.HasMany(f => f.ComprehensiveFSes)
+    .WithRequired(c => c.PhyGeoDisaster)
+    .HasForeignKey(c => c.PhyGeoDisasterId);
+
+            this.HasMany(f => f.AvoidRiskCardFSes)
+.WithRequired(a => a.PhyGeoDisaster)
+.HasForeignKey(c => c.PhyGeoDisasterId);
+
+            this.HasMany(f => f.PrePlanFSes)
+.WithRequired(c => c.PhyGeoDisaster)
+.HasForeignKey(c => c.PhyGeoDisasterId);
+
+            this.HasMany(f => f.WorkingGuideCardFSes)
+.WithRequired(c => c.PhyGeoDisaster)
+.HasForeignKey(c => c.PhyGeoDisasterId);
 
             //配置同GBCode的关系
             

@@ -1,4 +1,4 @@
-﻿using R2.Disaster.CoreEntities.Domain.FiveScale;
+﻿
 using R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation;
 using System;
 
@@ -7,11 +7,11 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.MassPres
     /// <summary>
     /// 地质灾害调查，群测群防工作卡
     /// </summary>
-    public class WorkingGuideCardFS : BaseEntity
+    public class WorkingGuideCardFS : PhyRelationEntity
     {
 
-        public FiveScaleProperty FiveScaleProerties { get; set; }
-        public int FiveScalePropertyId { get; set; }
+        public virtual PhyGeoDisaster PhyGeoDisaster { get; set; }
+       
 
         public string 名称 { get; set; }
         public string 野外编号 { get; set; }

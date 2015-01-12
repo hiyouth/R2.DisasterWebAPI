@@ -32,12 +32,16 @@
   <ItemGroup>
     <Compile Include="IDbContext.cs" />
     <Compile Include="Mapping\FiveScale\Investigation\ComprehensiveFSMap.cs" />
+    <Compile Include="Mapping\FiveScale\Investigation\DebrisFlowFSMap.cs" />
+    <Compile Include="Mapping\FiveScale\Investigation\LandCollapseFSMap.cs" />
+    <Compile Include="Mapping\FiveScale\Investigation\LandFractureFSMap.cs" />
+    <Compile Include="Mapping\FiveScale\Investigation\LandSlideFSMap.cs" />
+    <Compile Include="Mapping\FiveScale\Investigation\LandSlipFSMap.cs" />
     <Compile Include="Mapping\FiveScale\Investigation\LandSubsidenceFSMap.cs" />
     <Compile Include="Mapping\FiveScale\Investigation\SlopeFSMap.cs" />
     <Compile Include="Mapping\FiveScale\MassPres\AvoidRiskCardFSMap.cs" />
-    <Compile Include="Mapping\FiveScale\MassPres\PrePlanMap.cs" />
-    <Compile Include="Mapping\FiveScale\MassPres\WorkingGuideCardMap.cs" />
-    <Compile Include="Mapping\FiveScale\FiveScalePropertiesMap.cs" />
+    <Compile Include="Mapping\FiveScale\MassPres\PrePlanFSMap.cs" />
+    <Compile Include="Mapping\FiveScale\MassPres\WorkingGuideFSCardMap.cs" />
     <Compile Include="Mapping\GeoDisaster\Emergency\DamageReportMap.cs" />
     <Compile Include="Mapping\GeoDisaster\Emergency\EmergencySurveyMap.cs" />
     <Compile Include="Mapping\GeoDisaster\Emergency\EmergencySurveyReportMap.cs" />

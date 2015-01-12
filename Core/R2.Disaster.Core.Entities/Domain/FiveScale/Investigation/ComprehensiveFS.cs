@@ -1,19 +1,16 @@
 namespace Corner.Core
 {
     using R2.Disaster.CoreEntities;
-using R2.Disaster.CoreEntities.Domain.FiveScale;
 using R2.Disaster.CoreEntities.Domain.GeoDisaster;
 using R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation;
 using System;
 using System.Collections.Generic;
 
-    public partial class ComprehensiveFS:BaseEntity
+    public partial class ComprehensiveFS : PhyRelationEntity
     {
-       
-        public string 统一编号 { get; set; }
+        public virtual PhyGeoDisaster PhyGeoDisaster { get; set; }
 
-        public FiveScaleProperty FiveScaleProerties{get;set;}
-        public int FiveScalePropertyId { get; set; }
+        public string 统一编号 { get; set; }
 
         /// <summary>
         /// 泥石流
@@ -84,10 +81,10 @@ using System.Collections.Generic;
         public string 地理位置 { get; set; }
 
        
-        public string 经度 { get; set; }
+        public double 经度 { get; set; }
 
        
-        public string 纬度 { get; set; }
+        public double 纬度 { get; set; }
 
         public int? 发生时间年 { get; set; }
 

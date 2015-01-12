@@ -1,4 +1,4 @@
-﻿using R2.Disaster.CoreEntities.Domain.FiveScale;
+﻿using Corner.Core;
 using R2.Disaster.CoreEntities.Domain.GeoDisaster.Emergency;
 using R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation;
 using R2.Disaster.CoreEntities.Domain.GeoDisaster.MassPres;
@@ -120,7 +120,23 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster
         /// <summary>
         /// 五万信息实体属性
         /// </summary>
-        public virtual ICollection<FiveScaleProperty> FiveScaleProperty { get; set; }
+        public virtual ICollection<ComprehensiveFS> ComprehensiveFSes { get; set; }
+
+        /// <summary>
+        /// 避险明白卡
+        /// </summary>
+        public virtual ICollection<AvoidRiskCardFS> AvoidRiskCardFSes { get; set; }
+
+        /// <summary>
+        /// 工作明白卡
+        /// </summary>
+        public virtual ICollection<WorkingGuideCardFS> WorkingGuideCardFSes { get; set; }
+
+
+        /// <summary>
+        /// 防灾预案
+        /// </summary>
+        public virtual ICollection<PrePlanFS> PrePlanFSes { get; set; }
 
         /// <summary>
         /// 应急调查报告

@@ -31,6 +31,14 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="EntityServiceBase.cs" />
+    <Compile Include="FiveScale\ComprehensiveFSService.cs" />
+    <Compile Include="FiveScale\IComprehensiveFSService.cs" />
+    <Compile Include="FiveScale\MassPres\AvoidRiskCardFSService.cs" />
+    <Compile Include="FiveScale\MassPres\IAvoidRiskCardFSService.cs" />
+    <Compile Include="FiveScale\MassPres\IPrePlanFSService.cs" />
+    <Compile Include="FiveScale\MassPres\IWorkingGuideCardFSService.cs" />
+    <Compile Include="FiveScale\MassPres\PrePlanFSService.cs" />
+    <Compile Include="FiveScale\MassPres\WorkingGuideCardFSService.cs" />
     <Compile Include="GeoDisaster\Emergency\EmergencySurveyReportService.cs" />
     <Compile Include="GeoDisaster\Emergency\IEmergencySurveyReportService.cs" />
     <Compile Include="GeoDisaster\Investigation\DebrisFlowService.cs" />
