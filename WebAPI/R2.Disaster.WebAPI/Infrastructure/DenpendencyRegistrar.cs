@@ -30,6 +30,7 @@ namespace R2.Disaster.WebAPI
 
             builder.RegisterType<BookService>().As<IBookService>().InstancePerRequest();
             builder.RegisterType<ComprehensiveService>().As<IComprehensiveService>().InstancePerRequest();
+            builder.RegisterType<ComprehensiveFSService>().As<IComprehensiveFSService>().InstancePerRequest();
             builder.RegisterType<DebrisFlowService>().As<IDebrisFlowService>().InstancePerRequest();
             builder.RegisterType<PhyGeoDisasterService>().As<IPhyGeoDisasterService>().InstancePerRequest();
             //   builder.RegisterType<Phy>().As<IPhyGeoDisasterService>().InstancePerRequest();
@@ -55,6 +56,9 @@ namespace R2.Disaster.WebAPI
             builder.RegisterType<PrePlanService>().As<IPrePlanService>().InstancePerRequest();
             builder.RegisterType<WorkingGuideCardService>().As<IWorkingGuideCardService>().InstancePerRequest();
             builder.RegisterType<AvoidRiskCardService>().As<IAvoidRiskCardService>().InstancePerRequest();
+            builder.RegisterType<PrePlanFSService>().As<IPrePlanFSService>().InstancePerRequest();
+            builder.RegisterType<WorkingGuideCardFSService>().As<IWorkingGuideCardFSService>().InstancePerRequest();
+            builder.RegisterType<AvoidRiskCardFSService>().As<IAvoidRiskCardFSService>().InstancePerRequest();
             builder.RegisterType<RainfallStationService>().As<IRainfallStationService>().InstancePerRequest();
         }
 
