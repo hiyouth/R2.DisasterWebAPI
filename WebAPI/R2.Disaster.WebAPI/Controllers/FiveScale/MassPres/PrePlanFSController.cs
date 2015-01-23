@@ -46,9 +46,9 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster.MassPres
         /// </summary>
         /// <param name="id">物理点相关唯一编号</param>
         /// <returns></returns>
-        public PrePlanFS GetByPhyId(int id)
+        public PrePlanFS GetByPhyId(string  id)
         {
-            if (id <= 0)
+            if (id ==null)
                 throw new Exception("不存在这样的主键编号");
             PrePlanFS plan = this._preplanService.GetByPhyId(id);
             return plan;

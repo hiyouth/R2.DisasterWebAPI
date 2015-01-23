@@ -6,12 +6,14 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using R2.Disaster.WebFramework.Mvc.Filters;
 
 namespace R2.Disaster.WebAPI.Controllers.GeoDisaster.MassPres
 {
     /// <summary>
     /// 防灾预案相关服务
     /// </summary>
+         [PagingFilter]
     public class PrePlanController : PhyRelationEntityController<PrePlan>
     {
         private IPrePlanService _preplanService;
@@ -45,9 +47,9 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster.MassPres
         /// </summary>
         /// <param name="id">物理点相关唯一编号</param>
         /// <returns></returns>
-        public PrePlan GetByPhyId(int id)
+        public PrePlan GetByPhyId(string  id)
         {
-            if (id <= 0)
+            if (id ==null)
                 throw new Exception("不存在这样的主键编号");
             PrePlan plan = this._preplanService.GetByPhyId(id);
             return plan;
@@ -73,6 +75,7 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster.MassPres
         /// <returns></returns>
         public IList<PrePlan> GetByKeyWords(string keyword)
         {
+            
             if (String.IsNullOrEmpty(keyword))
                 throw new Exception("防灾预案的统一编号不能是“ ”或者Null");
             List<PrePlan> plans = this._preplanService.GetByKeyWord(keyword).ToList();

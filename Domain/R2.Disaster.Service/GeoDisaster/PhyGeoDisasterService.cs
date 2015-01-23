@@ -26,7 +26,7 @@ namespace R2.Disaster.Service.GeoDisaster
         //}
 
 
-        public PhyGeoDisaster GetById(int id)
+        public PhyGeoDisaster GetById(string  id)
         {
             PhyGeoDisaster phyGeoDisaster = this._repositoryPhy.GetById(id);
             return phyGeoDisaster;
@@ -143,7 +143,7 @@ namespace R2.Disaster.Service.GeoDisaster
         }
 
 
-        public IQueryable<PhyGeoDisaster> GetByIds(int[] ids)
+        public IQueryable<PhyGeoDisaster> GetByIds(String [] ids)
         {
             Expression<Func<PhyGeoDisaster, bool>> predicate = p => ids.Contains(p.Id);
             return this.ExecuteConditions(predicate);

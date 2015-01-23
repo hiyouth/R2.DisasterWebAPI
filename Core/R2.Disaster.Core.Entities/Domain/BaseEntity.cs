@@ -5,12 +5,20 @@ namespace R2.Disaster.CoreEntities
     /// <summary>
     /// Base class for entities
     /// </summary>
-    public abstract class BaseEntity
+    public  abstract class BaseEntity
+
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        protected BaseEntity()
+        {
+            Id = Guid.NewGuid().ToString("N");
+        }
         /// <summary>
         /// Gets or sets the entity identifier
         /// </summary>
-        public virtual int Id { get; set; }
+        public virtual string Id { get; set; }
 
         /// <summary>
         /// 给予用户一个自定义的主键，以便于用户可以使用一个自定义的键位来串接各实体间的关系
@@ -37,7 +45,7 @@ namespace R2.Disaster.CoreEntities
             return GetType();
         }
 
-        public virtual bool Equals(BaseEntity other)
+        public bool Equals(BaseEntity other)
         {
             if (other == null)
                 return false;

@@ -16,6 +16,8 @@ using System.Collections.Generic;
     /// <summary>
     /// 防灾预案实体
     /// </summary>
+    
+
     public partial class PrePlan : PhyRelationEntity
     {
         //public PhyGeoDisaster PhyGeoDisaster { get; set; }
