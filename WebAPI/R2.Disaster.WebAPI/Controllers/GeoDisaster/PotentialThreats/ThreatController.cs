@@ -24,6 +24,7 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster.PotentialThreats
             : base(threatService)
         {
             this._threatService = threatService;
+           
         }
 
     }

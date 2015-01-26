@@ -37,5 +37,19 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster.MassPres
             List<AvoidRiskCard> cards = this._cardService.GetByUId(uid).ToList();
             return cards;
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public IList<AvoidRiskCard> Comprehensives()
+        {
+            var lists = _cardService.FindAll().ToList();
+            lists.ForEach(m =>
+            {
+                m.PhyGeoDisaster = null;
+            });
+            return lists;
+        }
+
     }
 }

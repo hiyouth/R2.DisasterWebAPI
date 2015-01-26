@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using R2.Disaster.CoreEntities;
 using R2.Disaster.CoreEntities.Domain.GeoDisaster;
 using R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation;
+using R2.Disaster.Data;
 using R2.Disaster.Service.GeoDisaster;
 using R2.Disaster.Service.GeoDisaster.Investigation;
 using R2.Disaster.WebAPI.Model;
@@ -172,5 +173,19 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster.Investigation
            //IList<ComprehensiveSimplify>>(comprehensives);
            return Comprehensive;
        }
+         /// <summary>
+         /// 
+         /// </summary>
+         /// <returns></returns>
+       public IList<Comprehensive> Comprehensives()
+       {
+           var lists = _cpsService.FindAll().ToList();
+           lists.ForEach(m =>
+           {
+               m.PhyGeoDisaster = null;
+           });
+           return lists;
+       }
+
     }
 }
