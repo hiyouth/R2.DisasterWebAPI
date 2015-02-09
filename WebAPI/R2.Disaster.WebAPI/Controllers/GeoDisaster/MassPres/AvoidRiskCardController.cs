@@ -22,6 +22,7 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster.MassPres
             : base(cardService)
         {
             this._cardService = cardService;
+
         }
 
 
@@ -39,7 +40,7 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster.MassPres
         }
         /// <summary>
         /// 
-        /// </summary>
+        /// </summary> 
         /// <returns></returns>
         public IList<AvoidRiskCard> Comprehensives()
         {

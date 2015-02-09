@@ -37,7 +37,6 @@ namespace R2.Disaster.Data.Mapping.GeoDisaster
             this.HasMany(f => f.WorkingGuideCardFSes)
 .WithRequired(c => c.PhyGeoDisaster)
 .HasForeignKey(c => c.PhyGeoDisasterId);
-
             //配置同GBCode的关系
             
             this.HasOptional(c => c.GBCode)
