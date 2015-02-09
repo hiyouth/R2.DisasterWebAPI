@@ -24,5 +24,19 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster.MassPres
         {
             this._monthlyReportService = monthlyReportService;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public IList<MonthlyReport> Comprehensives()
+        {
+            var lists = _monthlyReportService.FindAll().ToList();
+            lists.ForEach(m =>
+            {
+                m.PhyGeoDisaster = null;
+            });
+            return lists;
+        }
     }
 }

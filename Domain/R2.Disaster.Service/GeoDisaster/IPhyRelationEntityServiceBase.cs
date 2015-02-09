@@ -15,8 +15,8 @@ namespace R2.Disaster.Service.GeoDisaster
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        IQueryable<T> GetByPhyId(int id);
+        IQueryable<T> GetByPhyId(string  id);
 
-        IQueryable<T> GetByPhyIds(int[] ids);
+        IQueryable<T> GetByPhyIds(string [] ids);
     }
 }

@@ -16,12 +16,12 @@ namespace R2.Disaster.Service.GeoDisaster
         {
            
         }
-        public IQueryable<T> GetByPhyId(int id)
+        public IQueryable<T> GetByPhyId(String  id)
         {
             return this._repository.Table.Where(t => t.PhyGeoDisasterId == id);
         }
 
-        public IQueryable<T> GetByPhyIds(int[] ids)
+        public IQueryable<T> GetByPhyIds(string  [] ids)
         {
             return this._repository.Table.Where(t => ids.Contains(t.PhyGeoDisasterId));
         }

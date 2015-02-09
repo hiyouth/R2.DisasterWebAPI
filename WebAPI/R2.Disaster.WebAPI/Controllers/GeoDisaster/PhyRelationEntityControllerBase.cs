@@ -23,7 +23,7 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster
         /// <param name="id">物理点主键编号</param>
         /// </summary>
         /// <returns></returns>
-        public IList<T> GetByPhyId([FromUri] int id)
+        public IList<T> GetByPhyId([FromUri] string  id)
         {
             IQueryable<T> query = this._phyRelationService.GetByPhyId(id);
             List<T> list = query.ToList();
@@ -41,7 +41,7 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster
                 throw new Exception("参数非法");
             String[] phyIds = ids.Split(',');
             // TODO:RRDL
-            int[] phyIdsInt = Array.ConvertAll<String, int>(phyIds, id => Convert.ToInt32(id));
+            string[] phyIdsInt = phyIds;
             IQueryable<T> query = this._phyRelationService.GetByPhyIds(phyIdsInt);
             List<T> list = query.ToList();
             return list;

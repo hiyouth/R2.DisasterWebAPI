@@ -26,7 +26,7 @@ namespace R2.Disaster.Service.GeoDisaster.MassPres
         }
 
 
-        public PrePlan GetByPhyId(int id)
+        public PrePlan GetByPhyId(String  id)
         {
             var q = from p in this._repoistoryPrePlan.Table
                     where p.Id == id

@@ -37,5 +37,19 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster.MassPres
             List<WorkingGuideCard> cards = this._cardService.GetByUid(uid).ToList();
             return cards;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public IList<WorkingGuideCard> Comprehensives()
+        {
+            var lists = _cardService.FindAll().ToList();
+            lists.ForEach(m =>
+            {
+                m.PhyGeoDisaster = null;
+            });
+            return lists;
+        }
     }
 }

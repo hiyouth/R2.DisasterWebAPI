@@ -101,7 +101,7 @@ namespace R2.Disaster.WebAPI.Tests
         {
             Comprehensive cmp = new Comprehensive()
             {
-                Id = 1,
+
                 名称 = "1111",
                 //PhyGeoDisaster = new PhyGeoDisaster()
                 //{

@@ -12,6 +12,6 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster
     public class PhyRelationEntity:GeoDisasterEntity
     {
         //public  PhyGeoDisaster PhyGeoDisaster { get; set; }
-        public int PhyGeoDisasterId { get; set; }
+        public String  PhyGeoDisasterId { get; set; }
     }
 }

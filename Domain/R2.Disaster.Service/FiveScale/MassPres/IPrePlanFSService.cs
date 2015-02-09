@@ -22,7 +22,7 @@ namespace R2.Disaster.Service.GeoDisaster.MassPres
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        PrePlanFS GetByPhyId(int id);
+        PrePlanFS GetByPhyId(string  id);
 
         /// <summary>
         /// 通过统一编号，模糊查询防灾预案

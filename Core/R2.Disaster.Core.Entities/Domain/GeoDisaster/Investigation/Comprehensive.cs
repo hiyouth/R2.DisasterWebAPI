@@ -14,6 +14,7 @@ namespace R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation
             //this._damageReports = new List<DamageReport>();
         }
 
+
         public virtual PhyGeoDisaster PhyGeoDisaster { get; set; }
 
         /// <summary>

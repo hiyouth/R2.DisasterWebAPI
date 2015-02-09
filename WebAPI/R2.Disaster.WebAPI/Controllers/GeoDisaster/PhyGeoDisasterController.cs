@@ -41,9 +41,9 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster
         /// </summary>
         /// <param name="id">物理点编号</param>
         /// <returns></returns>
-        public PhyGeoDisasterSimplify GetById(int id)
+        public PhyGeoDisasterSimplify GetById(string  id)
         {
-            if (id <= 0)
+            if (id ==null)
                 throw new Exception("不存在这样的物理点信息主键编号");
             PhyGeoDisaster phy = this._phyService.GetById(id);
             PhyGeoDisasterSimplify phyModel = Mapper.Map<PhyGeoDisasterSimplify>(phy);
@@ -76,7 +76,7 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster
                 throw new Exception("参数非法");
             String[] phyIds = ids.Split(',');
            // TODO:RRDL
-           int[] phyIdsInt = Array.ConvertAll<String,int>(phyIds,id=>Convert.ToInt32(id));
+            string [] phyIdsInt = phyIds;
            IQueryable<PhyGeoDisaster> query = this._phyService.GetByIds(phyIdsInt);
            List<PhyGeoDisaster> lists = query.ToList();
            IList<PhyGeoDisasterSimplify> phyModels = Mapper.Map<IQueryable<PhyGeoDisaster>,
@@ -141,7 +141,7 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster
                 throw new Exception("参数非法");
             String[] phyIds = ids.Split(','); 
             // TODO:RRDL
-            int[] phyIdsInt = Array.ConvertAll<String, int>(phyIds, id => Convert.ToInt32(id));
+            string[] phyIdsInt = phyIds;
             IQueryable<PhyGeoDisaster> query = this._phyService.GetByIds(phyIdsInt);
             List<PhyGeoDisaster> phys = query.ToList();
             IList<PhyAttributeCountIndicator> phyIdicators = Mapper.Map<IQueryable<PhyGeoDisaster>,
