@@ -151,5 +151,20 @@ namespace R2.Disaster.WebAPI.Controllers.FiveScale.InvestigationFS
            //IList<ComprehensiveSimplify>>(comprehensives);
            return Comprehensive;
        }
+         /// <summary>
+         /// 
+         /// </summary>
+         /// <returns></returns>
+        [HttpGet]
+       public IList<ComprehensiveFS> ComprehensiveFSS()
+       {
+           var lists = _cpsService.FindAll().ToList();
+           lists.ForEach(m =>
+           {
+               m.PhyGeoDisaster = null;
+               int i = 1;
+           });
+           return lists;
+       }
     }
 }
