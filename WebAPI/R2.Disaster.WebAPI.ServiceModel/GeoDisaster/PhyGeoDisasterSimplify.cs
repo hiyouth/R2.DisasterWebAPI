@@ -5,7 +5,7 @@ namespace R2.Disaster.WebAPI.Model
 {
     /// <summary>
     /// 地质灾害物理点简要信息
-    /// </summary>
+    /// </summary>     
     public class PhyGeoDisasterSimplify
     {
         public int Id { get; set; }          
