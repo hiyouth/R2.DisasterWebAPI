@@ -60,6 +60,7 @@ namespace R2.Disaster.WebAPI
             builder.RegisterType<WorkingGuideCardFSService>().As<IWorkingGuideCardFSService>().InstancePerRequest();
             builder.RegisterType<AvoidRiskCardFSService>().As<IAvoidRiskCardFSService>().InstancePerRequest();
             builder.RegisterType<RainfallStationService>().As<IRainfallStationService>().InstancePerRequest();
+            builder.RegisterType<RsInterpretationService>().As<IRsInterpretationService>().InstancePerRequest();
         }
 
         public int Order

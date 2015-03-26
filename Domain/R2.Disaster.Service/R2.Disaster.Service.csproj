@@ -33,7 +33,9 @@
     <Compile Include="EntityServiceBase.cs" />
     <Compile Include="FiveScale\ComprehensiveFSService.cs" />
     <Compile Include="FiveScale\IComprehensiveFSService.cs" />
+    <Compile Include="FiveScale\MassPres\RsInterpretationService.cs" />
     <Compile Include="FiveScale\MassPres\AvoidRiskCardFSService.cs" />
+    <Compile Include="FiveScale\MassPres\IRsInterpretationService.cs" />
     <Compile Include="FiveScale\MassPres\IAvoidRiskCardFSService.cs" />
     <Compile Include="FiveScale\MassPres\IPrePlanFSService.cs" />
     <Compile Include="FiveScale\MassPres\IWorkingGuideCardFSService.cs" />

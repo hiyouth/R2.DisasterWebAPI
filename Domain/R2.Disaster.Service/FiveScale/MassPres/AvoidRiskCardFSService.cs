@@ -11,12 +11,9 @@ namespace R2.Disaster.Service.GeoDisaster.MassPres
 {
     public class AvoidRiskCardFSService : PhyRelationEntityService<AvoidRiskCardFS>, IAvoidRiskCardFSService
     {
-
-        private IRepository<AvoidRiskCardFS> _repository;
         public AvoidRiskCardFSService(IRepository<AvoidRiskCardFS> repository)
             : base(repository)
         {
-            this._repository = repository;
         }
 
         public IQueryable<AvoidRiskCardFS> GetByUId(string uid)

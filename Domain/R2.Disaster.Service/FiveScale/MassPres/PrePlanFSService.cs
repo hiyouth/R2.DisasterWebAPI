@@ -13,7 +13,7 @@ namespace R2.Disaster.Service.GeoDisaster.MassPres
 {
     public class PrePlanFSService:PhyRelationEntityService<PrePlanFS>,IPrePlanFSService,ICanExecuteExpress<PrePlanFS>
     {
-        private IRepository<PrePlanFS> _repoistoryPrePlan;
+        private readonly IRepository<PrePlanFS> _repoistoryPrePlan;
         public PrePlanFSService(IRepository<PrePlanFS> repositoryPrePlan)
             : base(repositoryPrePlan)
         {

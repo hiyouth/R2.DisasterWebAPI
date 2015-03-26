@@ -78,6 +78,7 @@
     <Compile Include="Controllers\FiveScale\InvestigationFS\InvestigationFSController.cs" />
     <Compile Include="Controllers\FiveScale\MassPres\AvoidRiskCardFSController.cs" />
     <Compile Include="Controllers\FiveScale\MassPres\PrePlanFSController.cs" />
+    <Compile Include="Controllers\FiveScale\MassPres\RsInterpretationController.cs" />
     <Compile Include="Controllers\FiveScale\MassPres\WorkingGuideCardFSController.cs" />
     <Compile Include="Controllers\GeoDisaster\Emergency\EmergencySurveyReportController.cs" />
     <Compile Include="Controllers\GeoDisaster\Investigation\InvestigationController.cs" />

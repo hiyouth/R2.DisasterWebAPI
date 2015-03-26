@@ -39,7 +39,7 @@ namespace R2.Disaster.Service
         {
             this._repository.UpdateAttached(entity);
         }
-
+         
         public T Get(object id)
         {
             return this._repository.GetById(id);
