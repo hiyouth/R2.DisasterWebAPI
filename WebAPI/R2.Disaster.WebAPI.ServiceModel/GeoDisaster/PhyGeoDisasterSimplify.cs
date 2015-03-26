@@ -5,10 +5,10 @@ namespace R2.Disaster.WebAPI.Model
 {
     /// <summary>
     /// 地质灾害物理点简要信息
-    /// </summary>
+    /// </summary>     
     public class PhyGeoDisasterSimplify
     {
-        public int Id { get; set; }
+        public int Id { get; set; }          
         /// <summary>
         /// 地理位置描述，必要属性，不允许Null
         /// </summary>
