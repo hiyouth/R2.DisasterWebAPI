@@ -1,10 +1,11 @@
-﻿using Corner.Core;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.ModelConfiguration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using R2.Disaster.CoreEntities.Domain.FiveScale.Investigation;
 
 namespace R2.Disaster.Data.Mapping.FiveScale.Investigation
 {

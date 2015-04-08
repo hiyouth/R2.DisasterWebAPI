@@ -1,10 +1,12 @@
-namespace Corner.Core
-{
-    using R2.Disaster.CoreEntities;
+using R2.Disaster.CoreEntities;
 using R2.Disaster.CoreEntities.Domain.GeoDisaster;
 using R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation;
 using System;
 using System.Collections.Generic;
+
+namespace R2.Disaster.CoreEntities.Domain.FiveScale.Investigation
+{
+
 
     public partial class ComprehensiveFS : PhyRelationEntity
     {

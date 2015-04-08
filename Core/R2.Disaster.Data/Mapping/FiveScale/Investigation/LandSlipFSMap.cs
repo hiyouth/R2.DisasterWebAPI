@@ -1,4 +1,5 @@
-﻿using Corner.Core;
+﻿
+using R2.Disaster.CoreEntities.Domain.FiveScale.Investigation;
 using R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation;
 using System;
 using System.Collections.Generic;

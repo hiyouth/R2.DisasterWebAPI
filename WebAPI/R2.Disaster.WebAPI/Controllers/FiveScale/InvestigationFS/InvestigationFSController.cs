@@ -1,4 +1,5 @@
-﻿using Corner.Core;
+﻿
+using R2.Disaster.CoreEntities.Domain.FiveScale.Investigation;
 using R2.Disaster.CoreEntities.Domain.GeoDisaster;
 using R2.Disaster.Service.GeoDisaster.Investigation;
 using R2.Disaster.WebAPI.Controllers.GeoDisaster;

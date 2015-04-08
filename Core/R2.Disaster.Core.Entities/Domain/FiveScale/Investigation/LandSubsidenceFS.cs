@@ -1,8 +1,11 @@
-namespace Corner.Core
+
+using R2.Disaster.CoreEntities;
+using System;
+using System.Collections.Generic;
+
+namespace R2.Disaster.CoreEntities.Domain.FiveScale.Investigation
 {
-    using R2.Disaster.CoreEntities;
-    using System;
-    using System.Collections.Generic;
+
 
     public partial class LandSubsidenceFS:BaseEntity
     {

@@ -23,7 +23,7 @@ namespace R2.Disaster.Data
             //context.Database.ExecuteSqlCommand(
             //  "CREATE UNIQUE INDEX IX_Ariticle_Title ON Ariticles(Title)");
             //context.Configuration.ProxyCreationEnabled = false;
-            this.ExecuteSqlFile(MapPath("~/App_Data/Install/create_all_gbcodes_2006.sql"));
+            this.ExecuteSqlFile(MapPath("~/App_Data/Install/create_all_gbcodes_2010.sql"));
         }
 
         protected virtual void ExecuteSqlFile(string path)

@@ -1,4 +1,5 @@
-﻿using Corner.Core;
+﻿
+using R2.Disaster.CoreEntities.Domain.FiveScale.MassPres;
 using R2.Disaster.CoreEntities.Domain.GeoDisaster.MassPres;
 using R2.Disaster.Service.GeoDisaster.MassPres;
 using System;

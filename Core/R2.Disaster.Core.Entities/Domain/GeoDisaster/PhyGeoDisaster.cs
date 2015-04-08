@@ -1,4 +1,6 @@
-﻿using Corner.Core;
+﻿
+using R2.Disaster.CoreEntities.Domain.FiveScale.Investigation;
+using R2.Disaster.CoreEntities.Domain.FiveScale.MassPres;
 using R2.Disaster.CoreEntities.Domain.GeoDisaster.Emergency;
 using R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation;
 using R2.Disaster.CoreEntities.Domain.GeoDisaster.MassPres;

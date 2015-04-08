@@ -1,9 +1,11 @@
-namespace Corner.Core
+
+using R2.Disaster.CoreEntities;
+using R2.Disaster.CoreEntities.Domain.GeoDisaster;
+using System;
+using System.Collections.Generic;
+namespace R2.Disaster.CoreEntities.Domain.FiveScale.MassPres
 {
-    using R2.Disaster.CoreEntities;
-    using R2.Disaster.CoreEntities.Domain.GeoDisaster;
-    using System;
-    using System.Collections.Generic;
+
 
     public partial class PrePlanFS : PhyRelationEntity
     {

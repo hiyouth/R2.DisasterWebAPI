@@ -1,4 +1,5 @@
-﻿using R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation;
+﻿using R2.Disaster.CoreEntities.Domain.FiveScale.Investigation;
+using R2.Disaster.CoreEntities.Domain.GeoDisaster.Investigation;
 using R2.Disaster.Repository;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Text;
 using R2.Helper.Linq;
 using R2.Disaster.CoreEntities.Domain.GeoDisaster;
 using R2.Helper.GIS;
-using Corner.Core;
+
 
 namespace R2.Disaster.Service.GeoDisaster.Investigation
 {

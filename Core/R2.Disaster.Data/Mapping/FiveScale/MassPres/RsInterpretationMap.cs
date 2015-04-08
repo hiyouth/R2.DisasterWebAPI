@@ -11,14 +11,14 @@ using System.Threading.Tasks;
 
 namespace R2.Disaster.Data.Mapping.GeoDisaster.MassPres
 {
-    public class PrePlanFSMap : EntityTypeConfiguration<PrePlanFS>
+    public class RsInterpretationMap : EntityTypeConfiguration<RsInterpretation>
     {
-        public PrePlanFSMap()
+        public RsInterpretationMap()
         {
-            this.ToTable("PrePlanFSes");
+            this.ToTable("RsInterpretations");
             this.HasKey(p => p.Id);
 
-            this.Property(m => m.名称).IsRequired();
+           // this.Property(m => m.名称).IsRequired();
 
             //this.HasOptional(p => p.PhyGeoDisaster)
             //    .WithOptionalDependent(c => c.PrePlan)

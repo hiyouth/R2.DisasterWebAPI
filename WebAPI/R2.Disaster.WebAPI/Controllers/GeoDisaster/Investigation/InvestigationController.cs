@@ -177,9 +177,10 @@ namespace R2.Disaster.WebAPI.Controllers.GeoDisaster.Investigation
          /// 
          /// </summary>
          /// <returns></returns>
-       public IList<Comprehensive> Comprehensives()
+         [HttpGet]
+       public IList<Comprehensive> Comprehensives(string gbcodeId)
        {
-           var lists = _cpsService.FindAll().ToList();
+           var lists = _cpsService.FindAll().Where(m=>m.GBCodeId== gbcodeId).ToList();
            lists.ForEach(m =>
            {
                m.PhyGeoDisaster = null;

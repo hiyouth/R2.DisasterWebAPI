@@ -4,10 +4,11 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using R2.Disaster.CoreEntities.Domain.FiveScale.MassPres;
 using R2.Disaster.CoreEntities.Domain.GeoDisaster.MassPres;
 using R2.Disaster.Service.GeoDisaster;
 using R2.Disaster.Service.GeoDisaster.MassPres;
-using Corner.Core;
+
 
 namespace R2.Disaster.WebAPI.Controllers.GeoDisaster.MassPres
 {
